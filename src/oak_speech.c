@@ -201,6 +201,7 @@ static const struct WindowTemplate sIntro_WindowTemplates[NUM_INTRO_WINDOWS + 1]
 static const u8 sTextColor_White[] = { 0, 1, 2, 0 };
 static const u8 sTextColor_DarkGray[] = { 0, 2, 3, 0 };
 
+#define GFX_TAG_PLATFORM     0x1000
 #define PAL_TAG_PLATFORM     0x1000
 #define PAL_TAG_PIKACHU      0x1001
 
@@ -222,12 +223,6 @@ static const struct CompressedSpriteSheet sOakSpeech_Platform_SpriteSheet =
     .data = sOakSpeech_Platform_Gfx,
     .size = 0x600,
     .tag = GFX_TAG_PLATFORM
-};
-
-static const struct SpritePalette sPikachuIntro_Pikachu_SpritePalette =
-{
-    .data = sPikachuIntro_Pikachu_Pal,
-    .tag = PAL_TAG_PIKACHU
 };
 
 static const struct SpritePalette sOakSpeech_Platform_SpritePalette =
@@ -269,6 +264,39 @@ static const union AnimCmd *const sOakSpeech_PlatformRight_Anims[] =
     sOakSpeech_PlatformRight_Anim
 };
 
+static const struct SpriteTemplate sOakSpeech_Platform_SpriteTemplates[] =
+{
+    [PIKACHU_BODY_PLATFORM_LEFT] =
+    {
+        .tileTag = GFX_TAG_PLATFORM,
+        .paletteTag = PAL_TAG_PLATFORM,
+        .oam = &gOamData_AffineOff_ObjBlend_32x32,
+        .anims = sOakSpeech_PlatformLeft_Anims,
+        .images = NULL,
+        .affineAnims = gDummySpriteAffineAnimTable,
+        .callback = SpriteCallbackDummy
+    },
+    [PIKACHU_EARS_PLATFORM_MIDDLE] =
+    {
+        .tileTag = GFX_TAG_PLATFORM,
+        .paletteTag = PAL_TAG_PLATFORM,
+        .oam = &gOamData_AffineOff_ObjBlend_32x32,
+        .anims = sOakSpeech_PlatformMiddle_Anims,
+        .images = NULL,
+        .affineAnims = gDummySpriteAffineAnimTable,
+        .callback = SpriteCallbackDummy
+    },
+    [PIKACHU_EYES_PLATFORM_RIGHT] =
+    {
+        .tileTag = GFX_TAG_PLATFORM,
+        .paletteTag = PAL_TAG_PLATFORM,
+        .oam = &gOamData_AffineOff_ObjBlend_32x32,
+        .anims = sOakSpeech_PlatformRight_Anims,
+        .images = NULL,
+        .affineAnims = gDummySpriteAffineAnimTable,
+        .callback = SpriteCallbackDummy
+    },
+};
 static const u8 *const sMaleNameChoices[] =
 {
 #if defined(FIRERED)
