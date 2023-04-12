@@ -596,21 +596,18 @@ static void Task_NamingScreen(u8 taskId)
 // Which gfx/pal to load for the swap page button
 static const u8 sPageToNextGfxId[KBPAGE_COUNT] =
 {
-    [KBPAGE_SYMBOLS]       = PAGE_SWAP_UPPER,
     [KBPAGE_LETTERS_UPPER] = PAGE_SWAP_LOWER,
     [KBPAGE_LETTERS_LOWER] = PAGE_SWAP_UPPER
 };
 
 static const u8 sPageToNextKeyboardId[KBPAGE_COUNT] =
 {
-    [KBPAGE_SYMBOLS]       = KEYBOARD_LETTERS_UPPER,
     [KBPAGE_LETTERS_UPPER] = KEYBOARD_LETTERS_LOWER,
     [KBPAGE_LETTERS_LOWER] = KEYBOARD_LETTERS_UPPER
 };
 
 static const u8 sPageToKeyboardId[KBPAGE_COUNT] =
 {
-    [KBPAGE_SYMBOLS]       = KEYBOARD_SYMBOLS,
     [KBPAGE_LETTERS_UPPER] = KEYBOARD_LETTERS_UPPER,
     [KBPAGE_LETTERS_LOWER] = KEYBOARD_LETTERS_LOWER
 };
@@ -1951,7 +1948,6 @@ static void PrintKeyboardKeys(u8 window, u8 page)
 }
 
 static const u32 *const sNextKeyboardPageTilemaps[] = {
-    [KBPAGE_SYMBOLS]       = gNamingScreenKeyboardUpper_Tilemap,
     [KBPAGE_LETTERS_UPPER] = gNamingScreenKeyboardLower_Tilemap,
     [KBPAGE_LETTERS_LOWER] = gNamingScreenKeyboardSymbols_Tilemap
 };
