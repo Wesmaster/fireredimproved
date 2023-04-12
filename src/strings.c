@@ -56,7 +56,6 @@ const u8 gText_PokedexTableOfContents[] = _("POKéDEX   TABLE OF CONTENTS");
 const u8 gText_PickOK[] = _("{DPAD_UPDOWN}PICK {A_BUTTON}OK");
 const u8 gText_Seen[] = _("Seen:");
 const u8 gText_Owned[] = _("Owned:");
-const u8 gText_Kanto[] = _("KANTO");
 const u8 gText_National[] = _("NATIONAL");
 const u8 gText_PokemonHabitats[] = _("{COLOR DYNAMIC_COLOR6}{SHADOW DYNAMIC_COLOR5}POKéMON HABITATS");
 const u8 gText_DexCategory_GrasslandPkmn[] = _("Grassland POKéMON");
@@ -1333,3 +1332,7 @@ const u8 gText_Receive[] = _("RECEIVE");
 const u8 gText_Send[] = _("SEND");
 const u8 gText_Toss[] = _("TOSS");
 const u8 gText_DelAllCancelOk[] = _("DEL. ALL{CLEAR_TO 0x57}CANCEL{CLEAR_TO 0xA4}OK");
+
+const u8 gText_Kanto[] = _("Kanto");
+const u8 gText_Johto[] = _("Johto");
+const u8 gText_Hoenn[] = _("Hoenn");
