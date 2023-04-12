@@ -224,6 +224,7 @@ extern const u8 gText_MoveInterfacePP[];
 extern const u8 gText_MoveInterfaceType[];
 extern const u8 gText_LinkStandby[];
 extern const u8 gText_BattleMenu[];
+extern const u8 gText_BattleMenuBagDisabled[];
 extern const u8 gText_WhatWillPkmnDo[];
 
 // battle_script_commands
@@ -966,7 +967,6 @@ extern const u8 gText_PokedexTableOfContents[];
 extern const u8 gText_PickOK[];
 extern const u8 gText_Seen[];
 extern const u8 gText_Owned[];
-extern const u8 gText_Kanto[];
 extern const u8 gText_National[];
 extern const u8 gText_PokemonListNoColor[];
 extern const u8 gText_SearchNoColor[];
@@ -1545,5 +1545,10 @@ extern const u8 gText_PokeSum_EggOrigin_Trade[];
 extern const u8 gText_PokeSum_EggOrigin_NicePlace[];
 extern const u8 gText_PokeSum_EggOrigin_Spa[];
 extern const u8 gText_PokeSum_EggOrigin_Trade[];
+
+// Starter regions
+extern const u8 gText_Kanto[];
+extern const u8 gText_Johto[];
+extern const u8 gText_Hoenn[];
 
 #endif //GUARD_STRINGS_H
