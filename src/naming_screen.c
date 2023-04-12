@@ -81,7 +81,6 @@ enum {
 // The constants for the pages are needlessly complicated because GF didn't keep the indexing order consistent
 // This set is used for sNamingScreen->currentPage. It uses the order that the pages are cycled in
 enum {
-    KBPAGE_SYMBOLS,
     KBPAGE_LETTERS_UPPER,
     KBPAGE_LETTERS_LOWER,
     KBPAGE_COUNT,
@@ -386,25 +385,17 @@ static const u8 sKeyboardChars[KBPAGE_COUNT][KBROW_COUNT][KBCOL_COUNT] = {
         __("GHIJKL ,"),
         __("MNOPQRS"),
         __("TUVWXYZ"),
-    },
-    [KEYBOARD_SYMBOLS] = {
-        __("01234"),
-        __("56789"),
-        __("!?♂♀/-"),
-        __("…“”‘'"),
     }
 };
 
 static const u8 sPageColumnCounts[] = {
     [KEYBOARD_LETTERS_LOWER] = KBCOL_COUNT,
-    [KEYBOARD_LETTERS_UPPER] = KBCOL_COUNT,
-    [KEYBOARD_SYMBOLS]       = 6
+    [KEYBOARD_LETTERS_UPPER] = KBCOL_COUNT
 };
 
 static const u8 sPageColumnXPos[KBPAGE_COUNT][KBCOL_COUNT] = {
     [KEYBOARD_LETTERS_LOWER] = {0, 12, 24, 56, 68, 80, 92, 123},
-    [KEYBOARD_LETTERS_UPPER] = {0, 12, 24, 56, 68, 80, 92, 123},
-    [KEYBOARD_SYMBOLS]       = {0, 22, 44, 66, 88, 110}
+    [KEYBOARD_LETTERS_UPPER] = {0, 12, 24, 56, 68, 80, 92, 123}
 };
 
 void DoNamingScreen(u8 templateNum, u8 *destBuffer, u16 monSpecies, u16 monGender, u32 monPersonality, MainCallback returnCallback)
@@ -597,21 +588,18 @@ static void Task_NamingScreen(u8 taskId)
 // Which gfx/pal to load for the swap page button
 static const u8 sPageToNextGfxId[KBPAGE_COUNT] =
 {
-    [KBPAGE_SYMBOLS]       = PAGE_SWAP_UPPER,
     [KBPAGE_LETTERS_UPPER] = PAGE_SWAP_LOWER,
-    [KBPAGE_LETTERS_LOWER] = PAGE_SWAP_OTHERS
+    [KBPAGE_LETTERS_LOWER] = PAGE_SWAP_UPPER
 };
 
 static const u8 sPageToNextKeyboardId[KBPAGE_COUNT] =
 {
-    [KBPAGE_SYMBOLS]       = KEYBOARD_LETTERS_UPPER,
     [KBPAGE_LETTERS_UPPER] = KEYBOARD_LETTERS_LOWER,
-    [KBPAGE_LETTERS_LOWER] = KEYBOARD_SYMBOLS
+    [KBPAGE_LETTERS_LOWER] = KEYBOARD_LETTERS_UPPER
 };
 
 static const u8 sPageToKeyboardId[KBPAGE_COUNT] =
 {
-    [KBPAGE_SYMBOLS]       = KEYBOARD_SYMBOLS,
     [KBPAGE_LETTERS_UPPER] = KEYBOARD_LETTERS_UPPER,
     [KBPAGE_LETTERS_LOWER] = KEYBOARD_LETTERS_LOWER
 };
@@ -1491,6 +1479,9 @@ static bool8 KeyboardKeyHandler_Character(u8 input)
     {
         bool8 textFull = AddTextCharacter();
 
+        if (sNamingScreen ->currentPage == KBPAGE_LETTERS_UPPER && GetTextEntryPosition() == 1)
+            SwapKeyboardPage();
+
         SquishCursor();
         if (textFull)
         {
@@ -1813,6 +1804,9 @@ static void DeleteTextCharacter(void)
     if (keyRole == KEY_ROLE_CHAR || keyRole == KEY_ROLE_BACKSPACE)
         TryStartButtonFlash(BUTTON_BACK, FALSE, TRUE);
     PlaySE(SE_BALL);
+
+    if (sNamingScreen ->currentPage == KBPAGE_LETTERS_LOWER && GetTextEntryPosition() == 0)
+        SwapKeyboardPage();
 }
 
 // Returns TRUE if the text entry is now full
@@ -1922,15 +1916,13 @@ static const struct TextColor sTextColorStruct = {
 static const u8 sFillValues[KBPAGE_COUNT] =
 {
     [KEYBOARD_LETTERS_LOWER] = PIXEL_FILL(14),
-    [KEYBOARD_LETTERS_UPPER] = PIXEL_FILL(13),
-    [KEYBOARD_SYMBOLS]       = PIXEL_FILL(15)
+    [KEYBOARD_LETTERS_UPPER] = PIXEL_FILL(13)
 };
 
 static const u8 *const sKeyboardTextColors[KBPAGE_COUNT] =
 {
     [KEYBOARD_LETTERS_LOWER] = sTextColorStruct.colors[1],
-    [KEYBOARD_LETTERS_UPPER] = sTextColorStruct.colors[0],
-    [KEYBOARD_SYMBOLS]       = sTextColorStruct.colors[2]
+    [KEYBOARD_LETTERS_UPPER] = sTextColorStruct.colors[0]
 };
 
 static void PrintKeyboardKeys(u8 window, u8 page)
@@ -1946,7 +1938,6 @@ static void PrintKeyboardKeys(u8 window, u8 page)
 }
 
 static const u32 *const sNextKeyboardPageTilemaps[] = {
-    [KBPAGE_SYMBOLS]       = gNamingScreenKeyboardUpper_Tilemap,
     [KBPAGE_LETTERS_UPPER] = gNamingScreenKeyboardLower_Tilemap,
     [KBPAGE_LETTERS_LOWER] = gNamingScreenKeyboardSymbols_Tilemap
 };
@@ -2462,12 +2453,6 @@ static const u8 *const sNamingScreenKeyboardText[KBPAGE_COUNT][KBROW_COUNT] = {
         gText_NamingScreenKeyboard_GHIJKL,
         gText_NamingScreenKeyboard_MNOPQRS,
         gText_NamingScreenKeyboard_TUVWXYZ
-    },
-    [KEYBOARD_SYMBOLS] = {
-        gText_NamingScreenKeyboard_01234,
-        gText_NamingScreenKeyboard_56789,
-        gText_NamingScreenKeyboard_Symbols1,
-        gText_NamingScreenKeyboard_Symbols2
     },
 };
 
