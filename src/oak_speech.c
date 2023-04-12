@@ -17,7 +17,7 @@
 #include "data.h"
 #include "constants/songs.h"
 
-#define INTRO_SPECIES SPECIES_NIDORAN_F
+#define INTRO_SPECIES SPECIES_POLIWRATH
 
 enum
 {
@@ -1282,7 +1282,7 @@ static void CreateNidoranFSprite(u8 taskId)
     DecompressPicFromTable(&gMonFrontPicTable[INTRO_SPECIES], MonSpritesGfxManager_GetSpritePtr(0), INTRO_SPECIES);
     LoadCompressedSpritePaletteUsingHeap(&gMonPaletteTable[INTRO_SPECIES]);
     SetMultiuseSpriteTemplateToPokemon(INTRO_SPECIES, 0);
-    spriteId = CreateSprite(&gMultiuseSpriteTemplate, 96, 96, 1);
+    spriteId = CreateSprite(&gMultiuseSpriteTemplate, 90, 90, 1);
     gSprites[spriteId].callback = SpriteCallbackDummy;
     gSprites[spriteId].oam.priority = 1;
     gSprites[spriteId].invisible = TRUE;
