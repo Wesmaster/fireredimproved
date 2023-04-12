@@ -306,7 +306,6 @@ static const u8 *const sMaleNameChoices[] =
     gNameChoice_Kene,
     gNameChoice_Geki,
 #elif defined(LEAFGREEN)
-    gNameChoice_Green,
     gNameChoice_Leaf,
     gNameChoice_Gary,
     gNameChoice_Kaz,
@@ -334,7 +333,6 @@ static const u8 *const sFemaleNameChoices[] =
     gNameChoice_Red,
     gNameChoice_Fire,
 #elif defined(LEAFGREEN)
-    gNameChoice_Green,
     gNameChoice_Leaf,
 #endif
     gNameChoice_Omi,
@@ -358,17 +356,7 @@ static const u8 *const sFemaleNameChoices[] =
 
 static const u8 *const sRivalNameChoices[] =
 {
-#if defined(FIRERED)
-    gNameChoice_Green,
-    gNameChoice_Gary,
-    gNameChoice_Kaz,
-    gNameChoice_Toru
-#elif defined(LEAFGREEN)
-    gNameChoice_Red,
-    gNameChoice_Ash,
-    gNameChoice_Kene,
-    gNameChoice_Geki
-#endif
+    gNameChoice_Blue
 };
 
 enum
@@ -898,9 +886,11 @@ static void Task_OakSpeech_HandleConfirmNameInput(u8 taskId)
         gTasks[taskId].tTimer = 40;
         if (sOakSpeechResources->hasPlayerBeenNamed == FALSE)
         {
+            sOakSpeechResources->hasPlayerBeenNamed = TRUE;
             ClearDialogWindowAndFrame(WIN_INTRO_TEXTBOX, TRUE);
             CreateFadeInTask(taskId, 2);
-            gTasks[taskId].func = Task_OakSpeech_FadeOutPlayerPic;
+            GetDefaultName(sOakSpeechResources->hasPlayerBeenNamed, 0);
+            gTasks[taskId].func = Task_OakSpeech_ReshowPlayersPic;
         }
         else
         {
