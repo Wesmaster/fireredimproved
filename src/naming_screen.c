@@ -81,7 +81,6 @@ enum {
 // The constants for the pages are needlessly complicated because GF didn't keep the indexing order consistent
 // This set is used for sNamingScreen->currentPage. It uses the order that the pages are cycled in
 enum {
-    KBPAGE_SYMBOLS,
     KBPAGE_LETTERS_UPPER,
     KBPAGE_LETTERS_LOWER,
     KBPAGE_COUNT,
