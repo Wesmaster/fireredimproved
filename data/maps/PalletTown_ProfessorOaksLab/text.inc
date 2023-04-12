@@ -68,20 +68,21 @@ PalletTown_ProfessorOaksLab_Text_RivalTellSisNotToGiveYouMap::
     .string "Don't bother coming around to\n"
     .string "my place after this!$"
 
-PalletTown_ProfessorOaksLab_Text_OakThreeMonsChooseOne::
-    .string "OAK: {RIVAL}?\n"
+PalletTown_ProfessorOaksLab_Text_Oak_RivalWait::
+    .string "Oak: {RIVAL}?\n"
     .string "Let me think…\p"
     .string "Oh, that's right, I told you to\n"
-    .string "come! Just wait!\p"
+    .string "come! Just wait!$"
+
+PalletTown_ProfessorOaksLab_Text_OakChooseRegion::
+    .string "{PLAYER}, what is your favorite region?$"
+
+PalletTown_ProfessorOaksLab_Text_OakThreeMonsChooseOne::
     .string "Here, {PLAYER}.\p"
     .string "There are three POKéMON here.\p"
     .string "Haha!\p"
     .string "The POKéMON are held inside\n"
     .string "these POKé BALLS.\p"
-    .string "When I was young, I was a serious\n"
-    .string "POKéMON TRAINER.\p"
-    .string "But now, in my old age, I have\n"
-    .string "only these three left.\p"
     .string "You can have one.\n"
     .string "Go on, choose!$"
 
@@ -117,6 +118,42 @@ PalletTown_ProfessorOaksLab_Text_OakChoosingBulbasaur::
     .string "It's very easy to raise.\p"
     .string "So, {PLAYER}, you want to go with\n"
     .string "the GRASS POKéMON BULBASAUR?$"
+
+PalletTown_ProfessorOaksLab_Text_OakChoosingCyndaquil::
+    .string "Ah! Cyndaquil is your choice.\n"
+    .string "You should raise it patiently.\p"
+    .string "So, {PLAYER}, you're claiming the\n"
+    .string "fire Pokémon Cyndaquil?$"
+
+PalletTown_ProfessorOaksLab_Text_OakChoosingTorchic::
+    .string "Ah! Torchic is your choice.\n"
+    .string "You should raise it patiently.\p"
+    .string "So, {PLAYER}, you're claiming the\n"
+    .string "fire Pokémon Torchic?$"
+
+PalletTown_ProfessorOaksLab_Text_OakChoosingTotodile::
+    .string "Hm! Totodile is your choice.\n"
+    .string "It's one worth raising.\p"
+    .string "So, {PLAYER}, you've decided on the\n"
+    .string "water Pokémon Totodile?$"
+
+PalletTown_ProfessorOaksLab_Text_OakChoosingMudkip::
+    .string "Hm! Mudkip is your choice.\n"
+    .string "It's one worth raising.\p"
+    .string "So, {PLAYER}, you've decided on the\n"
+    .string "water Pokémon Mudkip?$"
+
+PalletTown_ProfessorOaksLab_Text_OakChoosingChikorita::
+    .string "I see! Chikorita is your choice.\n"
+    .string "It's very easy to raise.\p"
+    .string "So, {PLAYER}, you want to go with\n"
+    .string "the grass Pokémon Chikorita?$"
+
+PalletTown_ProfessorOaksLab_Text_OakChoosingTreecko::
+    .string "I see! Treecko is your choice.\n"
+    .string "It's very easy to raise.\p"
+    .string "So, {PLAYER}, you want to go with\n"
+    .string "the grass Pokémon Treecko?$"
 
 PalletTown_ProfessorOaksLab_Text_OakThisMonIsEnergetic::
     .string "This POKéMON is really quite\n"

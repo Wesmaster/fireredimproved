@@ -223,7 +223,12 @@ PalletTown_ProfessorOaksLab_ChooseStarterScene::
 	msgbox PalletTown_ProfessorOaksLab_Text_RivalFedUpWithWaiting
 	closemessage
 	delay 60
-	msgbox PalletTown_ProfessorOaksLab_Text_OakThreeMonsChooseOne
+	msgbox PalletTown_ProfessorOaksLab_Text_Oak_RivalWait
+	delay 30
+	goto PalletTown_ProfessorOaksLab_EventScript_UnsetStarter
+	end
+
+PalletTown_ProfessorOaksLab_ContinueChooseStarterScene::
 	closemessage
 	delay 30
 	applymovement LOCALID_RIVAL, PalletTown_ProfessorOaksLab_Movement_RivalReact
@@ -584,9 +589,47 @@ PalletTown_ProfessorOaksLab_EventScript_ProfOak::
 	goto_if_ge VAR_MAP_SCENE_VIRIDIAN_CITY_MART, 1, PalletTown_ProfessorOaksLab_EventScript_ReceiveDexScene
 	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 4, PalletTown_ProfessorOaksLab_EventScript_OakBattleMonForItToGrow
 	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3, PalletTown_ProfessorOaksLab_EventScript_OakCanReachNextTownWithMon
-	msgbox PalletTown_ProfessorOaksLab_Text_OakWhichOneWillYouChoose
+	goto PalletTown_ProfessorOaksLab_EventScript_UnsetStarter
 	release
 	end
+
+PalletTown_ProfessorOaksLab_EventScript_ChangeStarterRegion::
+	message PalletTown_ProfessorOaksLab_Text_OakChooseRegion
+	waitmessage
+	multichoice 0, 0, MULTICHOICE_STARTER_REGION, FALSE
+	switch VAR_RESULT
+	case 0, PalletTown_ProfessorOaksLab_EventScript_SetStarterKanto
+	case 1, PalletTown_ProfessorOaksLab_EventScript_SetStarterJohto
+	case 2, PalletTown_ProfessorOaksLab_EventScript_SetStarterHoenn
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_UnsetStarter::
+	clearflag FLAG_KANTO
+	clearflag FLAG_JOHTO
+	clearflag FLAG_HOENN
+	goto PalletTown_ProfessorOaksLab_EventScript_ChangeStarterRegion
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_SetStarterKanto::
+	setflag FLAG_KANTO
+	closemessage
+	delay 30
+	goto_if_ne VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2, PalletTown_ProfessorOaksLab_ContinueChooseStarterScene
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_SetStarterJohto::
+	setflag FLAG_JOHTO
+	closemessage
+	delay 30
+	goto_if_ne VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2, PalletTown_ProfessorOaksLab_ContinueChooseStarterScene
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_SetStarterHoenn::
+	setflag FLAG_HOENN
+	closemessage
+	delay 30
+	goto_if_ne VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2, PalletTown_ProfessorOaksLab_ContinueChooseStarterScene
+	end	
 
 PalletTown_ProfessorOaksLab_EventScript_OakJustShownCompleteDex::
 	msgbox PokedexRating_Text_ThankYouMadeDreamReality
@@ -1074,13 +1117,97 @@ PalletTown_ProfessorOaksLab_Movement_RivalExit::
 	walk_down
 	step_end
 
-PalletTown_ProfessorOaksLab_EventScript_BulbasaurBall::
+PalletTown_ProfessorOaksLab_EventScript_GrassBall::
 	lock
 	faceplayer
 	setvar PLAYER_STARTER_NUM, 0
+	goto_if_set FLAG_KANTO, PalletTown_ProfessorOaksLab_EventScript_Bulbasaur
+	goto_if_set FLAG_JOHTO, PalletTown_ProfessorOaksLab_EventScript_Chikorita
+	goto_if_set FLAG_HOENN, PalletTown_ProfessorOaksLab_EventScript_Treecko
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_Bulbasaur::
 	setvar PLAYER_STARTER_SPECIES, SPECIES_BULBASAUR
 	setvar RIVAL_STARTER_SPECIES, SPECIES_CHARMANDER
 	setvar RIVAL_STARTER_ID, LOCALID_CHARMANDER_BALL
+	goto PalletTown_ProfessorOaksLab_EventScript_StarterContinue
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_Chikorita::
+	setvar PLAYER_STARTER_SPECIES, SPECIES_CHIKORITA
+	setvar RIVAL_STARTER_SPECIES, SPECIES_CHARMANDER
+	setvar RIVAL_STARTER_ID, LOCALID_CHARMANDER_BALL
+	goto PalletTown_ProfessorOaksLab_EventScript_StarterContinue
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_Treecko::
+	setvar PLAYER_STARTER_SPECIES, SPECIES_TREECKO
+	setvar RIVAL_STARTER_SPECIES, SPECIES_CHARMANDER
+	setvar RIVAL_STARTER_ID, LOCALID_CHARMANDER_BALL
+	goto PalletTown_ProfessorOaksLab_EventScript_StarterContinue
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_WaterBall::
+	lock
+	faceplayer
+	setvar PLAYER_STARTER_NUM, 1
+	goto_if_set FLAG_KANTO, PalletTown_ProfessorOaksLab_EventScript_Squirtle
+	goto_if_set FLAG_JOHTO, PalletTown_ProfessorOaksLab_EventScript_Totodile
+	goto_if_set FLAG_HOENN, PalletTown_ProfessorOaksLab_EventScript_Mudkip
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_Squirtle::
+	setvar PLAYER_STARTER_SPECIES, SPECIES_SQUIRTLE
+	setvar RIVAL_STARTER_SPECIES, SPECIES_BULBASAUR
+	setvar RIVAL_STARTER_ID, LOCALID_BULBASAUR_BALL
+	goto PalletTown_ProfessorOaksLab_EventScript_StarterContinue
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_Totodile::
+	setvar PLAYER_STARTER_SPECIES, SPECIES_TOTODILE
+	setvar RIVAL_STARTER_SPECIES, SPECIES_BULBASAUR
+	setvar RIVAL_STARTER_ID, LOCALID_BULBASAUR_BALL
+	goto PalletTown_ProfessorOaksLab_EventScript_StarterContinue
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_Mudkip::
+	setvar PLAYER_STARTER_SPECIES, SPECIES_MUDKIP
+	setvar RIVAL_STARTER_SPECIES, SPECIES_BULBASAUR
+	setvar RIVAL_STARTER_ID, LOCALID_BULBASAUR_BALL
+	goto PalletTown_ProfessorOaksLab_EventScript_StarterContinue
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_FireBall::
+	lock
+	faceplayer
+	setvar PLAYER_STARTER_NUM, 2
+	goto_if_set FLAG_KANTO, PalletTown_ProfessorOaksLab_EventScript_Charmander
+	goto_if_set FLAG_JOHTO, PalletTown_ProfessorOaksLab_EventScript_Cyndaquil
+	goto_if_set FLAG_HOENN, PalletTown_ProfessorOaksLab_EventScript_Torchic
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_Charmander::
+	setvar PLAYER_STARTER_SPECIES, SPECIES_CHARMANDER
+	setvar RIVAL_STARTER_SPECIES, SPECIES_SQUIRTLE
+	setvar RIVAL_STARTER_ID, LOCALID_SQUIRTLE_BALL
+	goto PalletTown_ProfessorOaksLab_EventScript_StarterContinue
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_Cyndaquil::
+	setvar PLAYER_STARTER_SPECIES, SPECIES_CYNDAQUIL
+	setvar RIVAL_STARTER_SPECIES, SPECIES_SQUIRTLE
+	setvar RIVAL_STARTER_ID, LOCALID_SQUIRTLE_BALL
+	goto PalletTown_ProfessorOaksLab_EventScript_StarterContinue
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_Torchic::
+	setvar PLAYER_STARTER_SPECIES, SPECIES_TORCHIC
+	setvar PLAYER_STARTER_SPECIES, SPECIES_SQUIRTLE
+	setvar RIVAL_STARTER_ID, LOCALID_SQUIRTLE_BALL
+	goto PalletTown_ProfessorOaksLab_EventScript_StarterContinue
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_StarterContinue::
 	goto_if_ge VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3, PalletTown_ProfessorOaksLab_EventScript_LastPokeBall
 	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2, PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice
 	msgbox PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls
@@ -1092,25 +1219,63 @@ PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice::
 	waitmovement 0
 	showmonpic PLAYER_STARTER_SPECIES, 10, 3
 	textcolor NPC_TEXT_COLOR_MALE
-	goto_if_eq PLAYER_STARTER_NUM, 0, PalletTown_ProfessorOaksLab_EventScript_ConfirmBulbasaur
-	goto_if_eq PLAYER_STARTER_NUM, 1, PalletTown_ProfessorOaksLab_EventScript_ConfirmSquirtle
-	goto_if_eq PLAYER_STARTER_NUM, 2, PalletTown_ProfessorOaksLab_EventScript_ConfirmCharmander
+	goto_if_eq PLAYER_STARTER_SPECIES, SPECIES_BULBASAUR, PalletTown_ProfessorOaksLab_EventScript_ConfirmBulbasaur
+	goto_if_eq PLAYER_STARTER_SPECIES, SPECIES_SQUIRTLE, PalletTown_ProfessorOaksLab_EventScript_ConfirmSquirtle
+	goto_if_eq PLAYER_STARTER_SPECIES, SPECIES_CHARMANDER, PalletTown_ProfessorOaksLab_EventScript_ConfirmCharmander
+	goto_if_eq PLAYER_STARTER_SPECIES, SPECIES_CHIKORITA, PalletTown_ProfessorOaksLab_EventScript_ConfirmChikorita
+	goto_if_eq PLAYER_STARTER_SPECIES, SPECIES_TOTODILE, PalletTown_ProfessorOaksLab_EventScript_ConfirmTotodile
+	goto_if_eq PLAYER_STARTER_SPECIES, SPECIES_CYNDAQUIL, PalletTown_ProfessorOaksLab_EventScript_ConfirmCyndaquil
+	goto_if_eq PLAYER_STARTER_SPECIES, SPECIES_TREECKO, PalletTown_ProfessorOaksLab_EventScript_ConfirmTreecko
+	goto_if_eq PLAYER_STARTER_SPECIES, SPECIES_MUDKIP, PalletTown_ProfessorOaksLab_EventScript_ConfirmMudkip
+	goto_if_eq PLAYER_STARTER_SPECIES, SPECIES_TORCHIC, PalletTown_ProfessorOaksLab_EventScript_ConfirmTorchic
 	end
 
 PalletTown_ProfessorOaksLab_EventScript_ConfirmBulbasaur::
 	msgbox PalletTown_ProfessorOaksLab_Text_OakChoosingBulbasaur, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, PalletTown_ProfessorOaksLab_EventScript_ChoseStarter
-	goto_if_eq VAR_RESULT, NO, PalletTown_ProfessorOaksLab_EventScript_DeclinedStarter
+	goto PalletTown_ProfessorOaksLab_EventScript_ConfirmStarter
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_ConfirmChikorita::
+	msgbox PalletTown_ProfessorOaksLab_Text_OakChoosingChikorita, MSGBOX_YESNO
+	goto PalletTown_ProfessorOaksLab_EventScript_ConfirmStarter
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_ConfirmTreecko::
+	msgbox PalletTown_ProfessorOaksLab_Text_OakChoosingTreecko, MSGBOX_YESNO
+	goto PalletTown_ProfessorOaksLab_EventScript_ConfirmStarter
 	end
 
 PalletTown_ProfessorOaksLab_EventScript_ConfirmSquirtle::
 	msgbox PalletTown_ProfessorOaksLab_Text_OakChoosingSquirtle, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, PalletTown_ProfessorOaksLab_EventScript_ChoseStarter
-	goto_if_eq VAR_RESULT, NO, PalletTown_ProfessorOaksLab_EventScript_DeclinedStarter
+	goto PalletTown_ProfessorOaksLab_EventScript_ConfirmStarter
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_ConfirmTotodile::
+	msgbox PalletTown_ProfessorOaksLab_Text_OakChoosingTotodile, MSGBOX_YESNO
+	goto PalletTown_ProfessorOaksLab_EventScript_ConfirmStarter
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_ConfirmMudkip::
+	msgbox PalletTown_ProfessorOaksLab_Text_OakChoosingMudkip, MSGBOX_YESNO
+	goto PalletTown_ProfessorOaksLab_EventScript_ConfirmStarter
 	end
 
 PalletTown_ProfessorOaksLab_EventScript_ConfirmCharmander::
 	msgbox PalletTown_ProfessorOaksLab_Text_OakChoosingCharmander, MSGBOX_YESNO
+	goto PalletTown_ProfessorOaksLab_EventScript_ConfirmStarter
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_ConfirmCyndaquil::
+	msgbox PalletTown_ProfessorOaksLab_Text_OakChoosingCyndaquil, MSGBOX_YESNO
+	goto PalletTown_ProfessorOaksLab_EventScript_ConfirmStarter
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_ConfirmTorchic::
+	msgbox PalletTown_ProfessorOaksLab_Text_OakChoosingTorchic, MSGBOX_YESNO
+	goto PalletTown_ProfessorOaksLab_EventScript_ConfirmStarter
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_ConfirmStarter::
 	goto_if_eq VAR_RESULT, YES, PalletTown_ProfessorOaksLab_EventScript_ChoseStarter
 	goto_if_eq VAR_RESULT, NO, PalletTown_ProfessorOaksLab_EventScript_DeclinedStarter
 	end
@@ -1216,32 +1381,6 @@ PalletTown_ProfessorOaksLab_Movement_RivalWalksToBulbasaur::
 	walk_right
 	walk_in_place_faster_up
 	step_end
-
-PalletTown_ProfessorOaksLab_EventScript_SquirtleBall::
-	lock
-	faceplayer
-	setvar PLAYER_STARTER_NUM, 1
-	setvar PLAYER_STARTER_SPECIES, SPECIES_SQUIRTLE
-	setvar RIVAL_STARTER_SPECIES, SPECIES_BULBASAUR
-	setvar RIVAL_STARTER_ID, LOCALID_BULBASAUR_BALL
-	goto_if_ge VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3, PalletTown_ProfessorOaksLab_EventScript_LastPokeBall
-	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2, PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice
-	msgbox PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls
-	release
-	end
-
-PalletTown_ProfessorOaksLab_EventScript_CharmanderBall::
-	lock
-	faceplayer
-	setvar PLAYER_STARTER_NUM, 2
-	setvar PLAYER_STARTER_SPECIES, SPECIES_CHARMANDER
-	setvar RIVAL_STARTER_SPECIES, SPECIES_SQUIRTLE
-	setvar RIVAL_STARTER_ID, LOCALID_SQUIRTLE_BALL
-	goto_if_ge VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3, PalletTown_ProfessorOaksLab_EventScript_LastPokeBall
-	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2, PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice
-	msgbox PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls
-	release
-	end
 
 PalletTown_ProfessorOaksLab_EventScript_LastPokeBall::
 	msgbox PalletTown_ProfessorOaksLab_Text_OaksLastMon
