@@ -599,14 +599,14 @@ static const u8 sPageToNextGfxId[KBPAGE_COUNT] =
 {
     [KBPAGE_SYMBOLS]       = PAGE_SWAP_UPPER,
     [KBPAGE_LETTERS_UPPER] = PAGE_SWAP_LOWER,
-    [KBPAGE_LETTERS_LOWER] = PAGE_SWAP_OTHERS
+    [KBPAGE_LETTERS_LOWER] = PAGE_SWAP_UPPER
 };
 
 static const u8 sPageToNextKeyboardId[KBPAGE_COUNT] =
 {
     [KBPAGE_SYMBOLS]       = KEYBOARD_LETTERS_UPPER,
     [KBPAGE_LETTERS_UPPER] = KEYBOARD_LETTERS_LOWER,
-    [KBPAGE_LETTERS_LOWER] = KEYBOARD_SYMBOLS
+    [KBPAGE_LETTERS_LOWER] = KEYBOARD_LETTERS_UPPER
 };
 
 static const u8 sPageToKeyboardId[KBPAGE_COUNT] =
@@ -1818,10 +1818,7 @@ static void DeleteTextCharacter(void)
     PlaySE(SE_BALL);
 
     if (sNamingScreen ->currentPage == KBPAGE_LETTERS_LOWER && GetTextEntryPosition() == 0)
-    {
         SwapKeyboardPage();
-        SwapKeyboardPage();
-    }
 }
 
 // Returns TRUE if the text entry is now full
