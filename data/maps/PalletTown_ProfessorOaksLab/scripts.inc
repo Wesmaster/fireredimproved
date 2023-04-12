@@ -1128,16 +1128,19 @@ PalletTown_ProfessorOaksLab_EventScript_GrassBall::
 
 PalletTown_ProfessorOaksLab_EventScript_Bulbasaur::
 	setvar PLAYER_STARTER_SPECIES, SPECIES_BULBASAUR
+	setvar RIVAL_STARTER_SPECIES, SPECIES_CHARMANDER
 	goto PalletTown_ProfessorOaksLab_EventScript_StarterContinue
 	end
 
 PalletTown_ProfessorOaksLab_EventScript_Chikorita::
 	setvar PLAYER_STARTER_SPECIES, SPECIES_CHIKORITA
+	setvar RIVAL_STARTER_SPECIES, SPECIES_CYNDAQUIL
 	goto PalletTown_ProfessorOaksLab_EventScript_StarterContinue
 	end
 
 PalletTown_ProfessorOaksLab_EventScript_Treecko::
 	setvar PLAYER_STARTER_SPECIES, SPECIES_TREECKO
+	setvar RIVAL_STARTER_SPECIES, SPECIES_TORCHIC
 	goto PalletTown_ProfessorOaksLab_EventScript_StarterContinue
 	end
 
@@ -1152,16 +1155,19 @@ PalletTown_ProfessorOaksLab_EventScript_WaterBall::
 
 PalletTown_ProfessorOaksLab_EventScript_Squirtle::
 	setvar PLAYER_STARTER_SPECIES, SPECIES_SQUIRTLE
+	setvar RIVAL_STARTER_SPECIES, SPECIES_BULBASAUR
 	goto PalletTown_ProfessorOaksLab_EventScript_StarterContinue
 	end
 
 PalletTown_ProfessorOaksLab_EventScript_Totodile::
 	setvar PLAYER_STARTER_SPECIES, SPECIES_TOTODILE
+	setvar RIVAL_STARTER_SPECIES, SPECIES_CHIKORITA
 	goto PalletTown_ProfessorOaksLab_EventScript_StarterContinue
 	end
 
 PalletTown_ProfessorOaksLab_EventScript_Mudkip::
 	setvar PLAYER_STARTER_SPECIES, SPECIES_MUDKIP
+	setvar RIVAL_STARTER_SPECIES, SPECIES_TREECKO
 	goto PalletTown_ProfessorOaksLab_EventScript_StarterContinue
 	end
 
@@ -1176,16 +1182,19 @@ PalletTown_ProfessorOaksLab_EventScript_FireBall::
 
 PalletTown_ProfessorOaksLab_EventScript_Charmander::
 	setvar PLAYER_STARTER_SPECIES, SPECIES_CHARMANDER
+	setvar RIVAL_STARTER_SPECIES, SPECIES_SQUIRTLE
 	goto PalletTown_ProfessorOaksLab_EventScript_StarterContinue
 	end
 
 PalletTown_ProfessorOaksLab_EventScript_Cyndaquil::
 	setvar PLAYER_STARTER_SPECIES, SPECIES_CYNDAQUIL
+	setvar RIVAL_STARTER_SPECIES, SPECIES_TOTODILE
 	goto PalletTown_ProfessorOaksLab_EventScript_StarterContinue
 	end
 
 PalletTown_ProfessorOaksLab_EventScript_Torchic::
 	setvar PLAYER_STARTER_SPECIES, SPECIES_TORCHIC
+	setvar PLAYER_STARTER_SPECIES, SPECIES_MUDKIP
 	goto PalletTown_ProfessorOaksLab_EventScript_StarterContinue
 	end
 
