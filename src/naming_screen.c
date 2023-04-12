@@ -1491,6 +1491,9 @@ static bool8 KeyboardKeyHandler_Character(u8 input)
     {
         bool8 textFull = AddTextCharacter();
 
+        if (sNamingScreen ->currentPage == KBPAGE_LETTERS_UPPER && GetTextEntryPosition() == 1)
+            SwapKeyboardPage();
+
         SquishCursor();
         if (textFull)
         {
@@ -1813,6 +1816,9 @@ static void DeleteTextCharacter(void)
     if (keyRole == KEY_ROLE_CHAR || keyRole == KEY_ROLE_BACKSPACE)
         TryStartButtonFlash(BUTTON_BACK, FALSE, TRUE);
     PlaySE(SE_BALL);
+
+    if (sNamingScreen ->currentPage == KBPAGE_LETTERS_LOWER && GetTextEntryPosition() == 0)
+        SwapKeyboardPage();
 }
 
 // Returns TRUE if the text entry is now full
