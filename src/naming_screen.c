@@ -1818,7 +1818,10 @@ static void DeleteTextCharacter(void)
     PlaySE(SE_BALL);
 
     if (sNamingScreen ->currentPage == KBPAGE_LETTERS_LOWER && GetTextEntryPosition() == 0)
+    {
         SwapKeyboardPage();
+        SwapKeyboardPage();
+    }
 }
 
 // Returns TRUE if the text entry is now full
