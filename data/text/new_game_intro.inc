@@ -1,8 +1,8 @@
 gOtherText_NewName::
     .string "NEW NAME$"
 
-gNameChoice_Green::
-    .string "GREEN$"
+gNameChoice_Blue::
+    .string "Blue$"
 
 gNameChoice_Red::
     .string "RED$"
@@ -155,8 +155,8 @@ gControlsGuide_Text_LRButtons::
     .string "press the L or R Button.$"
 
 gOakSpeech_Text_AskPlayerGender::
-    .string "Now tell me. Are you a boy?\n"
-    .string "Or are you a girl?$"
+    .string "Now tell me. Are you a girl?\n"
+    .string "Or are you a boy?$"
 
 gPikachuIntro_Text_Page1::
     .string "In the world which you are about to\n"
