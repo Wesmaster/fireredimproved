@@ -18,6 +18,11 @@ PalletTown_ProfessorOaksLab_Text_RivalGoChoosePlayer::
 PalletTown_ProfessorOaksLab_Text_RivalIllTakeThisOneThen::
     .string "{RIVAL}: I'll take this one, then!$"
 
+PalletTown_ProfessorOaksLab_Text_RivalIWantSquirtle::
+    .string "{RIVAL}: I believe Squirtle is\n"
+    .string "the best choice, so I'll take,\p"
+    .string "Squirtle!$"
+
 PalletTown_ProfessorOaksLab_Text_RivalReceivedMonFromOak::
     .string "{RIVAL} received the {STR_VAR_1}\n"
     .string "from PROF. OAK!$"
