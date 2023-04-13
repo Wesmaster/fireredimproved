@@ -1336,3 +1336,4 @@ const u8 gText_DelAllCancelOk[] = _("DEL. ALL{CLEAR_TO 0x57}CANCEL{CLEAR_TO 0xA4
 const u8 gText_Kanto[] = _("Kanto");
 const u8 gText_Johto[] = _("Johto");
 const u8 gText_Hoenn[] = _("Hoenn");
+const u8 gText_Friendship[] = _("Friendship");
