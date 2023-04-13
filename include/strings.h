@@ -1553,4 +1553,5 @@ extern const u8 gText_Hoenn[];
 
 // Extra text summary screen
 extern const u8 gText_Friendship[];
+
 #endif //GUARD_STRINGS_H
