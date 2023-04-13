@@ -2350,6 +2350,8 @@ static void BufferMonSkillsAlt(void){
 	u8 tempStrSPD[20];
 	u8 tempStrSPE[20];
     u8 level;
+    u8 friendship;
+	u8 tempStrFriend[20];
     u16 type;
     u16 species;
     u16 hp;
@@ -2456,7 +2458,15 @@ static void BufferMonSkillsAlt(void){
 
     type = GetAbilityBySpecies(GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPECIES), GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_ABILITY_NUM));
     StringCopy(sMonSummaryScreen->summary.abilityNameStrBuf, gAbilityNames[type]);
-    StringCopy(sMonSummaryScreen->summary.abilityDescStrBuf, gAbilityDescriptionPointers[type]);
+
+    StringCopy(sMonSummaryScreen->summary.abilityDescStrBuf, gText_Friendship);
+	StringAppend(sMonSummaryScreen->summary.abilityDescStrBuf, gText_Colon2);
+	friendship = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_FRIENDSHIP);
+	ConvertIntToDecimalStringN(tempStrFriend, friendship, STR_CONV_MODE_LEFT_ALIGN, 3);
+	StringAppend(sMonSummaryScreen->summary.abilityDescStrBuf, tempStrFriend);
+    StringAppend(sMonSummaryScreen->summary.abilityDescStrBuf, gText_Slash);
+    ConvertIntToDecimalStringN(tempStrFriend, MAX_FRIENDSHIP, STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringAppend(sMonSummaryScreen->summary.abilityDescStrBuf, tempStrFriend);
 
     sMonSummaryScreen->curMonStatusAilment = StatusToAilment(GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_STATUS));
     if (sMonSummaryScreen->curMonStatusAilment == AILMENT_NONE)
