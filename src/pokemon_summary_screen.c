@@ -2351,8 +2351,6 @@ static void BufferMonSkillsAlt(void){
 	u8 tempStrSPE[20];
     u8 level;
     u16 type;
-	u8 friendship;
-	u8 tempStrFriend[20];
     u16 species;
     u16 hp;
     u16 statValue;
@@ -2398,12 +2396,12 @@ static void BufferMonSkillsAlt(void){
 		statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_ATK_IV); //loads iv stat
 		//converts the IV stat into a string and copies it into the stat value buffer
         ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_ATK], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-		//adding a "-" between IVs and EVs (alternativly if you want slashes replace it with gText_Slash)
+		//adding a " " between IVs and EVs (alternativly if you want slashes replace it with gText_Slash)
 		StringAppend(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_ATK], gText_RegionMap_Space);
 		statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_ATK_EV); //loads ev stat
 		//converts EV stat into a string and copies it into a temporary string 
 		ConvertIntToDecimalStringN(tempStrATK, statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-		//adds the temporary EV string to the buffer so we get "IV-EV"
+		//adds the temporary EV string to the buffer so we get "IV EV"
 		StringAppend(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_ATK], tempStrATK);
 		//magic (formats the string buffer so that its ready to be used when the page is printed [i think])
 		sMonSkillsPrinterXpos->atkStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_ATK]);
