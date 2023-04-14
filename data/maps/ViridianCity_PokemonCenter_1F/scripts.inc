@@ -71,4 +71,3 @@ ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_DoReset::
 	removemoney 1000
 	msgbox ViridianCity_PokemonCenter_1F_Text_SecondNurse_ResetEVs, MSGBOX_NPC
 	end
-	
