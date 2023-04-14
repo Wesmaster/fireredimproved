@@ -420,7 +420,7 @@ void ResetLeadMonEVs(void)
 {
     u8 leadMonIndex = GetLeadMonIndex();
     u8 newEv = 0;
-    SetMonData(&gPlayerParty[leadMonIndex]), MON_DATA_HP_EV, &newEv);
+    SetMonData(&gPlayerParty[leadMonIndex], MON_DATA_HP_EV, &newEv);
 }
 
 bool8 IsStarterFirstStageInParty(void)
