@@ -27,6 +27,7 @@ ViridianCity_PokemonCenter_1F_EventScript_Youngster::
 	end
 
 ViridianCity_PokemonCenter_1F_EventScript_SecondNurse::
+	goto_if_eq VAR_RESULT, FALSE, ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_NotEnoughMoney
 	message ViridianCity_PokemonCenter_1F_Text_SecondNurse
 	waitmessage
 	multichoice 0, 0, MULTICHOICE_SECOND_NURSE, FALSE
@@ -37,9 +38,8 @@ ViridianCity_PokemonCenter_1F_EventScript_SecondNurse::
 	end
 
 ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_CheckMoney::
-	specialvar VAR_RESULT, HasEnoughMoneySecondNurse
-	goto_if_eq VAR_RESULT, TRUE, ViridianCity_PokemonCenter_1F_EventScript_SecondNurse
-	goto_if_eq VAR_RESULT, FALSE, ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_NotEnoughMoney
+	checkmoney 1000
+	goto ViridianCity_PokemonCenter_1F_EventScript_SecondNurse
 	end
 
 ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_NotEnoughMoney::
@@ -68,6 +68,7 @@ ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_NoEgg::
 
 ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_DoReset::
 	special ResetMonEVs
+	removemoney 1000
 	msgbox ViridianCity_PokemonCenter_1F_Text_SecondNurse_ResetEVs, MSGBOX_NPC
 	end
 	
