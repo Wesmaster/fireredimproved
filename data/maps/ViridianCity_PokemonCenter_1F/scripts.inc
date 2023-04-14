@@ -33,6 +33,7 @@ ViridianCity_PokemonCenter_1F_EventScript_SecondNurse::
 	switch VAR_RESULT
 	case 0, ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_ResetEVs
 	case 1, ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_Cancel
+	releaseall
 	end
 
 
