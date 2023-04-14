@@ -1,3 +1,5 @@
+.equ SECOND_NURSE_SERVICE_PRICE, 1000
+
 EventScript_PkmnCenterNurse::
 	goto_if_questlog EventScript_ReleaseEnd
 	message Text_WelcomeWantToHealPkmn
@@ -77,7 +79,7 @@ EventScript_PkmnCenterNurse_SecondNurse::
 	end
 
 EventScript_PkmnCenterNurse_SecondNurse_CheckMoney::
-	checkmoney 1000
+	checkmoney SECOND_NURSE_SERVICE_PRICE
 	goto EventScript_PkmnCenterNurse_SecondNurse
 	end
 
@@ -107,6 +109,6 @@ EventScript_PkmnCenterNurse_SecondNurse_NoEgg::
 
 EventScript_PkmnCenterNurse_SecondNurse_DoReset::
 	special ResetMonEVs
-	removemoney 1000
+	removemoney SECOND_NURSE_SERVICE_PRICE
 	msgbox Text_SecondNurse_ResetEVs, MSGBOX_NPC
 	end
