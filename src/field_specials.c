@@ -419,15 +419,10 @@ bool8 AreLeadMonEVsMaxedOut(void)
 
 void ChangeNature(void)
 {
-    u32 personality;
+    bool32 CustomNature = TRUE;
 
-    do
-    {
-        personality = Random32();
-    }
-    while (gSpecialVar_Result != personality % NUM_NATURES);
-
-    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_PERSONALITY, &personality);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HAS_CUSTOM_NATURE, &CustomNature);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_CUSTOM_NATURE_ID, &gSpecialVar_Result);
     
     ApplyFriendshipPenalty(15);
     CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
