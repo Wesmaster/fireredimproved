@@ -1558,4 +1558,11 @@ extern const u8 gText_Friendship[];
 extern const u8 gText_ChangeNature[];
 extern const u8 gText_ResetEVs[];
 
+// Natures for second nurse
+extern const u8 gText_Nature_Hardy[];
+extern const u8 gText_Nature_Lonely[];
+extern const u8 gText_Nature_Brave[];
+extern const u8 gText_Nature_Adamant[];
+extern const u8 gText_Nature_Naughty[];
+
 #endif //GUARD_STRINGS_H
