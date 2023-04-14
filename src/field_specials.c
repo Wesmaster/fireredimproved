@@ -80,6 +80,7 @@ static void Task_DoDeoxysTriangleInteraction(u8 taskId);
 static void MoveDeoxysObject(u8 num);
 static void Task_WaitDeoxysFieldEffect(u8 taskId);
 static void Task_WingFlapSound(u8 taskId);
+static void ApplyFriendshipPenalty(u8 resetPenalty);
 
 static u8 *const sStringVarPtrs[] = {
     gStringVar1,
@@ -424,7 +425,7 @@ void ChangeNature(void)
     {
         personality = Random32();
     }
-    while (gSpecialVar_Result != GetNatureFromPersonality(personality));
+    while (gSpecialVar_Result != personality % NUM_NATURES);
 
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_PERSONALITY, &personality);
     
