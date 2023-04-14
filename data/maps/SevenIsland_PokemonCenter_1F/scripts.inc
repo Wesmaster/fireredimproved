@@ -25,3 +25,7 @@ SevenIsland_PokemonCenter_1F_EventScript_Sailor::
 SevenIsland_PokemonCenter_1F_EventScript_Beauty::
 	msgbox SevenIsland_PokemonCenter_1F_Text_CheckOutTrainerTower, MSGBOX_NPC
 	end
+
+SevenIsland_PokemonCenter_1F_EventScript_SecondNurse::
+	call EventScript_PkmnCenterNurse_SecondNurse_CheckMoney
+	end
