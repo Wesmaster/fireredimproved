@@ -416,11 +416,25 @@ bool8 AreLeadMonEVsMaxedOut(void)
         return FALSE;
 }
 
+void ChangeNature(void)
+{
+    u32 personality;
+
+    do
+    {
+        personality = Random32();
+    }
+    while (gSpecialVar_Result != GetNatureFromPersonality(personality));
+
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_PERSONALITY, &personality);
+    
+    ApplyFriendshipPenalty(15);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
 void ResetMonEVs(void)
 {
     u8 newEv = 0;
-    u8 resetPenalty = 15;
-    u8 newFriendship;
 
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &newEv);
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_EV, &newEv);
@@ -429,9 +443,16 @@ void ResetMonEVs(void)
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_EV, &newEv);
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, &newEv);
 
+    ApplyFriendshipPenalty(15);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+void ApplyFriendshipPenalty(u8 resetPenalty)
+{
+    u8 newFriendship;
+
     newFriendship = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_FRIENDSHIP, NULL) - resetPenalty;
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_FRIENDSHIP, &newFriendship);
-    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }
 
 bool8 IsStarterFirstStageInParty(void)

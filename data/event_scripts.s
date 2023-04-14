@@ -1364,7 +1364,10 @@ Text_SecondNurse::
     .string "Hi, what can I do for you?$"
 
 Text_SecondNurse_SelectMon::
-    .string "Which Pokémon's EVs should I reset?$"
+    .string "Which Pokémon should I take care of?$"
+
+Text_SecondNurse_NatureChanged::
+	.string "The nature of this Pokémon has changed.$"
 
 Text_SecondNurse_ResetEVs::
     .string "The EVs of this Pokémon are reset.$"

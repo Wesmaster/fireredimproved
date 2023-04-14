@@ -1555,6 +1555,7 @@ extern const u8 gText_Hoenn[];
 extern const u8 gText_Friendship[];
 
 // Second nurse text
+extern const u8 gText_ChangeNature[];
 extern const u8 gText_ResetEVs[];
 
 #endif //GUARD_STRINGS_H
