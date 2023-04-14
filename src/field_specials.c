@@ -430,7 +430,7 @@ void ResetMonEVs(void)
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, &newEv);
 
     newFriendship = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_FRIENDSHIP, NULL) - resetPenalty;
-    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_FRIENDSHIP, newFriendship);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_FRIENDSHIP, &newFriendship);
     CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }
 
