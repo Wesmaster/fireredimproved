@@ -1359,3 +1359,23 @@ Text_TestMsg::
 	.include "data/text/save.inc"
 	.include "data/text/new_game_intro.inc"
 	.include "data/text/pokedude.inc"
+
+Text_SecondNurse::
+    .string "Hi, what can I do for you?$"
+
+Text_SecondNurse_SelectMon::
+    .string "Which Pokémon's EVs should I reset?$"
+
+Text_SecondNurse_ResetEVs::
+    .string "I've reset your EVs.$"
+
+Text_SecondNurse_ComebackAnytime::
+	.string "Come back anytime.$"
+
+Text_SecondNurse_NoEgg::
+	.string "Sorry, I can't modify the stats\n"
+	.string "of an EGG.$"
+
+Text_SecondNurse_NotEnoughMoney::
+    .string "My services require ¥1000,\n"
+    .string "you do not have enough money.$"
