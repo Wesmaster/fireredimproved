@@ -25,3 +25,7 @@ ViridianCity_PokemonCenter_1F_EventScript_Gentleman::
 ViridianCity_PokemonCenter_1F_EventScript_Youngster::
 	msgbox ViridianCity_PokemonCenter_1F_Text_PokeCentersHealMons, MSGBOX_NPC
 	end
+
+ViridianCity_PokemonCenter_1F_EventScript_SecondNurse::
+	EventScript_PkmnCenterNurse_SecondNurse_CheckMoney
+	end
