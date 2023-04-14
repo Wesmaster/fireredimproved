@@ -22,5 +22,12 @@ ViridianCity_PokemonCenter_1F_Text_SecondNurse::
 ViridianCity_PokemonCenter_1F_Text_SecondNurse_SelectMon::
     .string "Which Pokémon's EVs should I reset?$"
 
-ViridianCity_PokemonCenter_1F_Text_ResetEVs::
+ViridianCity_PokemonCenter_1F_Text_SecondNurse_ResetEVs::
     .string "I've reset your EVs.$"
+
+ViridianCity_PokemonCenter_1F_Text_SecondNurse_ComebackAnytime:
+	.string "Come back anytime.$"
+
+ViridianCity_PokemonCenter_1F_Text_SecondNurse_NoEgg:
+	.string "Sorry, I can't modify the stats\n"
+	.string "of an EGG.$"

@@ -31,16 +31,33 @@ ViridianCity_PokemonCenter_1F_EventScript_SecondNurse::
 	waitmessage
 	multichoice 0, 0, MULTICHOICE_SECOND_NURSE, FALSE
 	switch VAR_RESULT
-	case 0, ViridianCity_PokemonCenter_1F_EventScript_ResetEVs
+	case 0, ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_ResetEVs
+	case 1, ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_Cancel
 	end
 
 
-ViridianCity_PokemonCenter_1F_EventScript_ResetEVs::
+ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_ResetEVs::
 	msgbox ViridianCity_PokemonCenter_1F_Text_SecondNurse_SelectMon, MSGBOX_NPC
 	waitmessage
 	special ChoosePartyMon
 	waitstate
+	compare VAR_0x8004, PARTY_SIZE
+	goto_if_ge ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_Cancel
 	specialvar VAR_RESULT, GetPartyMonSpecies
+	compare VAR_RESULT, SPECIES_EGG
+	goto_if_eq ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_NoEgg
+	goto ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_DoReset
+	end
+
+ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_Cancel::
+	message ViridianCity_PokemonCenter_1F_Text_SecondNurse_ComebackAnytime
+	end
+
+ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_NoEgg::
+	message ViridianCity_PokemonCenter_1F_Text_SecondNurse_NoEgg
+	end
+
+ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_DoReset::
 	special ResetMonEVs
-	msgbox ViridianCity_PokemonCenter_1F_Text_ResetEVs, MSGBOX_NPC
+	msgbox ViridianCity_PokemonCenter_1F_Text_SecondNurse_ResetEVs, MSGBOX_NPC
 	end

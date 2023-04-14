@@ -503,7 +503,8 @@ static const struct MenuAction sMultichoiceList_StarterRegion[] = {
 };
 
 static const struct MenuAction sMultichoiceList_SecondNurse[] = {
-    { gText_ResetEVs }
+    { gText_ResetEVs },
+    { gText_NoThanks }
 };
 
 static const struct MultichoiceListStruct sMultichoiceLists[] = {
