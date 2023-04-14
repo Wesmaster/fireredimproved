@@ -41,6 +41,6 @@ ViridianCity_PokemonCenter_1F_EventScript_ResetEVs::
 	special ChoosePartyMon
 	waitstate
 	specialvar VAR_RESULT, GetPartyMonSpecies
-	special ResetLeadMonEVs
+	special ResetMonEVs
 	msgbox ViridianCity_PokemonCenter_1F_Text_ResetEVs, MSGBOX_NPC
 	end
