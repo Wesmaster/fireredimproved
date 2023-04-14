@@ -36,6 +36,15 @@ ViridianCity_PokemonCenter_1F_EventScript_SecondNurse::
 	releaseall
 	end
 
+ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_CheckMoney::
+	specialvar VAR_RESULT, HasEnoughMoneySecondNurse
+	goto_if_eq VAR_RESULT, TRUE, ViridianCity_PokemonCenter_1F_EventScript_SecondNurse
+	goto_if_eq VAR_RESULT, FALSE, ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_NotEnoughMoney
+	end
+
+ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_NotEnoughMoney::
+	msgbox ViridianCity_PokemonCenter_1F_Text_SecondNurse_NotEnoughMoney, MSGBOX_NPC
+	end
 
 ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_ResetEVs::
 	msgbox ViridianCity_PokemonCenter_1F_Text_SecondNurse_SelectMon, MSGBOX_NPC

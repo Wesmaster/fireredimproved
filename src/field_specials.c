@@ -53,6 +53,8 @@ static EWRAM_DATA u8 sBrailleTextCursorSpriteID = 0;
 struct ListMenuTemplate sFieldSpecialsListMenuTemplate;
 u16 sFieldSpecialsListMenuScrollBuffer;
 
+const u32 SecondNurseServicePrice = 1000;
+
 static void Task_AnimatePcTurnOn(u8 taskId);
 static void PcTurnOnUpdateMetatileId(bool16 flag);
 static void Task_ShakeScreen(u8 taskId);
@@ -421,6 +423,13 @@ void ResetMonEVs(void)
     u8 newEv = 0;
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &newEv);
     CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+
+    RemoveMoney(&gSaveBlock1Ptr->money, SecondNurseServicePrice);
+}
+
+bool8 HasEnoughMoneySecondNurse(void)
+{
+    return IsEnoughMoney(&gSaveBlock1Ptr->money, SecondNurseServicePrice)
 }
 
 bool8 IsStarterFirstStageInParty(void)

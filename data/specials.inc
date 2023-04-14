@@ -304,6 +304,7 @@ gSpecials::
 	def_special GiveLeadMonEffortRibbon
 	def_special AreLeadMonEVsMaxedOut
 	def_special ResetMonEVs
+	def_special HasEnoughMoneySecondNurse
 	def_special Script_FacePlayer
 	def_special Script_ClearHeldMovement
 	def_special InitRoamer
