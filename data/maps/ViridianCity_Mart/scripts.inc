@@ -91,4 +91,6 @@ ViridianCity_Mart_EventScript_Woman::
 
 ViridianCity_Mart_EventScript_Youngster::
 	msgbox ViridianCity_Mart_Text_GotToBuySomePotions, MSGBOX_NPC
+	special GetLeadMonFriendship
+	msgbox ViridianCity_Mart_Text_ResetEVs, MSGBOX_NPC
 	end

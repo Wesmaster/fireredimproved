@@ -410,10 +410,17 @@ void GiveLeadMonEffortRibbon(void)
 bool8 AreLeadMonEVsMaxedOut(void)
 {
     u8 leadMonIndex = GetLeadMonIndex();
-    if (GetMonEVCount(&gPlayerParty[leadMonIndex]) >= 510)
+    if (GetMonEVCount(&gPlayerParty[leadMonIndex]) >= MAX_TOTAL_EVS)
         return TRUE;
     else
         return FALSE;
+}
+
+void ResetLeadMonEVs(void)
+{
+    u8 leadMonIndex = GetLeadMonIndex();
+    u8 newEv = 0;
+    SetMonData(&gPlayerParty[leadMonIndex]), MON_DATA_HP_EV, &newEv);
 }
 
 bool8 IsStarterFirstStageInParty(void)
