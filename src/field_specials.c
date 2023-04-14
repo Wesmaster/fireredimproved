@@ -418,10 +418,9 @@ bool8 AreLeadMonEVsMaxedOut(void)
 
 void ResetLeadMonEVs(void)
 {
-    u8 leadMonIndex = GetLeadMonIndex();
     u8 newEv = 0;
-    SetMonData(&gPlayerParty[leadMonIndex], MON_DATA_HP_EV, &newEv);
-    CalculateMonStats(&gPlayerParty[leadMonIndex]);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &newEv);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }
 
 bool8 IsStarterFirstStageInParty(void)
