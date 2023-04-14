@@ -38,7 +38,6 @@ ViridianCity_PokemonCenter_1F_EventScript_SecondNurse::
 
 ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_ResetEVs::
 	msgbox ViridianCity_PokemonCenter_1F_Text_SecondNurse_SelectMon, MSGBOX_NPC
-	waitmessage
 	special ChoosePartyMon
 	waitstate
 	compare VAR_0x8004, PARTY_SIZE
@@ -50,11 +49,11 @@ ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_ResetEVs::
 	end
 
 ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_Cancel::
-	message ViridianCity_PokemonCenter_1F_Text_SecondNurse_ComebackAnytime
+	msgbox ViridianCity_PokemonCenter_1F_Text_SecondNurse_ComebackAnytime, MSGBOX_NPC
 	end
 
 ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_NoEgg::
-	message ViridianCity_PokemonCenter_1F_Text_SecondNurse_NoEgg
+	msgbox ViridianCity_PokemonCenter_1F_Text_SecondNurse_NoEgg, MSGBOX_NPC
 	end
 
 ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_DoReset::
