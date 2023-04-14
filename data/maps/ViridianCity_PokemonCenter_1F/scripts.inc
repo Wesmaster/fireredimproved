@@ -27,5 +27,5 @@ ViridianCity_PokemonCenter_1F_EventScript_Youngster::
 	end
 
 ViridianCity_PokemonCenter_1F_EventScript_SecondNurse::
-	EventScript_PkmnCenterNurse_SecondNurse_CheckMoney
+	call EventScript_PkmnCenterNurse_SecondNurse_CheckMoney
 	end
