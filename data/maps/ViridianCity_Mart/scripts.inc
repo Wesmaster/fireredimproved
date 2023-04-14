@@ -90,9 +90,5 @@ ViridianCity_Mart_EventScript_Woman::
 	end
 
 ViridianCity_Mart_EventScript_Youngster::
-	special ChoosePartyMon
-	waitstate
-	specialvar VAR_RESULT, GetPartyMonSpecies
-	special ResetLeadMonEVs
-	msgbox ViridianCity_Mart_Text_ResetEVs, MSGBOX_NPC
+	msgbox ViridianCity_Mart_Text_GotToBuySomePotions, MSGBOX_NPC
 	end

@@ -25,3 +25,11 @@ ViridianCity_PokemonCenter_1F_EventScript_Gentleman::
 ViridianCity_PokemonCenter_1F_EventScript_Youngster::
 	msgbox ViridianCity_PokemonCenter_1F_Text_PokeCentersHealMons, MSGBOX_NPC
 	end
+
+ViridianCity_PokemonCenter_1F_EventScript_SecondNurse::
+	special ChoosePartyMon
+	waitstate
+	specialvar VAR_RESULT, GetPartyMonSpecies
+	special ResetLeadMonEVs
+	msgbox ViridianCity_Mart_Text_ResetEVs, MSGBOX_NPC
+	end
