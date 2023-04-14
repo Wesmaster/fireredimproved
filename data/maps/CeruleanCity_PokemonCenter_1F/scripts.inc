@@ -33,3 +33,7 @@ CeruleanCity_PokemonCenter_1F_EventScript_Youngster::
 CeruleanCity_PokemonCenter_1F_EventScript_Lass::
 	msgbox CeruleanCity_PokemonCenter_1F_Text_TryTradingUpstairs, MSGBOX_NPC
 	end
+
+CeruleanCity_PokemonCenter_1F_EventScript_SecondNurse::
+	call EventScript_PkmnCenterNurse_SecondNurse_CheckMoney
+	end

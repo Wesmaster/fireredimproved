@@ -27,47 +27,5 @@ ViridianCity_PokemonCenter_1F_EventScript_Youngster::
 	end
 
 ViridianCity_PokemonCenter_1F_EventScript_SecondNurse::
-	goto_if_eq VAR_RESULT, FALSE, ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_NotEnoughMoney
-	message ViridianCity_PokemonCenter_1F_Text_SecondNurse
-	waitmessage
-	multichoice 0, 0, MULTICHOICE_SECOND_NURSE, FALSE
-	switch VAR_RESULT
-	case 0, ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_ResetEVs
-	case 1, ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_Cancel
-	releaseall
-	end
-
-ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_CheckMoney::
-	checkmoney 1000
-	goto ViridianCity_PokemonCenter_1F_EventScript_SecondNurse
-	end
-
-ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_NotEnoughMoney::
-	msgbox ViridianCity_PokemonCenter_1F_Text_SecondNurse_NotEnoughMoney, MSGBOX_NPC
-	end
-
-ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_ResetEVs::
-	msgbox ViridianCity_PokemonCenter_1F_Text_SecondNurse_SelectMon, MSGBOX_NPC
-	special ChoosePartyMon
-	waitstate
-	compare VAR_0x8004, PARTY_SIZE
-	goto_if_ge ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_Cancel
-	specialvar VAR_RESULT, GetPartyMonSpecies
-	compare VAR_RESULT, SPECIES_EGG
-	goto_if_eq ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_NoEgg
-	goto ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_DoReset
-	end
-
-ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_Cancel::
-	msgbox ViridianCity_PokemonCenter_1F_Text_SecondNurse_ComebackAnytime, MSGBOX_NPC
-	end
-
-ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_NoEgg::
-	msgbox ViridianCity_PokemonCenter_1F_Text_SecondNurse_NoEgg, MSGBOX_NPC
-	end
-
-ViridianCity_PokemonCenter_1F_EventScript_SecondNurse_DoReset::
-	special ResetMonEVs
-	removemoney 1000
-	msgbox ViridianCity_PokemonCenter_1F_Text_SecondNurse_ResetEVs, MSGBOX_NPC
+	call EventScript_PkmnCenterNurse_SecondNurse_CheckMoney
 	end
