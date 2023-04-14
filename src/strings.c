@@ -1337,3 +1337,4 @@ const u8 gText_Kanto[] = _("Kanto");
 const u8 gText_Johto[] = _("Johto");
 const u8 gText_Hoenn[] = _("Hoenn");
 const u8 gText_Friendship[] = _("Friendship");
+const u8 gText_ResetEVs[] = _("Reset EVs");
