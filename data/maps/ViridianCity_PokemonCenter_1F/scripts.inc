@@ -27,9 +27,20 @@ ViridianCity_PokemonCenter_1F_EventScript_Youngster::
 	end
 
 ViridianCity_PokemonCenter_1F_EventScript_SecondNurse::
+	message ViridianCity_PokemonCenter_1F_Text_SecondNurse
+	waitmessage
+	multichoice 0, 0, MULTICHOICE_SECOND_NURSE, FALSE
+	switch VAR_RESULT
+	case 0, ViridianCity_PokemonCenter_1F_EventScript_ResetEVs
+	end
+
+
+ViridianCity_PokemonCenter_1F_EventScript_ResetEVs::
+	message ViridianCity_PokemonCenter_1F_Text_SecondNurse_SelectMon
+	waitmessage
 	special ChoosePartyMon
 	waitstate
 	specialvar VAR_RESULT, GetPartyMonSpecies
 	special ResetLeadMonEVs
-	msgbox ViridianCity_Mart_Text_ResetEVs, MSGBOX_NPC
+	msgbox ViridianCity_PokemonCenter_1F_Text_ResetEVs, MSGBOX_NPC
 	end

@@ -16,3 +16,11 @@ ViridianCity_PokemonCenter_1F_Text_PokeCentersHealMons::
     .string "They make all POKéMON completely\n"
     .string "healthy.$"
 
+ViridianCity_PokemonCenter_1F_Text_SecondNurse::
+    .string "Hi, what can I do for you?$"
+
+ViridianCity_PokemonCenter_1F_Text_SecondNurse_SelectMon::
+    .string "Which Pokémon's EVs should I reset?$"
+
+ViridianCity_PokemonCenter_1F_Text_ResetEVs::
+    .string "I've reset your EVs.$"

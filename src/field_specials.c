@@ -416,7 +416,7 @@ bool8 AreLeadMonEVsMaxedOut(void)
         return FALSE;
 }
 
-void ResetLeadMonEVs(void)
+void ResetMonEVs(void)
 {
     u8 newEv = 0;
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &newEv);
