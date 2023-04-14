@@ -1075,7 +1075,7 @@
     {
       "english": "CALCIUM",
       "itemId": "ITEM_CALCIUM",
-      "price": 9800,
+      "price": 500,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "A nutritious drink for POKéMON.\\nIt raises the base SP. ATK stat\\nof one POKéMON.",
