@@ -36,7 +36,7 @@ ViridianCity_PokemonCenter_1F_EventScript_SecondNurse::
 
 
 ViridianCity_PokemonCenter_1F_EventScript_ResetEVs::
-	message ViridianCity_PokemonCenter_1F_Text_SecondNurse_SelectMon
+	msgbox ViridianCity_PokemonCenter_1F_Text_SecondNurse_SelectMon, MSGBOX_NPC
 	waitmessage
 	special ChoosePartyMon
 	waitstate
