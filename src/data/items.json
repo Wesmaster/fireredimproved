@@ -1011,7 +1011,7 @@
     {
       "english": "HP UP",
       "itemId": "ITEM_HP_UP",
-      "price": 9800,
+      "price": 50,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "A nutritious drink for POKéMON.\\nIt raises the base HP of one\\nPOKéMON.",
@@ -1027,7 +1027,7 @@
     {
       "english": "PROTEIN",
       "itemId": "ITEM_PROTEIN",
-      "price": 9800,
+      "price": 50,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "A nutritious drink for POKéMON.\\nIt raises the base ATTACK stat of\\none POKéMON.",
@@ -1043,7 +1043,7 @@
     {
       "english": "IRON",
       "itemId": "ITEM_IRON",
-      "price": 9800,
+      "price": 50,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "A nutritious drink for POKéMON.\\nIt raises the base DEFENSE stat of\\none POKéMON.",
@@ -1059,7 +1059,7 @@
     {
       "english": "CARBOS",
       "itemId": "ITEM_CARBOS",
-      "price": 9800,
+      "price": 50,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "A nutritious drink for POKéMON.\\nIt raises the base SPEED stat of\\none POKéMON.",
