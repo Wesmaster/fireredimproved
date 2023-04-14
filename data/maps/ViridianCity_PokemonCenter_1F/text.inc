@@ -31,3 +31,4 @@ ViridianCity_PokemonCenter_1F_Text_SecondNurse_ComebackAnytime:
 ViridianCity_PokemonCenter_1F_Text_SecondNurse_NoEgg:
 	.string "Sorry, I can't modify the stats\n"
 	.string "of an EGG.$"
+    
