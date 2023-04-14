@@ -25,4 +25,4 @@ ViridianCity_Mart_Text_GotToBuySomePotions::
     .string "will need quick healing.$"
 
 ViridianCity_Mart_Text_ResetEVs::
-    .string "I've reset your EVs.\p"
+    .string "I've reset your EVs.$"
