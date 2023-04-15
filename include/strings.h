@@ -1565,4 +1565,11 @@ extern const u8 gText_Nature_Brave[];
 extern const u8 gText_Nature_Adamant[];
 extern const u8 gText_Nature_Naughty[];
 
+// Stats for second nurse
+extern const u8 gText_HP[];
+extern const u8 gText_Attack[];
+extern const u8 gText_Defense[];
+extern const u8 gText_Special_Attack[];
+extern const u8 gText_Special_Defense[];
+extern const u8 gText_Speed[];
 #endif //GUARD_STRINGS_H
