@@ -3719,7 +3719,7 @@ static const struct TrainerMonItemDefaultMoves sParty_BlackBeltDaisuke[] = {
 
 static const struct TrainerMonNoItemDefaultMoves sParty_RivalOaksLabSquirtle[] = {
     {
-        .iv = 0,
+        .iv = 255,
         .lvl = 5,
         .species = SPECIES_SQUIRTLE,
     },
@@ -3741,18 +3741,18 @@ static const struct TrainerMonNoItemDefaultMoves sParty_RivalOaksLabCharmander[]
     },
 };
 
-static const struct TrainerMonNoItemCustomMoves sParty_RivalRoute22EarlySquirtle[] = {
+static const struct TrainerMonNoItemDefaultMoves sParty_RivalRoute22EarlySquirtle[] = {
     {
-        .iv = 50,
+        .iv = 255,
         .lvl = 9,
         .species = SPECIES_PIDGEY,
-        .moves = {MOVE_TACKLE, MOVE_SAND_ATTACK, MOVE_NONE, MOVE_NONE},
+       // .moves = {MOVE_TACKLE, MOVE_SAND_ATTACK, MOVE_NONE, MOVE_NONE},
     },
     {
-        .iv = 50,
+        .iv = 255,
         .lvl = 9,
         .species = SPECIES_SQUIRTLE,
-        .moves = {MOVE_TACKLE, MOVE_TAIL_WHIP, MOVE_NONE, MOVE_NONE},
+       // .moves = {MOVE_TACKLE, MOVE_TAIL_WHIP, MOVE_NONE, MOVE_NONE},
     },
 };
 
@@ -5603,13 +5603,13 @@ static const struct TrainerMonItemCustomMoves sParty_EliteFourLance[] = {
 
 static const struct TrainerMonNoItemCustomMoves sParty_LeaderBrock[] = {
     {
-        .iv = 0,
+        .iv = 255,
         .lvl = 12,
         .species = SPECIES_GEODUDE,
         .moves = {MOVE_TACKLE, MOVE_DEFENSE_CURL, MOVE_NONE, MOVE_NONE},
     },
     {
-        .iv = 0,
+        .iv = 255,
         .lvl = 14,
         .species = SPECIES_ONIX,
         .moves = {MOVE_TACKLE, MOVE_BIND, MOVE_ROCK_TOMB, MOVE_NONE},
