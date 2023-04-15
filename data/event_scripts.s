@@ -1384,5 +1384,5 @@ Text_SecondNurse_NotEnoughMoney::
     .string "My services require ¥1000,\n"
     .string "you do not have enough money.$"
 
-Text_SecondNurse_ChooseNature
+Text_SecondNurse_ChooseNature::
 	.string "Choose the desired nature.$"
