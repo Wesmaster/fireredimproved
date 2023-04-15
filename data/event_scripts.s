@@ -1385,4 +1385,7 @@ Text_SecondNurse_NotEnoughMoney::
     .string "you do not have enough money.$"
 
 Text_SecondNurse_ChooseNature::
-	.string "Choose the desired nature.$"
+	.string "Choose the desired nature$"
+
+Text_SecondNurse_ChooseStat::
+	.string "For which stat?$"

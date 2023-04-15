@@ -1345,3 +1345,10 @@ const u8 gText_Nature_Lonely[] = _("Lonely +ATK -DEF");
 const u8 gText_Nature_Brave[] = _("Brave +ATK -SPEED");
 const u8 gText_Nature_Adamant[] = _("Adamant +ATK -SP.ATK");
 const u8 gText_Nature_Naughty[] = _("Naughty +ATK -SP.DEF");
+
+const u8 gText_HP[] = _("HP");
+const u8 gText_Attack[] = _("Attack");
+const u8 gText_Defense[] = _("Defense");
+const u8 gText_Special_Attack[] = _("Special attack");
+const u8 gText_Special_Defense[] = _("Special defense");
+const u8 gText_Speed[] = _("Speed");
