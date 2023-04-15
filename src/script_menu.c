@@ -525,7 +525,7 @@ static const struct MenuAction sMultichoiceList_SecondNurseStats[] = {
     { gText_Special_Defense },
     { gText_Speed },
     { gText_NoThanks }
-}
+};
 
 static const struct MultichoiceListStruct sMultichoiceLists[] = {
     [MULTICHOICE_YES_NO]                                     = MULTICHOICE(sMultichoiceList_YesNo),
