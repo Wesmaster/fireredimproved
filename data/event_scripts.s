@@ -1364,8 +1364,8 @@ Text_SecondNurse::
     .string "Hi, what can I do for you?$"
 
 Text_SecondNurse_SelectMon::
-    .string "Which Pokémon's nature\n"
-	.string "should be changed?$"
+    .string "Which Pokémon do you want\n"
+	.string "me to take care of?$"
 
 Text_SecondNurse_NatureChanged::
 	.string "This Pokémon's nature has changed.$"
@@ -1383,3 +1383,6 @@ Text_SecondNurse_NoEgg::
 Text_SecondNurse_NotEnoughMoney::
     .string "My services require ¥1000,\n"
     .string "you do not have enough money.$"
+
+Text_SecondNurse_ChooseNature
+	.string "Choose the desired nature.$"

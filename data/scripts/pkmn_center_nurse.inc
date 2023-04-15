@@ -121,6 +121,8 @@ EventScript_PkmnCenterNurse_SecondNurse_NoEgg::
 	end
 
 EventScript_PkmnCenterNurse_SecondNurse_ChooseNature::
+	message Text_SecondNurse_ChooseNature
+	waitmessage
 	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURES, FALSE
 	goto EventScript_PkmnCenterNurse_SecondNurse_DoNatureChange
 	end
