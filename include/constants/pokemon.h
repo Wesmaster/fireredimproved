@@ -91,6 +91,8 @@
 #define MON_DATA_SPEED2                   86
 #define MON_DATA_SPATK2                   87
 #define MON_DATA_SPDEF2                   88
+#define MON_DATA_HAS_CUSTOM_NATURE        89
+#define MON_DATA_CUSTOM_NATURE_ID         90
 
 // Pokemon types
 #define TYPE_NONE           255

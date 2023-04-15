@@ -80,6 +80,7 @@ static void Task_DoDeoxysTriangleInteraction(u8 taskId);
 static void MoveDeoxysObject(u8 num);
 static void Task_WaitDeoxysFieldEffect(u8 taskId);
 static void Task_WingFlapSound(u8 taskId);
+static void ApplyFriendshipPenalty(u8 resetPenalty);
 
 static u8 *const sStringVarPtrs[] = {
     gStringVar1,
@@ -416,11 +417,20 @@ bool8 AreLeadMonEVsMaxedOut(void)
         return FALSE;
 }
 
+void ChangeNature(void)
+{
+    bool32 CustomNature = TRUE;
+
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HAS_CUSTOM_NATURE, &CustomNature);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_CUSTOM_NATURE_ID, &gSpecialVar_Result);
+    
+    ApplyFriendshipPenalty(15);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
 void ResetMonEVs(void)
 {
     u8 newEv = 0;
-    u8 resetPenalty = 15;
-    u8 newFriendship;
 
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &newEv);
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_EV, &newEv);
@@ -429,9 +439,16 @@ void ResetMonEVs(void)
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_EV, &newEv);
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, &newEv);
 
+    ApplyFriendshipPenalty(15);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+void ApplyFriendshipPenalty(u8 resetPenalty)
+{
+    u8 newFriendship;
+
     newFriendship = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_FRIENDSHIP, NULL) - resetPenalty;
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_FRIENDSHIP, &newFriendship);
-    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }
 
 bool8 IsStarterFirstStageInParty(void)
