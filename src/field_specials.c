@@ -461,6 +461,14 @@ void ApplyFriendshipPenalty(u8 resetPenalty)
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_FRIENDSHIP, &newFriendship);
 }
 
+void ApplyFriendshipPenalty(u8 resetPenalty)
+{
+    u8 newFriendship;
+
+    newFriendship = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_FRIENDSHIP, NULL) - resetPenalty;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_FRIENDSHIP, &newFriendship);
+}
+
 bool8 IsStarterFirstStageInParty(void)
 {
     u16 species = GetStarterSpeciesById(VarGet(VAR_STARTER_MON));
