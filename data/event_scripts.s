@@ -1371,7 +1371,7 @@ Text_SecondNurse_NatureChanged::
 	.string "This Pokémon's nature has changed.$"
 
 Text_SecondNurse_ResetEVs::
-    .string "The EVs of this Pokémon are reset.$"
+    .string "The EV stat of this Pokémon is reset.$"
 
 Text_SecondNurse_ComebackAnytime::
 	.string "Come back anytime.$"

@@ -146,5 +146,6 @@ EventScript_PkmnCenterNurse_SecondNurse_ChooseEVstat::
 	message Text_SecondNurse_ChooseStat
 	waitmessage
 	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_STATS, FALSE
+	goto_if_eq VAR_RESULT, 6, EventScript_PkmnCenterNurse_SecondNurse_Cancel
 	goto EventScript_PkmnCenterNurse_SecondNurse_DoReset
 	end
