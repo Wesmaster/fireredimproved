@@ -503,7 +503,17 @@ static const struct MenuAction sMultichoiceList_StarterRegion[] = {
 };
 
 static const struct MenuAction sMultichoiceList_SecondNurse[] = {
+    { gText_ChangeNature },
     { gText_ResetEVs },
+    { gText_NoThanks }
+};
+
+static const struct MenuAction sMultichoiceList_SecondNurseNatures[] = {
+    { gText_Nature_Hardy },
+    { gText_Nature_Lonely },
+    { gText_Nature_Brave },
+    { gText_Nature_Adamant },
+    { gText_Nature_Naughty },
     { gText_NoThanks }
 };
 
@@ -575,6 +585,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] = {
     [MULTICHOICE_TRAINER_TOWER_MODE]                         = MULTICHOICE(sMultichoiceList_TrainerTowerMode),
     [MULTICHOICE_STARTER_REGION]                             = MULTICHOICE(sMultichoiceList_StarterRegion),
     [MULTICHOICE_SECOND_NURSE]                               = MULTICHOICE(sMultichoiceList_SecondNurse),
+    [MULTICHOICE_SECOND_NURSE_NATURES]                       = MULTICHOICE(sMultichoiceList_SecondNurseNatures),
 };
 
 // From Cool to Berries goes unused

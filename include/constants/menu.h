@@ -71,6 +71,7 @@
 #define MULTICHOICE_TRAINER_TOWER_MODE                         64
 #define MULTICHOICE_STARTER_REGION                             65
 #define MULTICHOICE_SECOND_NURSE                               66
+#define MULTICHOICE_SECOND_NURSE_NATURES                       67
 
 #define MULTICHOICE_NONE                                      255
 
