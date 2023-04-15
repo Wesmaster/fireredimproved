@@ -1388,3 +1388,6 @@ Text_SecondNurse_ChooseNature::
 
 Text_SecondNurse_ChooseStat::
 	.string "For which stat?$"
+
+Text_SecondNurse_NothingToReset::
+	.string "A reset is not necessary.$"

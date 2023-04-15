@@ -428,7 +428,7 @@ void ChangeNature(void)
     CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }
 
-void ResetMonEVs(void)
+bool8 ResetMonEVs(void)
 {
     u8 newEv = 0;
     s32 datafield = gSpecialVar_Result + MON_DATA_HP_EV;
@@ -443,10 +443,14 @@ void ResetMonEVs(void)
             datafield -= 2;
             break;   
     }
-    SetMonData(&gPlayerParty[gSpecialVar_0x8004], datafield, &newEv);
+    if (GetMonData(&gPlayerParty[gSpecialVar_0x8004], datafield, NULL) == 0)
+        return FALSE;
 
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], datafield, &newEv);
     ApplyFriendshipPenalty(15);
     CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+
+    return TRUE;
 }
 
 void ApplyFriendshipPenalty(u8 resetPenalty)

@@ -137,7 +137,12 @@ EventScript_PkmnCenterNurse_SecondNurse_DoNatureChange::
 	end
 
 EventScript_PkmnCenterNurse_SecondNurse_DoReset::
-	special ResetMonEVs
+	specialvar VAR_RESULT, ResetMonEVs
+	goto_if_eq VAR_RESULT, TRUE, EventScript_PkmnCenterNurse_SecondNurse_FinishReset
+	msgbox Text_SecondNurse_NothingToReset, MSGBOX_NPC 
+	end
+
+EventScript_PkmnCenterNurse_SecondNurse_FinishReset::
 	removemoney SECOND_NURSE_RESETEV_PRICE
 	msgbox Text_SecondNurse_ResetEVs, MSGBOX_NPC
 	end
