@@ -69,7 +69,6 @@ Movement_Bow::
 	step_end
 
 EventScript_PkmnCenterNurse_SecondNurse::
-	goto_if_eq VAR_RESULT, FALSE, EventScript_PkmnCenterNurse_SecondNurse_NotEnoughMoney
 	message Text_SecondNurse
 	waitmessage
 	multichoice 0, 0, MULTICHOICE_SECOND_NURSE, FALSE
