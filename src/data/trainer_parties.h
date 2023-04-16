@@ -3743,12 +3743,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_RivalOaksLabCharmander[]
 
 static const struct TrainerMonNoItemDefaultMoves sParty_RivalRoute22EarlySquirtle[] = {
     {
-        .iv = 250,
+        .iv = 255,
         .lvl = 9,
         .species = SPECIES_PIDGEY,
     },
     {
-        .iv = 250,
+        .iv = 255,
         .lvl = 9,
         .species = SPECIES_SQUIRTLE,
     },
