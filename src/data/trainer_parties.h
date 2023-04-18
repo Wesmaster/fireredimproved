@@ -1133,12 +1133,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerHannah[] = {
 
 static const struct TrainerMonNoItemDefaultMoves sParty_PokemaniacMark[] = {
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 29,
         .species = SPECIES_RHYHORN,
     },
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 29,
         .species = SPECIES_LICKITUNG,
     },
@@ -1146,12 +1146,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PokemaniacMark[] = {
 
 static const struct TrainerMonNoItemDefaultMoves sParty_PokemaniacHerman[] = {
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 20,
         .species = SPECIES_CUBONE,
     },
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 20,
         .species = SPECIES_SLOWPOKE,
     },
@@ -1159,17 +1159,17 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PokemaniacHerman[] = {
 
 static const struct TrainerMonNoItemDefaultMoves sParty_PokemaniacCooper[] = {
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 20,
         .species = SPECIES_SLOWPOKE,
     },
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 20,
         .species = SPECIES_SLOWPOKE,
     },
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 20,
         .species = SPECIES_SLOWPOKE,
     },
@@ -1177,12 +1177,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PokemaniacCooper[] = {
 
 static const struct TrainerMonNoItemDefaultMoves sParty_PokemaniacSteve[] = {
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 22,
         .species = SPECIES_CHARMANDER,
     },
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 22,
         .species = SPECIES_CUBONE,
     },
@@ -1190,7 +1190,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PokemaniacSteve[] = {
 
 static const struct TrainerMonNoItemDefaultMoves sParty_PokemaniacWinston[] = {
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 25,
         .species = SPECIES_SLOWPOKE,
     },
@@ -1198,17 +1198,17 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PokemaniacWinston[] = {
 
 static const struct TrainerMonNoItemDefaultMoves sParty_PokemaniacDawson[] = {
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 40,
         .species = SPECIES_CHARMELEON,
     },
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 40,
         .species = SPECIES_LAPRAS,
     },
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 40,
         .species = SPECIES_LICKITUNG,
     },
@@ -1216,12 +1216,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PokemaniacDawson[] = {
 
 static const struct TrainerMonNoItemDefaultMoves sParty_PokemaniacAshton[] = {
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 23,
         .species = SPECIES_CUBONE,
     },
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 23,
         .species = SPECIES_SLOWPOKE,
     },
@@ -7209,17 +7209,17 @@ static const struct TrainerMonNoItemDefaultMoves sParty_TuberAmira[] = {
 
 static const struct TrainerMonNoItemDefaultMoves sParty_PkmnBreederAlize[] = {
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 48,
         .species = SPECIES_PIKACHU,
     },
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 48,
         .species = SPECIES_CLEFAIRY,
     },
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 48,
         .species = SPECIES_MARILL,
     },
@@ -8182,12 +8182,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_HikerDaryl[] = {
 
 static const struct TrainerMonNoItemDefaultMoves sParty_PokemaniacHector[] = {
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 49,
         .species = SPECIES_RHYHORN,
     },
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 49,
         .species = SPECIES_KANGASKHAN,
     },
@@ -8593,7 +8593,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PsychicLaura[] = {
 
 static const struct TrainerMonNoItemDefaultMoves sParty_PkmnBreederBethany[] = {
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 50,
         .species = SPECIES_CHANSEY,
     },
@@ -8601,17 +8601,17 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PkmnBreederBethany[] = {
 
 static const struct TrainerMonNoItemDefaultMoves sParty_PkmnBreederAllison[] = {
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 48,
         .species = SPECIES_CLEFAIRY,
     },
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 48,
         .species = SPECIES_CLEFAIRY,
     },
     {
-        .iv = 32,,
+        .iv = 32,
         .lvl = 48,
         .species = SPECIES_CLEFABLE,
     },
