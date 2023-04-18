@@ -496,6 +496,37 @@ static const struct MenuAction sMultichoiceList_Exit[] = {
     { gOtherText_Exit }
 };
 
+static const struct MenuAction sMultichoiceList_StarterRegion[] = {
+    { gText_Kanto },
+    { gText_Johto },
+    { gText_Hoenn }
+};
+
+static const struct MenuAction sMultichoiceList_SecondNurse[] = {
+    { gText_ChangeNature },
+    { gText_ResetEVs },
+    { gText_NoThanks }
+};
+
+static const struct MenuAction sMultichoiceList_SecondNurseNatures[] = {
+    { gText_Nature_Hardy },
+    { gText_Nature_Lonely },
+    { gText_Nature_Brave },
+    { gText_Nature_Adamant },
+    { gText_Nature_Naughty },
+    { gText_NoThanks }
+};
+
+static const struct MenuAction sMultichoiceList_SecondNurseStats[] = {
+    { gText_HP },
+    { gText_Attack },
+    { gText_Defense },
+    { gText_Special_Attack },
+    { gText_Special_Defense },
+    { gText_Speed },
+    { gText_NoThanks }
+};
+
 static const struct MultichoiceListStruct sMultichoiceLists[] = {
     [MULTICHOICE_YES_NO]                                     = MULTICHOICE(sMultichoiceList_YesNo),
     [MULTICHOICE_EEVEELUTIONS]                               = MULTICHOICE(sMultichoiceList_Eeveelutions),
@@ -562,6 +593,10 @@ static const struct MultichoiceListStruct sMultichoiceLists[] = {
     [MULTICHOICE_62]                                         = MULTICHOICE(sMultichoiceList_62),
     [MULTICHOICE_JOIN_OR_LEAD]                               = MULTICHOICE(sMultichoiceList_JoinOrLead),
     [MULTICHOICE_TRAINER_TOWER_MODE]                         = MULTICHOICE(sMultichoiceList_TrainerTowerMode),
+    [MULTICHOICE_STARTER_REGION]                             = MULTICHOICE(sMultichoiceList_StarterRegion),
+    [MULTICHOICE_SECOND_NURSE]                               = MULTICHOICE(sMultichoiceList_SecondNurse),
+    [MULTICHOICE_SECOND_NURSE_NATURES]                       = MULTICHOICE(sMultichoiceList_SecondNurseNatures),
+    [MULTICHOICE_SECOND_NURSE_STATS]                         = MULTICHOICE(sMultichoiceList_SecondNurseStats),
 };
 
 // From Cool to Berries goes unused

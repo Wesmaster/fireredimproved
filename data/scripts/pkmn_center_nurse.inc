@@ -1,3 +1,6 @@
+.equ SECOND_NURSE_CHANGE_NATURE_PRICE, 1000
+.equ SECOND_NURSE_RESETEV_PRICE, 500
+
 EventScript_PkmnCenterNurse::
 	goto_if_questlog EventScript_ReleaseEnd
 	message Text_WelcomeWantToHealPkmn
@@ -64,3 +67,90 @@ Movement_Bow::
 	nurse_joy_bow
 	delay_4
 	step_end
+
+EventScript_PkmnCenterNurse_SecondNurse::
+	message Text_SecondNurse
+	waitmessage
+	multichoice 0, 0, MULTICHOICE_SECOND_NURSE, FALSE
+	switch VAR_RESULT
+	case 0, EventScript_PkmnCenterNurse_SecondNurse_ChangeNature
+	case 1, EventScript_PkmnCenterNurse_SecondNurse_ResetEVs
+	case 2, EventScript_PkmnCenterNurse_SecondNurse_Cancel
+	releaseall
+	end
+
+EventScript_PkmnCenterNurse_SecondNurse_CheckMoney::
+	goto EventScript_PkmnCenterNurse_SecondNurse
+	end
+
+EventScript_PkmnCenterNurse_SecondNurse_NotEnoughMoney::
+	msgbox Text_SecondNurse_NotEnoughMoney, MSGBOX_NPC
+	end
+
+EventScript_PkmnCenterNurse_SecondNurse_ChangeNature::
+	checkmoney SECOND_NURSE_CHANGE_NATURE_PRICE
+	goto_if_eq VAR_RESULT, FALSE, EventScript_PkmnCenterNurse_SecondNurse_NotEnoughMoney
+	msgbox Text_SecondNurse_SelectMon, MSGBOX_NPC
+	special ChoosePartyMon
+	waitstate
+	compare VAR_0x8004, PARTY_SIZE
+	goto_if_ge EventScript_PkmnCenterNurse_SecondNurse_Cancel
+	specialvar VAR_RESULT, GetPartyMonSpecies
+	compare VAR_RESULT, SPECIES_EGG
+	goto_if_eq EventScript_PkmnCenterNurse_SecondNurse_NoEgg
+	goto EventScript_PkmnCenterNurse_SecondNurse_ChooseNature
+	end
+
+EventScript_PkmnCenterNurse_SecondNurse_ResetEVs::
+	checkmoney SECOND_NURSE_RESETEV_PRICE
+	goto_if_eq VAR_RESULT, FALSE, EventScript_PkmnCenterNurse_SecondNurse_NotEnoughMoney
+	msgbox Text_SecondNurse_SelectMon, MSGBOX_NPC
+	special ChoosePartyMon
+	waitstate
+	compare VAR_0x8004, PARTY_SIZE
+	goto_if_ge EventScript_PkmnCenterNurse_SecondNurse_Cancel
+	specialvar VAR_RESULT, GetPartyMonSpecies
+	compare VAR_RESULT, SPECIES_EGG
+	goto_if_eq EventScript_PkmnCenterNurse_SecondNurse_NoEgg
+	goto EventScript_PkmnCenterNurse_SecondNurse_ChooseEVstat
+	end
+
+EventScript_PkmnCenterNurse_SecondNurse_Cancel::
+	msgbox Text_SecondNurse_ComebackAnytime, MSGBOX_NPC
+	end
+
+EventScript_PkmnCenterNurse_SecondNurse_NoEgg::
+	msgbox Text_SecondNurse_NoEgg, MSGBOX_NPC
+	end
+
+EventScript_PkmnCenterNurse_SecondNurse_ChooseNature::
+	message Text_SecondNurse_ChooseNature
+	waitmessage
+	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURES, TRUE
+	goto EventScript_PkmnCenterNurse_SecondNurse_DoNatureChange
+	end
+
+EventScript_PkmnCenterNurse_SecondNurse_DoNatureChange::
+	special ChangeNature
+	removemoney SECOND_NURSE_CHANGE_NATURE_PRICE
+	msgbox Text_SecondNurse_NatureChanged, MSGBOX_NPC
+	end
+
+EventScript_PkmnCenterNurse_SecondNurse_DoReset::
+	specialvar VAR_RESULT, ResetMonEVs
+	goto_if_eq VAR_RESULT, TRUE, EventScript_PkmnCenterNurse_SecondNurse_FinishReset
+	msgbox Text_SecondNurse_NothingToReset, MSGBOX_NPC 
+	end
+
+EventScript_PkmnCenterNurse_SecondNurse_FinishReset::
+	removemoney SECOND_NURSE_RESETEV_PRICE
+	msgbox Text_SecondNurse_ResetEVs, MSGBOX_NPC
+	end
+
+EventScript_PkmnCenterNurse_SecondNurse_ChooseEVstat::
+	message Text_SecondNurse_ChooseStat
+	waitmessage
+	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_STATS, TRUE
+	goto_if_eq VAR_RESULT, 6, EventScript_PkmnCenterNurse_SecondNurse_Cancel
+	goto EventScript_PkmnCenterNurse_SecondNurse_DoReset
+	end
