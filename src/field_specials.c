@@ -420,9 +420,10 @@ bool8 AreLeadMonEVsMaxedOut(void)
 void ChangeNature(void)
 {
     bool32 CustomNature = TRUE;
+    u8 Nature = (5 * gSpecialVar_0x8007) + gSpecialVar_Result;
 
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HAS_CUSTOM_NATURE, &CustomNature);
-    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_CUSTOM_NATURE_ID, &gSpecialVar_Result);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_CUSTOM_NATURE_ID, &Nature);
     
     ApplyFriendshipPenalty(15);
     CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
@@ -451,6 +452,14 @@ bool8 ResetMonEVs(void)
     CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 
     return TRUE;
+}
+
+void ApplyFriendshipPenalty(u8 resetPenalty)
+{
+    u8 newFriendship;
+
+    ApplyFriendshipPenalty(15);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }
 
 void ApplyFriendshipPenalty(u8 resetPenalty)

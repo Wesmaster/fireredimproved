@@ -126,7 +126,39 @@ EventScript_PkmnCenterNurse_SecondNurse_NoEgg::
 EventScript_PkmnCenterNurse_SecondNurse_ChooseNature::
 	message Text_SecondNurse_ChooseNature
 	waitmessage
-	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURES, TRUE
+	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_CATEGORIES, TRUE
+	copyvar VAR_0x8007, VAR_RESULT
+	switch VAR_RESULT
+	case 0, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Attack
+	case 1, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Defense
+	case 2, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_SpAttack
+	case 3, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_SpDefense
+	case 4, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Speed
+	releaseall
+	end
+
+EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Attack::
+	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_ATTACK, FALSE
+	goto EventScript_PkmnCenterNurse_SecondNurse_DoNatureChange
+	end
+
+EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Defense::
+	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_DEFENSE, FALSE
+	goto EventScript_PkmnCenterNurse_SecondNurse_DoNatureChange
+	end
+
+EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_SpAttack::
+	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_SPATTACK, FALSE
+	goto EventScript_PkmnCenterNurse_SecondNurse_DoNatureChange
+	end
+
+EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_SpDefense::
+	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_SPDEFENSE, FALSE
+	goto EventScript_PkmnCenterNurse_SecondNurse_DoNatureChange
+	end
+
+EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Speed::
+	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_SPEED, FALSE
 	goto EventScript_PkmnCenterNurse_SecondNurse_DoNatureChange
 	end
 

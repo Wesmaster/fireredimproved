@@ -71,8 +71,13 @@
 #define MULTICHOICE_TRAINER_TOWER_MODE                         64
 #define MULTICHOICE_STARTER_REGION                             65
 #define MULTICHOICE_SECOND_NURSE                               66
-#define MULTICHOICE_SECOND_NURSE_NATURES                       67
-#define MULTICHOICE_SECOND_NURSE_STATS                         68
+#define MULTICHOICE_SECOND_NURSE_NATURE_CATEGORIES             67
+#define MULTICHOICE_SECOND_NURSE_NATURE_ATTACK                 68
+#define MULTICHOICE_SECOND_NURSE_NATURE_DEFENSE                69
+#define MULTICHOICE_SECOND_NURSE_NATURE_SPATTACK               70
+#define MULTICHOICE_SECOND_NURSE_NATURE_SPDEFENSE              71
+#define MULTICHOICE_SECOND_NURSE_NATURE_SPEED                  72
+#define MULTICHOICE_SECOND_NURSE_STATS                         73
 
 #define MULTICHOICE_NONE                                      255
 
