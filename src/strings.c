@@ -1345,3 +1345,27 @@ const u8 gText_Nature_Lonely[] = _("Lonely +ATK -DEF");
 const u8 gText_Nature_Brave[] = _("Brave +ATK -SPEED");
 const u8 gText_Nature_Adamant[] = _("Adamant +ATK -SP.ATK");
 const u8 gText_Nature_Naughty[] = _("Naughty +ATK -SP.DEF");
+
+const u8 gText_Nature_Bold[] = _("Bold +DEF -ATK");
+const u8 gText_Nature_Docile[] = _("Docile");
+const u8 gText_Nature_Relaxed[] = _("Relaxed +DEF -SPEED");
+const u8 gText_Nature_Impish[] = _("Impish +DEF -SP.ATK");
+const u8 gText_Nature_Lax[] = _("Lax +DEF -SP.DEF");
+
+const u8 gText_Nature_Timid[] = _("Timid +SPEED -ATK");
+const u8 gText_Nature_Hasty[] = _("Hasty +SPEED -DEF");
+const u8 gText_Nature_Serious[] = _("Serious");
+const u8 gText_Nature_Jolly[] = _("Jolly +SPEED -SP.ATK");
+const u8 gText_Nature_Naive[] = _("Naive +SPEED -SP.DEF");
+
+const u8 gText_Nature_Modest[] = _("Modest +SP.ATK -ATK");
+const u8 gText_Nature_Mild[] = _("Mild +SP.ATK -DEF");
+const u8 gText_Nature_Quiet[] = _("Quiet +SP.ATK -SPEED");
+const u8 gText_Nature_Bashful[] = _("Bashful");
+const u8 gText_Nature_Rash[] = _("Rash +SP.ATK -SP.DEF");
+
+const u8 gText_Nature_Calm[] = _("Calm +SP.DEF -ATK");
+const u8 gText_Nature_Gentle[] = _("Gentle +SP.DEF -DEF");
+const u8 gText_Nature_Sassy[] = _("Sassy +SP.DEF -SPEED");
+const u8 gText_Nature_Careful[] = _("Careful +SP.DEF -SP.ATK");
+const u8 gText_Nature_Quirky[] = _("Quirky");
