@@ -1340,6 +1340,12 @@ const u8 gText_Friendship[] = _("Friendship");
 const u8 gText_ChangeNature[] = _("Change nature");
 const u8 gText_ResetEVs[] = _("Reset EVs");
 
+const u8 gText_Attack[] = _("Attack");
+const u8 gText_Defense[] = _("Defense");
+const u8 gText_SpAttack[] = _("Sp.Atk");
+const u8 gText_SpDefense[] = _("Sp.Def");
+const u8 gText_Speed[] = _("Speed");
+
 const u8 gText_Nature_Hardy[] = _("Hardy");
 const u8 gText_Nature_Lonely[] = _("Lonely +ATK -DEF");
 const u8 gText_Nature_Brave[] = _("Brave +ATK -SPEED");
