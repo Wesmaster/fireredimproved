@@ -458,14 +458,6 @@ void ApplyFriendshipPenalty(u8 resetPenalty)
 {
     u8 newFriendship;
 
-    ApplyFriendshipPenalty(15);
-    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
-}
-
-void ApplyFriendshipPenalty(u8 resetPenalty)
-{
-    u8 newFriendship;
-
     newFriendship = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_FRIENDSHIP, NULL) - resetPenalty;
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_FRIENDSHIP, &newFriendship);
 }
