@@ -126,11 +126,11 @@ EventScript_PkmnCenterNurse_SecondNurse_ChooseNature::
 	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_CATEGORIES, FALSE
 	copyvar VAR_0x8007, VAR_RESULT
 	switch VAR_RESULT
-	case 0, goto EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Attack
-	case 1, goto EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Defense
-	case 2, goto EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_SpAttack
-	case 3, goto EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_SpDefense
-	case 4, goto EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Speed
+	case 0, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Attack
+	case 1, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Defense
+	case 2, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_SpAttack
+	case 3, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_SpDefense
+	case 4, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Speed
 	releaseall
 	end
 
