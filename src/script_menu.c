@@ -511,8 +511,8 @@ static const struct MenuAction sMultichoiceList_SecondNurse[] = {
 static const struct MenuAction sMultichoiceList_SecondNurseNatureCategories[] = {
     { gText_Attack },
     { gText_Defense },
-    { gText_SpAttack },
-    { gText_SpDefense },
+    { gText_Special_Attack },
+    { gText_Special_Defense },
     { gText_Speed },
     { gText_NoThanks }
 };
@@ -559,6 +559,16 @@ static const struct MenuAction sMultichoiceList_SecondNurseNature_Speed[] = {
     { gText_Nature_Sassy },
     { gText_Nature_Careful },
     { gText_Nature_Quirky },
+    { gText_NoThanks }
+};
+
+static const struct MenuAction sMultichoiceList_SecondNurseStats[] = {
+    { gText_HP },
+    { gText_Attack },
+    { gText_Defense },
+    { gText_Special_Attack },
+    { gText_Special_Defense },
+    { gText_Speed },
     { gText_NoThanks }
 };
 
@@ -636,6 +646,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] = {
     [MULTICHOICE_SECOND_NURSE_NATURE_SPATTACK]               = MULTICHOICE(sMultichoiceList_SecondNurseNature_SpAttack),
     [MULTICHOICE_SECOND_NURSE_NATURE_SPDEFENSE]              = MULTICHOICE(sMultichoiceList_SecondNurseNature_SpDefense),
     [MULTICHOICE_SECOND_NURSE_NATURE_SPEED]                  = MULTICHOICE(sMultichoiceList_SecondNurseNature_Speed),
+    [MULTICHOICE_SECOND_NURSE_STATS]                         = MULTICHOICE(sMultichoiceList_SecondNurseStats),
 };
 
 // From Cool to Berries goes unused

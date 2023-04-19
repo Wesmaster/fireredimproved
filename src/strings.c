@@ -1337,14 +1337,8 @@ const u8 gText_Kanto[] = _("Kanto");
 const u8 gText_Johto[] = _("Johto");
 const u8 gText_Hoenn[] = _("Hoenn");
 const u8 gText_Friendship[] = _("Friendship");
-const u8 gText_ChangeNature[] = _("Change nature");
-const u8 gText_ResetEVs[] = _("Reset EVs");
-
-const u8 gText_Attack[] = _("Attack");
-const u8 gText_Defense[] = _("Defense");
-const u8 gText_SpAttack[] = _("Sp.Atk");
-const u8 gText_SpDefense[] = _("Sp.Def");
-const u8 gText_Speed[] = _("Speed");
+const u8 gText_ChangeNature[] = _("Change nature ¥1000");
+const u8 gText_ResetEVs[] = _("Reset EVs ¥500");
 
 const u8 gText_Nature_Hardy[] = _("Hardy");
 const u8 gText_Nature_Lonely[] = _("Lonely +ATK -DEF");
@@ -1375,3 +1369,10 @@ const u8 gText_Nature_Gentle[] = _("Gentle +SP.DEF -DEF");
 const u8 gText_Nature_Sassy[] = _("Sassy +SP.DEF -SPEED");
 const u8 gText_Nature_Careful[] = _("Careful +SP.DEF -SP.ATK");
 const u8 gText_Nature_Quirky[] = _("Quirky");
+
+const u8 gText_HP[] = _("HP");
+const u8 gText_Attack[] = _("Attack");
+const u8 gText_Defense[] = _("Defense");
+const u8 gText_Special_Attack[] = _("Special attack");
+const u8 gText_Special_Defense[] = _("Special defense");
+const u8 gText_Speed[] = _("Speed");

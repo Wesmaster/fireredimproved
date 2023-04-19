@@ -429,16 +429,34 @@ void ChangeNature(void)
     CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }
 
-void ResetMonEVs(void)
+bool8 ResetMonEVs(void)
 {
     u8 newEv = 0;
+    s32 datafield = gSpecialVar_Result + MON_DATA_HP_EV;
 
-    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &newEv);
-    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_EV, &newEv);
-    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_EV, &newEv);
-    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_EV, &newEv);
-    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_EV, &newEv);
-    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, &newEv);
+    switch (gSpecialVar_Result)
+    {
+        case 3:
+        case 4:
+            datafield += 1;
+            break;
+        case 5:
+            datafield -= 2;
+            break;   
+    }
+    if (GetMonData(&gPlayerParty[gSpecialVar_0x8004], datafield, NULL) == 0)
+        return FALSE;
+
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], datafield, &newEv);
+    ApplyFriendshipPenalty(15);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+
+    return TRUE;
+}
+
+void ApplyFriendshipPenalty(u8 resetPenalty)
+{
+    u8 newFriendship;
 
     ApplyFriendshipPenalty(15);
     CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);

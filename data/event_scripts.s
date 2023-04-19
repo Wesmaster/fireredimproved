@@ -1371,7 +1371,7 @@ Text_SecondNurse_NatureChanged::
 	.string "This Pokémon's nature has changed.$"
 
 Text_SecondNurse_ResetEVs::
-    .string "The EVs of this Pokémon are reset.$"
+    .string "The EV stat of this Pokémon is reset.$"
 
 Text_SecondNurse_ComebackAnytime::
 	.string "Come back anytime.$"
@@ -1381,8 +1381,13 @@ Text_SecondNurse_NoEgg::
 	.string "of an EGG.$"
 
 Text_SecondNurse_NotEnoughMoney::
-    .string "My services require ¥1000,\n"
-    .string "you do not have enough money.$"
+    .string "You do not have enough money.$"
 
 Text_SecondNurse_ChooseNature::
-	.string "Choose the desired nature.$"
+	.string "Choose the desired nature$"
+
+Text_SecondNurse_ChooseStat::
+	.string "For which stat?$"
+
+Text_SecondNurse_NothingToReset::
+	.string "A reset is not necessary.$"

@@ -77,6 +77,7 @@
 #define MULTICHOICE_SECOND_NURSE_NATURE_SPATTACK               70
 #define MULTICHOICE_SECOND_NURSE_NATURE_SPDEFENSE              71
 #define MULTICHOICE_SECOND_NURSE_NATURE_SPEED                  72
+#define MULTICHOICE_SECOND_NURSE_STATS                         73
 
 #define MULTICHOICE_NONE                                      255
 

@@ -1558,12 +1558,6 @@ extern const u8 gText_Friendship[];
 extern const u8 gText_ChangeNature[];
 extern const u8 gText_ResetEVs[];
 
-extern const u8 gText_Attack[];
-extern const u8 gText_Defense[];
-extern const u8 gText_SpAttack[];
-extern const u8 gText_SpDefense[];
-extern const u8 gText_Speed[];
-
 // Natures for second nurse
 extern const u8 gText_Nature_Hardy[];
 extern const u8 gText_Nature_Lonely[];
@@ -1594,5 +1588,13 @@ extern const u8 gText_Nature_Gentle[];
 extern const u8 gText_Nature_Sassy[];
 extern const u8 gText_Nature_Careful[];
 extern const u8 gText_Nature_Quirky[];
+
+// Stats for second nurse
+extern const u8 gText_HP[];
+extern const u8 gText_Attack[];
+extern const u8 gText_Defense[];
+extern const u8 gText_Special_Attack[];
+extern const u8 gText_Special_Defense[];
+extern const u8 gText_Speed[];
 
 #endif //GUARD_STRINGS_H
