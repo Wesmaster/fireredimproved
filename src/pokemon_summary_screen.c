@@ -3142,7 +3142,13 @@ static void PokeSum_PrintPageHeaderText(u8 curPageIndex)
         PrintMonLevelNickOnWindow2(gText_PokeSum_NoData);
         break;
     case PSS_PAGE_SKILLS:
-        PokeSum_PrintPageName(gText_PokeSum_PageName_PokemonSkills);
+        if (sMonSummaryScreen->curStats == 0)
+            PokeSum_PrintPageName(gText_PokeSum_PageName_PokemonSkills);
+        else if (sMonSummaryScreen->curStats == 1)
+            PokeSum_PrintPageName(gText_PokeSum_PageName_PokemonSkillsIv);
+        else if (sMonSummaryScreen->curStats == 2)
+            PokeSum_PrintPageName(gText_PokeSum_PageName_PokemonSkillsEv);
+            
         PokeSum_PrintControlsString(gText_PokeSum_Controls_Page);
         PrintMonLevelNickOnWindow2(gText_PokeSum_NoData);
         break;
