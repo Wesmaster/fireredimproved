@@ -716,6 +716,9 @@ static const struct BgTemplate sBgTempaltes[] =
 #define POKESUM_WIN_MOVES_5          5
 #define POKESUM_WIN_MOVES_6          6
 
+#define SKILLS_IV                    0
+#define SKILLS_EV                    1
+
 static const struct WindowTemplate sWindowTemplates_Permanent_Bg1[] =
 {
     [POKESUM_WIN_PAGE_NAME] = {
@@ -1196,9 +1199,12 @@ static void Task_InputHandler_Info(u8 taskId)
 					PlaySE(SE_SELECT); // play select sound
 					if(sMonSummaryScreen->curStats == 0) //if 0 -> load IV/EV, else load normal stats
 					{
-						BufferMonSkillsAlt(); //buffers IV/EV values
+						BufferMonSkillsAlt(SKILLS_IV); //buffers IV/EV values
 						sMonSummaryScreen->curStats++; //sets flag so next button press normal stat page is buffered again
-					}else{
+					}else if(sMonSummaryScreen->curStats == 1){
+                        BufferMonSkillsAlt(SKILLS_EV);
+                        sMonSummaryScreen->curStats++;    
+                    }else{
 						BufferMonSkills(); //buffers normal stat values
 						sMonSummaryScreen->curStats=0; //sets flag to default value
 					}
@@ -2342,102 +2348,55 @@ static bool32 SetNatureIndication(u8 *dst, const s8 natureMod, char statValueStr
     return TRUE;
 }
 
-static void BufferMonSkillsAlt(void){
-    u8 tempStrHP[20];
-	u8 tempStrATK[20];
-	u8 tempStrDEF[20];
-	u8 tempStrSPA[20];
-	u8 tempStrSPD[20];
-	u8 tempStrSPE[20];
+static void BufferMonSkillsAlt(u8 mode)
+{
     u8 level;
     u16 type;
     u16 species;
     u16 hp;
-    u16 statValue;
+    u16 attack;
+    u16 defense;
+    u16 spAttack;
+    u16 spDefense;
+    u16 speed;
     u32 exp;
     u32 expToNextLevel;
 	
-    hp = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HP_IV);
+    if (mode == SKILLS_IV)
+    {
+        hp = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HP_IV);
+        attack = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_ATK_IV);
+        defense = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_DEF_IV);
+        spAttack = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPATK_IV);
+        spDefense = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPDEF_IV);
+        speed = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPEED_IV);
+    }
+    else if (mode == SKILLS_EV)
+    {
+        hp = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HP_EV);
+        attack = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_ATK_EV);
+        defense = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_DEF_EV);
+        spAttack = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPATK_EV);
+        spDefense = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPDEF_EV);
+        speed = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPEED_EV);
+    }
     ConvertIntToDecimalStringN(sMonSummaryScreen->summary.curHpStrBuf, hp, STR_CONV_MODE_LEFT_ALIGN, 3);
-    StringAppend(sMonSummaryScreen->summary.curHpStrBuf, gText_RegionMap_Space);
-
-    hp = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HP_EV);
-    ConvertIntToDecimalStringN(tempStrHP, hp, STR_CONV_MODE_LEFT_ALIGN, 3);
-    StringAppend(sMonSummaryScreen->summary.curHpStrBuf, tempStrHP);
-
     sMonSkillsPrinterXpos->curHpStr = GetNumberRightAlign63(sMonSummaryScreen->summary.curHpStrBuf);
 
-	//if you want it to work for enemy mon parties youd have to change it here
-    if (sMonSummaryScreen->savedCallback == CB2_ReturnToTradeMenuFromSummary && sMonSummaryScreen->isEnemyParty == TRUE)
-    {
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_ATK2);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_ATK], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-		sMonSkillsPrinterXpos->atkStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_ATK]);
-
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_DEF2);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_DEF], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-		sMonSkillsPrinterXpos->defStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_DEF]);
-
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPATK2);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPA], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-		sMonSkillsPrinterXpos->spAStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPA]);
-
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPDEF2);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPD], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-		sMonSkillsPrinterXpos->spDStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPD]);
-
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPEED2);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPE], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-		sMonSkillsPrinterXpos->speStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPE]);
-    }
-    else
-    {
-		//CHANGES HERE -> one block for each stat, each one works the same so im only gona comment the first one
-		statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_ATK_IV); //loads iv stat
-		//converts the IV stat into a string and copies it into the stat value buffer
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_ATK], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-		//adding a " " between IVs and EVs (alternativly if you want slashes replace it with gText_Slash)
-		StringAppend(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_ATK], gText_RegionMap_Space);
-		statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_ATK_EV); //loads ev stat
-		//converts EV stat into a string and copies it into a temporary string 
-		ConvertIntToDecimalStringN(tempStrATK, statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-		//adds the temporary EV string to the buffer so we get "IV EV"
-		StringAppend(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_ATK], tempStrATK);
-		//magic (formats the string buffer so that its ready to be used when the page is printed [i think])
-		sMonSkillsPrinterXpos->atkStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_ATK]);
+    ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_ATK], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
+	sMonSkillsPrinterXpos->atkStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_ATK]);
 		
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_DEF_IV);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_DEF], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-		StringAppend(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_DEF], gText_RegionMap_Space);
-		statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_DEF_EV);
-		ConvertIntToDecimalStringN(tempStrDEF, statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-		StringAppend(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_DEF], tempStrDEF);
-		sMonSkillsPrinterXpos->defStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_DEF]);
+    ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_DEF], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
+	sMonSkillsPrinterXpos->defStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_DEF]);
 
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPATK_IV);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPA], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-		StringAppend(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPA], gText_RegionMap_Space);
-		statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPATK_EV);
-		ConvertIntToDecimalStringN(tempStrSPA, statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-		StringAppend(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPA], tempStrSPA);
-		sMonSkillsPrinterXpos->spAStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPA]);
+    ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPA], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
+	sMonSkillsPrinterXpos->spAStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPA]);
 
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPDEF_IV);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPD], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-		StringAppend(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPD], gText_RegionMap_Space);
-		statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPDEF_EV);
-		ConvertIntToDecimalStringN(tempStrSPD, statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-		StringAppend(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPD], tempStrSPD);
-		sMonSkillsPrinterXpos->spDStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPD]);
+    ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPD], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
+	sMonSkillsPrinterXpos->spDStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPD]);
 
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPEED_IV);
-		ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPE], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-		StringAppend(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPE], gText_RegionMap_Space);
-		statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPEED_EV);
-		ConvertIntToDecimalStringN(tempStrSPE, statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-		StringAppend(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPE], tempStrSPE);
-		sMonSkillsPrinterXpos->speStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPE]);
-    }
+	ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPE], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
+	sMonSkillsPrinterXpos->speStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPE]);
 
     exp = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_EXP);
     ConvertIntToDecimalStringN(sMonSummaryScreen->summary.expPointsStrBuf, exp, STR_CONV_MODE_LEFT_ALIGN, 7);
