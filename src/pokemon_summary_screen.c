@@ -141,7 +141,7 @@ static void PokeSum_UpdateMonMarkingsAnim(void);
 static s8 SeekToNextMonInSingleParty(s8 direction);
 static s8 SeekToNextMonInMultiParty(s8 direction);
 static bool32 SetNatureIndication(u8 *dst, const s8 natureMod, char stat[]);
-static void BufferMonSkillsAlt(void);
+static void BufferMonSkillsAlt(u8 mode);
 
 struct PokemonSummaryScreenData
 {
