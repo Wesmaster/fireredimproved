@@ -1553,4 +1553,50 @@ extern const u8 gText_Kanto[];
 extern const u8 gText_Johto[];
 extern const u8 gText_Hoenn[];
 
+// Extra text summary screen
+extern const u8 gText_Friendship[];
+
+// Second nurse text
+extern const u8 gText_ChangeNature[];
+extern const u8 gText_ResetEVs[];
+
+// Natures for second nurse
+extern const u8 gText_Nature_Hardy[];
+extern const u8 gText_Nature_Lonely[];
+extern const u8 gText_Nature_Brave[];
+extern const u8 gText_Nature_Adamant[];
+extern const u8 gText_Nature_Naughty[];
+
+extern const u8 gText_Nature_Bold[];
+extern const u8 gText_Nature_Docile[];
+extern const u8 gText_Nature_Relaxed[];
+extern const u8 gText_Nature_Impish[];
+extern const u8 gText_Nature_Lax[];
+
+extern const u8 gText_Nature_Timid[];
+extern const u8 gText_Nature_Hasty[];
+extern const u8 gText_Nature_Serious[];
+extern const u8 gText_Nature_Jolly[];
+extern const u8 gText_Nature_Naive[];
+
+extern const u8 gText_Nature_Modest[];
+extern const u8 gText_Nature_Mild[];
+extern const u8 gText_Nature_Quiet[];
+extern const u8 gText_Nature_Bashful[];
+extern const u8 gText_Nature_Rash[];
+
+extern const u8 gText_Nature_Calm[];
+extern const u8 gText_Nature_Gentle[];
+extern const u8 gText_Nature_Sassy[];
+extern const u8 gText_Nature_Careful[];
+extern const u8 gText_Nature_Quirky[];
+
+// Stats for second nurse
+extern const u8 gText_HP[];
+extern const u8 gText_Attack[];
+extern const u8 gText_Defense[];
+extern const u8 gText_Special_Attack[];
+extern const u8 gText_Special_Defense[];
+extern const u8 gText_Speed[];
+
 #endif //GUARD_STRINGS_H

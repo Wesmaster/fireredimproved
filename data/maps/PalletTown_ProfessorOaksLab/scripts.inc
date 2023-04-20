@@ -229,6 +229,7 @@ PalletTown_ProfessorOaksLab_ChooseStarterScene::
 	end
 
 PalletTown_ProfessorOaksLab_ContinueChooseStarterScene::
+	msgbox PalletTown_ProfessorOaksLab_Text_OakThreeMonsChooseOne
 	closemessage
 	delay 30
 	applymovement LOCALID_RIVAL, PalletTown_ProfessorOaksLab_Movement_RivalReact

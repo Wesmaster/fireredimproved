@@ -78,3 +78,7 @@ SixIsland_PokemonCenter_1F_EventScript_Hiker::
 SixIsland_PokemonCenter_1F_EventScript_OldMan::
 	msgbox SixIsland_PokemonCenter_1F_Text_SomeMonsEvolveByTradingWithHeldItem, MSGBOX_NPC
 	end
+
+SixIsland_PokemonCenter_1F_EventScript_SecondNurse::
+	call EventScript_PkmnCenterNurse_SecondNurse_CheckMoney
+	end

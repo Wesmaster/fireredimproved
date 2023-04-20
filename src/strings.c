@@ -1338,3 +1338,43 @@ const u8 gText_DelAllCancelOk[] = _("DEL. ALL{CLEAR_TO 0x57}CANCEL{CLEAR_TO 0xA4
 const u8 gText_Kanto[] = _("Kanto");
 const u8 gText_Johto[] = _("Johto");
 const u8 gText_Hoenn[] = _("Hoenn");
+const u8 gText_Friendship[] = _("Friendship");
+const u8 gText_ChangeNature[] = _("Change nature ¥1000");
+const u8 gText_ResetEVs[] = _("Reset EVs ¥500");
+
+const u8 gText_Nature_Hardy[] = _("Hardy");
+const u8 gText_Nature_Lonely[] = _("Lonely +ATK -DEF");
+const u8 gText_Nature_Brave[] = _("Brave +ATK -SPEED");
+const u8 gText_Nature_Adamant[] = _("Adamant +ATK -SP.ATK");
+const u8 gText_Nature_Naughty[] = _("Naughty +ATK -SP.DEF");
+
+const u8 gText_Nature_Bold[] = _("Bold +DEF -ATK");
+const u8 gText_Nature_Docile[] = _("Docile");
+const u8 gText_Nature_Relaxed[] = _("Relaxed +DEF -SPEED");
+const u8 gText_Nature_Impish[] = _("Impish +DEF -SP.ATK");
+const u8 gText_Nature_Lax[] = _("Lax +DEF -SP.DEF");
+
+const u8 gText_Nature_Timid[] = _("Timid +SPEED -ATK");
+const u8 gText_Nature_Hasty[] = _("Hasty +SPEED -DEF");
+const u8 gText_Nature_Serious[] = _("Serious");
+const u8 gText_Nature_Jolly[] = _("Jolly +SPEED -SP.ATK");
+const u8 gText_Nature_Naive[] = _("Naive +SPEED -SP.DEF");
+
+const u8 gText_Nature_Modest[] = _("Modest +SP.ATK -ATK");
+const u8 gText_Nature_Mild[] = _("Mild +SP.ATK -DEF");
+const u8 gText_Nature_Quiet[] = _("Quiet +SP.ATK -SPEED");
+const u8 gText_Nature_Bashful[] = _("Bashful");
+const u8 gText_Nature_Rash[] = _("Rash +SP.ATK -SP.DEF");
+
+const u8 gText_Nature_Calm[] = _("Calm +SP.DEF -ATK");
+const u8 gText_Nature_Gentle[] = _("Gentle +SP.DEF -DEF");
+const u8 gText_Nature_Sassy[] = _("Sassy +SP.DEF -SPEED");
+const u8 gText_Nature_Careful[] = _("Careful +SP.DEF -SP.ATK");
+const u8 gText_Nature_Quirky[] = _("Quirky");
+
+const u8 gText_HP[] = _("HP");
+const u8 gText_Attack[] = _("Attack");
+const u8 gText_Defense[] = _("Defense");
+const u8 gText_Special_Attack[] = _("Special attack");
+const u8 gText_Special_Defense[] = _("Special defense");
+const u8 gText_Speed[] = _("Speed");

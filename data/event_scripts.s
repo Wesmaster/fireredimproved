@@ -1359,3 +1359,35 @@ Text_TestMsg::
 	.include "data/text/save.inc"
 	.include "data/text/new_game_intro.inc"
 	.include "data/text/pokedude.inc"
+
+Text_SecondNurse::
+    .string "Hi, what can I do for you?$"
+
+Text_SecondNurse_SelectMon::
+    .string "Which Pokémon do you want\n"
+	.string "me to take care of?$"
+
+Text_SecondNurse_NatureChanged::
+	.string "This Pokémon's nature has changed.$"
+
+Text_SecondNurse_ResetEVs::
+    .string "The EV stat of this Pokémon is reset.$"
+
+Text_SecondNurse_ComebackAnytime::
+	.string "Come back anytime.$"
+
+Text_SecondNurse_NoEgg::
+	.string "Sorry, I can't modify the stats\n"
+	.string "of an EGG.$"
+
+Text_SecondNurse_NotEnoughMoney::
+    .string "You do not have enough money.$"
+
+Text_SecondNurse_ChooseNature::
+	.string "Choose the desired nature$"
+
+Text_SecondNurse_ChooseStat::
+	.string "For which stat?$"
+
+Text_SecondNurse_NothingToReset::
+	.string "A reset is not necessary.$"

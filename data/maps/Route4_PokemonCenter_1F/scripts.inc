@@ -147,3 +147,7 @@ Route4_PokemonCenter_1F_EventScript_Newspaper::
 	msgbox Route4_PokemonCenter_1F_Text_ItsANewspaper
 	release
 	end
+
+Route4_PokemonCenter_1F_EventScript_SecondNurse::
+	call EventScript_PkmnCenterNurse_SecondNurse_CheckMoney
+	end
