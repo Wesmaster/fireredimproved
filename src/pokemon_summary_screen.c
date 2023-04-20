@@ -2359,7 +2359,8 @@ static void BufferMonSkillsAlt(u8 mode)
     u16 spAttack;
     u16 spDefense;
     u16 speed;
-    u16 friendship;
+    u8 friendship;
+    u8 tempStrFriend[20];
     u32 exp;
     u32 expToNextLevel;
 	
