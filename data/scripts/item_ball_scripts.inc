@@ -87,7 +87,7 @@ SSAnne_B1F_Room5_EventScript_ItemSuperPotion::
 	end
 
 SSAnne_Kitchen_EventScript_ItemGreatBall::
-	finditem ITEM_GREAT_BALL
+	finditem ITEM_POKE_BALL
 	end
 
 Route9_EventScript_ItemTM40::
@@ -151,7 +151,7 @@ PokemonTower_4F_EventScript_ItemAwakening::
 	end
 
 PokemonTower_4F_EventScript_ItemGreatBall::
-	finditem ITEM_GREAT_BALL
+	finditem ITEM_POKE_BALL
 	end
 
 PokemonTower_5F_EventScript_ItemNugget::
@@ -475,7 +475,7 @@ ViridianCity_EventScript_ItemPotion::
 	end
 
 Route11_EventScript_ItemGreatBall::
-	finditem ITEM_GREAT_BALL
+	finditem ITEM_POKE_BALL
 	end
 
 Route11_EventScript_ItemAwakening::

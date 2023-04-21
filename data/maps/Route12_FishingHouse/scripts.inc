@@ -76,7 +76,7 @@ Route12_FishingHouse_EventScript_TieRecordMagikarp::
 Route12_FishingHouse_EventScript_NewRecordMagikarp::
 	setflag FLAG_GOT_RECORD_SETTING_MAGIKARP
 	msgbox Route12_FishingHouse_Text_WhoaXInchesTakeThis
-	giveitem ITEM_NET_BALL
+	giveitem ITEM_POKE_BALL
 	goto_if_eq VAR_RESULT, FALSE, Route12_FishingHouse_EventScript_NoRoomForNetBall
 	msgbox Route12_FishingHouse_Text_LookForwardToGreaterRecords
 	release
