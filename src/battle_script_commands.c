@@ -2061,8 +2061,8 @@ static void Cmd_waitmessage(void)
 
 static void Cmd_printfromtable(void)
 {
-   // if (gBattleControllerExecFlags == 0)
- //   {
+    if (gBattleControllerExecFlags == 0)
+    {
         const u16 *ptr = (const u16 *) T1_READ_PTR(gBattlescriptCurrInstr + 1);
         ptr += gBattleCommunication[MULTISTRING_CHOOSER];
 
@@ -2070,7 +2070,7 @@ static void Cmd_printfromtable(void)
 
         gBattlescriptCurrInstr += 5;
         gBattleCommunication[MSG_DISPLAY] = 1;
-  //  }
+    }
 }
 
 static void Cmd_printselectionstringfromtable(void)
@@ -9699,7 +9699,7 @@ static void Cmd_displaydexinfo(void)
         gBattleCommunication[0]++;
         break;
     case 4:
-        if (!IsDma3ManagerBusyWithBgCopy())
+        /*if (!IsDma3ManagerBusyWithBgCopy())
         {
             CreateMonPicSprite_HandleDeoxys(species,
                                             gBattleMons[B_POSITION_OPPONENT_LEFT].otId,
@@ -9714,7 +9714,8 @@ static void Cmd_displaydexinfo(void)
             ShowBg(0);
             ShowBg(3);
             gBattleCommunication[0]++;
-        }
+        }*/
+        gBattleCommunication[0]++;
         break;
     case 5:
         if (!gPaletteFade.active)
