@@ -809,7 +809,7 @@ static const u8 sBallCatchBonuses[] =
 {
     [ITEM_ULTRA_BALL - ITEM_ULTRA_BALL]  = 20,
     [ITEM_GREAT_BALL - ITEM_ULTRA_BALL]  = 15,
-    [ITEM_POKE_BALL - ITEM_ULTRA_BALL]   = 10,
+    [ITEM_POKE_BALL - ITEM_ULTRA_BALL]   = 30,
     [ITEM_SAFARI_BALL - ITEM_ULTRA_BALL] = 15
 };
 
@@ -9609,6 +9609,7 @@ static void Cmd_handleballthrow(void)
             {
                 gBattleCommunication[MULTISTRING_CHOOSER] = shakes;
                 gBattlescriptCurrInstr = BattleScript_ShakeBallThrow;
+                AddBagItem(gLastUsedItem, 1);
             }
         }
     }
