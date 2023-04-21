@@ -67,7 +67,7 @@
     {
       "english": "POK\u00e9 BALL",
       "itemId": "ITEM_POKE_BALL",
-      "price": 200,
+      "price": 750,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "A BALL thrown to catch a wild\\nPOKéMON. It is designed in a\\ncapsule style.",
