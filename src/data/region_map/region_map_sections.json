@@ -397,7 +397,7 @@
     },
     {
       "map_section": "MAPSEC_POKEMON_LEAGUE",
-      "name": "Pok\u00e9mon League",
+      "name": "Pokemon League",
       "x": 0,
       "y": 0,
       "width": 1,
@@ -421,7 +421,7 @@
     },
     {
       "map_section": "MAPSEC_POKEMON_TOWER",
-      "name": "Pok\u00e9mon Tower",
+      "name": "Pokemon Tower",
       "x": 0,
       "y": 0,
       "width": 1,
