@@ -271,7 +271,7 @@ SilphCo_10F_EventScript_ItemCarbos::
 	end
 
 SilphCo_10F_EventScript_ItemUltraBall::
-	finditem ITEM_ULTRA_BALL
+	finditem ITEM_POKE_BALL
 	end
 
 SilphCo_10F_EventScript_ItemRareCandy::
@@ -387,7 +387,7 @@ CeruleanCave_2F_EventScript_ItemPPUp::
 	end
 
 CeruleanCave_2F_EventScript_ItemUltraBall::
-	finditem ITEM_ULTRA_BALL
+	finditem ITEM_POKE_BALL
 	end
 
 CeruleanCave_B1F_EventScript_ItemMaxRevive::
@@ -395,7 +395,7 @@ CeruleanCave_B1F_EventScript_ItemMaxRevive::
 	end
 
 CeruleanCave_B1F_EventScript_ItemUltraBall::
-	finditem ITEM_ULTRA_BALL
+	finditem ITEM_POKE_BALL
 	end
 
 FuchsiaCity_WardensHouse_EventScript_ItemRareCandy::
@@ -515,7 +515,7 @@ SeafoamIslands_B2F_EventScript_ItemBigPearl::
 	end
 
 SeafoamIslands_B4F_EventScript_ItemUltraBall::
-	finditem ITEM_ULTRA_BALL
+	finditem ITEM_POKE_BALL
 	end
 
 FourIsland_EventScript_ItemStarPiece::
@@ -599,7 +599,7 @@ ThreeIsland_BerryForest_EventScript_ItemMaxElixir::
 	end
 
 MtEmber_Exterior_EventScript_ItemUltraBall::
-	finditem ITEM_ULTRA_BALL
+	finditem ITEM_POKE_BALL
 	end
 
 MtEmber_Exterior_EventScript_ItemFireStone::
@@ -611,7 +611,7 @@ MtEmber_Exterior_EventScript_ItemDireHit::
 	end
 
 FourIsland_IcefallCave_1F_EventScript_ItemUltraBall::
-	finditem ITEM_ULTRA_BALL
+	finditem ITEM_POKE_BALL
 	end
 
 FourIsland_IcefallCave_1F_EventScript_ItemHM07::
