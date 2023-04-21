@@ -9609,6 +9609,7 @@ static void Cmd_handleballthrow(void)
             {
                 gBattleCommunication[MULTISTRING_CHOOSER] = shakes;
                 gBattlescriptCurrInstr = BattleScript_ShakeBallThrow;
+                AddBagItem(gLastUsedItem, 1);
             }
         }
     }
