@@ -23,7 +23,7 @@ Text_MonSentToBoxBillsBoxFull::
     .string "BOX “{STR_VAR_1}.”$"
 
 Text_MonJoinedTheTeam::
-    .string "{STR_VAR_2} joined the team.$"
+    .string "{STR_VAR_1} joined the team.$"
 
 Text_PlayerObtainedTheMon::
     .string "{PLAYER} obtained\n"

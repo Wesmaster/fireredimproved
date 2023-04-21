@@ -9620,7 +9620,7 @@ static void Cmd_givecaughtmon(void)
     {
         if (!ShouldShowBoxWasFullMessage())
         {
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_JOINED_TEAM;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SENT_SOMEONES_PC;
             StringCopy(gStringVar1, GetBoxNamePtr(VarGet(VAR_PC_BOX_TO_SEND_MON)));
             GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gStringVar2);
         }
@@ -9638,7 +9638,7 @@ static void Cmd_givecaughtmon(void)
     }
     else
     {
-        GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gStringVar2);
+        GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gStringVar1);
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_JOINED_TEAM;
     }
 
