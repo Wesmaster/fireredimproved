@@ -201,7 +201,7 @@ static const struct SpriteTemplate sFlickeringShrinkOrbSpriteTemplate =
 };
 
 // Presumably some debug text
-static const u8 sText_TaskOver[] = _("TASK OVER\nタスクがオ-バ-しました");
+static const u8 sText_TaskOver[] = _("Task Over\nタスクがオ-バ-しました");
 
 static const struct Subsprite sFrozenIceCubeSubsprites[] =
 {

@@ -2100,7 +2100,7 @@ u8 GetBattlerTurnOrderNum(u8 battlerId)
     return i;
 }
 
-// Called INCREMENT_RESET_RETURN in Emerald which adds "gBattleCommunication[MOVE_EFFECT_BYTE] = 0;" before the return.
+// Called INCREMENT_RESET_RETURN in Emerald which adds "gBattleCommunication[Move_effect_byte] = 0;" before the return.
 #define INCREMENT_RETURN                        \
 {                                               \
     gBattlescriptCurrInstr++;                   \
