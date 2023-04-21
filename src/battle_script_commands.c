@@ -9636,11 +9636,6 @@ static void Cmd_givecaughtmon(void)
         if (FlagGet(FLAG_SYS_NOT_SOMEONES_PC))
             gBattleCommunication[MULTISTRING_CHOOSER]++;
     }
-    else
-    {
-        GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gStringVar1);
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_JOINED_TEAM;
-    }
 
     gBattleResults.caughtMonSpecies = gBattleMons[gBattlerAttacker ^ BIT_SIDE].species;
     GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gBattleResults.caughtMonNick);
@@ -9699,22 +9694,6 @@ static void Cmd_displaydexinfo(void)
         gBattleCommunication[0]++;
         break;
     case 4:
-        /*if (!IsDma3ManagerBusyWithBgCopy())
-        {
-            CreateMonPicSprite_HandleDeoxys(species,
-                                            gBattleMons[B_POSITION_OPPONENT_LEFT].otId,
-                                            gBattleMons[B_POSITION_OPPONENT_LEFT].personality,
-                                            TRUE,
-                                            120,
-                                            64,
-                                            0,
-                                            0xFFFF);
-            CpuFill32(0, gPlttBufferFaded, BG_PLTT_SIZE);
-            BeginNormalPaletteFade(0x1FFFF, 0, 16, 0, RGB_BLACK);
-            ShowBg(0);
-            ShowBg(3);
-            gBattleCommunication[0]++;
-        }*/
         gBattleCommunication[0]++;
         break;
     case 5:

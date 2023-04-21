@@ -540,7 +540,6 @@
 #define B_MSG_SENT_BILLS_PC     1
 #define B_MSG_SOMEONES_BOX_FULL 2
 #define B_MSG_BILLS_BOX_FULL    3
-#define B_MSG_JOINED_TEAM       4
 
 // gInobedientStringIds
 #define B_MSG_LOAFING            0
