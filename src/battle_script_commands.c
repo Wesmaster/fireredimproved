@@ -2061,8 +2061,8 @@ static void Cmd_waitmessage(void)
 
 static void Cmd_printfromtable(void)
 {
-    if (gBattleControllerExecFlags == 0)
-    {
+   // if (gBattleControllerExecFlags == 0)
+ //   {
         const u16 *ptr = (const u16 *) T1_READ_PTR(gBattlescriptCurrInstr + 1);
         ptr += gBattleCommunication[MULTISTRING_CHOOSER];
 
@@ -2070,7 +2070,7 @@ static void Cmd_printfromtable(void)
 
         gBattlescriptCurrInstr += 5;
         gBattleCommunication[MSG_DISPLAY] = 1;
-    }
+  //  }
 }
 
 static void Cmd_printselectionstringfromtable(void)
