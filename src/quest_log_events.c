@@ -1908,8 +1908,8 @@ static bool8 ShouldRegisterEvent_HandleGameCorner(u16 eventId, const u16 *eventD
     if (eventId != QL_EVENT_DEPARTED)
         return TRUE;
 
-    // Bug: should be QL_LOCATION_GAME_CORNER + 1
-    if (*((u8 *)eventData + 1) == QL_LOCATION_GAME_CORNER && !sPlayedTheSlots)
+    // Bug fixed: should be QL_LOCATION_GAME_CORNER + 1
+    if (*((u8 *)eventData + 1) == (QL_LOCATION_GAME_CORNER + 1) && !sPlayedTheSlots)
         return FALSE;
 
     sPlayedTheSlots = FALSE;

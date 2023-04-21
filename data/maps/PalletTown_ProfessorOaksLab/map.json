@@ -82,7 +82,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_BulbasaurBall",
+      "script": "PalletTown_ProfessorOaksLab_EventScript_GrassBall",
       "flag": "FLAG_HIDE_BULBASAUR_BALL"
     },
     {
@@ -96,7 +96,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_SquirtleBall",
+      "script": "PalletTown_ProfessorOaksLab_EventScript_WaterBall",
       "flag": "FLAG_HIDE_SQUIRTLE_BALL"
     },
     {
@@ -110,7 +110,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PalletTown_ProfessorOaksLab_EventScript_CharmanderBall",
+      "script": "PalletTown_ProfessorOaksLab_EventScript_FireBall",
       "flag": "FLAG_HIDE_CHARMANDER_BALL"
     },
     {

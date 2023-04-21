@@ -26,7 +26,7 @@ LavenderTown_Mart_EventScript_Clerk::
 
 	.align 2
 LavenderTown_Mart_Items::
-	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_POKE_BALL
 	.2byte ITEM_SUPER_POTION
 	.2byte ITEM_REVIVE
 	.2byte ITEM_ANTIDOTE
@@ -35,6 +35,13 @@ LavenderTown_Mart_Items::
 	.2byte ITEM_ICE_HEAL
 	.2byte ITEM_ESCAPE_ROPE
 	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_RARE_CANDY
+	.2byte ITEM_HP_UP
+	.2byte ITEM_PROTEIN
+	.2byte ITEM_IRON
+	.2byte ITEM_CALCIUM
+	.2byte ITEM_ZINC
+	.2byte ITEM_CARBOS
 	.2byte ITEM_NONE
 	release
 	end

@@ -185,7 +185,7 @@ const u8 gTeachyTvText_RegisterScript2[] = _(
     "How do you use it?\n"
     "Well, here's how it works.\p"
     "Once an item in the Key Items\n"
-    "Pokcet is registered, you can use\l"
+    "Pocket is registered, you can use\l"
     "it by pressing Select.\p"
     "So, you've given yourself\n"
     "one-touch access to Teachy TV.\p"

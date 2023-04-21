@@ -15,4 +15,3 @@ ViridianCity_PokemonCenter_1F_Text_PokeCentersHealMons::
     .string "hurt, or fainted Pokémon.\p"
     .string "They make all Pokémon completely\n"
     .string "healthy.$"
-

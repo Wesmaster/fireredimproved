@@ -56,7 +56,6 @@ const u8 gText_PokedexTableOfContents[] = _("Pokédex   Table Of Contents");
 const u8 gText_PickOK[] = _("{DPAD_UPDOWN}Pick {A_BUTTON}OK");
 const u8 gText_Seen[] = _("Seen:");
 const u8 gText_Owned[] = _("Owned:");
-const u8 gText_Kanto[] = _("Kanto");
 const u8 gText_National[] = _("National");
 const u8 gText_PokemonHabitats[] = _("{COLOR DYNAMIC_COLOR6}{SHADOW DYNAMIC_COLOR5}Pokémon Habitats");
 const u8 gText_DexCategory_GrasslandPkmn[] = _("Grassland Pokémon");
@@ -830,6 +829,8 @@ const u8 gText_PokeSum_ATrade[] = _("a trade");
 const u8 gText_Somewhere[] = _("Somewhere");
 const u8 gText_PokeSum_PageName_PokemonInfo[] = _("Pokémon Info");
 const u8 gText_PokeSum_PageName_PokemonSkills[] = _("Pokémon Skills");
+const u8 gText_PokeSum_PageName_PokemonSkillsIv[] = _("Pokémon IV");
+const u8 gText_PokeSum_PageName_PokemonSkillsEv[] = _("Pokémon EV");
 const u8 gText_PokeSum_PageName_KnownMoves[] = _("Known Moves");
 const u8 gText_PokeSum_NoData[] = _("No data");
 const u8 gText_PokeSum_ExpPoints[] = _("Exp. Points");
@@ -1320,6 +1321,7 @@ const u8 gText_OkayToDiscardNews[] = _("Is it okay to discard this\nNews item?")
 const u8 gText_HaventReceivedGiftOkayToDiscard[] = _("You haven't received the\nGift. Is it okay to discard?");
 const u8 gText_DataWillBeSaved[] = _("Data will be saved.\nPlease wait.");
 const u8 gText_SaveCompletedPressA[] = _("Save completed.\nPlease press the A Button.");
+
 const u8 gText_WonderCardThrownAway[] = _("The Wonder Card was thrown away.");
 const u8 gText_WonderNewsThrownAway[] = _("The Wonder News was thrown away.");
 const u8 gText_MysteryGift2[] = _("Mystery Gift");
@@ -1333,3 +1335,47 @@ const u8 gText_Receive[] = _("Receive");
 const u8 gText_Send[] = _("Send");
 const u8 gText_Toss[] = _("Toss");
 const u8 gText_DelAllCancelOk[] = _("Del. All{CLEAR_TO 0x57}Cancel{CLEAR_TO 0xA4}OK");
+
+const u8 gText_Kanto[] = _("Kanto");
+const u8 gText_Johto[] = _("Johto");
+const u8 gText_Hoenn[] = _("Hoenn");
+const u8 gText_Friendship[] = _("Friendship");
+const u8 gText_ChangeNature[] = _("Change nature ¥1000");
+const u8 gText_ResetEVs[] = _("Reset EVs ¥500");
+
+const u8 gText_Nature_Hardy[] = _("Hardy");
+const u8 gText_Nature_Lonely[] = _("Lonely +ATK -DEF");
+const u8 gText_Nature_Brave[] = _("Brave +ATK -SPEED");
+const u8 gText_Nature_Adamant[] = _("Adamant +ATK -SP.ATK");
+const u8 gText_Nature_Naughty[] = _("Naughty +ATK -SP.DEF");
+
+const u8 gText_Nature_Bold[] = _("Bold +DEF -ATK");
+const u8 gText_Nature_Docile[] = _("Docile");
+const u8 gText_Nature_Relaxed[] = _("Relaxed +DEF -SPEED");
+const u8 gText_Nature_Impish[] = _("Impish +DEF -SP.ATK");
+const u8 gText_Nature_Lax[] = _("Lax +DEF -SP.DEF");
+
+const u8 gText_Nature_Timid[] = _("Timid +SPEED -ATK");
+const u8 gText_Nature_Hasty[] = _("Hasty +SPEED -DEF");
+const u8 gText_Nature_Serious[] = _("Serious");
+const u8 gText_Nature_Jolly[] = _("Jolly +SPEED -SP.ATK");
+const u8 gText_Nature_Naive[] = _("Naive +SPEED -SP.DEF");
+
+const u8 gText_Nature_Modest[] = _("Modest +SP.ATK -ATK");
+const u8 gText_Nature_Mild[] = _("Mild +SP.ATK -DEF");
+const u8 gText_Nature_Quiet[] = _("Quiet +SP.ATK -SPEED");
+const u8 gText_Nature_Bashful[] = _("Bashful");
+const u8 gText_Nature_Rash[] = _("Rash +SP.ATK -SP.DEF");
+
+const u8 gText_Nature_Calm[] = _("Calm +SP.DEF -ATK");
+const u8 gText_Nature_Gentle[] = _("Gentle +SP.DEF -DEF");
+const u8 gText_Nature_Sassy[] = _("Sassy +SP.DEF -SPEED");
+const u8 gText_Nature_Careful[] = _("Careful +SP.DEF -SP.ATK");
+const u8 gText_Nature_Quirky[] = _("Quirky");
+
+const u8 gText_HP[] = _("HP");
+const u8 gText_Attack[] = _("Attack");
+const u8 gText_Defense[] = _("Defense");
+const u8 gText_Special_Attack[] = _("Special attack");
+const u8 gText_Special_Defense[] = _("Special defense");
+const u8 gText_Speed[] = _("Speed");
