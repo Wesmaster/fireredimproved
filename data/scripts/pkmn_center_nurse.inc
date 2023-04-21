@@ -1,14 +1,8 @@
 EventScript_PkmnCenterNurse::
-	goto_if_questlog EventScript_ReleaseEnd
-	message Text_WelcomeWantToHealPkmn
-	waitmessage
 	goto EventScript_PkmnCenterNurse_HealPkmn
 	end
 
 EventScript_PkmnCenterNurse_HealPkmn::
-	incrementgamestat GAME_STAT_USED_POKECENTER
-	message Text_TakeYourPkmnForFewSeconds
-	waitmessage
 	call EventScript_PkmnCenterNurse_TakeAndHealPkmn
 	special SetUsedPkmnCenterQuestLogEvent
 	goto EventScript_PkmnCenterNurse_CheckTrainerTowerAndUnionRoom
@@ -36,8 +30,6 @@ EventScript_PkmnCenterNurse_CheckTrainerTowerAndUnionRoom::
 EventScript_PkmnCenterNurse_ReturnPkmn::
 	applymovement VAR_LAST_TALKED, Movement_Bow
 	waitmovement 0
-	msgbox Text_WeHopeToSeeYouAgain
-	waitmessage
 	goto EventScript_PkmnCenterNurse_PlayerTurn
 	return
 
