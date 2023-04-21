@@ -307,6 +307,11 @@ static void HandleInputChooseAction(void)
     {
         SwapHpBarsWithHpText();
     }
+    else if (JOY_NEW(R_BUTTON))
+    {
+        BtlController_EmitTwoReturnValues(1, B_ACTION_RUN, 0);
+        PlayerBufferExecCompleted();
+    }
 }
 
 // Unused
