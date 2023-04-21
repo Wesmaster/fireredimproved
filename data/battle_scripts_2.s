@@ -81,6 +81,8 @@ BattleScript_SafariNoIncGameStat::
 	setbyte gBattleCommunication, 0
 	displaydexinfo
 BattleScript_CaughtPokemonSkipNewDex::
+	setbyte gBattleCommunication, 4
+	trygivecaughtmonnick BattleScript_CaughtPokemonSkipNickname
 	givecaughtmon
 	printfromtable gCaughtMonStringIds
 	waitmessage B_WAIT_TIME_LONG
