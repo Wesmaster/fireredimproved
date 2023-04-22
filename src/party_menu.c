@@ -4402,6 +4402,10 @@ static void GetMedicineItemEffectMessage(u16 item)
     case ITEM_EFFECT_HEAL_PP:
         StringExpandPlaceholders(gStringVar4, gText_PPWasRestored);
         break;
+    case ITEM_EFFECT_ATK_IV:
+        StringCopy(gStringVar2, gText_ItemEffect_Attack);
+        StringExpandPlaceholders(gStringVar4, gText_PkmnBaseVar2StatIncreased);
+        break;    
     default:
         StringExpandPlaceholders(gStringVar4, gText_WontHaveEffect);
         break;
