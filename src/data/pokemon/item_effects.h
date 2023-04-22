@@ -193,7 +193,7 @@ static const u8 sItemEffect_Carbos[11] = {
 
 static const u8 sItemEffect_Calcium[11] = {
     [5] = ITEM5_EV_SPATK | ITEM5_FRIENDSHIP_ALL,
-    [7] = 7_ADD_EV,
+    [7] = ITEM7_ADD_EV,
     VITAMIN_FRIENDSHIP_CHANGE(8),
 };
 
