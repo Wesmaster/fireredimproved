@@ -4535,6 +4535,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                 i++;
                 val >>= 1;
             }
+            break;
         }
     }
     return retVal;
