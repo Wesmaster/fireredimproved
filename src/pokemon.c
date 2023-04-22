@@ -4859,6 +4859,26 @@ bool8 PokemonItemUseNoEffect(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mo
                 curEffect >>= 1;
             }
             break;
+        case 6:
+            curEffect = itemEffect[cmdIndex];
+            i = 0;
+
+            // Loop through and try each of the ITEM6 effects
+            while (curEffect)
+            {
+                if (curEffect & 1)
+                {
+                    data = GetMonData(mon, sGetMonDataIVConstants[i], NULL);
+                    if (data < MAX_PER_STAT_IVS)
+                    {
+                        retVal = FALSE;
+                        idx++;
+                    }
+                }
+                i++;
+                curEffect >>= 1;
+            }
+            break;
         }
     }
     return retVal;
