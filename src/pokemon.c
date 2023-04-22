@@ -4522,14 +4522,24 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
             {
                 if (val & 1)
                 {
-                    data = GetMonData(mon, sGetMonDataIVConstants[i], NULL);
-                    if (data < MAX_PER_STAT_IVS)
-                    {                        
-                        data += itemEffect[idx];
-                        SetMonData(mon, sGetMonDataIVConstants[i], &data);
-                        CalculateMonStats(mon);
-                        retVal = FALSE;
-                        idx++;
+                    switch(i)
+                    {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                        data = GetMonData(mon, sGetMonDataIVConstants[i], NULL);
+                        if (data < MAX_PER_STAT_IVS)
+                        {                        
+                            data += itemEffect[idx];
+                            SetMonData(mon, sGetMonDataIVConstants[i], &data);
+                            CalculateMonStats(mon);
+                            retVal = FALSE;
+                            idx++;
+                        }
+                        break;
                     }
                 }
                 i++;
