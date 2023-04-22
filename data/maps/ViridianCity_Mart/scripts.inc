@@ -77,6 +77,7 @@ ViridianCity_Mart_Items::
 	.2byte ITEM_ZINC
 	.2byte ITEM_CARBOS
 	.2byte ITEM_LIECHI_BERRY
+	.2byte ITEM_GANLON_BERRY
 	.2byte ITEM_NONE
 	release
 	end

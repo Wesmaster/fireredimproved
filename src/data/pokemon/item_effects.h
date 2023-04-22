@@ -336,11 +336,11 @@ static const u8 sItemEffect_SitrusBerry[8] = {
 };
 
 /*
-static const u8 sItemEffect_HPUp[10] = {
+static const u8 sItemEffect_HPUp[11] = {
     [5] = ITEM5_FRIENDSHIP_ALL,
-    [6] = ITEM6_ADD_IV,
-    [7] = ITEM7_IV_HP,
-    VITAMIN_FRIENDSHIP_CHANGE(7),
+    [6] = ITEM6_IV_HP,
+    [7] = ITEM7_ADD_IV,
+    VITAMIN_FRIENDSHIP_CHANGE(8),
 };*/
 
 static const u8 sItemEffect_LiechiBerry[11] = {
@@ -349,14 +349,14 @@ static const u8 sItemEffect_LiechiBerry[11] = {
     [7] = ITEM7_ADD_IV,
     VITAMIN_FRIENDSHIP_CHANGE(8),
 };
-/*
-static const u8 sItemEffect_Iron[10] = {
-    [5] = ITEM5_FRIENDSHIP_ALL,
-    [6] = ITEM6_ADD_IV,
-    [7] = ITEM7_IV_DEF,
-    VITAMIN_FRIENDSHIP_CHANGE(7),
-};
 
+static const u8 sItemEffect_GanlonBerry[11] = {
+    [5] = ITEM5_FRIENDSHIP_ALL,
+    [6] = ITEM6_IV_DEF,
+    [7] = ITEM7_ADD_IV,
+    VITAMIN_FRIENDSHIP_CHANGE(8),
+};
+/*
 static const u8 sItemEffect_Calcium[10] = {
     [5] = ITEM5_FRIENDSHIP_ALL,
     [6] = ITEM6_ADD_IV,
@@ -444,5 +444,6 @@ const u8 *const gItemEffectTable[] =
     [ITEM_LUM_BERRY - ITEM_POTION]     = sItemEffect_LumBerry,
     [ITEM_SITRUS_BERRY - ITEM_POTION]  = sItemEffect_SitrusBerry,
     [ITEM_LIECHI_BERRY - ITEM_POTION]  = sItemEffect_LiechiBerry,
+    [ITEM_GANLON_BERRY - ITEM_POTION]  = sItemEffect_GanlonBerry,
     [LAST_BERRY_INDEX - ITEM_POTION]   = NULL,
 };
