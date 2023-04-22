@@ -5390,6 +5390,8 @@ u8 GetItemEffectType(u16 item)
         return ITEM_EFFECT_PP_MAX;
     else if (itemEffect[4] & (ITEM4_HEAL_PP_ALL | ITEM4_HEAL_PP_ONE))
         return ITEM_EFFECT_HEAL_PP;
+    else if (itemEffect[6] & ITEM6_IV_ATK)
+        return ITEM_EFFECT_ATK_IV;
     else
         return ITEM_EFFECT_NONE;
 }

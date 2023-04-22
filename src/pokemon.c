@@ -1607,6 +1607,16 @@ static const u8 sGetMonDataEVConstants[] =
     MON_DATA_SPATK_EV
 };
 
+static const u8 sGetMonDataIVConstants[] =
+{
+    MON_DATA_HP_IV,
+    MON_DATA_ATK_IV,
+    MON_DATA_DEF_IV,
+    MON_DATA_SPEED_IV,
+    MON_DATA_SPDEF_IV,
+    MON_DATA_SPATK_IV
+};
+
 // For stat-raising items
 static const u8 sStatsToRaise[] = 
 {
@@ -4292,15 +4302,15 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                         data = itemEffect[idx++];
                         switch (data)
                         {
-                        case ITEM6_HEAL_HP_FULL:
+                        case ITEM7_HEAL_HP_FULL:
                             data = GetMonData(mon, MON_DATA_MAX_HP, NULL) - GetMonData(mon, MON_DATA_HP, NULL);
                             break;
-                        case ITEM6_HEAL_HP_HALF:
+                        case ITEM7_HEAL_HP_HALF:
                             data = GetMonData(mon, MON_DATA_MAX_HP, NULL) / 2;
                             if (data == 0)
                                 data = 1;
                             break;
-                        case ITEM6_HEAL_HP_LVL_UP:
+                        case ITEM7_HEAL_HP_LVL_UP:
                             data = gBattleScripting.levelUpHP;
                             break;
                         }
@@ -4503,6 +4513,28 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                 val >>= 1;
             }
             break;
+        case 6:
+            val = itemEffect[cmdIndex];
+            i = 0;
+
+            // Loop through and try each of the ITEM6 effects
+            while (val != 0)
+            {
+                if (val & 1)
+                {
+                    data = GetMonData(mon, sGetMonDataIVConstants[i], NULL);
+                    if (data < MAX_PER_STAT_IVS)
+                    {                        
+                        data += itemEffect[idx];
+                        SetMonData(mon, sGetMonDataIVConstants[i], &data);
+                        CalculateMonStats(mon);
+                        retVal = FALSE;
+                        idx++;
+                    }
+                }
+                i++;
+                val >>= 1;
+            }
         }
     }
     return retVal;
