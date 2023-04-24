@@ -4405,7 +4405,11 @@ static void GetMedicineItemEffectMessage(u16 item)
     case ITEM_EFFECT_ATK_IV:
         StringCopy(gStringVar2, gText_ItemEffect_Attack);
         StringExpandPlaceholders(gStringVar4, gText_PkmnBaseVar2StatIncreased);
-        break;    
+        break;
+    case ITEM_EFFECT_DEF_IV:
+        StringCopy(gStringVar2, gText_ItemEffect_Defense);
+        StringExpandPlaceholders(gStringVar4, gText_PkmnBaseVar2StatIncreased);
+        break; 
     default:
         StringExpandPlaceholders(gStringVar4, gText_WontHaveEffect);
         break;
@@ -5394,8 +5398,10 @@ u8 GetItemEffectType(u16 item)
         return ITEM_EFFECT_PP_MAX;
     else if (itemEffect[4] & (ITEM4_HEAL_PP_ALL | ITEM4_HEAL_PP_ONE))
         return ITEM_EFFECT_HEAL_PP;
-    else if (itemEffect[6] & ITEM6_IV_ATK)
+    else if (itemEffect[5] & ITEM5_IV_ATK)
         return ITEM_EFFECT_ATK_IV;
+    else if (itemEffect[5] & ITEM5_IV_DEF)
+        return ITEM_EFFECT_DEF_IV;
     else
         return ITEM_EFFECT_NONE;
 }
