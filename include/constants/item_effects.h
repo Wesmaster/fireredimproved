@@ -43,13 +43,11 @@
 #define ITEM5_EV_SPDEF          0x4
 #define ITEM5_EV_SPATK          0x8
 #define ITEM5_PP_MAX            0x10
-#define ITEM5_FRIENDSHIP_LOW    0x20
-#define ITEM5_FRIENDSHIP_MID    0x40
-#define ITEM5_FRIENDSHIP_HIGH   0x80
+#define ITEM5_IV_HP             0x20
+#define ITEM5_IV_ATK            0x40
+#define ITEM5_IV_DEF            0x80
 
-#define ITEM5_FRIENDSHIP_ALL    (ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID | ITEM5_FRIENDSHIP_HIGH)
-
-// fields 6 and onwards are item-specific arguments
+// fields 7 and onwards are item-specific arguments
 #define ITEM_EFFECT_ARG_START 7
 
 // Special HP recovery amounts for ITEM4_HEAL_HP
@@ -64,12 +62,14 @@
 #define ITEM7_ADD_EV       10
 #define ITEM7_SUBTRACT_EV -10
 
-#define ITEM6_IV_HP             0x1
-#define ITEM6_IV_ATK            0x2
-#define ITEM6_IV_DEF            0x4
-#define ITEM6_IV_SPATK          0x8
-#define ITEM6_IV_SPDEF          0x10
-#define ITEM6_IV_SPEED          0x20
+#define ITEM6_IV_SPATK          0x1
+#define ITEM6_IV_SPDEF          0x2
+#define ITEM6_IV_SPEED          0x4
+#define ITEM6_FRIENDSHIP_LOW    0x8
+#define ITEM6_FRIENDSHIP_MID    0x10
+#define ITEM6_FRIENDSHIP_HIGH   0x20
+
+#define ITEM5_FRIENDSHIP_ALL    (ITEM6_FRIENDSHIP_LOW | ITEM6_FRIENDSHIP_MID | ITEM6_FRIENDSHIP_HIGH)
 
 #define ITEM7_ADD_IV       1
 #define ITEM7_SUBTRACT_IV -1

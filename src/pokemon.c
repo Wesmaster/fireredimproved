@@ -4488,24 +4488,18 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                             retVal = FALSE;
                         }
                         break;
-                    case 5: // ITEM5_FRIENDSHIP_LOW
-                        // Changes to friendship are given differently depending on
-                        // how much friendship the Pokémon already has.
-                        // In general, Pokémon with lower friendship receive more,
-                        // and Pokémon with higher friendship receive less.
-                        if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) < 100)
-                            UPDATE_FRIENDSHIP_FROM_ITEM();
-                        idx++;
-                        break;
-                    case 6: // ITEM5_FRIENDSHIP_MID
-                        if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) >= 100 && GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) < 200)
-                            UPDATE_FRIENDSHIP_FROM_ITEM();
-                        idx++;
-                        break;
-                    case 7: // ITEM5_FRIENDSHIP_HIGH
-                        if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) >= 200)
-                            UPDATE_FRIENDSHIP_FROM_ITEM();
-                        idx++;
+                    case 5: // ITEM5_HP_IV
+                    case 6: // ITEM5_ATK_IV
+                    case 7: // ITEM5_DEF_IV
+                        data = GetMonData(mon, sGetMonDataIVConstants[i], NULL);
+                        if (data < MAX_PER_STAT_IVS)
+                        {                        
+                            data += itemEffect[idx];
+                            SetMonData(mon, sGetMonDataIVConstants[i], &data);
+                            CalculateMonStats(mon);
+                            retVal = FALSE;
+                            idx++;
+                        }
                         break;
                     }
                 }
@@ -4527,21 +4521,34 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                     case 0:
                     case 1:
                     case 2:
-                    case 3:
-                    case 4:
-                    case 5:
                         data = GetMonData(mon, sGetMonDataIVConstants[i], NULL);
                         if (data < MAX_PER_STAT_IVS)
                         {                        
-                            if(idx == 10)
-                                data += itemEffect[idx];
-                            else
-                                data += itemEffect[7];
+                            data += itemEffect[idx];
                             SetMonData(mon, sGetMonDataIVConstants[i], &data);
                             CalculateMonStats(mon);
                             retVal = FALSE;
                             idx++;
                         }
+                        break;
+                    case 3: // ITEM6_FRIENDSHIP_LOW
+                        // Changes to friendship are given differently depending on
+                        // how much friendship the Pokémon already has.
+                        // In general, Pokémon with lower friendship receive more,
+                        // and Pokémon with higher friendship receive less.
+                        if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) < 100)
+                            UPDATE_FRIENDSHIP_FROM_ITEM();
+                        idx++;
+                        break;
+                    case 4: // ITEM6_FRIENDSHIP_MID
+                        if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) >= 100 && GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) < 200)
+                            UPDATE_FRIENDSHIP_FROM_ITEM();
+                        idx++;
+                        break;
+                    case 5: // ITEM6_FRIENDSHIP_HIGH
+                        if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) >= 200)
+                            UPDATE_FRIENDSHIP_FROM_ITEM();
+                        idx++;
                         break;
                     }
                 }

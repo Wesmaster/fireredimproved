@@ -80,7 +80,7 @@ static const u8 sItemEffect_MoomooMilk[8] = {
 
 static const u8 sItemEffect_EnergyPowder[11] = {
     [4] = ITEM4_HEAL_HP,
-    [5] = ITEM5_FRIENDSHIP_ALL,
+    [6] = ITEM6_FRIENDSHIP_ALL,
     [7] = 50,  // Amount of HP to recover
     [8] = -5,  // Friendship change, low
     [9] = -5,  // Friendship change, mid
@@ -89,7 +89,7 @@ static const u8 sItemEffect_EnergyPowder[11] = {
 
 static const u8 sItemEffect_EnergyRoot[11] = {
     [4] = ITEM4_HEAL_HP,
-    [5] = ITEM5_FRIENDSHIP_ALL,
+    [6] = ITEM6_FRIENDSHIP_ALL,
     [7] = 200, // Amount of HP to recover
     [8] = -10, // Friendship change, low
     [9] = -10, // Friendship change, mid
@@ -98,7 +98,7 @@ static const u8 sItemEffect_EnergyRoot[11] = {
 
 static const u8 sItemEffect_HealPowder[11] = {
     [3] = ITEM3_STATUS_ALL,
-    [5] = ITEM5_FRIENDSHIP_ALL,
+    [6] = ITEM6_FRIENDSHIP_ALL,
     [8] = -5,  // Friendship change, low
     [9] = -5,  // Friendship change, mid
     [10] = -10, // Friendship change, high
@@ -106,8 +106,8 @@ static const u8 sItemEffect_HealPowder[11] = {
 
 static const u8 sItemEffect_RevivalHerb[11] = {
     [4] = ITEM4_REVIVE | ITEM4_HEAL_HP,
-    [5] = ITEM5_FRIENDSHIP_ALL,
-    [6] = ITEM7_HEAL_HP_FULL,
+    [6] = ITEM6_FRIENDSHIP_ALL,
+    [7] = ITEM7_HEAL_HP_FULL,
     [8] = -15, // Friendship change, low
     [9] = -15, // Friendship change, mid
     [10] = -20, // Friendship change, high
@@ -167,32 +167,35 @@ static const u8 sItemEffect_SacredAsh[8] = {
 
 static const u8 sItemEffect_HPUp[11] = {
     [4] = ITEM4_EV_HP,
-    [5] = ITEM5_FRIENDSHIP_ALL,
+    [6] = ITEM6_FRIENDSHIP_ALL,
     [7] = ITEM7_ADD_EV,
     VITAMIN_FRIENDSHIP_CHANGE(8),
 };
 
 static const u8 sItemEffect_Protein[11] = {
     [4] = ITEM4_EV_ATK,
-    [5] = ITEM5_FRIENDSHIP_ALL,
+    [6] = ITEM6_FRIENDSHIP_ALL,
     [7] = ITEM7_ADD_EV,
     VITAMIN_FRIENDSHIP_CHANGE(8),
 };
 
 static const u8 sItemEffect_Iron[11] = {
-    [5] = ITEM5_EV_DEF | ITEM5_FRIENDSHIP_ALL,
+    [5] = ITEM5_EV_DEF
+    [6] = ITEM6_FRIENDSHIP_ALL,
     [7] = ITEM7_ADD_EV,
     VITAMIN_FRIENDSHIP_CHANGE(8),
 };
 
 static const u8 sItemEffect_Carbos[11] = {
-    [5] = ITEM5_EV_SPEED | ITEM5_FRIENDSHIP_ALL,
+    [5] = ITEM5_EV_SPEED
+    [6] = ITEM6_FRIENDSHIP_ALL,
     [7] = ITEM7_ADD_EV,
     VITAMIN_FRIENDSHIP_CHANGE(8),
 };
 
 static const u8 sItemEffect_Calcium[11] = {
-    [5] = ITEM5_EV_SPATK | ITEM5_FRIENDSHIP_ALL,
+    [5] = ITEM5_EV_SPATK,
+    [6] = ITEM6_FRIENDSHIP_ALL,
     [7] = ITEM7_ADD_EV,
     VITAMIN_FRIENDSHIP_CHANGE(8),
 };
@@ -200,71 +203,73 @@ static const u8 sItemEffect_Calcium[11] = {
 static const u8 sItemEffect_RareCandy[11] = {
     [3] = ITEM3_LEVEL_UP,
     [4] = ITEM4_REVIVE | ITEM4_HEAL_HP,
-    [5] = ITEM5_FRIENDSHIP_ALL,
+    [6] = ITEM6_FRIENDSHIP_ALL,
     [7] = ITEM7_HEAL_HP_LVL_UP,
     VITAMIN_FRIENDSHIP_CHANGE(8),
 };
 
 static const u8 sItemEffect_PPUp[10] = {
     [4] = ITEM4_PP_UP,
-    [5] = ITEM5_FRIENDSHIP_ALL,
+    [6] = ITEM6_FRIENDSHIP_ALL,
     VITAMIN_FRIENDSHIP_CHANGE(7),
 };
 
 static const u8 sItemEffect_Zinc[11] = {
-    [5] = ITEM5_EV_SPDEF | ITEM5_FRIENDSHIP_ALL,
+    [5] = ITEM5_EV_SPDEF,
+    [6] = ITEM6_FRIENDSHIP_ALL,
     [7] = ITEM7_ADD_EV,
     VITAMIN_FRIENDSHIP_CHANGE(8),
 };
 
 static const u8 sItemEffect_PPMax[10] = {
-    [5] = ITEM5_PP_MAX | ITEM5_FRIENDSHIP_ALL,
+    [5] = ITEM5_PP_MAX,
+    [6] = ITEM6_FRIENDSHIP_ALL,
     VITAMIN_FRIENDSHIP_CHANGE(7),
 };
 
 #define STAT_BOOST_FRIENDSHIP_CHANGE      \
-    [6] = 1, /* Friendship change, low */ \
-    [7] = 1  /* Friendship change, mid */
+    [7] = 1, /* Friendship change, low */ \
+    [8] = 1  /* Friendship change, mid */
 
-static const u8 sItemEffect_GuardSpec[8] = {
+static const u8 sItemEffect_GuardSpec[9] = {
     [3] = ITEM3_GUARD_SPEC,
-    [5] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
+    [6] = ITEM6_FRIENDSHIP_LOW | ITEM6_FRIENDSHIP_MID,
     STAT_BOOST_FRIENDSHIP_CHANGE
 };
 
-static const u8 sItemEffect_DireHit[8] = {
+static const u8 sItemEffect_DireHit[9] = {
     [0] = 2 << 4, // ITEM0_DIRE_HIT
-    [5] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
+    [6] = ITEM6_FRIENDSHIP_LOW | ITEM6_FRIENDSHIP_MID,
     STAT_BOOST_FRIENDSHIP_CHANGE
 };
 
-static const u8 sItemEffect_XAttack[8] = {
+static const u8 sItemEffect_XAttack[9] = {
     [0] = 1, // ITEM0_X_ATTACK
-    [5] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
+    [6] = ITEM6_FRIENDSHIP_LOW | ITEM6_FRIENDSHIP_MID,
     STAT_BOOST_FRIENDSHIP_CHANGE
 };
 
-static const u8 sItemEffect_XDefend[8] = {
+static const u8 sItemEffect_XDefend[9] = {
     [1] = 1 << 4, /// ITEM1_X_DEFEND
-    [5] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
+    [6] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
     STAT_BOOST_FRIENDSHIP_CHANGE,
 };
 
-static const u8 sItemEffect_XSpeed[8] = {
+static const u8 sItemEffect_XSpeed[9] = {
     [1] = 1, // ITEM1_X_SPEED
-    [5] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
+    [6] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
     STAT_BOOST_FRIENDSHIP_CHANGE,
 };
 
-static const u8 sItemEffect_XAccuracy[8] = {
+static const u8 sItemEffect_XAccuracy[9] = {
     [2] = 1 << 4, // ITEM2_X_ACCURACY
-    [5] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
+    [6] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
     STAT_BOOST_FRIENDSHIP_CHANGE,
 };
 
-static const u8 sItemEffect_XSpecial[8] = {
+static const u8 sItemEffect_XSpecial[9] = {
     [2] = 1, // ITEM2_X_SPATK
-    [5] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
+    [6] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
     STAT_BOOST_FRIENDSHIP_CHANGE,
 };
 
@@ -344,15 +349,15 @@ static const u8 sItemEffect_HPUp[11] = {
 };*/
 
 static const u8 sItemEffect_LiechiBerry[11] = {
-    [5] = ITEM5_FRIENDSHIP_ALL,
-    [6] = ITEM6_IV_ATK,
+    [5] = ITEM5_IV_ATK,
+    [6] = ITEM6_FRIENDSHIP_ALL,
     [7] = ITEM7_ADD_IV,
     VITAMIN_FRIENDSHIP_CHANGE(8),
 };
 
 static const u8 sItemEffect_GanlonBerry[11] = {
-    [5] = ITEM5_FRIENDSHIP_ALL,
-    [6] = ITEM6_IV_DEF,
+    [5] = ITEM5_IV_DEF,
+    [6] = ITEM6_FRIENDSHIP_ALL,
     [7] = ITEM7_ADD_IV,
     VITAMIN_FRIENDSHIP_CHANGE(8),
 };
