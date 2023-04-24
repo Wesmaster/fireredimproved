@@ -251,25 +251,25 @@ static const u8 sItemEffect_XAttack[9] = {
 
 static const u8 sItemEffect_XDefend[9] = {
     [1] = 1 << 4, /// ITEM1_X_DEFEND
-    [6] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
+    [6] = ITEM6_FRIENDSHIP_LOW | ITEM6_FRIENDSHIP_MID,
     STAT_BOOST_FRIENDSHIP_CHANGE,
 };
 
 static const u8 sItemEffect_XSpeed[9] = {
     [1] = 1, // ITEM1_X_SPEED
-    [6] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
+    [6] = ITEM6_FRIENDSHIP_LOW | ITEM6_FRIENDSHIP_MID,
     STAT_BOOST_FRIENDSHIP_CHANGE,
 };
 
 static const u8 sItemEffect_XAccuracy[9] = {
     [2] = 1 << 4, // ITEM2_X_ACCURACY
-    [6] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
+    [6] = ITEM6_FRIENDSHIP_LOW | ITEM6_FRIENDSHIP_MID,
     STAT_BOOST_FRIENDSHIP_CHANGE,
 };
 
 static const u8 sItemEffect_XSpecial[9] = {
     [2] = 1, // ITEM2_X_SPATK
-    [6] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
+    [6] = ITEM6_FRIENDSHIP_LOW | ITEM6_FRIENDSHIP_MID,
     STAT_BOOST_FRIENDSHIP_CHANGE,
 };
 
