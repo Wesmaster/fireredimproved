@@ -180,14 +180,14 @@ static const u8 sItemEffect_Protein[11] = {
 };
 
 static const u8 sItemEffect_Iron[11] = {
-    [5] = ITEM5_EV_DEF
+    [5] = ITEM5_EV_DEF,
     [6] = ITEM6_FRIENDSHIP_ALL,
     [7] = ITEM7_ADD_EV,
     VITAMIN_FRIENDSHIP_CHANGE(8),
 };
 
 static const u8 sItemEffect_Carbos[11] = {
-    [5] = ITEM5_EV_SPEED
+    [5] = ITEM5_EV_SPEED,
     [6] = ITEM6_FRIENDSHIP_ALL,
     [7] = ITEM7_ADD_EV,
     VITAMIN_FRIENDSHIP_CHANGE(8),
