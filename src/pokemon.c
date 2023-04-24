@@ -4518,9 +4518,9 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                 {
                     switch(i)
                     {
-                    case 0:
-                    case 1:
-                    case 2:
+                    case 0: // ITEM6_SPATK_IV
+                    case 1: // ITEM6_SPDEF_IV
+                    case 2: // ITEM6_SPEED_IV
                         data = GetMonData(mon, sGetMonDataIVConstants[i], NULL);
                         if (data < MAX_PER_STAT_IVS)
                         {                        
@@ -4852,27 +4852,15 @@ bool8 PokemonItemUseNoEffect(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mo
                         if (data < 3 && tmp >= 5)
                             retVal = FALSE;
                         break;
-                    case 5: // ITEM5_FRIENDSHIP_LOW
-                        if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) < 100
-                         && retVal == FALSE
-                         && sp18 == 0)
-                            sp18 = itemEffect[idx];
-                        idx++;
-                        break;
-                    case 6: // ITEM5_FRIENDSHIP_MID
-                        if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) >= 100
-                         && GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) < 200
-                         && retVal == FALSE
-                         && sp18 == 0)
-                            sp18 = itemEffect[idx];
-                        idx++;
-                        break;
-                    case 7: // ITEM5_FRIENDSHIP_HIGH
-                        if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) >= 200
-                         && retVal == FALSE
-                         && sp18 == 0)
-                            sp18 = itemEffect[idx];
-                        idx++;
+                    case 5: // ITEM5_HP_IV
+                    case 6: // ITEM5_ATK_IV
+                    case 7: // ITEM5_DEF_IV
+                        data = GetMonData(mon, sGetMonDataIVConstants[i], NULL);
+                        if (data < MAX_PER_STAT_IVS)
+                        {                        
+                            retVal = FALSE;
+                            idx++;
+                        }
                         break;
                     }
                 }
@@ -4885,15 +4873,44 @@ bool8 PokemonItemUseNoEffect(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mo
             i = 0;
 
             // Loop through and try each of the ITEM6 effects
-            while (curEffect)
+            while (curEffect != 0)
             {
                 if (curEffect & 1)
                 {
-                    data = GetMonData(mon, sGetMonDataIVConstants[i], NULL);
-                    if (data < MAX_PER_STAT_IVS)
+                    switch(i)
                     {
-                        retVal = FALSE;
+                    case 0: // ITEM6_SPATK_IV
+                    case 1: // ITEM6_SPDEF_IV
+                    case 2: // ITEM6_SPEED_IV
+                        data = GetMonData(mon, sGetMonDataIVConstants[i], NULL);
+                        if (data < MAX_PER_STAT_IVS)
+                        {                        
+                            retVal = FALSE;
+                            idx++;
+                        }
+                        break;
+                    case 3: // ITEM5_FRIENDSHIP_LOW
+                        if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) < 100
+                         && retVal == FALSE
+                         && sp18 == 0)
+                            sp18 = itemEffect[idx];
                         idx++;
+                        break;
+                    case 4: // ITEM5_FRIENDSHIP_MID
+                        if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) >= 100
+                         && GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) < 200
+                         && retVal == FALSE
+                         && sp18 == 0)
+                            sp18 = itemEffect[idx];
+                        idx++;
+                        break;
+                    case 5: // ITEM5_FRIENDSHIP_HIGH
+                        if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) >= 200
+                         && retVal == FALSE
+                         && sp18 == 0)
+                            sp18 = itemEffect[idx];
+                        idx++;
+                        break;
                     }
                 }
                 i++;

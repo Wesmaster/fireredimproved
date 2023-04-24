@@ -62,6 +62,7 @@
 #define ITEM7_ADD_EV       10
 #define ITEM7_SUBTRACT_EV -10
 
+// field 6 masks
 #define ITEM6_IV_SPATK          0x1
 #define ITEM6_IV_SPDEF          0x2
 #define ITEM6_IV_SPEED          0x4
