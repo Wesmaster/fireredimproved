@@ -4402,6 +4402,10 @@ static void GetMedicineItemEffectMessage(u16 item)
     case ITEM_EFFECT_HEAL_PP:
         StringExpandPlaceholders(gStringVar4, gText_PPWasRestored);
         break;
+    case ITEM_EFFECT_HP_IV:
+        StringCopy(gStringVar2, gText_ItemEffect_HP);
+        StringExpandPlaceholders(gStringVar4, gText_PkmnBaseVar2StatIncreased);
+        break;    
     case ITEM_EFFECT_ATK_IV:
         StringCopy(gStringVar2, gText_ItemEffect_Attack);
         StringExpandPlaceholders(gStringVar4, gText_PkmnBaseVar2StatIncreased);
@@ -4409,7 +4413,19 @@ static void GetMedicineItemEffectMessage(u16 item)
     case ITEM_EFFECT_DEF_IV:
         StringCopy(gStringVar2, gText_ItemEffect_Defense);
         StringExpandPlaceholders(gStringVar4, gText_PkmnBaseVar2StatIncreased);
+        break;
+    case ITEM_EFFECT_SPATK_IV:
+        StringCopy(gStringVar2, gText_ItemEffect_SpAtk);
+        StringExpandPlaceholders(gStringVar4, gText_PkmnBaseVar2StatIncreased);
+        break;
+    case ITEM_EFFECT_SPDEF_IV:
+        StringCopy(gStringVar2, gText_ItemEffect_SpDef);
+        StringExpandPlaceholders(gStringVar4, gText_PkmnBaseVar2StatIncreased);
         break; 
+    case ITEM_EFFECT_SPEED_IV:
+        StringCopy(gStringVar2, gText_ItemEffect_Speed);
+        StringExpandPlaceholders(gStringVar4, gText_PkmnBaseVar2StatIncreased);
+        break;
     default:
         StringExpandPlaceholders(gStringVar4, gText_WontHaveEffect);
         break;
