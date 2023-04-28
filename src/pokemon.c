@@ -1612,9 +1612,9 @@ static const u8 sGetMonDataIVConstants[] =
     MON_DATA_HP_IV,
     MON_DATA_ATK_IV,
     MON_DATA_DEF_IV,
-    MON_DATA_SPEED_IV,
+    MON_DATA_SPATK_IV,
     MON_DATA_SPDEF_IV,
-    MON_DATA_SPATK_IV
+    MON_DATA_SPEED_IV
 };
 
 // For stat-raising items
@@ -4491,11 +4491,11 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                     case 5: // ITEM5_HP_IV
                     case 6: // ITEM5_ATK_IV
                     case 7: // ITEM5_DEF_IV
-                        data = GetMonData(mon, sGetMonDataIVConstants[i], NULL);
+                        data = GetMonData(mon, sGetMonDataIVConstants[i - 5], NULL);
                         if (data < MAX_PER_STAT_IVS)
                         {                        
                             data += itemEffect[idx];
-                            SetMonData(mon, sGetMonDataIVConstants[i], &data);
+                            SetMonData(mon, sGetMonDataIVConstants[i - 5], &data);
                             CalculateMonStats(mon);
                             retVal = FALSE;
                             idx++;
@@ -4521,11 +4521,11 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                     case 0: // ITEM6_SPATK_IV
                     case 1: // ITEM6_SPDEF_IV
                     case 2: // ITEM6_SPEED_IV
-                        data = GetMonData(mon, sGetMonDataIVConstants[i], NULL);
+                        data = GetMonData(mon, sGetMonDataIVConstants[i + 3], NULL);
                         if (data < MAX_PER_STAT_IVS)
                         {                        
                             data += itemEffect[idx];
-                            SetMonData(mon, sGetMonDataIVConstants[i], &data);
+                            SetMonData(mon, sGetMonDataIVConstants[i + 3], &data);
                             CalculateMonStats(mon);
                             retVal = FALSE;
                             idx++;
@@ -4855,7 +4855,7 @@ bool8 PokemonItemUseNoEffect(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mo
                     case 5: // ITEM5_HP_IV
                     case 6: // ITEM5_ATK_IV
                     case 7: // ITEM5_DEF_IV
-                        data = GetMonData(mon, sGetMonDataIVConstants[i], NULL);
+                        data = GetMonData(mon, sGetMonDataIVConstants[i - 5], NULL);
                         if (data < MAX_PER_STAT_IVS)
                         {                        
                             retVal = FALSE;
@@ -4882,21 +4882,21 @@ bool8 PokemonItemUseNoEffect(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mo
                     case 0: // ITEM6_SPATK_IV
                     case 1: // ITEM6_SPDEF_IV
                     case 2: // ITEM6_SPEED_IV
-                        data = GetMonData(mon, sGetMonDataIVConstants[i], NULL);
+                        data = GetMonData(mon, sGetMonDataIVConstants[i + 3], NULL);
                         if (data < MAX_PER_STAT_IVS)
                         {                        
                             retVal = FALSE;
                             idx++;
                         }
                         break;
-                    case 3: // ITEM5_FRIENDSHIP_LOW
+                    case 3: // ITEM6_FRIENDSHIP_LOW
                         if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) < 100
                          && retVal == FALSE
                          && sp18 == 0)
                             sp18 = itemEffect[idx];
                         idx++;
                         break;
-                    case 4: // ITEM5_FRIENDSHIP_MID
+                    case 4: // ITEM6_FRIENDSHIP_MID
                         if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) >= 100
                          && GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) < 200
                          && retVal == FALSE
@@ -4904,7 +4904,7 @@ bool8 PokemonItemUseNoEffect(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mo
                             sp18 = itemEffect[idx];
                         idx++;
                         break;
-                    case 5: // ITEM5_FRIENDSHIP_HIGH
+                    case 5: // ITEM6_FRIENDSHIP_HIGH
                         if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) >= 200
                          && retVal == FALSE
                          && sp18 == 0)
