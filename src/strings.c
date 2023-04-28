@@ -473,6 +473,7 @@ const u8 gText_Earthbadge[] = _("EARTHBADGE");
 const u8 gText_SomeoneSPc[] = _("SOMEONE'S PC");
 const u8 gText_BillSPc[] = _("BILL'S PC");
 const u8 gText_SPc[] = _("{PLAYER}'s PC");
+const u8 gText_MenuPC[] = _("PC");
 const u8 gText_HallOfFame_2[] = _("HALL OF FAME");
 const u8 gText_LogOff[] = _("LOG OFF");
 const u8 gText_ProfOakSPc[] = _("PROF. OAK's PC");

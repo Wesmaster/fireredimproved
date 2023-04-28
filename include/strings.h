@@ -701,6 +701,7 @@ extern const u8 Text_AccessWhichPC[];
 extern const u8 gText_SomeoneSPc[];
 extern const u8 gText_BillSPc[];
 extern const u8 gText_SPc[];
+extern const u8 gText_MenuPC[];
 extern const u8 gText_HallOfFame_2[];
 extern const u8 gText_LogOff[];
 extern const u8 gText_ProfOakSPc[];

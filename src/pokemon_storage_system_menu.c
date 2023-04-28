@@ -363,14 +363,24 @@ static void FieldTask_ReturnToPcMenu(void)
 {
     u8 taskId;
     MainCallback vblankCb = gMain.vblankCallback;
-
-    SetVBlankCallback(NULL);
-    taskId = CreateTask(Task_PCMainMenu, 80);
-    gTasks[taskId].tState = STATE_LOAD;
-    gTasks[taskId].tSelectedOption = sPreviousBoxOption;
-    Task_PCMainMenu(taskId);
-    SetVBlankCallback(vblankCb);
-    FadeInFromBlack();
+	
+    if (FlagGet(FLAG_POKEMONPCMENU)==TRUE)
+	{
+        SetVBlankCallback(NULL);
+        taskId = CreateTask(Task_PCMainMenu, 80);
+        gTasks[taskId].tState = STATE_LOAD;
+        gTasks[taskId].tSelectedOption = sPreviousBoxOption;
+        Task_PCMainMenu(taskId);
+        SetVBlankCallback(vblankCb);
+        FadeInFromBlack();
+    }
+    else
+    {
+		ScriptContext2_Disable();
+		EnableBothScriptContexts();
+		SetVBlankCallback(CB2_ReturnToField);
+		FadeInFromBlack();
+	}
 }
 
 static const struct WindowTemplate sWindowTemplate_MainMenu = {
