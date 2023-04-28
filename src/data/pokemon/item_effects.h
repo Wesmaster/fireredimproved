@@ -340,13 +340,12 @@ static const u8 sItemEffect_SitrusBerry[8] = {
     [7] = 30, // Amount of HP to recover
 };
 
-/*
-static const u8 sItemEffect_HPUp[11] = {
-    [5] = ITEM5_FRIENDSHIP_ALL,
-    [6] = ITEM6_IV_HP,
+static const u8 sItemEffect_StarfBerry[11] = {
+    [5] = ITEM5_IV_HP,
+    [6] = ITEM6_FRIENDSHIP_ALL,
     [7] = ITEM7_ADD_IV,
     VITAMIN_FRIENDSHIP_CHANGE(8),
-};*/
+};
 
 static const u8 sItemEffect_LiechiBerry[11] = {
     [5] = ITEM5_IV_ATK,
@@ -361,27 +360,24 @@ static const u8 sItemEffect_GanlonBerry[11] = {
     [7] = ITEM7_ADD_IV,
     VITAMIN_FRIENDSHIP_CHANGE(8),
 };
-/*
-static const u8 sItemEffect_Calcium[10] = {
-    [5] = ITEM5_FRIENDSHIP_ALL,
-    [6] = ITEM6_ADD_IV,
-    [7] = ITEM7_IV_SPATK,
-    VITAMIN_FRIENDSHIP_CHANGE(7),
+
+static const u8 sItemEffect_PetayaBerry[11] = {
+    [6] = ITEM6_IV_SPATK | ITEM6_FRIENDSHIP_ALL,
+    [7] = ITEM7_ADD_IV,
+    VITAMIN_FRIENDSHIP_CHANGE(8),
 };
 
-static const u8 sItemEffect_Zinc[10] = {
-    [5] = ITEM5_FRIENDSHIP_ALL,
-    [6] = ITEM6_ADD_IV,
-    [7] = ITEM7_IV_SPDEF,
-    VITAMIN_FRIENDSHIP_CHANGE(7),
+static const u8 sItemEffect_ApicotBerry[11] = {
+    [6] = ITEM6_IV_SPDEF | ITEM6_FRIENDSHIP_ALL,
+    [7] = ITEM7_ADD_IV,
+    VITAMIN_FRIENDSHIP_CHANGE(8),
 };
 
-static const u8 sItemEffect_Carbos[10] = {
-    [5] = ITEM5_FRIENDSHIP_ALL,
-    [6] = ITEM6_ADD_IV,
-    [7] = ITEM7_IV_SPEED,
-    VITAMIN_FRIENDSHIP_CHANGE(7),
-};*/
+static const u8 sItemEffect_SalacBerry[11] = {
+    [6] = ITEM6_IV_SPEED | ITEM6_FRIENDSHIP_ALL,
+    [7] = ITEM7_ADD_IV,
+    VITAMIN_FRIENDSHIP_CHANGE(8),
+};
 
 const u8 *const gItemEffectTable[] =
 {
@@ -450,5 +446,9 @@ const u8 *const gItemEffectTable[] =
     [ITEM_SITRUS_BERRY - ITEM_POTION]  = sItemEffect_SitrusBerry,
     [ITEM_LIECHI_BERRY - ITEM_POTION]  = sItemEffect_LiechiBerry,
     [ITEM_GANLON_BERRY - ITEM_POTION]  = sItemEffect_GanlonBerry,
+    [ITEM_SALAC_BERRY - ITEM_POTION]   = sItemEffect_SalacBerry,
+    [ITEM_PETAYA_BERRY - ITEM_POTION]  = sItemEffect_PetayaBerry,
+    [ITEM_APICOT_BERRY - ITEM_POTION]  = sItemEffect_ApicotBerry,
+    [ITEM_STARF_BERRY - ITEM_POTION]   = sItemEffect_StarfBerry,
     [LAST_BERRY_INDEX - ITEM_POTION]   = NULL,
 };

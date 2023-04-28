@@ -4488,9 +4488,9 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                             retVal = FALSE;
                         }
                         break;
-                    case 5: // ITEM5_HP_IV
-                    case 6: // ITEM5_ATK_IV
-                    case 7: // ITEM5_DEF_IV
+                    case 5: // ITEM5_IV_HP
+                    case 6: // ITEM5_IV_ATK
+                    case 7: // ITEM5_IV_DEF
                         data = GetMonData(mon, sGetMonDataIVConstants[i - 5], NULL);
                         if (data < MAX_PER_STAT_IVS)
                         {                        
@@ -4518,9 +4518,9 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                 {
                     switch(i)
                     {
-                    case 0: // ITEM6_SPATK_IV
-                    case 1: // ITEM6_SPDEF_IV
-                    case 2: // ITEM6_SPEED_IV
+                    case 0: // ITEM6_IV_SPATK
+                    case 1: // ITEM6_IV_SPDEF
+                    case 2: // ITEM6_IV_SPEED
                         data = GetMonData(mon, sGetMonDataIVConstants[i + 3], NULL);
                         if (data < MAX_PER_STAT_IVS)
                         {                        
