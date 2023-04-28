@@ -420,9 +420,10 @@ bool8 AreLeadMonEVsMaxedOut(void)
 void ChangeNature(void)
 {
     bool32 CustomNature = TRUE;
+    u8 Nature = (5 * gSpecialVar_0x8007) + gSpecialVar_Result;
 
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HAS_CUSTOM_NATURE, &CustomNature);
-    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_CUSTOM_NATURE_ID, &gSpecialVar_Result);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_CUSTOM_NATURE_ID, &Nature);
     
     ApplyFriendshipPenalty(15);
     CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
@@ -756,7 +757,7 @@ static u16 SampleResortGorgeousMon(void)
 static u16 SampleResortGorgeousReward(void)
 {
     if ((Random() % 100) >= 30)
-        return ITEM_LUXURY_BALL;
+        return ITEM_POKE_BALL;
     else
         return sResortGorgeousDeluxeRewards[Random() % NELEMS(sResortGorgeousDeluxeRewards)];
 }

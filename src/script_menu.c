@@ -508,12 +508,57 @@ static const struct MenuAction sMultichoiceList_SecondNurse[] = {
     { gText_NoThanks }
 };
 
-static const struct MenuAction sMultichoiceList_SecondNurseNatures[] = {
+static const struct MenuAction sMultichoiceList_SecondNurseNatureCategories[] = {
+    { gText_Attack },
+    { gText_Defense },
+    { gText_Special_Attack },
+    { gText_Special_Defense },
+    { gText_Speed },
+    { gText_NoThanks }
+};
+
+static const struct MenuAction sMultichoiceList_SecondNurseNature_Attack[] = {
     { gText_Nature_Hardy },
     { gText_Nature_Lonely },
     { gText_Nature_Brave },
     { gText_Nature_Adamant },
     { gText_Nature_Naughty },
+    { gText_NoThanks }
+};
+
+static const struct MenuAction sMultichoiceList_SecondNurseNature_Defense[] = {
+    { gText_Nature_Bold },
+    { gText_Nature_Docile },
+    { gText_Nature_Relaxed },
+    { gText_Nature_Impish },
+    { gText_Nature_Lax },
+    { gText_NoThanks }
+};
+
+static const struct MenuAction sMultichoiceList_SecondNurseNature_SpAttack[] = {
+    { gText_Nature_Timid },
+    { gText_Nature_Hasty },
+    { gText_Nature_Serious },
+    { gText_Nature_Jolly },
+    { gText_Nature_Naive },
+    { gText_NoThanks }
+};
+
+static const struct MenuAction sMultichoiceList_SecondNurseNature_SpDefense[] = {
+    { gText_Nature_Modest },
+    { gText_Nature_Mild },
+    { gText_Nature_Quiet },
+    { gText_Nature_Bashful },
+    { gText_Nature_Rash },
+    { gText_NoThanks }
+};
+
+static const struct MenuAction sMultichoiceList_SecondNurseNature_Speed[] = {
+    { gText_Nature_Calm },
+    { gText_Nature_Gentle },
+    { gText_Nature_Sassy },
+    { gText_Nature_Careful },
+    { gText_Nature_Quirky },
     { gText_NoThanks }
 };
 
@@ -595,7 +640,12 @@ static const struct MultichoiceListStruct sMultichoiceLists[] = {
     [MULTICHOICE_TRAINER_TOWER_MODE]                         = MULTICHOICE(sMultichoiceList_TrainerTowerMode),
     [MULTICHOICE_STARTER_REGION]                             = MULTICHOICE(sMultichoiceList_StarterRegion),
     [MULTICHOICE_SECOND_NURSE]                               = MULTICHOICE(sMultichoiceList_SecondNurse),
-    [MULTICHOICE_SECOND_NURSE_NATURES]                       = MULTICHOICE(sMultichoiceList_SecondNurseNatures),
+    [MULTICHOICE_SECOND_NURSE_NATURE_CATEGORIES]             = MULTICHOICE(sMultichoiceList_SecondNurseNatureCategories),
+    [MULTICHOICE_SECOND_NURSE_NATURE_ATTACK]                 = MULTICHOICE(sMultichoiceList_SecondNurseNature_Attack),
+    [MULTICHOICE_SECOND_NURSE_NATURE_DEFENSE]                = MULTICHOICE(sMultichoiceList_SecondNurseNature_Defense),
+    [MULTICHOICE_SECOND_NURSE_NATURE_SPATTACK]               = MULTICHOICE(sMultichoiceList_SecondNurseNature_SpAttack),
+    [MULTICHOICE_SECOND_NURSE_NATURE_SPDEFENSE]              = MULTICHOICE(sMultichoiceList_SecondNurseNature_SpDefense),
+    [MULTICHOICE_SECOND_NURSE_NATURE_SPEED]                  = MULTICHOICE(sMultichoiceList_SecondNurseNature_Speed),
     [MULTICHOICE_SECOND_NURSE_STATS]                         = MULTICHOICE(sMultichoiceList_SecondNurseStats),
 };
 

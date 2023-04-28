@@ -2,20 +2,10 @@
 .equ SECOND_NURSE_RESETEV_PRICE, 500
 
 EventScript_PkmnCenterNurse::
-	goto_if_questlog EventScript_ReleaseEnd
-	message Text_WelcomeWantToHealPkmn
-	waitmessage
-	multichoice 19, 8, MULTICHOICE_YES_NO, FALSE | (TRUE << 1)
-	switch VAR_RESULT
-	case 0, EventScript_PkmnCenterNurse_HealPkmn
-	case 1 EventScript_PkmnCenterNurse_Goodbye
-	case SCR_MENU_CANCEL, EventScript_PkmnCenterNurse_Goodbye
+	goto EventScript_PkmnCenterNurse_HealPkmn
 	end
 
 EventScript_PkmnCenterNurse_HealPkmn::
-	incrementgamestat GAME_STAT_USED_POKECENTER
-	message Text_TakeYourPkmnForFewSeconds
-	waitmessage
 	call EventScript_PkmnCenterNurse_TakeAndHealPkmn
 	special SetUsedPkmnCenterQuestLogEvent
 	goto EventScript_PkmnCenterNurse_CheckTrainerTowerAndUnionRoom
@@ -41,11 +31,9 @@ EventScript_PkmnCenterNurse_CheckTrainerTowerAndUnionRoom::
 	end
 
 EventScript_PkmnCenterNurse_ReturnPkmn::
-	message Text_RestoredPkmnToFullHealth
-	waitmessage
 	applymovement VAR_LAST_TALKED, Movement_Bow
 	waitmovement 0
-	msgbox Text_WeHopeToSeeYouAgain
+	goto EventScript_PkmnCenterNurse_PlayerTurn
 	return
 
 EventScript_PkmnCenterNurse_PlayerWaitingInUionRoom::
@@ -62,6 +50,12 @@ EventScript_PkmnCenterNurse_PlayerWaitingInUionRoom::
 EventScript_PkmnCenterNurse_Goodbye::
 	msgbox Text_WeHopeToSeeYouAgain
 	return
+
+EventScript_PkmnCenterNurse_PlayerTurn::
+    applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+    waitmovement 0
+    release
+    end
 
 Movement_Bow::
 	nurse_joy_bow
@@ -126,7 +120,39 @@ EventScript_PkmnCenterNurse_SecondNurse_NoEgg::
 EventScript_PkmnCenterNurse_SecondNurse_ChooseNature::
 	message Text_SecondNurse_ChooseNature
 	waitmessage
-	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURES, TRUE
+	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_CATEGORIES, TRUE
+	copyvar VAR_0x8007, VAR_RESULT
+	switch VAR_RESULT
+	case 0, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Attack
+	case 1, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Defense
+	case 2, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_SpAttack
+	case 3, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_SpDefense
+	case 4, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Speed
+	releaseall
+	end
+
+EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Attack::
+	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_ATTACK, FALSE
+	goto EventScript_PkmnCenterNurse_SecondNurse_DoNatureChange
+	end
+
+EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Defense::
+	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_DEFENSE, FALSE
+	goto EventScript_PkmnCenterNurse_SecondNurse_DoNatureChange
+	end
+
+EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_SpAttack::
+	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_SPATTACK, FALSE
+	goto EventScript_PkmnCenterNurse_SecondNurse_DoNatureChange
+	end
+
+EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_SpDefense::
+	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_SPDEFENSE, FALSE
+	goto EventScript_PkmnCenterNurse_SecondNurse_DoNatureChange
+	end
+
+EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Speed::
+	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_SPEED, FALSE
 	goto EventScript_PkmnCenterNurse_SecondNurse_DoNatureChange
 	end
 

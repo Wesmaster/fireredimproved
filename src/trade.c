@@ -755,10 +755,10 @@ static const u8 sDebug_Messages[][13] = {
     _("かいめの そうしん"), // "xth communication sent"
     _("かいめの じゅしん"), // "xth communication received"
     _("ポケモンアイコンセット"), // "pokemon icon set"
-    _("OBJテキストセット"), // "OBJ text set"
+    _("Objテキストセット"), // "Obj text set"
     _("セルセット"), // "cell set"
-    _("OBJテキストADD"), // "OBJ text ADD"
-    _("システムメッセージADD"), // "system message ADD"
+    _("ObjテキストAdd"), // "Obj text Add"
+    _("システムメッセージAdd"), // "system message Add"
     _("はいけいセット"), // "background set"
 };
 
