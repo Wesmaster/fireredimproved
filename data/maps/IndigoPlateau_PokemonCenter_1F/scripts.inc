@@ -53,13 +53,19 @@ IndigoPlateau_PokemonCenter_1F_EventScript_Clerk::
 
 	.align 2
 IndigoPlateau_PokemonCenter_1F_Items::
-	.2byte ITEM_ULTRA_BALL
-	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_POKE_BALL
 	.2byte ITEM_FULL_RESTORE
 	.2byte ITEM_MAX_POTION
 	.2byte ITEM_REVIVE
 	.2byte ITEM_FULL_HEAL
 	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_RARE_CANDY
+	.2byte ITEM_HP_UP
+	.2byte ITEM_PROTEIN
+	.2byte ITEM_IRON
+	.2byte ITEM_CALCIUM
+	.2byte ITEM_ZINC
+	.2byte ITEM_CARBOS
 	.2byte ITEM_NONE
 	release
 	end
@@ -69,4 +75,8 @@ IndigoPlateau_PokemonCenter_1F_EventScript_Nurse::
 	faceplayer
 	call EventScript_PkmnCenterNurse
 	release
+	end
+
+IndigoPlateau_PokemonCenter_1F_EventScript_SecondNurse::
+	call EventScript_PkmnCenterNurse_SecondNurse_CheckMoney
 	end

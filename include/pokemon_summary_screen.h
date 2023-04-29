@@ -67,4 +67,33 @@ enum PokemonSummaryScreenStat
 #define TAG_PSS_UNK_96 0x96
 #define TAG_PSS_UNK_A0 0xA0
 
+static const s8 sNatureStatTable[NUM_NATURES][NUM_NATURE_STATS] =
+{                      // Attack  Defense  Speed  Sp.Atk  Sp.Def
+    [NATURE_HARDY]   = {    0,      0,      0,      0,      0   },
+    [NATURE_LONELY]  = {   +1,     -1,      0,      0,      0   },
+    [NATURE_BRAVE]   = {   +1,      0,     -1,      0,      0   },
+    [NATURE_ADAMANT] = {   +1,      0,      0,     -1,      0   },
+    [NATURE_NAUGHTY] = {   +1,      0,      0,      0,     -1   },
+    [NATURE_BOLD]    = {   -1,     +1,      0,      0,      0   },
+    [NATURE_DOCILE]  = {    0,      0,      0,      0,      0   },
+    [NATURE_RELAXED] = {    0,     +1,     -1,      0,      0   },
+    [NATURE_IMPISH]  = {    0,     +1,      0,     -1,      0   },
+    [NATURE_LAX]     = {    0,     +1,      0,      0,     -1   },
+    [NATURE_TIMID]   = {   -1,      0,     +1,      0,      0   },
+    [NATURE_HASTY]   = {    0,     -1,     +1,      0,      0   },
+    [NATURE_SERIOUS] = {    0,      0,      0,      0,      0   },
+    [NATURE_JOLLY]   = {    0,      0,     +1,     -1,      0   },
+    [NATURE_NAIVE]   = {    0,      0,     +1,      0,     -1   },
+    [NATURE_MODEST]  = {   -1,      0,      0,     +1,      0   },
+    [NATURE_MILD]    = {    0,     -1,      0,     +1,      0   },
+    [NATURE_QUIET]   = {    0,      0,     -1,     +1,      0   },
+    [NATURE_BASHFUL] = {    0,      0,      0,      0,      0   },
+    [NATURE_RASH]    = {    0,      0,      0,     +1,     -1   },
+    [NATURE_CALM]    = {   -1,      0,      0,      0,     +1   },
+    [NATURE_GENTLE]  = {    0,     -1,      0,      0,     +1   },
+    [NATURE_SASSY]   = {    0,      0,     -1,      0,     +1   },
+    [NATURE_CAREFUL] = {    0,      0,      0,     -1,     +1   },
+    [NATURE_QUIRKY]  = {    0,      0,      0,      0,      0   },
+};
+
 #endif // GUARD_POKEMON_SUMMARY_SCREEN_H
