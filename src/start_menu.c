@@ -142,6 +142,7 @@ static const u8 *const sStartMenuDescPointers[] = {
     gStartMenuDesc_Pokedex,
     gStartMenuDesc_Pokemon,
     gStartMenuDesc_Bag,
+    gStartMenuDesc_PC,
     gStartMenuDesc_Player,
     gStartMenuDesc_Save,
     gStartMenuDesc_Option,
@@ -507,8 +508,11 @@ static bool8 StartMenuPCCallback(void)
     if (!gPaletteFade.active)
     {
         PlayRainStoppingSoundEffect();
-        //RemoveExtraStartMenuWindows();
+        DestroySafariZoneStatsWindow();
+        CleanupOverworldWindowsAndTilemaps();
 		CreatePCMenu();
+        ScriptMenu_DisplayPCStartupPrompt();
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 0x10, 0, RGB_BLACK);
         return TRUE;
     }
 
