@@ -26,7 +26,6 @@ static void ChooseBoxMenu_MoveLeft(void);
 static void ChooseBoxMenu_PrintBoxNameAndCount(void);
 static void ChooseBoxMenu_PrintTextToSprite(const u8 *a0, u16 x, u16 y);
 static void SpriteCB_ChooseBoxArrow(struct Sprite *sprite);
-static void ShowPokemonStorageSystem();
 
 static const u16 sChooseBoxMenu_Pal[];
 static const u8 sChooseBoxMenuCenter_Gfx[];
