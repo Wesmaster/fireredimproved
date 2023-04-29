@@ -506,8 +506,8 @@ static bool8 StartMenuPCCallback(void)
     if (!gPaletteFade.active)
     {
         PlayRainStoppingSoundEffect();
-        RemoveExtraStartMenuWindows();
-		EnterPokeStorage(2);
+        //RemoveExtraStartMenuWindows();
+		CreatePCMenu();
         return TRUE;
     }
 
