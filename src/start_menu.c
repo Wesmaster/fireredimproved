@@ -511,7 +511,7 @@ static bool8 StartMenuPCCallback(void)
         DestroySafariZoneStatsWindow();
         CleanupOverworldWindowsAndTilemaps();
 		CreatePCMenu();
-        ScriptMenu_DisplayPCStartupPrompt();
+        //ScriptMenu_DisplayPCStartupPrompt();
         //BeginNormalPaletteFade(PALETTES_ALL, 0, 0x10, 0, RGB_BLACK);
         return TRUE;
     }
