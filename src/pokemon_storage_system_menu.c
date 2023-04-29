@@ -376,8 +376,8 @@ static void FieldTask_ReturnToPcMenu(void)
     }
     else
     {
-		ScriptContext2_Disable();
-		EnableBothScriptContexts();
+		//ScriptContext2_Disable();
+		//EnableBothScriptContexts();
 		SetVBlankCallback(CB2_ReturnToField);
 		FadeInFromBlack();
 	}
