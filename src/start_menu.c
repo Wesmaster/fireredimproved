@@ -38,6 +38,7 @@
 #include "constants/field_weather.h"
 #include "script_menu.h"
 #include "pokemon_storage_system.h"
+#include "pokemon_storage_system_internal.h"
 
 enum StartMenuOption
 {
