@@ -310,13 +310,13 @@ static void HandleInputChooseAction(void)
     else if (JOY_NEW(L_BUTTON))
     {
         if (IsPlayerPartyAndPokemonStorageFull())
-			PlaySE(SE_ERROR);
+			PlaySE(SE_FAILURE);
 		else
 		{
             PlaySE(SE_SELECT);
             gSpecialVar_ItemId = ITEM_POKE_BALL;
             RemoveBagItem(gSpecialVar_ItemId, 1);
-            BtlController_EmitTwoReturnValues(1, ACTION_USE_ITEM, 0);
+            BtlController_EmitTwoReturnValues(1, B_ACTION_USE_ITEM, 0);
             PlayerBufferExecCompleted();
         }
     }
