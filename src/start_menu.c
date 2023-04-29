@@ -511,8 +511,7 @@ static bool8 StartMenuPCCallback(void)
         PlayRainStoppingSoundEffect();
         DestroySafariZoneStatsWindow();
         CleanupOverworldWindowsAndTilemaps();
-        CreatePCMenu();
-        ShowPokemonStorageSystem();
+        EnterPokeStorage(2);
         //ScriptMenu_DisplayPCStartupPrompt();
         //BeginNormalPaletteFade(PALETTES_ALL, 0, 0x10, 0, RGB_BLACK);
         return TRUE;
