@@ -351,17 +351,12 @@ static void Task_PCMainMenu(u8 taskId)
     }
 }
 
-void ShowPokemonStorageSystem(void)
+void ShowPokemonStorageSystemPC(void)
 {
     u8 taskId = CreateTask(Task_PCMainMenu, 80);
     gTasks[taskId].tState = STATE_LOAD;
     gTasks[taskId].tSelectedOption = 0;
     LockPlayerFieldControls();
-}
-
-void ShowPokemonStorageSystemPC(void)
-{
-    ShowPokemonStorageSystem();
 }
 
 static void FieldTask_ReturnToPcMenu(void)
@@ -381,8 +376,6 @@ static void FieldTask_ReturnToPcMenu(void)
     }
     else
     {
-		//ScriptContext2_Disable();
-		//EnableBothScriptContexts();
 		SetVBlankCallback(CB2_ReturnToField);
 		FadeInFromBlack();
 	}

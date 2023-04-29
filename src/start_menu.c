@@ -36,8 +36,6 @@
 #include "help_system.h"
 #include "constants/songs.h"
 #include "constants/field_weather.h"
-#include "script_menu.h"
-#include "pokemon_storage_system.h"
 #include "pokemon_storage_system_internal.h"
 
 enum StartMenuOption
@@ -513,8 +511,6 @@ static bool8 StartMenuPCCallback(void)
         DestroySafariZoneStatsWindow();
         CleanupOverworldWindowsAndTilemaps();
         EnterPokeStorage(2);
-        //ScriptMenu_DisplayPCStartupPrompt();
-        //BeginNormalPaletteFade(PALETTES_ALL, 0, 0x10, 0, RGB_BLACK);
         return TRUE;
     }
 
