@@ -26,6 +26,7 @@ static void ChooseBoxMenu_MoveLeft(void);
 static void ChooseBoxMenu_PrintBoxNameAndCount(void);
 static void ChooseBoxMenu_PrintTextToSprite(const u8 *a0, u16 x, u16 y);
 static void SpriteCB_ChooseBoxArrow(struct Sprite *sprite);
+static void ShowPokemonStorageSystem();
 
 static const u16 sChooseBoxMenu_Pal[];
 static const u8 sChooseBoxMenuCenter_Gfx[];
@@ -351,12 +352,17 @@ static void Task_PCMainMenu(u8 taskId)
     }
 }
 
-void ShowPokemonStorageSystemPC(void)
+void ShowPokemonStorageSystem(void)
 {
     u8 taskId = CreateTask(Task_PCMainMenu, 80);
     gTasks[taskId].tState = STATE_LOAD;
     gTasks[taskId].tSelectedOption = 0;
     LockPlayerFieldControls();
+}
+
+void ShowPokemonStorageSystemPC(void)
+{
+    ShowPokemonStorageSystem();
 }
 
 static void FieldTask_ReturnToPcMenu(void)
