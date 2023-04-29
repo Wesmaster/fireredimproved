@@ -512,7 +512,7 @@ static bool8 StartMenuPCCallback(void)
         CleanupOverworldWindowsAndTilemaps();
 		CreatePCMenu();
         ScriptMenu_DisplayPCStartupPrompt();
-        BeginNormalPaletteFade(PALETTES_ALL, 0, 0x10, 0, RGB_BLACK);
+        //BeginNormalPaletteFade(PALETTES_ALL, 0, 0x10, 0, RGB_BLACK);
         return TRUE;
     }
 
