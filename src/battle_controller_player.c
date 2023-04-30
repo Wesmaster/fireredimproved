@@ -2467,7 +2467,7 @@ static void PlayerHandleChooseItem(void)
 {
     s32 i;
 
-    if (!sLastUsedBall)
+    if (sLastUsedBall == FALSE)
     {
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
         gBattlerControllerFuncs[gActiveBattler] = OpenBagAndChooseItem;
