@@ -312,9 +312,9 @@ static void HandleInputChooseAction(void)
     else if (JOY_NEW(L_BUTTON))
     {
         if (IsPlayerPartyAndPokemonStorageFull() || !CheckBagHasItem(ITEM_POKE_BALL, 1))
-			PlaySE(SE_FAILURE);
-		else
-		{
+			    PlaySE(SE_FAILURE);
+		    else
+		    {
             PlaySE(SE_SELECT);
             sLastUsedBall = TRUE;
             gSpecialVar_ItemId = ITEM_POKE_BALL;
@@ -322,6 +322,11 @@ static void HandleInputChooseAction(void)
             BtlController_EmitTwoReturnValues(1, B_ACTION_USE_ITEM, 0);
             PlayerBufferExecCompleted();
         }
+    }
+    else if (JOY_NEW(R_BUTTON))
+    {
+        BtlController_EmitTwoReturnValues(1, B_ACTION_RUN, 0);
+        PlayerBufferExecCompleted();
     }
 }
 
@@ -2425,7 +2430,10 @@ static void PlayerHandleChooseAction(void)
 
     gBattlerControllerFuncs[gActiveBattler] = HandleChooseActionAfterDma3;
     BattlePutTextOnWindow(gText_EmptyString3, B_WIN_MSG);
-    BattlePutTextOnWindow(gText_BattleMenu, B_WIN_ACTION_MENU);
+    if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_TRAINER))
+        BattlePutTextOnWindow(gText_BattleMenuBagDisabled, B_WIN_ACTION_MENU);
+    else
+	    BattlePutTextOnWindow(gText_BattleMenu, B_WIN_ACTION_MENU);
     for (i = 0; i < 4; ++i)
         ActionSelectionDestroyCursorAt(i);
     ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);

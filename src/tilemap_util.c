@@ -3,7 +3,7 @@
 #include "tilemap_util.h"
 #include "malloc.h"
 
-//  Handles 3 particular tilemaps ("PKMN Data" text, party menu, close box
+//  Handles 3 particular tilemaps ("Pkmn Data" text, party menu, close box
 //  button) used for Pokémon Storage System in a somewhat unusual way.
 //  For example, while the cursor is on the Close Box button it flashes between
 //  two states alternately. Both these states are their own part of the same

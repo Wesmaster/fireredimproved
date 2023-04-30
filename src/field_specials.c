@@ -80,6 +80,7 @@ static void Task_DoDeoxysTriangleInteraction(u8 taskId);
 static void MoveDeoxysObject(u8 num);
 static void Task_WaitDeoxysFieldEffect(u8 taskId);
 static void Task_WingFlapSound(u8 taskId);
+static void ApplyFriendshipPenalty(u8 resetPenalty);
 
 static u8 *const sStringVarPtrs[] = {
     gStringVar1,
@@ -410,10 +411,55 @@ void GiveLeadMonEffortRibbon(void)
 bool8 AreLeadMonEVsMaxedOut(void)
 {
     u8 leadMonIndex = GetLeadMonIndex();
-    if (GetMonEVCount(&gPlayerParty[leadMonIndex]) >= 510)
+    if (GetMonEVCount(&gPlayerParty[leadMonIndex]) >= MAX_TOTAL_EVS)
         return TRUE;
     else
         return FALSE;
+}
+
+void ChangeNature(void)
+{
+    bool32 CustomNature = TRUE;
+    u8 Nature = (5 * gSpecialVar_0x8007) + gSpecialVar_Result;
+
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HAS_CUSTOM_NATURE, &CustomNature);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_CUSTOM_NATURE_ID, &Nature);
+    
+    ApplyFriendshipPenalty(15);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+bool8 ResetMonEVs(void)
+{
+    u8 newEv = 0;
+    s32 datafield = gSpecialVar_Result + MON_DATA_HP_EV;
+
+    switch (gSpecialVar_Result)
+    {
+        case 3:
+        case 4:
+            datafield += 1;
+            break;
+        case 5:
+            datafield -= 2;
+            break;   
+    }
+    if (GetMonData(&gPlayerParty[gSpecialVar_0x8004], datafield, NULL) == 0)
+        return FALSE;
+
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], datafield, &newEv);
+    ApplyFriendshipPenalty(15);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+
+    return TRUE;
+}
+
+void ApplyFriendshipPenalty(u8 resetPenalty)
+{
+    u8 newFriendship;
+
+    newFriendship = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_FRIENDSHIP, NULL) - resetPenalty;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_FRIENDSHIP, &newFriendship);
 }
 
 bool8 IsStarterFirstStageInParty(void)
@@ -711,7 +757,7 @@ static u16 SampleResortGorgeousMon(void)
 static u16 SampleResortGorgeousReward(void)
 {
     if ((Random() % 100) >= 30)
-        return ITEM_LUXURY_BALL;
+        return ITEM_POKE_BALL;
     else
         return sResortGorgeousDeluxeRewards[Random() % NELEMS(sResortGorgeousDeluxeRewards)];
 }

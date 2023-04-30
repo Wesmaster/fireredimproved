@@ -25,3 +25,7 @@ CeladonCity_PokemonCenter_1F_EventScript_CooltrainerF::
 CeladonCity_PokemonCenter_1F_EventScript_Youngster::
 	msgbox CeladonCity_PokemonCenter_1F_Text_GoToCyclingRoadIfIHadBike, MSGBOX_NPC
 	end
+
+CeladonCity_PokemonCenter_1F_EventScript_SecondNurse::
+	call EventScript_PkmnCenterNurse_SecondNurse_CheckMoney
+	end

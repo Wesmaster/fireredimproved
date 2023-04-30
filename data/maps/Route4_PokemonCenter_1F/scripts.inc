@@ -54,27 +54,12 @@ Route4_PokemonCenter_1F_EventScript_TryBuyMagikarp::
 
 Route4_PokemonCenter_1F_EventScript_BuyMagikarpParty::
 	call Route4_PokemonCenter_1F_EventScript_PayForMagikarp
-	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, Route4_PokemonCenter_1F_EventScript_EndPurchaseMagikarp
-	call EventScript_GetGiftMonPartySlot
-	fadescreen FADE_TO_BLACK
-	hidemoneybox
-	special ChangePokemonNickname
-	waitstate
-	goto Route4_PokemonCenter_1F_EventScript_BoughtMagikarp
+	goto Route4_PokemonCenter_1F_EventScript_EndPurchaseMagikarp
 	end
 
 Route4_PokemonCenter_1F_EventScript_BuyMagikarpPC::
 	call Route4_PokemonCenter_1F_EventScript_PayForMagikarp
-	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, Route4_PokemonCenter_1F_EventScript_TransferMagikarpCloseMoneyBox
-	fadescreen FADE_TO_BLACK
-	hidemoneybox
-	special ChangeBoxPokemonNickname
-	waitstate
-	lock
-	faceplayer
-	goto Route4_PokemonCenter_1F_EventScript_TransferMagikarp
+	goto Route4_PokemonCenter_1F_EventScript_TransferMagikarpCloseMoneyBox
 	end
 
 Route4_PokemonCenter_1F_EventScript_TransferMagikarpCloseMoneyBox::
@@ -146,4 +131,8 @@ Route4_PokemonCenter_1F_EventScript_Newspaper::
 	lock
 	msgbox Route4_PokemonCenter_1F_Text_ItsANewspaper
 	release
+	end
+
+Route4_PokemonCenter_1F_EventScript_SecondNurse::
+	call EventScript_PkmnCenterNurse_SecondNurse_CheckMoney
 	end

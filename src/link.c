@@ -169,7 +169,7 @@ static const struct BlockRequest sBlockRequests[] = {
     [BLOCK_REQ_SIZE_40]   = { gBlockSendBuffer,  40 }
 };
 static const char sASCIIGameFreakInc[] = "GameFreak inc.";
-static const char sASCIITestPrint[] = "TEST PRINT\nP0\nP1\nP2\nP3";
+static const char sASCIITestPrint[] = "Test Print\nP0\nP1\nP2\nP3";
 
 static const struct BgTemplate sLinkErrorBgTemplates[] = {
     {
