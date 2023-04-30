@@ -2970,7 +2970,7 @@ static void MoveSelectionDisplaySplitIcon(void){
 	int icon;
 
 	moveInfo = (struct ChooseMoveStruct*)(&gBattleBufferA[gActiveBattler][4]);
-	icon = gBattleMoves(moveInfo->moves[gMoveSelectionCursor[gActiveBattler]]).category;
+	icon = gBattleMoves[moveInfo->moves[gMoveSelectionCursor[gActiveBattler]]].category;
 	LoadPalette(sSplitIcons_Pal, 10 * 0x10, 0x20);
 	BlitBitmapToWindow(B_WIN_DUMMY, sSplitIcons_Gfx + 0x80 * icon, 0, 0, 16, 16);
 	PutWindowTilemap(B_WIN_DUMMY);
