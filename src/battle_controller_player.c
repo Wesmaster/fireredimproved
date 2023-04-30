@@ -170,7 +170,7 @@ static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(void) =
 
 static const u8 sTargetIdentities[] = { B_POSITION_PLAYER_LEFT, B_POSITION_PLAYER_RIGHT, B_POSITION_OPPONENT_RIGHT, B_POSITION_OPPONENT_LEFT };
 
-static bool8 LastUsedBall = FALSE;
+static const bool8 sLastUsedBall = FALSE;
 
 // unknown unused data
 static const u8 sUnused[] = { 0x48, 0x48, 0x20, 0x5a, 0x50, 0x50, 0x50, 0x58 };
@@ -316,7 +316,7 @@ static void HandleInputChooseAction(void)
 		else
 		{
             PlaySE(SE_SELECT);
-            LastUsedBall = TRUE;
+            sLastUsedBall = TRUE;
             gSpecialVar_ItemId = ITEM_POKE_BALL;
             RemoveBagItem(gSpecialVar_ItemId, 1);
             BtlController_EmitTwoReturnValues(1, B_ACTION_USE_ITEM, 0);
@@ -2467,7 +2467,7 @@ static void PlayerHandleChooseItem(void)
 {
     s32 i;
 
-    if (!LastUsedBall)
+    if (!sLastUsedBall)
     {
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
         gBattlerControllerFuncs[gActiveBattler] = OpenBagAndChooseItem;
