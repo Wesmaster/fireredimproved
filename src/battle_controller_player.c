@@ -170,7 +170,7 @@ static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(void) =
 
 static const u8 sTargetIdentities[] = { B_POSITION_PLAYER_LEFT, B_POSITION_PLAYER_RIGHT, B_POSITION_OPPONENT_RIGHT, B_POSITION_OPPONENT_LEFT };
 
-static bool8 sLastUsedBall = FALSE;
+static bool8 sLastUsedBall;
 
 // unknown unused data
 static const u8 sUnused[] = { 0x48, 0x48, 0x20, 0x5a, 0x50, 0x50, 0x50, 0x58 };
@@ -2467,14 +2467,17 @@ static void PlayerHandleChooseItem(void)
 {
     s32 i;
 
-    if (sLastUsedBall == FALSE)
+    if (sLastUsedBall == TRUE)
     {
-        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
-        gBattlerControllerFuncs[gActiveBattler] = OpenBagAndChooseItem;
-        gBattlerInMenuId = gActiveBattler;
-        for (i = 0; i < 3; ++i)
-            gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][1 + i];
+        sLastUsedBall = FALSE;
+        return;
     }
+    
+    BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
+    gBattlerControllerFuncs[gActiveBattler] = OpenBagAndChooseItem;
+    gBattlerInMenuId = gActiveBattler;
+    for (i = 0; i < 3; ++i)
+        gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][1 + i];
 }
 
 static void PlayerHandleChoosePokemon(void)
