@@ -2473,12 +2473,14 @@ static void PlayerHandleChooseItem(void)
         sLastUsedBall = FALSE;
         return;
     }
-    
-    BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
-    gBattlerControllerFuncs[gActiveBattler] = OpenBagAndChooseItem;
-    gBattlerInMenuId = gActiveBattler;
-    for (i = 0; i < 3; ++i)
-        gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][1 + i];
+    else
+    {
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
+        gBattlerControllerFuncs[gActiveBattler] = OpenBagAndChooseItem;
+        gBattlerInMenuId = gActiveBattler;
+        for (i = 0; i < 3; ++i)
+            gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][1 + i];
+    }
 }
 
 static void PlayerHandleChoosePokemon(void)
