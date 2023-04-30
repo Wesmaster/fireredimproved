@@ -311,14 +311,14 @@ static void HandleInputChooseAction(void)
     }
     else if (JOY_NEW(L_BUTTON))
     {
-        if (IsPlayerPartyAndPokemonStorageFull())
+        if (IsPlayerPartyAndPokemonStorageFull() || !CheckBagHasItem(ITEM_POKE_BALL, 1))
 			PlaySE(SE_FAILURE);
 		else
 		{
             PlaySE(SE_SELECT);
             sLastUsedBall = TRUE;
             gSpecialVar_ItemId = ITEM_POKE_BALL;
-            //RemoveBagItem(gSpecialVar_ItemId, 1);
+            RemoveBagItem(gSpecialVar_ItemId, 1);
             BtlController_EmitTwoReturnValues(1, B_ACTION_USE_ITEM, 0);
             PlayerBufferExecCompleted();
         }
@@ -2469,13 +2469,11 @@ static void PlayerHandleChooseItem(void)
 
     if (sLastUsedBall == TRUE)
     {
-        RemoveBagItem(gSpecialVar_ItemId, 1);
         sLastUsedBall = FALSE;
         gBattlerControllerFuncs[gActiveBattler] = CompleteWhenChoseItem;
     }
     else
     {
-        AddBagItem(gSpecialVar_ItemId, 20);
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
         gBattlerControllerFuncs[gActiveBattler] = OpenBagAndChooseItem;
         gBattlerInMenuId = gActiveBattler;
