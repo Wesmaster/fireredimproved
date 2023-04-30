@@ -2471,7 +2471,7 @@ static void PlayerHandleChooseItem(void)
     {
         RemoveBagItem(gSpecialVar_ItemId, 1);
         sLastUsedBall = FALSE;
-        return;
+        gBattlerControllerFuncs[gActiveBattler] = CompleteWhenChoseItem;
     }
     else
     {
