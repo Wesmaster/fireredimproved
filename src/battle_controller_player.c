@@ -318,7 +318,7 @@ static void HandleInputChooseAction(void)
             PlaySE(SE_SELECT);
             sLastUsedBall = TRUE;
             gSpecialVar_ItemId = ITEM_POKE_BALL;
-            RemoveBagItem(gSpecialVar_ItemId, 1);
+            //RemoveBagItem(gSpecialVar_ItemId, 1);
             BtlController_EmitTwoReturnValues(1, B_ACTION_USE_ITEM, 0);
             PlayerBufferExecCompleted();
         }
@@ -2466,7 +2466,7 @@ void InitMoveSelectionsVarsAndStrings(void)
 static void PlayerHandleChooseItem(void)
 {
     s32 i;
-
+RemoveBagItem(gSpecialVar_ItemId, 1);
     if (sLastUsedBall == TRUE)
     {
         sLastUsedBall = FALSE;
