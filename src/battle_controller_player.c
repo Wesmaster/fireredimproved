@@ -2466,9 +2466,10 @@ void InitMoveSelectionsVarsAndStrings(void)
 static void PlayerHandleChooseItem(void)
 {
     s32 i;
-RemoveBagItem(gSpecialVar_ItemId, 1);
+
     if (sLastUsedBall == TRUE)
     {
+        RemoveBagItem(gSpecialVar_ItemId, 1);
         sLastUsedBall = FALSE;
         return;
     }
