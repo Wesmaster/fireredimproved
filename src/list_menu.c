@@ -30,13 +30,6 @@ struct ListMenuOverride
     bool8 enabled:1;
 };
 
-struct MoveMenuInfoIcon
-{
-    u8 width;
-    u8 height;
-    u16 offset;
-};
-
 static EWRAM_DATA struct MysteryGiftLinkMenuStruct sMysteryGiftLinkMenu = {0};
 
 struct ListMenuOverride gListMenuOverride;

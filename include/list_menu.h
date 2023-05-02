@@ -92,6 +92,13 @@ struct ListMenuWindowRect
     u8 palNum;
 };
 
+struct MoveMenuInfoIcon
+{
+    u8 width;
+    u8 height;
+    u16 offset;
+};
+
 const struct MoveMenuInfoIcon gMoveMenuInfoIcons[] =
 {
     { 12, 12, 0x00 },       // Unused
