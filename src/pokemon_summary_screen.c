@@ -3070,6 +3070,8 @@ static void PokeSum_PrintSelectedMoveStats(void)
         if (sMonSummaryScreen->mode != PSS_MODE_SELECT_MOVE && sMoveSelectionCursorPos == 4)
             return;
 
+        BlitMoveInfoIcon(sMonSummaryScreen->windowIds[POKESUM_WIN_TRAINER_MEMO], gBattleMoves[sMonSummaryScreen->moveIds[sMoveSelectionCursorPos]].category + 24, 88, 0);    
+
         AddTextPrinterParameterized3(sMonSummaryScreen->windowIds[POKESUM_WIN_TRAINER_MEMO], FONT_NORMAL,
                                      57, 1,
                                      sLevelNickTextColors[0], TEXT_SKIP_DRAW,
@@ -3085,6 +3087,8 @@ static void PokeSum_PrintSelectedMoveStats(void)
                                      0, 0,
                                      sLevelNickTextColors[0], TEXT_SKIP_DRAW,
                                      gMoveDescriptionPointers[sMonSummaryScreen->moveIds[sMoveSelectionCursorPos] - 1]);
+
+        PutWindowTilemap(sMonSummaryScreen->windowIds[POKESUM_WIN_TRAINER_MEMO]);                             
     }
 }
 

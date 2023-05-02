@@ -1607,6 +1607,16 @@ static const u8 sGetMonDataEVConstants[] =
     MON_DATA_SPATK_EV
 };
 
+static const u8 sGetMonDataIVConstants[] =
+{
+    MON_DATA_HP_IV,
+    MON_DATA_ATK_IV,
+    MON_DATA_DEF_IV,
+    MON_DATA_SPATK_IV,
+    MON_DATA_SPDEF_IV,
+    MON_DATA_SPEED_IV
+};
+
 // For stat-raising items
 static const u8 sStatsToRaise[] = 
 {
@@ -2452,10 +2462,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         if (attackerHoldEffect == sHoldEffectToType[i][0]
             && type == sHoldEffectToType[i][1])
         {
-            if (IS_TYPE_PHYSICAL(type))
-                attack = (attack * (attackerHoldEffectParam + 100)) / 100;
-            else
-                spAttack = (spAttack * (attackerHoldEffectParam + 100)) / 100;
+            attack = (attack * (attackerHoldEffectParam + 100)) / 100;
+            spAttack = (spAttack * (attackerHoldEffectParam + 100)) / 100;
             break;
         }
     }
@@ -2478,7 +2486,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     if (attackerHoldEffect == HOLD_EFFECT_THICK_CLUB && (attacker->species == SPECIES_CUBONE || attacker->species == SPECIES_MAROWAK))
         attack *= 2;
     if (defender->ability == ABILITY_THICK_FAT && (type == TYPE_FIRE || type == TYPE_ICE))
-        spAttack /= 2;
+        gBattleMovePower /= 2;
     if (attacker->ability == ABILITY_HUSTLE)
         attack = (150 * attack) / 100;
     if (attacker->ability == ABILITY_PLUS && ABILITY_ON_FIELD2(ABILITY_MINUS))
@@ -2506,7 +2514,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     if (gBattleMoves[gCurrentMove].effect == EFFECT_EXPLOSION)
         defense /= 2;
 
-    if (IS_TYPE_PHYSICAL(type))
+    if (IS_MOVE_PHYSICAL(gCurrentMove))
     {
         if (gCritMultiplier == 2)
         {
@@ -2561,7 +2569,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     if (type == TYPE_MYSTERY)
         damage = 0; // is ??? type. does 0 damage.
 
-    if (IS_TYPE_SPECIAL(type))
+    if (IS_MOVE_SPECIAL(gCurrentMove))
     {
         if (gCritMultiplier == 2)
         {
@@ -2604,46 +2612,46 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && gBattleMoves[move].target == MOVE_TARGET_BOTH && CountAliveMonsInBattle(BATTLE_ALIVE_DEF_SIDE) == 2)
             damage /= 2;
 
-        // Are effects of weather negated with cloud nine or air lock
-        if (WEATHER_HAS_EFFECT2)
+        // Any weather except sun weakens solar beam
+        if ((gBattleWeather & (B_WEATHER_RAIN | B_WEATHER_SANDSTORM | B_WEATHER_HAIL_TEMPORARY)) && gCurrentMove == MOVE_SOLAR_BEAM)
+            damage /= 2;
+    }
+
+    // Are effects of weather negated with cloud nine or air lock
+    if (WEATHER_HAS_EFFECT2)
+    {
+        // Rain weakens Fire, boosts Water
+        if (gBattleWeather & B_WEATHER_RAIN_TEMPORARY)
         {
-            // Rain weakens Fire, boosts Water
-            if (gBattleWeather & B_WEATHER_RAIN_TEMPORARY)
+            switch (type)
             {
-                switch (type)
-                {
-                case TYPE_FIRE:
-                    damage /= 2;
-                    break;
-                case TYPE_WATER:
-                    damage = (15 * damage) / 10;
-                    break;
-                }
-            }
-
-            // Any weather except sun weakens solar beam
-            if ((gBattleWeather & (B_WEATHER_RAIN | B_WEATHER_SANDSTORM | B_WEATHER_HAIL_TEMPORARY)) && gCurrentMove == MOVE_SOLAR_BEAM)
+            case TYPE_FIRE:
                 damage /= 2;
-
-            // Sun boosts Fire, weakens Water
-            if (gBattleWeather & B_WEATHER_SUN)
-            {
-                switch (type)
-                {
-                case TYPE_FIRE:
-                    damage = (15 * damage) / 10;
-                    break;
-                case TYPE_WATER:
-                    damage /= 2;
-                    break;
-                }
+                break;
+            case TYPE_WATER:
+                damage = (15 * damage) / 10;
+                break;
             }
         }
 
-        // Flash fire triggered
-        if ((gBattleResources->flags->flags[battlerIdAtk] & RESOURCE_FLAG_FLASH_FIRE) && type == TYPE_FIRE)
-            damage = (15 * damage) / 10;
+        // Sun boosts Fire, weakens Water
+        if (gBattleWeather & B_WEATHER_SUN)
+        {
+            switch (type)
+            {
+            case TYPE_FIRE:
+                damage = (15 * damage) / 10;
+                break;
+            case TYPE_WATER:
+                damage /= 2;
+                break;
+            }
+        }
     }
+
+    // Flash fire triggered
+    if ((gBattleResources->flags->flags[battlerIdAtk] & RESOURCE_FLAG_FLASH_FIRE) && type == TYPE_FIRE)
+        damage = (15 * damage) / 10;
 
     return damage + 2;
 }
@@ -4288,15 +4296,15 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                         data = itemEffect[idx++];
                         switch (data)
                         {
-                        case ITEM6_HEAL_HP_FULL:
+                        case ITEM7_HEAL_HP_FULL:
                             data = GetMonData(mon, MON_DATA_MAX_HP, NULL) - GetMonData(mon, MON_DATA_HP, NULL);
                             break;
-                        case ITEM6_HEAL_HP_HALF:
+                        case ITEM7_HEAL_HP_HALF:
                             data = GetMonData(mon, MON_DATA_MAX_HP, NULL) / 2;
                             if (data == 0)
                                 data = 1;
                             break;
-                        case ITEM6_HEAL_HP_LVL_UP:
+                        case ITEM7_HEAL_HP_LVL_UP:
                             data = gBattleScripting.levelUpHP;
                             break;
                         }
@@ -4474,7 +4482,50 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                             retVal = FALSE;
                         }
                         break;
-                    case 5: // ITEM5_FRIENDSHIP_LOW
+                    case 5: // ITEM5_IV_HP
+                    case 6: // ITEM5_IV_ATK
+                    case 7: // ITEM5_IV_DEF
+                        data = GetMonData(mon, sGetMonDataIVConstants[i - 5], NULL);
+                        if (data < MAX_PER_STAT_IVS)
+                        {                        
+                            data += itemEffect[idx];
+                            SetMonData(mon, sGetMonDataIVConstants[i - 5], &data);
+                            CalculateMonStats(mon);
+                            retVal = FALSE;
+                            idx++;
+                        }
+                        break;
+                    }
+                }
+                i++;
+                val >>= 1;
+            }
+            break;
+        case 6:
+            val = itemEffect[cmdIndex];
+            i = 0;
+
+            // Loop through and try each of the ITEM6 effects
+            while (val != 0)
+            {
+                if (val & 1)
+                {
+                    switch(i)
+                    {
+                    case 0: // ITEM6_IV_SPATK
+                    case 1: // ITEM6_IV_SPDEF
+                    case 2: // ITEM6_IV_SPEED
+                        data = GetMonData(mon, sGetMonDataIVConstants[i + 3], NULL);
+                        if (data < MAX_PER_STAT_IVS)
+                        {                        
+                            data += itemEffect[idx];
+                            SetMonData(mon, sGetMonDataIVConstants[i + 3], &data);
+                            CalculateMonStats(mon);
+                            retVal = FALSE;
+                            idx++;
+                        }
+                        break;
+                    case 3: // ITEM6_FRIENDSHIP_LOW
                         // Changes to friendship are given differently depending on
                         // how much friendship the Pokémon already has.
                         // In general, Pokémon with lower friendship receive more,
@@ -4483,12 +4534,12 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                             UPDATE_FRIENDSHIP_FROM_ITEM();
                         idx++;
                         break;
-                    case 6: // ITEM5_FRIENDSHIP_MID
+                    case 4: // ITEM6_FRIENDSHIP_MID
                         if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) >= 100 && GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) < 200)
                             UPDATE_FRIENDSHIP_FROM_ITEM();
                         idx++;
                         break;
-                    case 7: // ITEM5_FRIENDSHIP_HIGH
+                    case 5: // ITEM6_FRIENDSHIP_HIGH
                         if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) >= 200)
                             UPDATE_FRIENDSHIP_FROM_ITEM();
                         idx++;
@@ -4795,14 +4846,51 @@ bool8 PokemonItemUseNoEffect(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mo
                         if (data < 3 && tmp >= 5)
                             retVal = FALSE;
                         break;
-                    case 5: // ITEM5_FRIENDSHIP_LOW
+                    case 5: // ITEM5_HP_IV
+                    case 6: // ITEM5_ATK_IV
+                    case 7: // ITEM5_DEF_IV
+                        data = GetMonData(mon, sGetMonDataIVConstants[i - 5], NULL);
+                        if (data < MAX_PER_STAT_IVS)
+                        {                        
+                            retVal = FALSE;
+                            idx++;
+                        }
+                        break;
+                    }
+                }
+                i++;
+                curEffect >>= 1;
+            }
+            break;
+        case 6:
+            curEffect = itemEffect[cmdIndex];
+            i = 0;
+
+            // Loop through and try each of the ITEM6 effects
+            while (curEffect != 0)
+            {
+                if (curEffect & 1)
+                {
+                    switch(i)
+                    {
+                    case 0: // ITEM6_SPATK_IV
+                    case 1: // ITEM6_SPDEF_IV
+                    case 2: // ITEM6_SPEED_IV
+                        data = GetMonData(mon, sGetMonDataIVConstants[i + 3], NULL);
+                        if (data < MAX_PER_STAT_IVS)
+                        {                        
+                            retVal = FALSE;
+                            idx++;
+                        }
+                        break;
+                    case 3: // ITEM6_FRIENDSHIP_LOW
                         if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) < 100
                          && retVal == FALSE
                          && sp18 == 0)
                             sp18 = itemEffect[idx];
                         idx++;
                         break;
-                    case 6: // ITEM5_FRIENDSHIP_MID
+                    case 4: // ITEM6_FRIENDSHIP_MID
                         if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) >= 100
                          && GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) < 200
                          && retVal == FALSE
@@ -4810,7 +4898,7 @@ bool8 PokemonItemUseNoEffect(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mo
                             sp18 = itemEffect[idx];
                         idx++;
                         break;
-                    case 7: // ITEM5_FRIENDSHIP_HIGH
+                    case 5: // ITEM6_FRIENDSHIP_HIGH
                         if (GetMonData(mon, MON_DATA_FRIENDSHIP, NULL) >= 200
                          && retVal == FALSE
                          && sp18 == 0)

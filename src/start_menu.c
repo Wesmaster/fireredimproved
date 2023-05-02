@@ -36,12 +36,14 @@
 #include "help_system.h"
 #include "constants/songs.h"
 #include "constants/field_weather.h"
+#include "pokemon_storage_system_internal.h"
 
 enum StartMenuOption
 {
     STARTMENU_POKEDEX = 0,
     STARTMENU_POKEMON,
     STARTMENU_BAG,
+    STARTMENU_PC,
     STARTMENU_PLAYER,
     STARTMENU_SAVE,
     STARTMENU_OPTION,
@@ -81,6 +83,7 @@ static bool8 StartMenuPokedexSanityCheck(void);
 static bool8 StartMenuPokedexCallback(void);
 static bool8 StartMenuPokemonCallback(void);
 static bool8 StartMenuBagCallback(void);
+static bool8 StartMenuPCCallback(void);
 static bool8 StartMenuPlayerCallback(void);
 static bool8 StartMenuSaveCallback(void);
 static bool8 StartMenuOptionCallback(void);
@@ -116,6 +119,7 @@ static const struct MenuAction sStartMenuActionTable[] = {
     { gText_MenuPokedex, {.u8_void = StartMenuPokedexCallback} },
     { gText_MenuPokemon, {.u8_void = StartMenuPokemonCallback} },
     { gText_MenuBag, {.u8_void = StartMenuBagCallback} },
+    { gText_MenuPC, {.u8_void = StartMenuPCCallback} },
     { gText_MenuPlayer, {.u8_void = StartMenuPlayerCallback} },
     { gText_MenuSave, {.u8_void = StartMenuSaveCallback} },
     { gText_MenuOption, {.u8_void = StartMenuOptionCallback} },
@@ -132,18 +136,6 @@ static const struct WindowTemplate sSafariZoneStatsWindowTemplate = {
     .height = 4,
     .paletteNum = 15,
     .baseBlock = 0x008
-};
-
-static const u8 *const sStartMenuDescPointers[] = {
-    gStartMenuDesc_Pokedex,
-    gStartMenuDesc_Pokemon,
-    gStartMenuDesc_Bag,
-    gStartMenuDesc_Player,
-    gStartMenuDesc_Save,
-    gStartMenuDesc_Option,
-    gStartMenuDesc_Exit,
-    gStartMenuDesc_Retire,
-    gStartMenuDesc_Player
 };
 
 static const struct BgTemplate sBGTemplates_AfterLinkSaveMessage[] = {
@@ -207,7 +199,10 @@ static void SetUpStartMenu_NormalField(void)
     if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
         AppendToStartMenuItems(STARTMENU_POKEDEX);
     if (FlagGet(FLAG_SYS_POKEMON_GET) == TRUE)
+    {
         AppendToStartMenuItems(STARTMENU_POKEMON);
+        AppendToStartMenuItems(STARTMENU_PC);
+    }
     AppendToStartMenuItems(STARTMENU_BAG);
     AppendToStartMenuItems(STARTMENU_PLAYER);
     AppendToStartMenuItems(STARTMENU_SAVE);
@@ -319,10 +314,6 @@ static s8 DoDrawStartMenu(void)
         break;
     case 5:
         sStartMenuCursorPos = Menu_InitCursor(GetStartMenuWindowId(), FONT_NORMAL, 0, 0, 15, sNumStartMenuItems, sStartMenuCursorPos);
-        if (!MenuHelpers_IsLinkActive() && InUnionRoom() != TRUE && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_HELP)
-        {
-            DrawHelpMessageWindowWithText(sStartMenuDescPointers[sStartMenuOrder[sStartMenuCursorPos]]);
-        }
         CopyWindowToVram(GetStartMenuWindowId(), COPYWIN_MAP);
         return TRUE;
     }
@@ -403,19 +394,11 @@ static bool8 StartCB_HandleInput(void)
     {
         PlaySE(SE_SELECT);
         sStartMenuCursorPos = Menu_MoveCursor(-1);
-        if (!MenuHelpers_IsLinkActive() && InUnionRoom() != TRUE && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_HELP)
-        {
-            PrintTextOnHelpMessageWindow(sStartMenuDescPointers[sStartMenuOrder[sStartMenuCursorPos]], 2);
-        }
     }
     if (JOY_NEW(DPAD_DOWN))
     {
         PlaySE(SE_SELECT);
         sStartMenuCursorPos = Menu_MoveCursor(+1);
-        if (!MenuHelpers_IsLinkActive() && InUnionRoom() != TRUE && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_HELP)
-        {
-            PrintTextOnHelpMessageWindow(sStartMenuDescPointers[sStartMenuOrder[sStartMenuCursorPos]], 2);
-        }
     }
     if (JOY_NEW(A_BUTTON))
     {
@@ -491,6 +474,21 @@ static bool8 StartMenuBagCallback(void)
         SetMainCallback2(CB2_BagMenuFromStartMenu);
         return TRUE;
     }
+    return FALSE;
+}
+
+static bool8 StartMenuPCCallback(void)
+{
+	u8 taskId;
+    if (!gPaletteFade.active)
+    {
+        PlayRainStoppingSoundEffect();
+        DestroySafariZoneStatsWindow();
+        CleanupOverworldWindowsAndTilemaps();
+        EnterPokeStorage(2);
+        return TRUE;
+    }
+
     return FALSE;
 }
 

@@ -170,8 +170,12 @@ static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(void) =
 
 static const u8 sTargetIdentities[] = { B_POSITION_PLAYER_LEFT, B_POSITION_PLAYER_RIGHT, B_POSITION_OPPONENT_RIGHT, B_POSITION_OPPONENT_LEFT };
 
+static bool8 sLastUsedBall;
+
 // unknown unused data
 static const u8 sUnused[] = { 0x48, 0x48, 0x20, 0x5a, 0x50, 0x50, 0x50, 0x58 };
+
+static void MoveSelectionDisplaySplitIcon(void);
 
 void BattleControllerDummy(void)
 {
@@ -306,6 +310,20 @@ static void HandleInputChooseAction(void)
     else if (JOY_NEW(START_BUTTON))
     {
         SwapHpBarsWithHpText();
+    }
+    else if (JOY_NEW(L_BUTTON))
+    {
+        if (IsPlayerPartyAndPokemonStorageFull() || !CheckBagHasItem(ITEM_POKE_BALL, 1))
+			    PlaySE(SE_FAILURE);
+		    else
+		    {
+            PlaySE(SE_SELECT);
+            sLastUsedBall = TRUE;
+            gSpecialVar_ItemId = ITEM_POKE_BALL;
+            RemoveBagItem(gSpecialVar_ItemId, 1);
+            BtlController_EmitTwoReturnValues(1, B_ACTION_USE_ITEM, 0);
+            PlayerBufferExecCompleted();
+        }
     }
     else if (JOY_NEW(R_BUTTON))
     {
@@ -1385,8 +1403,8 @@ static void MoveSelectionDisplayMoveNames(void)
 
 static void MoveSelectionDisplayPpString(void)
 {
-    StringCopy(gDisplayedStringBattle, gText_MoveInterfacePP);
-    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP);
+    //StringCopy(gDisplayedStringBattle, gText_MoveInterfacePP);
+    //BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP);
 }
 
 static void MoveSelectionDisplayPpNumber(void)
@@ -1416,6 +1434,8 @@ static void MoveSelectionDisplayMoveType(void)
     txtPtr = StringCopy(txtPtr, gText_MoveInterfaceDynamicColors);
     StringCopy(txtPtr, gTypeNames[gBattleMoves[moveInfo->moves[gMoveSelectionCursor[gActiveBattler]]].type]);
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_TYPE);
+
+    MoveSelectionDisplaySplitIcon();
 }
 
 void MoveSelectionCreateCursorAt(u8 cursorPosition, u8 arg1)
@@ -2459,11 +2479,19 @@ static void PlayerHandleChooseItem(void)
 {
     s32 i;
 
-    BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
-    gBattlerControllerFuncs[gActiveBattler] = OpenBagAndChooseItem;
-    gBattlerInMenuId = gActiveBattler;
-    for (i = 0; i < 3; ++i)
-        gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][1 + i];
+    if (sLastUsedBall == TRUE)
+    {
+        sLastUsedBall = FALSE;
+        gBattlerControllerFuncs[gActiveBattler] = CompleteWhenChoseItem;
+    }
+    else
+    {
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
+        gBattlerControllerFuncs[gActiveBattler] = OpenBagAndChooseItem;
+        gBattlerInMenuId = gActiveBattler;
+        for (i = 0; i < 3; ++i)
+            gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][1 + i];
+    }
 }
 
 static void PlayerHandleChoosePokemon(void)
@@ -2965,4 +2993,18 @@ static void PreviewDeterminativeMoveTargets(void)
         }
         BeginNormalPaletteFade(bitMask, 8, startY, 0, RGB_WHITE);
     }
+}
+
+static void MoveSelectionDisplaySplitIcon(void){
+	static const u16 sSplitIcons_Pal[] = INCBIN_U16("graphics/interface/split_icons_battle.gbapal");
+	static const u8 sSplitIcons_Gfx[] = INCBIN_U8("graphics/interface/split_icons_battle.4bpp");
+	struct ChooseMoveStruct *moveInfo;
+	int icon;
+
+	moveInfo = (struct ChooseMoveStruct*)(&gBattleBufferA[gActiveBattler][4]);
+	icon = gBattleMoves[moveInfo->moves[gMoveSelectionCursor[gActiveBattler]]].category;
+	LoadPalette(sSplitIcons_Pal, 10 * 0x10, 0x20);
+	BlitBitmapToWindow(B_WIN_DUMMY, sSplitIcons_Gfx + 0x80 * icon, 0, 0, 16, 16);
+	PutWindowTilemap(B_WIN_DUMMY);
+	CopyWindowToVram(B_WIN_DUMMY, 3);
 }

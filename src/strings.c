@@ -472,6 +472,7 @@ const u8 gText_Earthbadge[] = _("Earthbadge");
 const u8 gText_SomeoneSPc[] = _("Someone's PC");
 const u8 gText_BillSPc[] = _("Bill's PC");
 const u8 gText_SPc[] = _("{PLAYER}'s PC");
+const u8 gText_MenuPC[] = _("PC");
 const u8 gText_HallOfFame_2[] = _("Hall Of Fame");
 const u8 gText_LogOff[] = _("Log Off");
 const u8 gText_ProfOakSPc[] = _("Prof. Oak's PC");
@@ -895,16 +896,6 @@ const u8 gText_SaveFailed[] = _("レポ-トの かきこみに\nしっぱい し
 const u8 gText_NoSaveFileCantSetTime[] = _("レポ-トが ないので\nじかんの せっていは できません!");
 const u8 gText_InGameClockUsable[] = _("ゲ-ムない じかんの しゅうせい システムが\nつかえる ように なりました!");
 const u8 gText_SavingDontTurnOffThePower2[] = _("Saving…\nDon't Turn Off The Power.");
-
-// Start menu option descriptions
-const u8 gStartMenuDesc_Pokedex[] = _("A device that records Pokémon secrets\nupon meeting or catching them.");
-const u8 gStartMenuDesc_Pokemon[] = _("Check and organize Pokémon that are\ntraveling with you in your party.");
-const u8 gStartMenuDesc_Bag[] = _("Equipped with pockets for storing items\nyou bought, received, or found.");
-const u8 gStartMenuDesc_Player[] = _("Check your money and other game data.");
-const u8 gStartMenuDesc_Save[] = _("Save your game with a complete record\nof your progress to take a break.");
-const u8 gStartMenuDesc_Option[] = _("Adjust various game settings such as text\nspeed, game rules, etc.");
-const u8 gStartMenuDesc_Exit[] = _("Close this Menu window.");
-const u8 gStartMenuDesc_Retire[] = _("Retire from the Safari Game and return to\nthe registration counter.");
 
 #include "data/text/quest_log.h"
 
