@@ -24,6 +24,7 @@
 #include "constants/songs.h"
 #include "constants/sound.h"
 #include "graphics.h"
+#include "list_menu.h"
 
 static void PlayerHandleGetMonData(void);
 static void PlayerHandleSetMonData(void);
