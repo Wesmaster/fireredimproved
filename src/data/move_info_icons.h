@@ -1,8 +1,3 @@
-#ifndef GUARD_MOVE_INFO_ICONS_H
-#define GUARD_MOVE_INFO_ICONS_H
-
-#include "list_menu.h"
-
 const struct MoveMenuInfoIcon gMoveMenuInfoIcons[] =
 {
     { 12, 12, 0x00 },       // Unused
@@ -33,5 +28,3 @@ const struct MoveMenuInfoIcon gMoveMenuInfoIcons[] =
     { 32, 16, 0x08 },       // Special icon
     { 32, 16, 0x0C },       // Status icon
 };
-
-#endif

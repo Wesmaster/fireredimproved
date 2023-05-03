@@ -10,8 +10,7 @@
 #include "strings.h"
 #include "pokemon_icon.h"
 #include "constants/songs.h"
-
-extern const struct MoveMenuInfoIcon gMoveMenuInfoIcons[];
+#include "data/move_info_icons.h"
 
 struct MysteryGiftLinkMenuStruct
 {
