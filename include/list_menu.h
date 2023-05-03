@@ -3,6 +3,7 @@
 
 #include "global.h"
 #include "window.h"
+#include "move_info_icons.h"
 
 #define LIST_NOTHING_CHOSEN -1
 #define LIST_CANCEL -2
