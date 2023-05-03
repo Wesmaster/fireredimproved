@@ -2972,7 +2972,7 @@ static void MoveSelectionDisplaySplitIcon(void){
 	int icon;
 
 	moveInfo = (struct ChooseMoveStruct*)(&gBattleBufferA[gActiveBattler][4]);
-	icon = gBattleMoves[moveInfo->moves[gMoveSelectionCursor[gActiveBattler]]].category;
+	icon = gBattleMoves[moveInfo->moves[gMoveSelectionCursor[gActiveBattler]]].category + 24;
     BlitBitmapRectToWindow(B_WIN_DUMMY, gFireRedMenuElements_Gfx + gMoveMenuInfoIcons[icon].offset * 32, 0, 0, gMoveMenuInfoIcons[icon].width, gMoveMenuInfoIcons[icon].height, 0, 0, gMoveMenuInfoIcons[icon].width, gMoveMenuInfoIcons[icon].height);
 	//BlitMoveInfoIcon(B_WIN_DUMMY, icon + 24, 0, 0);
     //LoadPalette(sSplitIcons_Pal, 10 * 0x10, 0x20);
