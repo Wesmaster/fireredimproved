@@ -11,6 +11,8 @@
 #include "pokemon_icon.h"
 #include "constants/songs.h"
 
+extern const struct MoveMenuInfoIcon gMoveMenuInfoIcons[];
+
 struct MysteryGiftLinkMenuStruct
 {
     u32 currItemId;

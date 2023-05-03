@@ -3,7 +3,6 @@
 
 #include "global.h"
 #include "window.h"
-#include "move_info_icons.h"
 
 #define LIST_NOTHING_CHOSEN -1
 #define LIST_CANCEL -2
@@ -99,8 +98,6 @@ struct MoveMenuInfoIcon
     u8 height;
     u16 offset;
 };
-
-extern const struct MoveMenuInfoIcon gMoveMenuInfoIcons[];
 
 extern struct ListMenuTemplate gMultiuseListMenuTemplate;
 

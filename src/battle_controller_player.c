@@ -109,6 +109,8 @@ static void Task_CreateLevelUpVerticalStripes(u8 taskId);
 static void StartSendOutAnim(u8 battlerId, bool8 dontClearSubstituteBit);
 static void EndDrawPartyStatusSummary(void);
 
+extern const struct MoveMenuInfoIcon gMoveMenuInfoIcons[];
+
 static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(void) =
 {
     [CONTROLLER_GETMONDATA]               = PlayerHandleGetMonData,
