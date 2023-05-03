@@ -3,7 +3,7 @@
 
 #include "list_menu.h"
 
-const struct MoveMenuInfoIcon gMoveMenuInfoIcons[] =
+extern const struct MoveMenuInfoIcon gMoveMenuInfoIcons[] =
 {
     { 12, 12, 0x00 },       // Unused
     { 32, 12, 0x20 },       // Normal icon
