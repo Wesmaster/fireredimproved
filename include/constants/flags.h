@@ -794,9 +794,9 @@
 #define FLAG_OAKS_RATING_IS_VIA_PC                       0x2FF
 
 // Unused?
-#define FLAG_0x300               0x300
-#define FLAG_0x301               0x301
-#define FLAG_0x302               0x302
+#define FLAG_KANTO               0x300
+#define FLAG_JOHTO               0x301
+#define FLAG_HOENN               0x302
 #define FLAG_0x303               0x303
 #define FLAG_0x304               0x304
 #define FLAG_0x305               0x305
@@ -1248,7 +1248,7 @@
 #define FLAG_DEFEATED_CHAMP           0x4BC
 
 // Unused?
-#define FLAG_0x4BD               0x4BD
+#define FLAG_POKEMONPCMENU       0x4BD
 #define FLAG_0x4BE               0x4BE
 #define FLAG_0x4BF               0x4BF
 #define FLAG_0x4C0               0x4C0

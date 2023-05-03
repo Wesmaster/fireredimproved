@@ -12,7 +12,9 @@ struct PokemonSubstruct0
     u32 experience;
     u8 ppBonuses;
     u8 friendship;
-    u16 filler;
+    u16 hasCustomNature:1;
+    u16 customNatureId:5;
+    u16 filler:10;
 };
 
 struct PokemonSubstruct1

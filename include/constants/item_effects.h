@@ -43,26 +43,37 @@
 #define ITEM5_EV_SPDEF          0x4
 #define ITEM5_EV_SPATK          0x8
 #define ITEM5_PP_MAX            0x10
-#define ITEM5_FRIENDSHIP_LOW    0x20
-#define ITEM5_FRIENDSHIP_MID    0x40
-#define ITEM5_FRIENDSHIP_HIGH   0x80
+#define ITEM5_IV_HP             0x20
+#define ITEM5_IV_ATK            0x40
+#define ITEM5_IV_DEF            0x80
 
-#define ITEM5_FRIENDSHIP_ALL    (ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID | ITEM5_FRIENDSHIP_HIGH)
-
-// fields 6 and onwards are item-specific arguments
-#define ITEM_EFFECT_ARG_START 6
+// fields 7 and onwards are item-specific arguments
+#define ITEM_EFFECT_ARG_START 7
 
 // Special HP recovery amounts for ITEM4_HEAL_HP
-#define ITEM6_HEAL_HP_FULL   ((u8) -1)
-#define ITEM6_HEAL_HP_HALF   ((u8) -2)
-#define ITEM6_HEAL_HP_LVL_UP ((u8) -3)
+#define ITEM7_HEAL_HP_FULL   ((u8) -1)
+#define ITEM7_HEAL_HP_HALF   ((u8) -2)
+#define ITEM7_HEAL_HP_LVL_UP ((u8) -3)
 
 // Special PP recovery amounts for ITEM4_HEAL_PP
-#define ITEM6_HEAL_PP_FULL   0x7F
+#define ITEM7_HEAL_PP_FULL   0x7F
 
 // Amount of EV modified by ITEM4_EV_HP, ITEM4_EV_ATK, ITEM5_EV_DEF, ITEM5_EV_SPEED, ITEM5_EV_SPDEF and ITEM5_EV_SPATK
-#define ITEM6_ADD_EV       10
-#define ITEM6_SUBTRACT_EV -10
+#define ITEM7_ADD_EV       10
+#define ITEM7_SUBTRACT_EV -10
+
+// field 6 masks
+#define ITEM6_IV_SPATK          0x1
+#define ITEM6_IV_SPDEF          0x2
+#define ITEM6_IV_SPEED          0x4
+#define ITEM6_FRIENDSHIP_LOW    0x8
+#define ITEM6_FRIENDSHIP_MID    0x10
+#define ITEM6_FRIENDSHIP_HIGH   0x20
+
+#define ITEM6_FRIENDSHIP_ALL    (ITEM6_FRIENDSHIP_LOW | ITEM6_FRIENDSHIP_MID | ITEM6_FRIENDSHIP_HIGH)
+
+#define ITEM7_ADD_IV       1
+#define ITEM7_SUBTRACT_IV -1
 
 // Used for GetItemEffectType.
 #define ITEM_EFFECT_X_ITEM 0
@@ -87,6 +98,12 @@
 #define ITEM_EFFECT_PP_UP 19
 #define ITEM_EFFECT_PP_MAX 20
 #define ITEM_EFFECT_HEAL_PP 21
+#define ITEM_EFFECT_HP_IV 22
+#define ITEM_EFFECT_ATK_IV 23
+#define ITEM_EFFECT_DEF_IV 24
+#define ITEM_EFFECT_SPATK_IV 25
+#define ITEM_EFFECT_SPDEF_IV 26
+#define ITEM_EFFECT_SPEED_IV 27
 #define ITEM_EFFECT_NONE 22
 
 #endif // GUARD_CONSTANTS_ITEM_EFFECTS_H

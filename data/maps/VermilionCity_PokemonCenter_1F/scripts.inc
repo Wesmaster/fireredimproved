@@ -25,3 +25,7 @@ VermilionCity_PokemonCenter_1F_EventScript_Hiker::
 VermilionCity_PokemonCenter_1F_EventScript_Youngster::
 	msgbox VermilionCity_PokemonCenter_1F_Text_AllMonWeakToSpecificTypes, MSGBOX_NPC
 	end
+
+VermilionCity_PokemonCenter_1F_EventScript_SecondNurse::
+	call EventScript_PkmnCenterNurse_SecondNurse_CheckMoney
+	end
