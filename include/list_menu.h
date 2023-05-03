@@ -92,6 +92,15 @@ struct ListMenuWindowRect
     u8 palNum;
 };
 
+struct MoveMenuInfoIcon
+{
+    u8 width;
+    u8 height;
+    u16 offset;
+};
+
+extern const struct MoveMenuInfoIcon gMoveMenuInfoIcons[];
+
 extern struct ListMenuTemplate gMultiuseListMenuTemplate;
 
 u32 DoMysteryGiftListMenu(const struct WindowTemplate *windowTemplate, const struct ListMenuTemplate *listMenuTemplate, u8 arg2, u16 tileNum, u16 palNum);
