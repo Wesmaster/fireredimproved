@@ -10,7 +10,6 @@
 #include "strings.h"
 #include "pokemon_icon.h"
 #include "constants/songs.h"
-#include "data/graphics/move_info_icons.h"
 
 struct MysteryGiftLinkMenuStruct
 {
