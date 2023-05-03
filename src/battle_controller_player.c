@@ -2973,13 +2973,13 @@ static void MoveSelectionDisplaySplitIcon(void){
 	int icon;
 
 	moveInfo = (struct ChooseMoveStruct*)(&gBattleBufferA[gActiveBattler][4]);
-	icon = gBattleMoves[moveInfo->moves[gMoveSelectionCursor[gActiveBattler]]].category + 2;
-    FillWindowPixelBuffer(B_WIN_DUMMY, 0);
+	icon = gBattleMoves[moveInfo->moves[gMoveSelectionCursor[gActiveBattler]]].category + 24;
+    //FillWindowPixelBuffer(B_WIN_DUMMY, 0);
 
     //BlitBitmapRectToWindow(B_WIN_DUMMY, gFireRedMenuElements_Gfx + gMoveMenuInfoIcons[icon].offset * 32, 0, 0, gMoveMenuInfoIcons[icon].width, gMoveMenuInfoIcons[icon].height, 0, 0, gMoveMenuInfoIcons[icon].width, gMoveMenuInfoIcons[icon].height);
-	BlitMoveInfoIcon(B_WIN_DUMMY, icon + 24, 0, 0);
+	//BlitMoveInfoIcon(B_WIN_DUMMY, icon + 24, 0, 0);
     //LoadPalette(sSplitIcons_Pal, 10 * 0x10, 0x20);
-	//BlitBitmapToWindow(B_WIN_DUMMY, sSplitIcons_Gfx + 0x80 * icon, 0, 0, 16, 16);
+	BlitBitmapToWindow(B_WIN_DUMMY, gFireRedMenuElements_Gfx + gMoveMenuInfoIcons[icon].offset * 32, 0, 0, 16, 16);
 	PutWindowTilemap(B_WIN_DUMMY);
-	CopyWindowToVram(B_WIN_DUMMY, 2);
+	CopyWindowToVram(B_WIN_DUMMY, 3);
 }
