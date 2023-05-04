@@ -231,12 +231,12 @@ static const struct WindowTemplate sStandardBattleWindowTemplates[] = {
         .baseBlock = 0x2a6
     },
     [B_WIN_DUMMY] = {
-        .bg = 0,
+        .bg = 1,
         .tilemapLeft = 21,
         .tilemapTop = 55,
         .width = 3,
         .height = 2,
-        .paletteNum = 0,
+        .paletteNum = 10,
         .baseBlock = 0x2b0
     },
     [B_WIN_SWITCH_PROMPT] = {
