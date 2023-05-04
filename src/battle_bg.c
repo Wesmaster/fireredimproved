@@ -234,8 +234,8 @@ static const struct WindowTemplate sStandardBattleWindowTemplates[] = {
         .bg = 0,
         .tilemapLeft = 21,
         .tilemapTop = 55,
-        .width = 2,
-        .height = 2,
+        .width = 3,
+        .height = 1,
         .paletteNum = 10,
         .baseBlock = 0x2b0
     },
