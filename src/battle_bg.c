@@ -231,7 +231,7 @@ static const struct WindowTemplate sStandardBattleWindowTemplates[] = {
         .baseBlock = 0x2a6
     },
     [B_WIN_DUMMY] = {
-        .bg = 3,
+        .bg = 0,
         .tilemapLeft = 21,
         .tilemapTop = 55,
         .width = 3,
