@@ -3015,5 +3015,7 @@ static void MoveSelectionDisplaySplitIcon(void){
 
     // Commenting PutWindowTilemap makes it show nothing.
 	PutWindowTilemap(B_WIN_DUMMY);
-	CopyWindowToVram(B_WIN_DUMMY, 2);
+
+    // Setting to 2 doesn't solve the issue.
+	CopyWindowToVram(B_WIN_DUMMY, 1);
 }
