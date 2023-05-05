@@ -3009,9 +3009,11 @@ static void MoveSelectionDisplaySplitIcon(void){
 
     // Commenting LoadPalette makes only the black background appear.
 	LoadPalette(sSplitIcons_Pal, 10 * 0x10, 0x20);
+
+    // Changing the heigth to 16 doesn't solve the issue
 	BlitBitmapToWindow(B_WIN_DUMMY, sSplitIcons_Gfx + 0xC0 * icon, 0, 0, 24, 16);
 
     // Commenting PutWindowTilemap makes it show nothing.
 	PutWindowTilemap(B_WIN_DUMMY);
-	CopyWindowToVram(B_WIN_DUMMY, 3);
+	CopyWindowToVram(B_WIN_DUMMY, 2);
 }
