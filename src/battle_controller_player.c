@@ -2999,8 +2999,8 @@ static void PreviewDeterminativeMoveTargets(void)
 }
 
 static void MoveSelectionDisplaySplitIcon(void){
-	static const u16 sSplitIcons_Pal[] = INCBIN_U16("graphics/interface/split_icons_battle_improved_moved.gbapal");
-	static const u8 sSplitIcons_Gfx[] = INCBIN_U8("graphics/interface/split_icons_battle_improved_moved.4bpp");
+	static const u16 sSplitIcons_Pal[] = INCBIN_U16("graphics/interface/split_icons_battle.gbapal");
+	static const u8 sSplitIcons_Gfx[] = INCBIN_U8("graphics/interface/split_icons_battle.4bpp");
 	struct ChooseMoveStruct *moveInfo;
 	int icon;
 
