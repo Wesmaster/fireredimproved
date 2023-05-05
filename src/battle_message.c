@@ -2527,7 +2527,7 @@ static const struct BattleWindowText sTextOnWindowsInfo_Normal[] = {
         .shadowColor = 11,
     },
     [B_WIN_DUMMY] = {
-        .fillValue = PIXEL_FILL(0xf),
+        .fillValue = PIXEL_FILL(0xe),
         .fontId = FONT_NORMAL_COPY_1,
         .x = 0,
         .y = 2,
