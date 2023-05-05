@@ -2534,9 +2534,9 @@ static const struct BattleWindowText sTextOnWindowsInfo_Normal[] = {
         .letterSpacing = 0,
         .lineSpacing = 2,
         .speed = 0,
-        .fgColor = 13,
+        .fgColor = 12,
         .bgColor = 14,
-        .shadowColor = 15,
+        .shadowColor = 11,
     },
     [B_WIN_SWITCH_PROMPT] = {
         .fillValue = PIXEL_FILL(0xe),
