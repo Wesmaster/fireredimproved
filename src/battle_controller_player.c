@@ -2999,8 +2999,8 @@ static void PreviewDeterminativeMoveTargets(void)
 }
 
 static void MoveSelectionDisplaySplitIcon(void){
-	static const u16 sSplitIcons_Pal[] = INCBIN_U16("graphics/interface/split_icons_battle.gbapal");
-	static const u8 sSplitIcons_Gfx[] = INCBIN_U8("graphics/interface/split_icons_battle.4bpp");
+	static const u16 sSplitIcons_Pal[] = INCBIN_U16("graphics/interface/split_icons_battle_white.gbapal");
+	static const u8 sSplitIcons_Gfx[] = INCBIN_U8("graphics/interface/split_icons_battle_white.4bpp");
 	struct ChooseMoveStruct *moveInfo;
 	int icon;
 
@@ -3017,5 +3017,6 @@ static void MoveSelectionDisplaySplitIcon(void){
 	PutWindowTilemap(B_WIN_DUMMY);
 
     // Setting to 2 doesn't solve the issue.
-	CopyWindowToVram(B_WIN_DUMMY, 1);
+    // Setting to 1 only shows the black bg.
+	CopyWindowToVram(B_WIN_DUMMY, 3);
 }
