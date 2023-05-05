@@ -3006,8 +3006,20 @@ static void MoveSelectionDisplaySplitIcon(void){
 
 	moveInfo = (struct ChooseMoveStruct*)(&gBattleBufferA[gActiveBattler][4]);
 	icon = gBattleMoves[moveInfo->moves[gMoveSelectionCursor[gActiveBattler]]].category;
+
+    // Commenting LoadPalette makes only the black background appear.
 	LoadPalette(sSplitIcons_Pal, 10 * 0x10, 0x20);
-	BlitBitmapToWindow(B_WIN_DUMMY, sSplitIcons_Gfx + 0x80 * icon, 0, 0, 16, 16);
+
+    // This fixed the issue with the black bg.
+    FillWindowPixelBuffer(B_WIN_DUMMY, PIXEL_FILL(15));
+
+    // Changing the heigth to 16 doesn't solve the issue.
+	BlitBitmapToWindow(B_WIN_DUMMY, sSplitIcons_Gfx + 0xC0 * icon, 0, 0, 24, 16);
+
+    // Commenting PutWindowTilemap makes it show nothing.
 	PutWindowTilemap(B_WIN_DUMMY);
+
+    // Setting to 2 doesn't solve the issue.
+    // Setting to 1 only shows the black bg.
 	CopyWindowToVram(B_WIN_DUMMY, 3);
 }
