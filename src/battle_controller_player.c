@@ -175,10 +175,10 @@ static const u8 sTargetIdentities[] = { B_POSITION_PLAYER_LEFT, B_POSITION_PLAYE
 // unknown unused data
 static const u8 sUnused[] = { 0x48, 0x48, 0x20, 0x5a, 0x50, 0x50, 0x50, 0x58 };
 
-extern const u8 CamomonsTypeIconsTiles[];
-extern const u8 CamomonsTypeIcons2Tiles[];
-extern const u16 CamomonsTypeIconsPal[];
-extern const u16 CamomonsTypeIcons2Pal[];
+const u8 CamomonsTypeIconsTiles[];
+const u8 CamomonsTypeIcons2Tiles[];
+const u16 CamomonsTypeIconsPal[];
+const u16 CamomonsTypeIcons2Pal[];
 
 static const struct Coords16 sTypeIconPositions[][/*IS_SINGLE_BATTLE*/2] =
 {
