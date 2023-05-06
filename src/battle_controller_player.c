@@ -174,12 +174,12 @@ static const u8 sTargetIdentities[] = { B_POSITION_PLAYER_LEFT, B_POSITION_PLAYE
 
 // unknown unused data
 static const u8 sUnused[] = { 0x48, 0x48, 0x20, 0x5a, 0x50, 0x50, 0x50, 0x58 };
-
+/*
 static const u8 CamomonsTypeIconsTiles[1536];
 static const u8 CamomonsTypeIcons2Tiles[1088];
 static const u16 CamomonsTypeIconsPal[16];
 static const u16 CamomonsTypeIcons2Pal[16];
-
+*/
 static const struct Coords16 sTypeIconPositions[][/*IS_SINGLE_BATTLE*/2] =
 {
 	[B_POSITION_PLAYER_LEFT] =
@@ -210,7 +210,7 @@ static const struct OamData sTypeIconOAM =
 	.size = SPRITE_SIZE(8x16),
 	.priority = 1, //Same level as health bar
 };
-
+/*
 #define type_icon_frame(ptr, frame) {.data = (u8 *)ptr + (1 * 2 * frame * 32), .size = 1 * 2 * 32}
 static const struct SpriteFrameImage sTypeIconPicTable[] =
 {
@@ -233,14 +233,14 @@ static const struct SpriteFrameImage sTypeIconPicTable[] =
 	[TYPE_DRAGON] =		type_icon_frame(CamomonsTypeIcons2Tiles, TYPE_DRAGON),
 	[TYPE_DARK] =		type_icon_frame(CamomonsTypeIconsTiles, TYPE_DARK),
 };
-
+*/
 static struct SpriteTemplate sTypeIconSpriteTemplate =
 {
 	.tileTag = 0xFFFF,
 	.paletteTag = ANIM_TAG_BLACK_SMOKE,
 	.oam = &sTypeIconOAM,
 	.anims = gDummySpriteAnimTable,
-	.images = sTypeIconPicTable,
+	.images = NULL,
 	.affineAnims = gDummySpriteAffineAnimTable,
 	.callback = SpriteCB_CamomonsTypeIcon,
 };
@@ -251,7 +251,7 @@ static struct SpriteTemplate sTypeIconSpriteTemplate2 =
 	.paletteTag = ANIM_TAG_BLACK_BALL,
 	.oam = &sTypeIconOAM,
 	.anims = gDummySpriteAnimTable,
-	.images = sTypeIconPicTable,
+	.images = NULL,
 	.affineAnims = gDummySpriteAffineAnimTable,
 	.callback = SpriteCB_CamomonsTypeIcon,
 };
