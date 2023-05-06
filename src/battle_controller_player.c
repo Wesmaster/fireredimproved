@@ -107,6 +107,7 @@ static void Task_GiveExpWithExpBar(u8 taskId);
 static void Task_CreateLevelUpVerticalStripes(u8 taskId);
 static void StartSendOutAnim(u8 battlerId, bool8 dontClearSubstituteBit);
 static void EndDrawPartyStatusSummary(void);
+static void SpriteCB_CamomonsTypeIcon(struct Sprite* sprite);
 
 static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(void) =
 {
@@ -258,13 +259,13 @@ static struct SpriteTemplate sTypeIconSpriteTemplate2 =
 static const struct SpritePalette sTypeIconPalTemplate =
 {
 	.data = CamomonsTypeIconsPal,
-	.tag = TYPE_ICON_TAG,
+	.tag = ANIM_TAG_BLACK_SMOKE,
 };
 
 static const struct SpritePalette sTypeIconPalTemplate2 =
 {
 	.data = CamomonsTypeIcons2Pal,
-	.tag = TYPE_ICON_TAG_2,
+	.tag = ANIM_TAG_BLACK_BALL,
 };
 
 void BattleControllerDummy(void)
@@ -2549,22 +2550,29 @@ static void TryLoadTypeIcons(void)
 
     u8 position;
     u8 typeNum;
-    u8 spriteId;
-    s16 x, y;
-    u8 type;
+
+
+    u8 type, type1, type2;
 
     for (position = 0; position < gBattlersCount; ++position)
     {
         if (gAbsentBattlerFlags & gBitTable[GetBattlerAtPosition(position)])
             continue;
+			
+        u8 bank = GetBattlerAtPosition(position);
+        
+        type1 = gBattleMons[bank].type1;
+        type2 = gBattleMons[bank].type2;
 
         for (typeNum = 0; typeNum < 2; ++typeNum) //Load each type
         {
+            u8 spriteId;
+            s16 x, y;
 
             x = sTypeIconPositions[position][!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)].x;
             y = sTypeIconPositions[position][!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)].y + (11 * typeNum); //2nd type is 13px below
 
-            type = *(type1Ptr + typeNum);
+            type = (typeNum == 0) ? type1 : type2;
 
             switch (type) { //Certain types have a different palette
                 case TYPE_FLYING:
@@ -2682,8 +2690,10 @@ static void SpriteCB_CamomonsTypeIcon(struct Sprite* sprite)
 	}
 
 	//Deal with bouncing player healthbox
-	s16 originalY = sprite->data[3];
-	struct Sprite* healthbox = &gSprites[gHealthboxSpriteIds[GetBattlerAtPosition(position)]];
+	s16 originalY;
+    originalY = sprite->data[3];
+	struct Sprite* healthbox;
+    healthbox = &gSprites[gHealthboxSpriteIds[GetBattlerAtPosition(position)]];
 	sprite->y = originalY + healthbox->y2;
 }
 
