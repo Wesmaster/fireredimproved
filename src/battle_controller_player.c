@@ -2614,6 +2614,8 @@ static void SpriteCB_CamomonsTypeIcon(struct Sprite* sprite)
 {
 	u8 position = sprite->data[0];
 	u8 bank = sprite->data[1];
+    s16 originalY = sprite->data[3];
+    struct Sprite* healthbox = &gSprites[gHealthboxSpriteIds[GetBattlerAtPosition(position)]];
 
 	if (sprite->data[2] == 10)
 	{
@@ -2690,10 +2692,6 @@ static void SpriteCB_CamomonsTypeIcon(struct Sprite* sprite)
 	}
 
 	//Deal with bouncing player healthbox
-	s16 originalY;
-    originalY = sprite->data[3];
-	struct Sprite* healthbox;
-    healthbox = &gSprites[gHealthboxSpriteIds[GetBattlerAtPosition(position)]];
 	sprite->y = originalY + healthbox->y2;
 }
 
