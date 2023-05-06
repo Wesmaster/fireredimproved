@@ -2548,31 +2548,25 @@ static void TryLoadTypeIcons(void)
     LoadSpritePalette(&sTypeIconPalTemplate);
     LoadSpritePalette(&sTypeIconPalTemplate2);
 
-    u8 position;
-    u8 typeNum;
-
-
-    u8 type, type1, type2;
-
-    for (position = 0; position < gBattlersCount; ++position)
+    u8 position = 0;
+    for (position; position < gBattlersCount; ++position)
     {
+        u8 bank = GetBattlerAtPosition(position);
+        u8 type1 = gBattleMons[bank].type1;
+        u8 type2 = gBattleMons[bank].type2;
+        
         if (gAbsentBattlerFlags & gBitTable[GetBattlerAtPosition(position)])
             continue;
 			
-        u8 bank = GetBattlerAtPosition(position);
-        
-        type1 = gBattleMons[bank].type1;
-        type2 = gBattleMons[bank].type2;
-
-        for (typeNum = 0; typeNum < 2; ++typeNum) //Load each type
+        u8 typeNum = 0;
+        for (typeNum; typeNum < 2; ++typeNum) //Load each type
         {
             u8 spriteId;
-            s16 x, y;
 
-            x = sTypeIconPositions[position][!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)].x;
-            y = sTypeIconPositions[position][!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)].y + (11 * typeNum); //2nd type is 13px below
+            s16 x = sTypeIconPositions[position][!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)].x;
+            s16 y = sTypeIconPositions[position][!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)].y + (11 * typeNum); //2nd type is 13px below
 
-            type = (typeNum == 0) ? type1 : type2;
+            u8 type = (typeNum == 0) ? type1 : type2;
 
             switch (type) { //Certain types have a different palette
                 case TYPE_FLYING:
