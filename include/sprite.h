@@ -321,5 +321,6 @@ void FreeSpriteTilesIfNotUsingSheet(struct Sprite *sprite);
 s16 AllocSpriteTiles(u16 tileCount);
 void SetSpriteMatrixAnchor(struct Sprite* sprite, s16 xmod, s16 ymod);
 void SetSpriteOamFlipBits(struct Sprite *sprite, u8 hFlip, u8 vFlip);
+void RequestSpriteFrameImageCopy(u16 index, u16 tileNum, const struct SpriteFrameImage *images);
 
 #endif //GUARD_SPRITE_H
