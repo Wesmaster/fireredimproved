@@ -175,7 +175,7 @@ static const u8 sTargetIdentities[] = { B_POSITION_PLAYER_LEFT, B_POSITION_PLAYE
 // unknown unused data
 static const u8 sUnused[] = { 0x48, 0x48, 0x20, 0x5a, 0x50, 0x50, 0x50, 0x58 };
 
-static const u8 CamomonsTypeIconsTiles[1536];
+extern const u8 CamomonsTypeIconsTiles[1536];
 static const u8 CamomonsTypeIcons2Tiles[1088];
 static const u16 CamomonsTypeIconsPal[16];
 static const u16 CamomonsTypeIcons2Pal[16];
