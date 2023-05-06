@@ -231,18 +231,12 @@ static const struct SpriteFrameImage sTypeIconPicTable[] =
 	[TYPE_ICE] =		type_icon_frame(CamomonsTypeIconsTiles, TYPE_ICE),
 	[TYPE_DRAGON] =		type_icon_frame(CamomonsTypeIcons2Tiles, TYPE_DRAGON),
 	[TYPE_DARK] =		type_icon_frame(CamomonsTypeIconsTiles, TYPE_DARK),
-	[0x12] =			type_icon_frame(CamomonsTypeIcons2Tiles, TYPE_MYSTERY),
-	[TYPE_ROOSTLESS] = 	type_icon_frame(CamomonsTypeIcons2Tiles, TYPE_MYSTERY),
-	[TYPE_BLANK] = 		type_icon_frame(CamomonsTypeIcons2Tiles, TYPE_MYSTERY),
-	[0x15] = 			type_icon_frame(CamomonsTypeIcons2Tiles, TYPE_MYSTERY),
-	[0x16] = 			type_icon_frame(CamomonsTypeIcons2Tiles, TYPE_MYSTERY),
-	[TYPE_FAIRY] = 		type_icon_frame(CamomonsTypeIconsTiles, TYPE_FAIRY),
 };
 
 static struct SpriteTemplate sTypeIconSpriteTemplate =
 {
 	.tileTag = 0xFFFF,
-	.paletteTag = TYPE_ICON_TAG,
+	.paletteTag = ANIM_TAG_BLACK_SMOKE,
 	.oam = &sTypeIconOAM,
 	.anims = gDummySpriteAnimTable,
 	.images = sTypeIconPicTable,
@@ -253,7 +247,7 @@ static struct SpriteTemplate sTypeIconSpriteTemplate =
 static struct SpriteTemplate sTypeIconSpriteTemplate2 =
 {
 	.tileTag = 0xFFFF,
-	.paletteTag = TYPE_ICON_TAG_2,
+	.paletteTag = ANIM_TAG_BLACK_BALL,
 	.oam = &sTypeIconOAM,
 	.anims = gDummySpriteAnimTable,
 	.images = sTypeIconPicTable,
@@ -2553,18 +2547,24 @@ static void TryLoadTypeIcons(void)
     LoadSpritePalette(&sTypeIconPalTemplate);
     LoadSpritePalette(&sTypeIconPalTemplate2);
 
-    for (u8 position = 0; position < gBattlersCount; ++position)
+    u8 position;
+    u8 typeNum;
+    u8 spriteId;
+    s16 x, y;
+    u8 type;
+
+    for (position = 0; position < gBattlersCount; ++position)
     {
         if (gAbsentBattlerFlags & gBitTable[GetBattlerAtPosition(position)])
             continue;
 
-        for (u8 typeNum = 0; typeNum < 2; ++typeNum) //Load each type
+        for (typeNum = 0; typeNum < 2; ++typeNum) //Load each type
         {
-            u8 spriteId;
-            s16 x = sTypeIconPositions[position][IS_SINGLE_BATTLE].x;
-            s16 y = sTypeIconPositions[position][IS_SINGLE_BATTLE].y + (11 * typeNum); //2nd type is 13px below
 
-            u8 type = *(type1Ptr + typeNum);
+            x = sTypeIconPositions[position][!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)].x;
+            y = sTypeIconPositions[position][!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)].y + (11 * typeNum); //2nd type is 13px below
+
+            type = *(type1Ptr + typeNum);
 
             switch (type) { //Certain types have a different palette
                 case TYPE_FLYING:
@@ -2572,8 +2572,6 @@ static void TryLoadTypeIcons(void)
                 case TYPE_GROUND:
                 case TYPE_DRAGON:
                 case TYPE_MYSTERY:
-                case TYPE_ROOSTLESS:
-                case TYPE_BLANK:
                     spriteId = CreateSpriteAtEnd(&sTypeIconSpriteTemplate2, x, y, 0xFF);
                     break;
                 default:
@@ -2587,7 +2585,7 @@ static void TryLoadTypeIcons(void)
                 sprite->data[1] = gActiveBattler;
                 sprite->data[3] = y; //Save original y-value for bouncing
 
-                if (IS_SINGLE_BATTLE)
+                if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
                 {
                     if (GetBattlerSide(GetBattlerAtPosition(position)) == B_SIDE_PLAYER)
                         SetSpriteOamFlipBits(sprite, TRUE, FALSE); //Flip horizontally
@@ -2611,7 +2609,7 @@ static void SpriteCB_CamomonsTypeIcon(struct Sprite* sprite)
 
 	if (sprite->data[2] == 10)
 	{
-		FreeSpritePaletteByTag(TYPE_ICON_TAG);
+		FreeSpritePaletteByTag(ANIM_TAG_BLACK_SMOKE);
 		DestroySprite(sprite);
 		return;
 	}
@@ -2625,14 +2623,14 @@ static void SpriteCB_CamomonsTypeIcon(struct Sprite* sprite)
 	&&  gBattlerControllerFuncs[bank] != HandleMoveSwitching
 	&&  gBattlerControllerFuncs[bank] != HandleInputChooseMove)
 	{
-		if (IS_SINGLE_BATTLE)
+		if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
 		{
 			switch (position) {
 				case B_POSITION_PLAYER_LEFT:
-					sprite->pos1.x -= 1;
+					sprite->x -= 1;
 					break;
 				case B_POSITION_OPPONENT_LEFT:
-					sprite->pos1.x += 1;
+					sprite->x += 1;
 					break;
 			}
 		}
@@ -2641,11 +2639,11 @@ static void SpriteCB_CamomonsTypeIcon(struct Sprite* sprite)
 			switch (position) {
 				case B_POSITION_PLAYER_LEFT:
 				case B_POSITION_PLAYER_RIGHT:
-					sprite->pos1.x += 1;
+					sprite->x += 1;
 					break;
 				case B_POSITION_OPPONENT_LEFT:
 				case B_POSITION_OPPONENT_RIGHT:
-					sprite->pos1.x -= 1;
+					sprite->x -= 1;
 					break;
 			}
 		}
@@ -2654,16 +2652,16 @@ static void SpriteCB_CamomonsTypeIcon(struct Sprite* sprite)
 		return;
 	}
 
-	if (IS_SINGLE_BATTLE)
+	if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
 	{
 		switch (position) {
 			case B_POSITION_PLAYER_LEFT:
-				if (sprite->pos1.x < sTypeIconPositions[position][TRUE].x + 10)
-					sprite->pos1.x += 1;
+				if (sprite->x < sTypeIconPositions[position][TRUE].x + 10)
+					sprite->x += 1;
 				break;
 			case B_POSITION_OPPONENT_LEFT:
-				if (sprite->pos1.x > sTypeIconPositions[position][TRUE].x - 10)
-					sprite->pos1.x -= 1;
+				if (sprite->x > sTypeIconPositions[position][TRUE].x - 10)
+					sprite->x -= 1;
 				break;
 		}
 	}
@@ -2672,13 +2670,13 @@ static void SpriteCB_CamomonsTypeIcon(struct Sprite* sprite)
 		switch (position) {
 			case B_POSITION_PLAYER_LEFT:
 			case B_POSITION_PLAYER_RIGHT:
-				if (sprite->pos1.x > sTypeIconPositions[position][FALSE].x - 10)
-					sprite->pos1.x -= 1;
+				if (sprite->x > sTypeIconPositions[position][FALSE].x - 10)
+					sprite->x -= 1;
 				break;
 			case B_POSITION_OPPONENT_LEFT:
 			case B_POSITION_OPPONENT_RIGHT:
-				if (sprite->pos1.x < sTypeIconPositions[position][FALSE].x + 10)
-					sprite->pos1.x += 1;
+				if (sprite->x < sTypeIconPositions[position][FALSE].x + 10)
+					sprite->x += 1;
 				break;
 		}
 	}
@@ -2686,7 +2684,7 @@ static void SpriteCB_CamomonsTypeIcon(struct Sprite* sprite)
 	//Deal with bouncing player healthbox
 	s16 originalY = sprite->data[3];
 	struct Sprite* healthbox = &gSprites[gHealthboxSpriteIds[GetBattlerAtPosition(position)]];
-	sprite->pos1.y = originalY + healthbox->pos2.y;
+	sprite->y = originalY + healthbox->y2;
 }
 
 static void PlayerHandleChooseItem(void)
