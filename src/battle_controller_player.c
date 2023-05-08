@@ -2544,7 +2544,7 @@ void InitMoveSelectionsVarsAndStrings(void)
 
 static void TryLoadTypeIcons(void)
 {
-    u8 position = 3;
+    u8 position = 0;
     u8 typeNum = 0;
 
     LoadSpritePalette(&sTypeIconPalTemplate);
@@ -2615,10 +2615,10 @@ static void SpriteCB_CamomonsTypeIcon(struct Sprite* sprite)
 	&&  gBattlerControllerFuncs[bank] != HandleMoveSwitching
 	&&  gBattlerControllerFuncs[bank] != HandleInputChooseMove)
 	{
-		FreeSpritePaletteByTag(11001);
+		/*FreeSpritePaletteByTag(11001);
         FreeSpritePaletteByTag(11002);
 		DestroySprite(sprite);
-		return;
+		return;*/
 	}
 
 	//Deal with bouncing player healthbox
