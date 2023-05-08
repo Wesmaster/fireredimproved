@@ -2544,7 +2544,7 @@ void InitMoveSelectionsVarsAndStrings(void)
 
 static void TryLoadTypeIcons(void)
 {
-    u8 position = 0;
+    u8 position = 1;
     u8 typeNum = 0;
 
     LoadSpritePalette(&sTypeIconPalTemplate);
@@ -2556,8 +2556,8 @@ static void TryLoadTypeIcons(void)
         u8 type1 = gBattleMons[bank].type1;
         u8 type2 = gBattleMons[bank].type2;
         
-       // if (gAbsentBattlerFlags & gBitTable[GetBattlerAtPosition(position)])
-       //     continue;
+        if (gAbsentBattlerFlags & gBitTable[bank])
+            continue;
             
         for (typeNum; typeNum < 2; ++typeNum) //Load each type
         {
