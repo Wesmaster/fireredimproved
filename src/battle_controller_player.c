@@ -256,13 +256,13 @@ static struct SpriteTemplate sTypeIconSpriteTemplate2 =
 	.callback = SpriteCB_CamomonsTypeIcon,
 };
 
-static const struct SpritePalette sTypeIconPalTemplate =
+const struct SpritePalette sTypeIconPalTemplate =
 {
 	.data = sCamomonsTypeIconsPal,
 	.tag = 11001,
 };
 
-static const struct SpritePalette sTypeIconPalTemplate2 =
+const struct SpritePalette sTypeIconPalTemplate2 =
 {
 	.data = sCamomonsTypeIcons2Pal,
 	.tag = 11002,
