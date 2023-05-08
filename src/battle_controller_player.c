@@ -175,8 +175,8 @@ static const u8 sTargetIdentities[] = { B_POSITION_PLAYER_LEFT, B_POSITION_PLAYE
 // unknown unused data
 static const u8 sUnused[] = { 0x48, 0x48, 0x20, 0x5a, 0x50, 0x50, 0x50, 0x58 };
 
-static const u8 sCamomonsTypeIconsTiles[] = INCBIN_U8("graphics/battle_interface/CamomonsTypeIcons.4bpp.lz");
-static const u8 sCamomonsTypeIcons2Tiles[] = INCBIN_U8("graphics/battle_interface/CamomonsTypeIcons2.4bpp.lz");
+static const u8 sCamomonsTypeIconsTiles[] = INCBIN_U8("graphics/battle_interface/CamomonsTypeIcons.4bpp");
+static const u8 sCamomonsTypeIcons2Tiles[] = INCBIN_U8("graphics/battle_interface/CamomonsTypeIcons2.4bpp");
 static const u16 sCamomonsTypeIconsPal[] = INCBIN_U16("graphics/battle_interface/CamomonsTypeIcons.gbapal");
 static const u16 sCamomonsTypeIcons2Pal[] = INCBIN_U16("graphics/battle_interface/CamomonsTypeIcons2.gbapal");
 
