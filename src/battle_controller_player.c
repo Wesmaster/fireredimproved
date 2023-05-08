@@ -234,7 +234,7 @@ static const struct SpriteFrameImage sTypeIconPicTable[] =
 	[TYPE_DARK] =		type_icon_frame(sCamomonsTypeIconsTiles, TYPE_DARK),
 };
 
-static struct SpriteTemplate sTypeIconSpriteTemplate =
+static const struct SpriteTemplate sTypeIconSpriteTemplate =
 {
 	.tileTag = 0xFFFF,
 	.paletteTag = 11001,
@@ -245,7 +245,7 @@ static struct SpriteTemplate sTypeIconSpriteTemplate =
 	.callback = SpriteCB_CamomonsTypeIcon,
 };
 
-static struct SpriteTemplate sTypeIconSpriteTemplate2 =
+static const struct SpriteTemplate sTypeIconSpriteTemplate2 =
 {
 	.tileTag = 0xFFFF,
 	.paletteTag = 11002,
