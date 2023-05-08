@@ -189,7 +189,7 @@ static const struct Coords16 sTypeIconPositions[][/*IS_SINGLE_BATTLE*/2] =
 	},
 	[B_POSITION_OPPONENT_LEFT] =
 	{
-		[TRUE] = {110, 26}, 	//Single Battle
+		[TRUE] = {105, 26}, 	//Single Battle
 		[FALSE] = {97, 14},		//Double Battle
 	},
 	[B_POSITION_PLAYER_RIGHT] =
@@ -2586,6 +2586,8 @@ static void TryLoadTypeIcons(void)
                 sprite->data[0] = position;
                 sprite->data[1] = gActiveBattler;
                 sprite->data[3] = y; //Save original y-value for bouncing
+
+                SetSpriteOamFlipBits(sprite, TRUE, FALSE);
 
                 RequestSpriteFrameImageCopy(type, sprite->oam.tileNum, sprite->images);
             }
