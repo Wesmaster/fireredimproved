@@ -2585,7 +2585,7 @@ static void TryLoadTypeIcons(void)
 
             if (spriteId != MAX_SPRITES)
             {
-                struct Sprite* sprite; = &gSprites[spriteId];
+                struct Sprite* sprite = &gSprites[spriteId];
                 sprite->data[0] = position;
                 sprite->data[1] = gActiveBattler;
                 sprite->data[3] = y; //Save original y-value for bouncing
