@@ -2600,13 +2600,6 @@ static void SpriteCB_CamomonsTypeIcon(struct Sprite* sprite)
     s16 originalY = sprite->data[3];
     struct Sprite* healthbox = &gSprites[gHealthboxSpriteIds[GetBattlerAtPosition(position)]];
 
-	if (sprite->data[2] == 10)
-	{
-		FreeSpritePaletteByTag(11001);
-		DestroySprite(sprite);
-		return;
-	}
-
 	//Type icons should prepare to destroy themselves if the Player is not choosing an action
 	if (gBattlerControllerFuncs[bank] != PlayerHandleChooseMove
 	&&  gBattlerControllerFuncs[bank] != HandleInputChooseMove
@@ -2616,62 +2609,10 @@ static void SpriteCB_CamomonsTypeIcon(struct Sprite* sprite)
 	&&  gBattlerControllerFuncs[bank] != HandleMoveSwitching
 	&&  gBattlerControllerFuncs[bank] != HandleInputChooseMove)
 	{
-		if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
-		{
-			switch (position) {
-				case B_POSITION_PLAYER_LEFT:
-					sprite->x -= 1;
-					break;
-				case B_POSITION_OPPONENT_LEFT:
-					sprite->x += 1;
-					break;
-			}
-		}
-		else //Double Battle
-		{
-			switch (position) {
-				case B_POSITION_PLAYER_LEFT:
-				case B_POSITION_PLAYER_RIGHT:
-					sprite->x += 1;
-					break;
-				case B_POSITION_OPPONENT_LEFT:
-				case B_POSITION_OPPONENT_RIGHT:
-					sprite->x -= 1;
-					break;
-			}
-		}
-
-		++sprite->data[2];
+		FreeSpritePaletteByTag(11001);
+        FreeSpritePaletteByTag(11002);
+		DestroySprite(sprite);
 		return;
-	}
-
-	if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
-	{
-		switch (position) {
-			case B_POSITION_PLAYER_LEFT:
-				if (sprite->x < sTypeIconPositions[position][TRUE].x + 10)
-					sprite->x += 1;
-				break;
-			case B_POSITION_OPPONENT_LEFT:
-				if (sprite->x > sTypeIconPositions[position][TRUE].x - 10)
-					sprite->x -= 1;
-				break;
-		}
-	}
-	else //Double Battle
-	{
-		switch (position) {
-			case B_POSITION_PLAYER_LEFT:
-			case B_POSITION_PLAYER_RIGHT:
-				if (sprite->x > sTypeIconPositions[position][FALSE].x - 10)
-					sprite->x -= 1;
-				break;
-			case B_POSITION_OPPONENT_LEFT:
-			case B_POSITION_OPPONENT_RIGHT:
-				if (sprite->x < sTypeIconPositions[position][FALSE].x + 10)
-					sprite->x += 1;
-				break;
-		}
 	}
 
 	//Deal with bouncing player healthbox
