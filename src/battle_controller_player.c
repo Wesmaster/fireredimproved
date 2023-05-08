@@ -214,7 +214,7 @@ static const struct OamData sTypeIconOAM =
 #define type_icon_frame(ptr, frame) {.data = (u8 *)ptr + (1 * 2 * frame * 32), .size = 1 * 2 * 32}
 static const struct SpriteFrameImage sTypeIconPicTable[] =
 {
-	[TYPE_NORMAL] =		type_icon_frame(sCamomonsTypeIconsTiles, TYPE_NORMAL),
+	[TYPE_NORMAL] =		type_icon_frame(sCamomonsTypeIcons2Tiles, TYPE_NORMAL),
 	[TYPE_FIGHTING] =	type_icon_frame(sCamomonsTypeIconsTiles, TYPE_FIGHTING),
 	[TYPE_FLYING] =		type_icon_frame(sCamomonsTypeIcons2Tiles, TYPE_FLYING),
 	[TYPE_POISON] =		type_icon_frame(sCamomonsTypeIcons2Tiles, TYPE_POISON),
