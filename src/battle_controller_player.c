@@ -2581,8 +2581,8 @@ static void TryLoadTypeIcons(void)
                     spriteId = CreateSpriteAtEnd(&sTypeIconSpriteTemplate, x, y, 0xFF);
             }
 
-            if (spriteId != MAX_SPRITES)
-            {
+            //if (spriteId != MAX_SPRITES)
+            //{
                 struct Sprite* sprite = &gSprites[spriteId];
                 sprite->data[0] = position;
                 sprite->data[1] = gActiveBattler;
@@ -2591,7 +2591,7 @@ static void TryLoadTypeIcons(void)
                 SetSpriteOamFlipBits(sprite, TRUE, FALSE);
 
                 RequestSpriteFrameImageCopy(type, sprite->oam.tileNum, sprite->images);
-            }
+            //}
         }
     }
 }
