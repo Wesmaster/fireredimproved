@@ -2544,7 +2544,7 @@ void InitMoveSelectionsVarsAndStrings(void)
 
 static void TryLoadTypeIcons(void)
 {
-    u8 position = 1;
+    u8 position = 0;
     u8 typeNum = 0;
 
     LoadSpritePalette(&sTypeIconPalTemplate);
@@ -2562,14 +2562,14 @@ static void TryLoadTypeIcons(void)
         for (typeNum; typeNum < 2; ++typeNum) //Load each type
         {
             u8 spriteId;
-            struct Sprite* sprite;
 
             s16 x = sTypeIconPositions[position][!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)].x;
             s16 y = sTypeIconPositions[position][!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)].y + (11 * typeNum); //2nd type is 13px below
 
             u8 type = (typeNum == 0) ? type1 : type2;
 
-            switch (type) { //Certain types have a different palette
+            switch (type)
+            { //Certain types have a different palette
                 case TYPE_NORMAL:
                 case TYPE_FLYING:
                 case TYPE_POISON:
@@ -2580,11 +2580,12 @@ static void TryLoadTypeIcons(void)
                     break;
                 default:
                     spriteId = CreateSpriteAtEnd(&sTypeIconSpriteTemplate, x, y, 0xFF);
+                    break;
             }
 
-            //if (spriteId != MAX_SPRITES)
-            //{
-                sprite = &gSprites[spriteId];
+            if (spriteId != MAX_SPRITES)
+            {
+                struct Sprite* sprite; = &gSprites[spriteId];
                 sprite->data[0] = position;
                 sprite->data[1] = gActiveBattler;
                 sprite->data[3] = y; //Save original y-value for bouncing
@@ -2592,7 +2593,7 @@ static void TryLoadTypeIcons(void)
                 SetSpriteOamFlipBits(sprite, TRUE, FALSE);
 
                 RequestSpriteFrameImageCopy(type, sprite->oam.tileNum, sprite->images);
-            //}
+            }
         }
     }
 }
