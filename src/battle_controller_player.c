@@ -177,8 +177,8 @@ static const u8 sUnused[] = { 0x48, 0x48, 0x20, 0x5a, 0x50, 0x50, 0x50, 0x58 };
 
 static const u8 CamomonsTypeIconsTiles[] = INCBIN_U8("graphics/battle_interface/CamomonsTypeIcons.4bpp");
 static const u8 CamomonsTypeIcons2Tiles[] = INCBIN_U8("graphics/battle_interface/CamomonsTypeIcons2.4bpp");
-//static const u16 CamomonsTypeIconsPal[16];
-//static const u16 CamomonsTypeIcons2Pal[16];
+static const u16 CamomonsTypeIconsPal[] = INCBIN_U16("graphics/battle_interface/CamomonsTypeIcons.gbapal");
+static const u16 CamomonsTypeIcons2Pal[] = INCBIN_U16("graphics/battle_interface/CamomonsTypeIcons2.gbapal");
 
 static const struct Coords16 sTypeIconPositions[][/*IS_SINGLE_BATTLE*/2] =
 {
@@ -210,7 +210,7 @@ static const struct OamData sTypeIconOAM =
 	.size = SPRITE_SIZE(8x16),
 	.priority = 1, //Same level as health bar
 };
-/*
+
 #define type_icon_frame(ptr, frame) {.data = (u8 *)ptr + (1 * 2 * frame * 32), .size = 1 * 2 * 32}
 static const struct SpriteFrameImage sTypeIconPicTable[] =
 {
@@ -233,14 +233,14 @@ static const struct SpriteFrameImage sTypeIconPicTable[] =
 	[TYPE_DRAGON] =		type_icon_frame(CamomonsTypeIcons2Tiles, TYPE_DRAGON),
 	[TYPE_DARK] =		type_icon_frame(CamomonsTypeIconsTiles, TYPE_DARK),
 };
-*/
+
 static struct SpriteTemplate sTypeIconSpriteTemplate =
 {
 	.tileTag = 0xFFFF,
-	.paletteTag = ANIM_TAG_BLACK_SMOKE,
+	.paletteTag = 11001,
 	.oam = &sTypeIconOAM,
 	.anims = gDummySpriteAnimTable,
-	.images = NULL,
+	.images = CamomonsTypeIconsTiles,
 	.affineAnims = gDummySpriteAffineAnimTable,
 	.callback = SpriteCB_CamomonsTypeIcon,
 };
@@ -248,10 +248,10 @@ static struct SpriteTemplate sTypeIconSpriteTemplate =
 static struct SpriteTemplate sTypeIconSpriteTemplate2 =
 {
 	.tileTag = 0xFFFF,
-	.paletteTag = ANIM_TAG_BLACK_BALL,
+	.paletteTag = 11002,
 	.oam = &sTypeIconOAM,
 	.anims = gDummySpriteAnimTable,
-	.images = NULL,
+	.images = CamomonsTypeIconsTiles2,
 	.affineAnims = gDummySpriteAffineAnimTable,
 	.callback = SpriteCB_CamomonsTypeIcon,
 };
@@ -259,13 +259,13 @@ static struct SpriteTemplate sTypeIconSpriteTemplate2 =
 static const struct SpritePalette sTypeIconPalTemplate =
 {
 	.data = CamomonsTypeIconsPal,
-	.tag = ANIM_TAG_BLACK_SMOKE,
+	.tag = 11001,
 };
 
 static const struct SpritePalette sTypeIconPalTemplate2 =
 {
 	.data = CamomonsTypeIcons2Pal,
-	.tag = ANIM_TAG_BLACK_BALL,
+	.tag = 11002,
 };
 
 void BattleControllerDummy(void)
@@ -2614,7 +2614,7 @@ static void SpriteCB_CamomonsTypeIcon(struct Sprite* sprite)
 
 	if (sprite->data[2] == 10)
 	{
-		FreeSpritePaletteByTag(ANIM_TAG_BLACK_SMOKE);
+		FreeSpritePaletteByTag(11001);
 		DestroySprite(sprite);
 		return;
 	}
