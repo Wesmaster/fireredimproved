@@ -2556,8 +2556,8 @@ static void TryLoadTypeIcons(void)
         u8 type1 = gBattleMons[bank].type1;
         u8 type2 = gBattleMons[bank].type2;
         
-        if (gAbsentBattlerFlags & gBitTable[GetBattlerAtPosition(position)])
-            continue;
+       // if (gAbsentBattlerFlags & gBitTable[GetBattlerAtPosition(position)])
+       //     continue;
             
         for (typeNum; typeNum < 2; ++typeNum) //Load each type
         {
@@ -2586,17 +2586,6 @@ static void TryLoadTypeIcons(void)
                 sprite->data[0] = position;
                 sprite->data[1] = gActiveBattler;
                 sprite->data[3] = y; //Save original y-value for bouncing
-
-              /*  if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
-                {
-                    if (GetBattlerSide(GetBattlerAtPosition(position)) == B_SIDE_PLAYER)
-                        SetSpriteOamFlipBits(sprite, TRUE, FALSE); //Flip horizontally
-                }
-                else //Double Battle
-                {
-                    if (GetBattlerSide(GetBattlerAtPosition(position)) == B_SIDE_OPPONENT)
-                        SetSpriteOamFlipBits(sprite, TRUE, FALSE); //Flip horizontally
-                }*/
 
                 RequestSpriteFrameImageCopy(type, sprite->oam.tileNum, sprite->images);
             }
