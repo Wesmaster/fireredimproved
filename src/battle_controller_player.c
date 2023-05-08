@@ -177,8 +177,8 @@ static const u8 sUnused[] = { 0x48, 0x48, 0x20, 0x5a, 0x50, 0x50, 0x50, 0x58 };
 
 static const u8 CamomonsTypeIconsTiles[] = INCBIN_U8("graphics/battle_interface/CamomonsTypeIcons.4bpp.lz");
 static const u8 CamomonsTypeIcons2Tiles[] = INCBIN_U8("graphics/battle_interface/CamomonsTypeIcons2.4bpp.lz");
-static const u16 CamomonsTypeIconsPal[] = INCBIN_U16("graphics/battle_interface/CamomonsTypeIcons.gbapal");
-static const u16 CamomonsTypeIcons2Pal[] = INCBIN_U16("graphics/battle_interface/CamomonsTypeIcons2.gbapal");
+static const u16 sCamomonsTypeIconsPal[] = INCBIN_U16("graphics/battle_interface/CamomonsTypeIcons.gbapal");
+static const u16 sCamomonsTypeIcons2Pal[] = INCBIN_U16("graphics/battle_interface/CamomonsTypeIcons2.gbapal");
 
 static const struct Coords16 sTypeIconPositions[][/*IS_SINGLE_BATTLE*/2] =
 {
@@ -258,13 +258,13 @@ static struct SpriteTemplate sTypeIconSpriteTemplate2 =
 
 static const struct SpritePalette sTypeIconPalTemplate =
 {
-	.data = CamomonsTypeIconsPal,
+	.data = sCamomonsTypeIconsPal,
 	.tag = 11001,
 };
 
 static const struct SpritePalette sTypeIconPalTemplate2 =
 {
-	.data = CamomonsTypeIcons2Pal,
+	.data = sCamomonsTypeIcons2Pal,
 	.tag = 11002,
 };
 
