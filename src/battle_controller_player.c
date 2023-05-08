@@ -251,7 +251,7 @@ static struct SpriteTemplate sTypeIconSpriteTemplate2 =
 	.paletteTag = 11002,
 	.oam = &sTypeIconOAM,
 	.anims = gDummySpriteAnimTable,
-	.images = CamomonsTypeIconsTiles2,
+	.images = CamomonsTypeIcons2Tiles,
 	.affineAnims = gDummySpriteAffineAnimTable,
 	.callback = SpriteCB_CamomonsTypeIcon,
 };
