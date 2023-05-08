@@ -240,7 +240,7 @@ static struct SpriteTemplate sTypeIconSpriteTemplate =
 	.paletteTag = 11001,
 	.oam = &sTypeIconOAM,
 	.anims = gDummySpriteAnimTable,
-	.images = CamomonsTypeIconsTiles,
+	.images = sTypeIconPicTable,
 	.affineAnims = gDummySpriteAffineAnimTable,
 	.callback = SpriteCB_CamomonsTypeIcon,
 };
@@ -251,7 +251,7 @@ static struct SpriteTemplate sTypeIconSpriteTemplate2 =
 	.paletteTag = 11002,
 	.oam = &sTypeIconOAM,
 	.anims = gDummySpriteAnimTable,
-	.images = CamomonsTypeIcons2Tiles,
+	.images = sTypeIconPicTable,
 	.affineAnims = gDummySpriteAffineAnimTable,
 	.callback = SpriteCB_CamomonsTypeIcon,
 };
