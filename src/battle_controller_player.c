@@ -2590,7 +2590,8 @@ static void TryLoadTypeIcons(void)
                 sprite->data[1] = gActiveBattler;
                 sprite->data[3] = y; //Save original y-value for bouncing
 
-                SetSpriteOamFlipBits(sprite, TRUE, FALSE);
+                if (GetBattlerSide(bank) == B_SIDE_OPPONENT)
+                    SetSpriteOamFlipBits(sprite, TRUE, FALSE);
 
                 RequestSpriteFrameImageCopy(type, sprite->oam.tileNum, sprite->images);
             }
