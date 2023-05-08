@@ -198,7 +198,7 @@ static const struct Coords16 sTypeIconPositions[][/*IS_SINGLE_BATTLE*/2] =
 	},
 	[B_POSITION_OPPONENT_RIGHT] =
 	{
-		[FALSE] = {85, 39},		//Double Battle
+		[FALSE] = {94, 40},		//Double Battle
 	},
 };
 
@@ -2544,7 +2544,7 @@ void InitMoveSelectionsVarsAndStrings(void)
 
 static void TryLoadTypeIcons(void)
 {
-    u8 position = 2;
+    u8 position = 3;
     u8 typeNum = 0;
 
     LoadSpritePalette(&sTypeIconPalTemplate);
