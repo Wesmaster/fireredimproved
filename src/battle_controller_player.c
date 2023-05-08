@@ -258,8 +258,7 @@ static struct SpriteTemplate sTypeIconSpriteTemplate2 =
 
 static const struct SpritePalette sTypeIconPalTemplate =
 {
-	.data = sCamomonsTypeIconsPal,
-	.tag = 11001,
+	sCamomonsTypeIconsPal, 11001
 };
 
 static const struct SpritePalette sTypeIconPalTemplate2 =
