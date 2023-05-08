@@ -2550,7 +2550,7 @@ static void TryLoadTypeIcons(void)
     LoadSpritePalette(&sTypeIconPalTemplate);
     LoadSpritePalette(&sTypeIconPalTemplate2);
 
-    for (position; position < 4; ++position)
+    for (position; position < gBattlersCount; ++position)
     {
         u8 bank = GetBattlerAtPosition(position);
         u8 type1 = gBattleMons[bank].type1;
@@ -2567,6 +2567,11 @@ static void TryLoadTypeIcons(void)
             s16 y = sTypeIconPositions[position][!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)].y + (11 * typeNum); //2nd type is 13px below
 
             u8 type = (typeNum == 0) ? type1 : type2;
+
+            if (position > 0)
+            {
+                type = TYPE_DARK;
+            }
 
             switch (type)
             { //Certain types have a different palette
