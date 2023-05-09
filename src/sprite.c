@@ -807,13 +807,13 @@ void ProcessSpriteCopyRequests(void)
 
 void RequestSpriteFrameImageCopy(u16 index, u16 tileNum, const struct SpriteFrameImage *images)
 {
-    if (gSpriteCopyRequestCount < MAX_SPRITE_COPY_REQUESTS)
-    {
+   // if (gSpriteCopyRequestCount < MAX_SPRITE_COPY_REQUESTS)
+  //  {
         gSpriteCopyRequests[gSpriteCopyRequestCount].src = images[index].data;
         gSpriteCopyRequests[gSpriteCopyRequestCount].dest = (u8 *)OBJ_VRAM0 + TILE_SIZE_4BPP * tileNum;
         gSpriteCopyRequests[gSpriteCopyRequestCount].size = images[index].size;
-       // gSpriteCopyRequestCount++;
-    }
+        gSpriteCopyRequestCount++;
+ //   }
 }
 
 void RequestSpriteCopy(const u8 *src, u8 *dest, u16 size)
