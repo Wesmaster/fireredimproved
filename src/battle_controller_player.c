@@ -2590,6 +2590,8 @@ static void TryLoadTypeIcons(void)
                 sprite->data[1] = gActiveBattler;
                 sprite->data[3] = y; //Save original y-value for bouncing
 
+                gDisplayedStringBattle = "0";
+                /*
                     switch(position)
                     {
                         case 0: StringCopy(gDisplayedStringBattle, "0");
@@ -2600,7 +2602,7 @@ static void TryLoadTypeIcons(void)
                             break;
                         case 3: StringCopy(gDisplayedStringBattle, "3");
                             break;
-                    }
+                    }*/
                     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP);
 
                 if (GetBattlerSide(bank) == B_SIDE_OPPONENT)
