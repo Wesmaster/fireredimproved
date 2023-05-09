@@ -2537,7 +2537,7 @@ void InitMoveSelectionsVarsAndStrings(void)
     MoveSelectionDisplayMoveNames();
     gMultiUsePlayerCursor = 0xFF;
     MoveSelectionCreateCursorAt(gMoveSelectionCursor[gActiveBattler], 0);
-    //MoveSelectionDisplayPpString();
+    MoveSelectionDisplayPpString();
     MoveSelectionDisplayPpNumber();
     MoveSelectionDisplayMoveType();
 }
@@ -2587,7 +2587,7 @@ static void TryLoadTypeIcons(void)
             {
                 struct Sprite* sprite = &gSprites[spriteId];
                 sprite->data[0] = position;
-                sprite->data[1] = gActiveBattler;
+                sprite->data[1] = bank;
                 sprite->data[3] = y; //Save original y-value for bouncing
 
              /*   if (gSpriteCopyRequestCount >= MAX_SPRITE_COPY_REQUESTS)
@@ -2617,7 +2617,7 @@ static void TryLoadTypeIcons(void)
 
 static void SpriteCB_CamomonsTypeIcon(struct Sprite* sprite)
 {
-/*	u8 position = sprite->data[0];
+	u8 position = sprite->data[0];
 	u8 bank = sprite->data[1];
     s16 originalY = sprite->data[3];
     struct Sprite* healthbox = &gSprites[gHealthboxSpriteIds[GetBattlerAtPosition(position)]];
@@ -2638,7 +2638,7 @@ static void SpriteCB_CamomonsTypeIcon(struct Sprite* sprite)
 	}
 
 	//Deal with bouncing player healthbox
-	sprite->y = originalY + healthbox->y2;*/
+	sprite->y = originalY + healthbox->y2;
 }
 
 static void PlayerHandleChooseItem(void)
