@@ -2555,12 +2555,9 @@ static void TryLoadTypeIcons(void)
         u8 bank = GetBattlerAtPosition(position);
         u8 type1 = gBattleMons[bank].type1;
         u8 type2 = gBattleMons[bank].type2;
-
-        if (position == 0)
+       
+        if (gAbsentBattlerFlags & gBitTable[bank])
             continue;
-        
-        //if (gAbsentBattlerFlags & gBitTable[bank])
-        //    continue;
             
         for (typeNum; typeNum < 2; ++typeNum) //Load each type
         {
@@ -2593,9 +2590,19 @@ static void TryLoadTypeIcons(void)
                 sprite->data[1] = gActiveBattler;
                 sprite->data[3] = y; //Save original y-value for bouncing
 
-                if (position > 0)
+                if (gSpriteCopyRequestCount >= MAX_SPRITE_COPY_REQUESTS)
                 {
-                    StringCopy(gDisplayedStringBattle, gText_MoveInterfaceType);
+                    switch(position)
+                    {
+                        case 0: StringCopy(gDisplayedStringBattle, "0");
+                            break;
+                        case 1: StringCopy(gDisplayedStringBattle, "1");
+                            break;
+                        case 2: StringCopy(gDisplayedStringBattle, "2");
+                            break;
+                        case 3: StringCopy(gDisplayedStringBattle, "3");
+                            break;
+                    }
                     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP);
                 }
 
