@@ -2559,8 +2559,8 @@ static void TryLoadTypeIcons(void)
         if (position == 0)
             continue;
         
-        if (gAbsentBattlerFlags & gBitTable[bank])
-            continue;
+        //if (gAbsentBattlerFlags & gBitTable[bank])
+        //    continue;
             
         for (typeNum; typeNum < 2; ++typeNum) //Load each type
         {
