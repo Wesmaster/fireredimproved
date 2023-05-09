@@ -2590,19 +2590,18 @@ static void TryLoadTypeIcons(void)
                 sprite->data[1] = gActiveBattler;
                 sprite->data[3] = y; //Save original y-value for bouncing
 
-                ConvertIntToDecimalStringN(gDisplayedStringBattle, 0, STR_CONV_MODE_RIGHT_ALIGN, 2);
-                /*
+                
                     switch(position)
                     {
-                        case 0: StringCopy(gDisplayedStringBattle, "0");
+                        case 0:   ConvertIntToDecimalStringN(gDisplayedStringBattle, 0, STR_CONV_MODE_RIGHT_ALIGN, 2);
                             break;
-                        case 1: StringCopy(gDisplayedStringBattle, "1");
+                        case 1:  ConvertIntToDecimalStringN(gDisplayedStringBattle, 1, STR_CONV_MODE_RIGHT_ALIGN, 2);
                             break;
-                        case 2: StringCopy(gDisplayedStringBattle, "2");
+                        case 2:  ConvertIntToDecimalStringN(gDisplayedStringBattle, 2, STR_CONV_MODE_RIGHT_ALIGN, 2);
                             break;
-                        case 3: StringCopy(gDisplayedStringBattle, "3");
+                        case 3:   ConvertIntToDecimalStringN(gDisplayedStringBattle, 3, STR_CONV_MODE_RIGHT_ALIGN, 2);
                             break;
-                    }*/
+                    }
                     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP);
 
                 if (GetBattlerSide(bank) == B_SIDE_OPPONENT)
