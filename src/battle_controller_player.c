@@ -2590,7 +2590,7 @@ static void TryLoadTypeIcons(void)
                 sprite->data[1] = gActiveBattler;
                 sprite->data[3] = y; //Save original y-value for bouncing
 
-                gDisplayedStringBattle = "0";
+                txtPtr = ConvertIntToDecimalStringN(gDisplayedStringBattle, 0, STR_CONV_MODE_RIGHT_ALIGN, 2);
                 /*
                     switch(position)
                     {
