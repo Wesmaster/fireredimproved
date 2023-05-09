@@ -2590,7 +2590,7 @@ static void TryLoadTypeIcons(void)
                 sprite->data[1] = gActiveBattler;
                 sprite->data[3] = y; //Save original y-value for bouncing
 
-                if (gSpriteCopyRequestCount >= MAX_SPRITE_COPY_REQUESTS)
+             /*   if (gSpriteCopyRequestCount >= MAX_SPRITE_COPY_REQUESTS)
                 {
                     switch(position)
                     {
@@ -2604,7 +2604,7 @@ static void TryLoadTypeIcons(void)
                             break;
                     }
                     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP);
-                }
+                }*/
 
                 if (GetBattlerSide(bank) == B_SIDE_OPPONENT)
                     SetSpriteOamFlipBits(sprite, TRUE, FALSE);

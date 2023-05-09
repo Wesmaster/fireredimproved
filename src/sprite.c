@@ -812,7 +812,7 @@ void RequestSpriteFrameImageCopy(u16 index, u16 tileNum, const struct SpriteFram
         gSpriteCopyRequests[gSpriteCopyRequestCount].src = images[index].data;
         gSpriteCopyRequests[gSpriteCopyRequestCount].dest = (u8 *)OBJ_VRAM0 + TILE_SIZE_4BPP * tileNum;
         gSpriteCopyRequests[gSpriteCopyRequestCount].size = images[index].size;
-        gSpriteCopyRequestCount++;
+       // gSpriteCopyRequestCount++;
     }
 }
 
