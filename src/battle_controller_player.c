@@ -2546,15 +2546,15 @@ static void TryLoadTypeIcons(void)
 {
     u8 position = 0;
     u8 typeNum = 0;
+   
+    LoadSpritePalette(&sTypeIconPalTemplate);
+    LoadSpritePalette(&sTypeIconPalTemplate2);
 
     for (position; position < gBattlersCount; ++position)
     {
         u8 bank = GetBattlerAtPosition(position);
         u8 type1 = gBattleMons[bank].type1;
         u8 type2 = gBattleMons[bank].type2;
-       
-        LoadSpritePalette(&sTypeIconPalTemplate);
-        LoadSpritePalette(&sTypeIconPalTemplate2);
 
         if (gAbsentBattlerFlags & gBitTable[bank])
             continue;
@@ -2589,6 +2589,19 @@ static void TryLoadTypeIcons(void)
                 sprite->data[0] = position;
                 sprite->data[1] = gActiveBattler;
                 sprite->data[3] = y; //Save original y-value for bouncing
+
+                    switch(position)
+                    {
+                        case 0: StringCopy(gDisplayedStringBattle, "0");
+                            break;
+                        case 1: StringCopy(gDisplayedStringBattle, "1");
+                            break;
+                        case 2: StringCopy(gDisplayedStringBattle, "2");
+                            break;
+                        case 3: StringCopy(gDisplayedStringBattle, "3");
+                            break;
+                    }
+                    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP);
 
                 if (GetBattlerSide(bank) == B_SIDE_OPPONENT)
                     SetSpriteOamFlipBits(sprite, TRUE, FALSE);
