@@ -2588,16 +2588,16 @@ static void TryLoadTypeIcons(void)
 
             if (spriteId != MAX_SPRITES)
             {
+                struct Sprite* sprite = &gSprites[spriteId];
+                sprite->data[0] = position;
+                sprite->data[1] = gActiveBattler;
+                sprite->data[3] = y; //Save original y-value for bouncing
+
                 if (position > 0)
                 {
                     StringCopy(gDisplayedStringBattle, gText_MoveInterfaceType);
                     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP);
                 }
-
-                struct Sprite* sprite = &gSprites[spriteId];
-                sprite->data[0] = position;
-                sprite->data[1] = gActiveBattler;
-                sprite->data[3] = y; //Save original y-value for bouncing
 
                 if (GetBattlerSide(bank) == B_SIDE_OPPONENT)
                     SetSpriteOamFlipBits(sprite, TRUE, FALSE);
