@@ -2568,10 +2568,7 @@ static void TryLoadTypeIcons(void)
 
             u8 type = (typeNum == 0) ? type1 : type2;
 
-            if (position > 0)
-            {
-                type = TYPE_DARK;
-            }
+            type = type + 2;
 
             switch (type)
             { //Certain types have a different palette
