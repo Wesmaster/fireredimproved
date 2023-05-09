@@ -2552,6 +2552,9 @@ static void TryLoadTypeIcons(void)
 
     for (position; position < gBattlersCount; ++position)
     {
+        if (position == 0)
+            continue;
+
         u8 bank = GetBattlerAtPosition(position);
         u8 type1 = gBattleMons[bank].type1;
         u8 type2 = gBattleMons[bank].type2;
@@ -2567,8 +2570,6 @@ static void TryLoadTypeIcons(void)
             s16 y = sTypeIconPositions[position][!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)].y + (11 * typeNum); //2nd type is 13px below
 
             u8 type = (typeNum == 0) ? type1 : type2;
-
-            type = type + 2;
 
             switch (type)
             { //Certain types have a different palette
