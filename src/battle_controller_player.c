@@ -2552,12 +2552,12 @@ static void TryLoadTypeIcons(void)
 
     for (position; position < gBattlersCount; ++position)
     {
-        if (position == 0)
-            continue;
-
         u8 bank = GetBattlerAtPosition(position);
         u8 type1 = gBattleMons[bank].type1;
         u8 type2 = gBattleMons[bank].type2;
+
+        if (position == 0)
+            continue;
         
         if (gAbsentBattlerFlags & gBitTable[bank])
             continue;
