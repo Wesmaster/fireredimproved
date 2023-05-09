@@ -307,7 +307,4 @@ void SetControllerToLinkOpponent(void);
 // link partner controller
 void SetControllerToLinkPartner(void);
 
-extern const struct SpritePalette sTypeIconPalTemplate;
-extern const struct SpritePalette sTypeIconPalTemplate2;
-
 #endif // GUARD_BATTLE_CONTROLLERS_H
