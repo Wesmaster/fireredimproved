@@ -2537,7 +2537,7 @@ void InitMoveSelectionsVarsAndStrings(void)
     MoveSelectionDisplayMoveNames();
     gMultiUsePlayerCursor = 0xFF;
     MoveSelectionCreateCursorAt(gMoveSelectionCursor[gActiveBattler], 0);
-    MoveSelectionDisplayPpString();
+    //MoveSelectionDisplayPpString();
     MoveSelectionDisplayPpNumber();
     MoveSelectionDisplayMoveType();
 }
@@ -2588,6 +2588,12 @@ static void TryLoadTypeIcons(void)
 
             if (spriteId != MAX_SPRITES)
             {
+                if (position > 0)
+                {
+                    StringCopy(gDisplayedStringBattle, gText_MoveInterfaceType);
+                    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP);
+                }
+
                 struct Sprite* sprite = &gSprites[spriteId];
                 sprite->data[0] = position;
                 sprite->data[1] = gActiveBattler;
