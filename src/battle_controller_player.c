@@ -234,10 +234,13 @@ static const struct SpriteFrameImage sTypeIconPicTable[] =
 	[TYPE_DARK] =		type_icon_frame(sCamomonsTypeIconsTiles, TYPE_DARK),
 };
 
+#define ICON_TYPE_TAG   11001;
+#define ICON_TYPE2_TAG  11002;
+
 static const struct SpriteTemplate sTypeIconSpriteTemplate =
 {
 	.tileTag = 0xFFFF,
-	.paletteTag = 11001,
+	.paletteTag = ICON_TYPE_TAG,
 	.oam = &sTypeIconOAM,
 	.anims = gDummySpriteAnimTable,
 	.images = sTypeIconPicTable,
@@ -248,7 +251,7 @@ static const struct SpriteTemplate sTypeIconSpriteTemplate =
 static const struct SpriteTemplate sTypeIconSpriteTemplate2 =
 {
 	.tileTag = 0xFFFF,
-	.paletteTag = 11002,
+	.paletteTag = ICON_TYPE2_TAG,
 	.oam = &sTypeIconOAM,
 	.anims = gDummySpriteAnimTable,
 	.images = sTypeIconPicTable,
@@ -258,13 +261,14 @@ static const struct SpriteTemplate sTypeIconSpriteTemplate2 =
 
 static const struct SpritePalette sTypeIconPalTemplate =
 {
-	sCamomonsTypeIconsPal, 11001
+	.data = sCamomonsTypeIconsPal, 
+    .tag = ICON_TYPE_TAG
 };
 
 static const struct SpritePalette sTypeIconPalTemplate2 =
 {
 	.data = sCamomonsTypeIcons2Pal,
-	.tag = 11002,
+	.tag = ICON_TYPE2_TAG,
 };
 
 void BattleControllerDummy(void)
@@ -2621,8 +2625,8 @@ static void SpriteCB_CamomonsTypeIcon(struct Sprite* sprite)
 	&&  gBattlerControllerFuncs[bank] != HandleMoveSwitching
 	&&  gBattlerControllerFuncs[bank] != HandleInputChooseMove)
 	{
-		FreeSpritePaletteByTag(11001);
-        FreeSpritePaletteByTag(11002);
+		FreeSpritePaletteByTag(ICON_TYPE_TAG);
+        FreeSpritePaletteByTag(ICON_TYPE2_TAG);
 		DestroySprite(sprite);
 		return;
 	}
