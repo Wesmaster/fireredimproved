@@ -62,13 +62,15 @@ static const u8 sUnownLetterSlots[][12] = {
 void GenerateWildMonData(void)
 {
     u16 i, j, x;    
-    u8 wildMonsTableSize = sizeof(sWildMonsTable) / sizeof(struct RandomizerPokemon);
 
     for (i = 0; ; i++)
     {
         const struct WildPokemonHeader *wildHeader = &gWildMonHeaders[i];
-        const struct WildPokemon *wildPokemon = wildHeader->landMonsInfo->wildPokemon;
+        const struct WildPokemon *wildPokemon[] = wildHeader->landMonsInfo->wildPokemon;
         
+        u8 wildPokemonSize = sizeof(wildPokemon) / sizeof(struct WildPokemon)
+        u8 wildMonsTableSize = sizeof(sWildMonsTable) / sizeof(struct RandomizerPokemon);
+
         if (wildHeader->mapGroup == MAP_GROUP(UNDEFINED))
             break;
 
@@ -78,9 +80,9 @@ void GenerateWildMonData(void)
                 break;
         }    
 
-        for (j = 0; j < wildPokemon->size(); j++)
+        for (j = 0; j < wildPokemonSize; j++)
         {
-            wildPokemon[j].species = sWildMonsTable[x].species[Random() % 12];
+            wildPokemon[j]->species = sWildMonsTable[x].species[Random() % 12];
         }
     }
 }
