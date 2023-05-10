@@ -63,7 +63,7 @@ void GenerateWildMonData(void)
 {
     u16 i, j, x;   
 
-    DisableWildEncounters(true); 
+    DisableWildEncounters(TRUE); 
 
     for (i = 0; ; i++)
     {
