@@ -2442,28 +2442,26 @@ const struct WildPokemonInfo sSevenIslandTanobyRuins_FishingMonsInfo = { 20, sSe
 
 #define NUM_ENCOUTER_SPOTS  1
 #define NUM_SLOTS           12
-#define ROUTE1_LAND         0
-
-const u16 sWildMonsTable[NUM_ENCOUTER_SPOTS][NUM_SLOTS] =
+/*
+const struct RandomizerPokemon sWildMonsTable[] = 
 {
-    [ROUTE1_LAND] = { SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW },
-};
+    [MAP_NUM(ROUTE1)] = { SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW },
+};*/
 
 const struct WildPokemon sRoute1_LandMons[] =
 {
-    u16 species0 = sWildMonsTable[ROUTE1_LAND][Random() % 12];
-    { 3, 3, species0 },
-    { 3, 3, sWildMonsTable[ROUTE1_LAND][Random() % 12] },
-    { 3, 3, sWildMonsTable[ROUTE1_LAND][Random() % 12] },
-    { 3, 3, sWildMonsTable[ROUTE1_LAND][Random() % 12] },
-    { 2, 2, sWildMonsTable[ROUTE1_LAND][Random() % 12] },
-    { 2, 2, sWildMonsTable[ROUTE1_LAND][Random() % 12] },
-    { 3, 3, sWildMonsTable[ROUTE1_LAND][Random() % 12] },
-    { 3, 3, sWildMonsTable[ROUTE1_LAND][Random() % 12] },
-    { 4, 4, sWildMonsTable[ROUTE1_LAND][Random() % 12] },
-    { 4, 4, sWildMonsTable[ROUTE1_LAND][Random() % 12] },
-    { 5, 5, sWildMonsTable[ROUTE1_LAND][Random() % 12] },
-    { 4, 4, sWildMonsTable[ROUTE1_LAND][Random() % 12] },
+    { 3, 3, SPECIES_PIDGEY },
+    { 3, 3, SPECIES_RATTATA },
+    { 3, 3, SPECIES_PIDGEY },
+    { 3, 3, SPECIES_RATTATA },
+    { 2, 2, SPECIES_PIDGEY },
+    { 2, 2, SPECIES_RATTATA },
+    { 3, 3, SPECIES_PIDGEY },
+    { 3, 3, SPECIES_RATTATA },
+    { 4, 4, SPECIES_PIDGEY },
+    { 4, 4, SPECIES_RATTATA },
+    { 5, 5, SPECIES_PIDGEY },
+    { 4, 4, SPECIES_RATTATA },
 };
 const struct WildPokemonInfo sRoute1_LandMonsInfo = { 21, sRoute1_LandMons };
 

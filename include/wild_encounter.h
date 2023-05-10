@@ -7,8 +7,15 @@
 #define WATER_WILD_COUNT    5
 #define ROCK_WILD_COUNT     5
 #define FISH_WILD_COUNT     10
+#define RANDOM_WILD_COUNT   12
 
 #define NUM_ALTERING_CAVE_TABLES 9
+/*
+struct RandomizerPokemon
+{
+    u8 mapNum;
+    u16 species[RANDOM_WILD_COUNT];
+};*/
 
 struct WildPokemon
 {
@@ -20,7 +27,7 @@ struct WildPokemon
 struct WildPokemonInfo
 {
     u8 encounterRate;
-    const struct WildPokemon *wildPokemon;
+    struct WildPokemon *wildPokemon;
 };
 
 struct WildPokemonHeader
@@ -49,5 +56,7 @@ bool8 SweetScentWildEncounter(void);
 void SeedWildEncounterRng(u16 randVal);
 void ResetEncounterRateModifiers(void);
 bool8 TryStandardWildEncounter(u32 currMetatileAttrs);
+
+//void GenerateWildMonData(void);
 
 #endif // GUARD_WILD_ENCOUNTER_H
