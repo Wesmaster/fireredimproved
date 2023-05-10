@@ -84,7 +84,7 @@ void GenerateWildMonData(void)
 
         for (j = 0; j < wildPokemonSize; j++)
         {
-            mutablePokemon[j].species = sWildMonsTable[x].species[Random() % 12];
+            mutablePokemon[j].species = SPECIES_BULBASAUR; //sWildMonsTable[x].species[Random() % 12];
         }
     }
 }
