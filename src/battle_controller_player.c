@@ -2564,8 +2564,8 @@ static void TryLoadTypeIcons(void)
             u8 spriteId;
             struct Sprite* sprite;
 
-            s16 x = sTypeIconPositions[position][!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)].x;
-            s16 y = sTypeIconPositions[position][!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)].y + (11 * typeNum); //2nd type is 13px below
+            s16 x = sTypeIconPositions[position][!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)].x + (11 * typeNum);
+            s16 y = sTypeIconPositions[position][!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)].y;
 
             u8 type = (typeNum == 0) ? type1 : type2;
 
