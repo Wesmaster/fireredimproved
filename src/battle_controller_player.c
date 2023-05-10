@@ -2537,15 +2537,15 @@ void InitMoveSelectionsVarsAndStrings(void)
     MoveSelectionDisplayMoveNames();
     gMultiUsePlayerCursor = 0xFF;
     MoveSelectionCreateCursorAt(gMoveSelectionCursor[gActiveBattler], 0);
-  //  MoveSelectionDisplayPpString();
+    MoveSelectionDisplayPpString();
     MoveSelectionDisplayPpNumber();
     MoveSelectionDisplayMoveType();
 }
 
 static void TryLoadTypeIcons(void)
 {
-    u8 position = 1;
-    u8 typeNum = 0;
+    u8 position = 0;
+    u8 typeNum;
    
     LoadSpritePalette(&sTypeIconPalTemplate);
     LoadSpritePalette(&sTypeIconPalTemplate2);
@@ -2559,7 +2559,7 @@ static void TryLoadTypeIcons(void)
         if (gAbsentBattlerFlags & gBitTable[bank])
             continue;
             
-        for (typeNum; typeNum < 2; ++typeNum) //Load each type
+        for (typeNum = 0; typeNum < 2; ++typeNum) //Load each type
         {
             u8 spriteId;
             struct Sprite* sprite;
@@ -2584,32 +2584,18 @@ static void TryLoadTypeIcons(void)
                     break;
             }
 
-          //  if (spriteId != MAX_SPRITES)
-          //  {
+            if (spriteId != MAX_SPRITES)
+            {
                 sprite = &gSprites[spriteId];
                 sprite->data[0] = position;
                 sprite->data[1] = gActiveBattler;
                 sprite->data[3] = y; //Save original y-value for bouncing
 
-                
-                    switch(position)
-                    {
-                        case 0:   ConvertIntToDecimalStringN(gDisplayedStringBattle, 0, STR_CONV_MODE_RIGHT_ALIGN, 2);
-                            break;
-                        case 1:  ConvertIntToDecimalStringN(gDisplayedStringBattle, 1, STR_CONV_MODE_RIGHT_ALIGN, 2);
-                            break;
-                        case 2:  ConvertIntToDecimalStringN(gDisplayedStringBattle, 2, STR_CONV_MODE_RIGHT_ALIGN, 2);
-                            break;
-                        case 3:   ConvertIntToDecimalStringN(gDisplayedStringBattle, 3, STR_CONV_MODE_RIGHT_ALIGN, 2);
-                            break;
-                    }
-                    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP);
-
                 if (GetBattlerSide(bank) == B_SIDE_OPPONENT)
                     SetSpriteOamFlipBits(sprite, TRUE, FALSE);
 
                 RequestSpriteFrameImageCopy(type, sprite->oam.tileNum, sprite->images);
-          //  }
+            }
         }
     }
 }
