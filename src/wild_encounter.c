@@ -61,9 +61,7 @@ static const u8 sUnownLetterSlots[][12] = {
 
 void GenerateWildMonData(void)
 {
-    u16 i, j, x;   
-
-    DisableWildEncounters(TRUE); 
+    u16 i, j, x;    
 
     for (i = 0; ; i++)
     {
@@ -84,7 +82,7 @@ void GenerateWildMonData(void)
                 break;
         }    
 */
-
+        DisableWildEncounters(TRUE);
         if (wildHeader->mapNum == MAP_NUM(ROUTE1))
         {
             for (j = 0; j < wildPokemonSize; j++)
