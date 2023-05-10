@@ -82,7 +82,7 @@ void GenerateWildMonData(void)
 
         for (j = 0; j < wildPokemonSize; j++)
         {
-            wildPokemon[j]->species = sWildMonsTable[x].species[Random() % 12];
+            wildPokemon[j].species = sWildMonsTable[x].species[Random() % 12];
         }
     }
 }
