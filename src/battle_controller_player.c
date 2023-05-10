@@ -190,7 +190,7 @@ static const struct Coords16 sTypeIconPositions[][/*IS_SINGLE_BATTLE*/2] =
 	[B_POSITION_OPPONENT_LEFT] =
 	{
 		[TRUE] = {109, 26}, 	//Single Battle
-		[FALSE] = {109, 16},	//Double Battle
+		[FALSE] = {109, 17},	//Double Battle
 	},
 	[B_POSITION_PLAYER_RIGHT] =
 	{
@@ -198,7 +198,7 @@ static const struct Coords16 sTypeIconPositions[][/*IS_SINGLE_BATTLE*/2] =
 	},
 	[B_POSITION_OPPONENT_RIGHT] =
 	{
-		[FALSE] = {94, 41},		//Double Battle
+		[FALSE] = {97, 42},		//Double Battle
 	},
 };
 
