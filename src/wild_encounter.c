@@ -82,11 +82,11 @@ void GenerateWildMonData(void)
                 break;
         }    
 */
-        DisableWildEncounters(TRUE);
         if (wildHeader->mapNum == MAP_NUM(ROUTE1))
         {
             for (j = 0; j < wildPokemonSize; j++)
             {
+                DisableWildEncounters(TRUE);
                 mutablePokemon[j].species = SPECIES_BULBASAUR; //sWildMonsTable[x].species[Random() % 12];
             }
         }
