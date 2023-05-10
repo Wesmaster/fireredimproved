@@ -2451,7 +2451,8 @@ const u16 sWildMonsTable[NUM_ENCOUTER_SPOTS][NUM_SLOTS] =
 
 const struct WildPokemon sRoute1_LandMons[] =
 {
-    { 3, 3, sWildMonsTable[ROUTE1_LAND][Random() % 12] },
+    u16 species0 = sWildMonsTable[ROUTE1_LAND][Random() % 12];
+    { 3, 3, species0 },
     { 3, 3, sWildMonsTable[ROUTE1_LAND][Random() % 12] },
     { 3, 3, sWildMonsTable[ROUTE1_LAND][Random() % 12] },
     { 3, 3, sWildMonsTable[ROUTE1_LAND][Random() % 12] },
