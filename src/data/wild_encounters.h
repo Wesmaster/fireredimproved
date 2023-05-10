@@ -366,13 +366,13 @@ const struct WildPokemon sPokemonMansion1F_FireRed_LandMons[] =
     { 30, 30, SPECIES_KOFFING },
     { 36, 36, SPECIES_RATICATE },
     { 30, 30, SPECIES_GROWLITHE },
-    { 28, 28, SPECIES_RATTATA },
+    { 28, 28, SPECIES_SENTRET },
     { 28, 28, SPECIES_GRIMER },
     { 32, 32, SPECIES_WEEZING },
     { 32, 32, SPECIES_GROWLITHE },
-    { 26, 26, SPECIES_RATTATA },
+    { 26, 26, SPECIES_SENTRET },
     { 32, 32, SPECIES_GROWLITHE },
-    { 26, 26, SPECIES_RATTATA },
+    { 26, 26, SPECIES_SENTRET },
 };
 
 const struct WildPokemonInfo sPokemonMansion1F_FireRed_LandMonsInfo = { 7, sPokemonMansion1F_FireRed_LandMons };
@@ -386,13 +386,13 @@ const struct WildPokemon sPokemonMansion2F_FireRed_LandMons[] =
     { 30, 30, SPECIES_KOFFING },
     { 36, 36, SPECIES_RATICATE },
     { 30, 30, SPECIES_GROWLITHE },
-    { 28, 28, SPECIES_RATTATA },
+    { 28, 28, SPECIES_SENTRET },
     { 28, 28, SPECIES_GRIMER },
     { 32, 32, SPECIES_WEEZING },
     { 32, 32, SPECIES_GROWLITHE },
-    { 26, 26, SPECIES_RATTATA },
+    { 26, 26, SPECIES_SENTRET },
     { 32, 32, SPECIES_GROWLITHE },
-    { 26, 26, SPECIES_RATTATA },
+    { 26, 26, SPECIES_SENTRET },
 };
 
 const struct WildPokemonInfo sPokemonMansion2F_FireRed_LandMonsInfo = { 7, sPokemonMansion2F_FireRed_LandMons };
@@ -406,13 +406,13 @@ const struct WildPokemon sPokemonMansion3F_FireRed_LandMons[] =
     { 30, 30, SPECIES_KOFFING },
     { 36, 36, SPECIES_RATICATE },
     { 30, 30, SPECIES_GROWLITHE },
-    { 28, 28, SPECIES_RATTATA },
+    { 28, 28, SPECIES_SENTRET },
     { 28, 28, SPECIES_GRIMER },
     { 32, 32, SPECIES_WEEZING },
     { 32, 32, SPECIES_GROWLITHE },
-    { 26, 26, SPECIES_RATTATA },
+    { 26, 26, SPECIES_SENTRET },
     { 32, 32, SPECIES_GROWLITHE },
-    { 26, 26, SPECIES_RATTATA },
+    { 26, 26, SPECIES_SENTRET },
 };
 
 const struct WildPokemonInfo sPokemonMansion3F_FireRed_LandMonsInfo = { 7, sPokemonMansion3F_FireRed_LandMons };
@@ -430,9 +430,9 @@ const struct WildPokemon sPokemonMansionB1F_FireRed_LandMons[] =
     { 28, 28, SPECIES_GRIMER },
     { 34, 34, SPECIES_WEEZING },
     { 32, 32, SPECIES_GROWLITHE },
-    { 26, 26, SPECIES_RATTATA },
+    { 26, 26, SPECIES_SENTRET },
     { 32, 32, SPECIES_GROWLITHE },
-    { 26, 26, SPECIES_RATTATA },
+    { 26, 26, SPECIES_SENTRET },
 };
 
 const struct WildPokemonInfo sPokemonMansionB1F_FireRed_LandMonsInfo = { 5, sPokemonMansionB1F_FireRed_LandMons };
@@ -1363,7 +1363,7 @@ const struct WildPokemon sThreeIslandBerryForest_FireRed_LandMons[] =
 {
     { 37, 37, SPECIES_PIDGEOTTO },
     { 35, 35, SPECIES_GLOOM },
-    { 32, 32, SPECIES_PIDGEY },
+    { 32, 32, SPECIES_TAILLOW },
     { 30, 30, SPECIES_ODDISH },
     { 34, 34, SPECIES_VENONAT },
     { 34, 34, SPECIES_DROWZEE },
@@ -1981,9 +1981,9 @@ const struct WildPokemonInfo sTwoIslandCapeBrink_FireRed_FishingMonsInfo = { 20,
 
 const struct WildPokemon sThreeIslandBondBridge_FireRed_LandMons[] =
 {
-    { 32, 32, SPECIES_PIDGEY },
+    { 32, 32, SPECIES_TAILLOW },
     { 31, 31, SPECIES_ODDISH },
-    { 29, 29, SPECIES_PIDGEY },
+    { 29, 29, SPECIES_TAILLOW },
     { 36, 36, SPECIES_GLOOM },
     { 34, 34, SPECIES_PIDGEOTTO },
     { 31, 31, SPECIES_MEOWTH },
@@ -2102,7 +2102,7 @@ const struct WildPokemonInfo sFiveIslandWaterLabyrinth_FireRed_FishingMonsInfo =
 
 const struct WildPokemon sFiveIslandMeadow_FireRed_LandMons[] =
 {
-    { 44, 44, SPECIES_PIDGEY },
+    { 44, 44, SPECIES_TAILLOW },
     { 10, 10, SPECIES_SENTRET },
     { 48, 48, SPECIES_PIDGEOTTO },
     { 10, 10, SPECIES_HOPPIP },
@@ -2444,18 +2444,18 @@ const struct WildPokemonInfo sSevenIslandTanobyRuins_FireRed_FishingMonsInfo = {
 
 const struct WildPokemon sRoute1_FireRed_LandMons[] =
 {
-    { 3, 3, SPECIES_PIDGEY },
-    { 3, 3, SPECIES_RATTATA },
-    { 3, 3, SPECIES_PIDGEY },
-    { 3, 3, SPECIES_RATTATA },
-    { 2, 2, SPECIES_PIDGEY },
-    { 2, 2, SPECIES_RATTATA },
-    { 3, 3, SPECIES_PIDGEY },
-    { 3, 3, SPECIES_RATTATA },
-    { 4, 4, SPECIES_PIDGEY },
-    { 4, 4, SPECIES_RATTATA },
-    { 5, 5, SPECIES_PIDGEY },
-    { 4, 4, SPECIES_RATTATA },
+    { 3, 3, SPECIES_TAILLOW },
+    { 3, 3, SPECIES_SENTRET },
+    { 3, 3, SPECIES_TAILLOW },
+    { 3, 3, SPECIES_SENTRET },
+    { 2, 2, SPECIES_TAILLOW },
+    { 2, 2, SPECIES_SENTRET },
+    { 3, 3, SPECIES_TAILLOW },
+    { 3, 3, SPECIES_SENTRET },
+    { 4, 4, SPECIES_TAILLOW },
+    { 4, 4, SPECIES_SENTRET },
+    { 5, 5, SPECIES_TAILLOW },
+    { 4, 4, SPECIES_SENTRET },
 };
 
 const struct WildPokemonInfo sRoute1_FireRed_LandMonsInfo = { 21, sRoute1_FireRed_LandMons };
@@ -2464,14 +2464,14 @@ const struct WildPokemonInfo sRoute1_FireRed_LandMonsInfo = { 21, sRoute1_FireRe
 
 const struct WildPokemon sRoute2_FireRed_LandMons[] =
 {
-    { 3, 3, SPECIES_RATTATA },
-    { 3, 3, SPECIES_PIDGEY },
-    { 4, 4, SPECIES_RATTATA },
-    { 4, 4, SPECIES_PIDGEY },
-    { 2, 2, SPECIES_RATTATA },
-    { 2, 2, SPECIES_PIDGEY },
-    { 5, 5, SPECIES_RATTATA },
-    { 5, 5, SPECIES_PIDGEY },
+    { 3, 3, SPECIES_SENTRET },
+    { 3, 3, SPECIES_TAILLOW },
+    { 4, 4, SPECIES_SENTRET },
+    { 4, 4, SPECIES_TAILLOW },
+    { 2, 2, SPECIES_SENTRET },
+    { 2, 2, SPECIES_TAILLOW },
+    { 5, 5, SPECIES_SENTRET },
+    { 5, 5, SPECIES_TAILLOW },
     { 4, 4, SPECIES_CATERPIE },
     { 4, 4, SPECIES_WEEDLE },
     { 5, 5, SPECIES_CATERPIE },
@@ -2485,11 +2485,11 @@ const struct WildPokemonInfo sRoute2_FireRed_LandMonsInfo = { 21, sRoute2_FireRe
 const struct WildPokemon sRoute3_FireRed_LandMons[] =
 {
     { 6, 6, SPECIES_SPEAROW },
-    { 6, 6, SPECIES_PIDGEY },
+    { 6, 6, SPECIES_TAILLOW },
     { 7, 7, SPECIES_SPEAROW },
     { 7, 7, SPECIES_MANKEY },
     { 6, 6, SPECIES_NIDORAN_M },
-    { 7, 7, SPECIES_PIDGEY },
+    { 7, 7, SPECIES_TAILLOW },
     { 8, 8, SPECIES_SPEAROW },
     { 3, 3, SPECIES_JIGGLYPUFF },
     { 7, 7, SPECIES_NIDORAN_M },
@@ -2505,13 +2505,13 @@ const struct WildPokemonInfo sRoute3_FireRed_LandMonsInfo = { 21, sRoute3_FireRe
 const struct WildPokemon sRoute4_FireRed_LandMons[] =
 {
     { 10, 10, SPECIES_SPEAROW },
-    { 10, 10, SPECIES_RATTATA },
+    { 10, 10, SPECIES_SENTRET },
     { 6, 6, SPECIES_EKANS },
     { 10, 10, SPECIES_EKANS },
     { 8, 8, SPECIES_SPEAROW },
-    { 8, 8, SPECIES_RATTATA },
+    { 8, 8, SPECIES_SENTRET },
     { 12, 12, SPECIES_SPEAROW },
-    { 12, 12, SPECIES_RATTATA },
+    { 12, 12, SPECIES_SENTRET },
     { 10, 10, SPECIES_MANKEY },
     { 8, 8, SPECIES_EKANS },
     { 12, 12, SPECIES_MANKEY },
@@ -2550,16 +2550,16 @@ const struct WildPokemonInfo sRoute4_FireRed_FishingMonsInfo = { 20, sRoute4_Fir
 const struct WildPokemon sRoute5_FireRed_LandMons[] =
 {
     { 10, 10, SPECIES_MEOWTH },
-    { 13, 13, SPECIES_PIDGEY },
+    { 13, 13, SPECIES_TAILLOW },
     { 13, 13, SPECIES_ODDISH },
     { 12, 12, SPECIES_MEOWTH },
     { 15, 15, SPECIES_ODDISH },
-    { 15, 15, SPECIES_PIDGEY },
+    { 15, 15, SPECIES_TAILLOW },
     { 16, 16, SPECIES_ODDISH },
-    { 16, 16, SPECIES_PIDGEY },
-    { 15, 15, SPECIES_PIDGEY },
+    { 16, 16, SPECIES_TAILLOW },
+    { 15, 15, SPECIES_TAILLOW },
     { 14, 14, SPECIES_MEOWTH },
-    { 15, 15, SPECIES_PIDGEY },
+    { 15, 15, SPECIES_TAILLOW },
     { 16, 16, SPECIES_MEOWTH },
 };
 
@@ -2570,16 +2570,16 @@ const struct WildPokemonInfo sRoute5_FireRed_LandMonsInfo = { 21, sRoute5_FireRe
 const struct WildPokemon sRoute6_FireRed_LandMons[] =
 {
     { 10, 10, SPECIES_MEOWTH },
-    { 13, 13, SPECIES_PIDGEY },
+    { 13, 13, SPECIES_TAILLOW },
     { 13, 13, SPECIES_ODDISH },
     { 12, 12, SPECIES_MEOWTH },
     { 15, 15, SPECIES_ODDISH },
-    { 15, 15, SPECIES_PIDGEY },
+    { 15, 15, SPECIES_TAILLOW },
     { 16, 16, SPECIES_ODDISH },
-    { 16, 16, SPECIES_PIDGEY },
-    { 15, 15, SPECIES_PIDGEY },
+    { 16, 16, SPECIES_TAILLOW },
+    { 15, 15, SPECIES_TAILLOW },
     { 14, 14, SPECIES_MEOWTH },
-    { 15, 15, SPECIES_PIDGEY },
+    { 15, 15, SPECIES_TAILLOW },
     { 16, 16, SPECIES_MEOWTH },
 };
 
@@ -2614,11 +2614,11 @@ const struct WildPokemonInfo sRoute6_FireRed_FishingMonsInfo = { 20, sRoute6_Fir
 
 const struct WildPokemon sRoute7_FireRed_LandMons[] =
 {
-    { 19, 19, SPECIES_PIDGEY },
+    { 19, 19, SPECIES_TAILLOW },
     { 17, 17, SPECIES_MEOWTH },
     { 19, 19, SPECIES_ODDISH },
     { 18, 18, SPECIES_MEOWTH },
-    { 22, 22, SPECIES_PIDGEY },
+    { 22, 22, SPECIES_TAILLOW },
     { 22, 22, SPECIES_ODDISH },
     { 18, 18, SPECIES_GROWLITHE },
     { 20, 20, SPECIES_GROWLITHE },
@@ -2634,10 +2634,10 @@ const struct WildPokemonInfo sRoute7_FireRed_LandMonsInfo = { 21, sRoute7_FireRe
 
 const struct WildPokemon sRoute8_FireRed_LandMons[] =
 {
-    { 18, 18, SPECIES_PIDGEY },
+    { 18, 18, SPECIES_TAILLOW },
     { 18, 18, SPECIES_MEOWTH },
     { 16, 16, SPECIES_GROWLITHE },
-    { 20, 20, SPECIES_PIDGEY },
+    { 20, 20, SPECIES_TAILLOW },
     { 20, 20, SPECIES_MEOWTH },
     { 17, 17, SPECIES_EKANS },
     { 17, 17, SPECIES_GROWLITHE },
@@ -2655,16 +2655,16 @@ const struct WildPokemonInfo sRoute8_FireRed_LandMonsInfo = { 21, sRoute8_FireRe
 const struct WildPokemon sRoute9_FireRed_LandMons[] =
 {
     { 16, 16, SPECIES_SPEAROW },
-    { 16, 16, SPECIES_RATTATA },
+    { 16, 16, SPECIES_SENTRET },
     { 11, 11, SPECIES_EKANS },
     { 15, 15, SPECIES_EKANS },
     { 13, 13, SPECIES_SPEAROW },
-    { 14, 14, SPECIES_RATTATA },
+    { 14, 14, SPECIES_SENTRET },
     { 17, 17, SPECIES_SPEAROW },
-    { 17, 17, SPECIES_RATTATA },
-    { 14, 14, SPECIES_RATTATA },
+    { 17, 17, SPECIES_SENTRET },
+    { 14, 14, SPECIES_SENTRET },
     { 13, 13, SPECIES_EKANS },
-    { 14, 14, SPECIES_RATTATA },
+    { 14, 14, SPECIES_SENTRET },
     { 17, 17, SPECIES_EKANS },
 };
 
@@ -2767,14 +2767,14 @@ const struct WildPokemon sRoute12_FireRed_LandMons[] =
     { 24, 24, SPECIES_ODDISH },
     { 24, 24, SPECIES_VENONAT },
     { 22, 22, SPECIES_ODDISH },
-    { 23, 23, SPECIES_PIDGEY },
-    { 25, 25, SPECIES_PIDGEY },
+    { 23, 23, SPECIES_TAILLOW },
+    { 25, 25, SPECIES_TAILLOW },
     { 26, 26, SPECIES_VENONAT },
     { 26, 26, SPECIES_ODDISH },
-    { 27, 27, SPECIES_PIDGEY },
-    { 23, 23, SPECIES_PIDGEY },
+    { 27, 27, SPECIES_TAILLOW },
+    { 23, 23, SPECIES_TAILLOW },
     { 28, 28, SPECIES_GLOOM },
-    { 23, 23, SPECIES_PIDGEY },
+    { 23, 23, SPECIES_TAILLOW },
     { 30, 30, SPECIES_GLOOM },
 };
 
@@ -2812,8 +2812,8 @@ const struct WildPokemon sRoute13_FireRed_LandMons[] =
     { 24, 24, SPECIES_ODDISH },
     { 24, 24, SPECIES_VENONAT },
     { 22, 22, SPECIES_ODDISH },
-    { 27, 27, SPECIES_PIDGEY },
-    { 25, 25, SPECIES_PIDGEY },
+    { 27, 27, SPECIES_TAILLOW },
+    { 25, 25, SPECIES_TAILLOW },
     { 26, 26, SPECIES_VENONAT },
     { 26, 26, SPECIES_ODDISH },
     { 25, 25, SPECIES_DITTO },
@@ -2858,7 +2858,7 @@ const struct WildPokemon sRoute14_FireRed_LandMons[] =
     { 24, 24, SPECIES_VENONAT },
     { 22, 22, SPECIES_ODDISH },
     { 23, 23, SPECIES_DITTO },
-    { 27, 27, SPECIES_PIDGEY },
+    { 27, 27, SPECIES_TAILLOW },
     { 26, 26, SPECIES_VENONAT },
     { 26, 26, SPECIES_ODDISH },
     { 30, 30, SPECIES_GLOOM },
@@ -2877,8 +2877,8 @@ const struct WildPokemon sRoute15_FireRed_LandMons[] =
     { 24, 24, SPECIES_ODDISH },
     { 24, 24, SPECIES_VENONAT },
     { 22, 22, SPECIES_ODDISH },
-    { 27, 27, SPECIES_PIDGEY },
-    { 25, 25, SPECIES_PIDGEY },
+    { 27, 27, SPECIES_TAILLOW },
+    { 25, 25, SPECIES_TAILLOW },
     { 26, 26, SPECIES_VENONAT },
     { 26, 26, SPECIES_ODDISH },
     { 25, 25, SPECIES_DITTO },
@@ -2896,15 +2896,15 @@ const struct WildPokemon sRoute16_FireRed_LandMons[] =
 {
     { 20, 20, SPECIES_SPEAROW },
     { 18, 18, SPECIES_DODUO },
-    { 18, 18, SPECIES_RATTATA },
-    { 20, 20, SPECIES_RATTATA },
+    { 18, 18, SPECIES_SENTRET },
+    { 20, 20, SPECIES_SENTRET },
     { 22, 22, SPECIES_SPEAROW },
     { 20, 20, SPECIES_DODUO },
-    { 22, 22, SPECIES_RATTATA },
+    { 22, 22, SPECIES_SENTRET },
     { 22, 22, SPECIES_DODUO },
-    { 18, 18, SPECIES_RATTATA },
+    { 18, 18, SPECIES_SENTRET },
     { 23, 23, SPECIES_RATICATE },
-    { 18, 18, SPECIES_RATTATA },
+    { 18, 18, SPECIES_SENTRET },
     { 25, 25, SPECIES_RATICATE },
 };
 
@@ -2922,9 +2922,9 @@ const struct WildPokemon sRoute17_FireRed_LandMons[] =
     { 27, 27, SPECIES_RATICATE },
     { 28, 28, SPECIES_DODUO },
     { 29, 29, SPECIES_RATICATE },
-    { 22, 22, SPECIES_RATTATA },
+    { 22, 22, SPECIES_SENTRET },
     { 25, 25, SPECIES_FEAROW },
-    { 22, 22, SPECIES_RATTATA },
+    { 22, 22, SPECIES_SENTRET },
     { 27, 27, SPECIES_FEAROW },
 };
 
@@ -2942,9 +2942,9 @@ const struct WildPokemon sRoute18_FireRed_LandMons[] =
     { 25, 25, SPECIES_FEAROW },
     { 28, 28, SPECIES_DODUO },
     { 29, 29, SPECIES_RATICATE },
-    { 22, 22, SPECIES_RATTATA },
+    { 22, 22, SPECIES_SENTRET },
     { 27, 27, SPECIES_FEAROW },
-    { 22, 22, SPECIES_RATTATA },
+    { 22, 22, SPECIES_SENTRET },
     { 29, 29, SPECIES_FEAROW },
 };
 
@@ -3100,17 +3100,17 @@ const struct WildPokemonInfo sRoute21South_FireRed_FishingMonsInfo = { 20, sRout
 
 const struct WildPokemon sRoute22_FireRed_LandMons[] =
 {
-    { 3, 3, SPECIES_RATTATA },
+    { 3, 3, SPECIES_SENTRET },
     { 3, 3, SPECIES_MANKEY },
-    { 4, 4, SPECIES_RATTATA },
+    { 4, 4, SPECIES_SENTRET },
     { 4, 4, SPECIES_MANKEY },
-    { 2, 2, SPECIES_RATTATA },
+    { 2, 2, SPECIES_SENTRET },
     { 2, 2, SPECIES_MANKEY },
     { 3, 3, SPECIES_SPEAROW },
     { 5, 5, SPECIES_SPEAROW },
-    { 5, 5, SPECIES_RATTATA },
+    { 5, 5, SPECIES_SENTRET },
     { 5, 5, SPECIES_MANKEY },
-    { 5, 5, SPECIES_RATTATA },
+    { 5, 5, SPECIES_SENTRET },
     { 5, 5, SPECIES_MANKEY },
 };
 
@@ -3192,11 +3192,11 @@ const struct WildPokemon sRoute24_FireRed_LandMons[] =
 {
     { 7, 7, SPECIES_WEEDLE },
     { 7, 7, SPECIES_CATERPIE },
-    { 11, 11, SPECIES_PIDGEY },
+    { 11, 11, SPECIES_TAILLOW },
     { 12, 12, SPECIES_ODDISH },
     { 13, 13, SPECIES_ODDISH },
     { 10, 10, SPECIES_ABRA },
-    { 13, 13, SPECIES_PIDGEY },
+    { 13, 13, SPECIES_TAILLOW },
     { 14, 14, SPECIES_ODDISH },
     { 8, 8, SPECIES_KAKUNA },
     { 8, 8, SPECIES_ABRA },
@@ -3237,11 +3237,11 @@ const struct WildPokemon sRoute25_FireRed_LandMons[] =
 {
     { 8, 8, SPECIES_WEEDLE },
     { 8, 8, SPECIES_CATERPIE },
-    { 13, 13, SPECIES_PIDGEY },
+    { 13, 13, SPECIES_TAILLOW },
     { 14, 14, SPECIES_ODDISH },
     { 13, 13, SPECIES_ODDISH },
     { 11, 11, SPECIES_ABRA },
-    { 11, 11, SPECIES_PIDGEY },
+    { 11, 11, SPECIES_TAILLOW },
     { 12, 12, SPECIES_ODDISH },
     { 9, 9, SPECIES_KAKUNA },
     { 9, 9, SPECIES_ABRA },
