@@ -86,6 +86,7 @@ static void PlayerCmdEnd(void);
 
 static void PlayerBufferRunCommand(void);
 static void HandleInputChooseTarget(void);
+static void TryLoadTypeIcons(void);
 static void MoveSelectionDisplayPpNumber(void);
 static void MoveSelectionDisplayPpString(void);
 static void MoveSelectionDisplayMoveType(void);
@@ -109,6 +110,8 @@ static void Task_GiveExpWithExpBar(u8 taskId);
 static void Task_CreateLevelUpVerticalStripes(u8 taskId);
 static void StartSendOutAnim(u8 battlerId, bool8 dontClearSubstituteBit);
 static void EndDrawPartyStatusSummary(void);
+static void SpriteCB_CamomonsTypeIcon(struct Sprite* sprite);
+static void MoveSelectionDisplaySplitIcon(void);
 
 static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(void) =
 {
@@ -178,7 +181,101 @@ static bool8 sLastUsedBall;
 // unknown unused data
 static const u8 sUnused[] = { 0x48, 0x48, 0x20, 0x5a, 0x50, 0x50, 0x50, 0x58 };
 
-static void MoveSelectionDisplaySplitIcon(void);
+static const u8 sCamomonsTypeIconsTiles[] = INCBIN_U8("graphics/battle_interface/CamomonsTypeIcons.4bpp");
+static const u8 sCamomonsTypeIcons2Tiles[] = INCBIN_U8("graphics/battle_interface/CamomonsTypeIcons2.4bpp");
+static const u16 sCamomonsTypeIconsPal[] = INCBIN_U16("graphics/battle_interface/CamomonsTypeIcons.gbapal");
+static const u16 sCamomonsTypeIcons2Pal[] = INCBIN_U16("graphics/battle_interface/CamomonsTypeIcons2.gbapal");
+
+static const struct Coords16 sTypeIconPositions[][/*IS_SINGLE_BATTLE*/2] =
+{
+	[B_POSITION_PLAYER_LEFT] =
+	{
+		[TRUE] = {131, 87}, 	//Single Battle
+		[FALSE] = {132, 73},	//Double Battle
+	},
+	[B_POSITION_OPPONENT_LEFT] =
+	{
+		[TRUE] = {109, 26}, 	//Single Battle
+		[FALSE] = {109, 17},	//Double Battle
+	},
+	[B_POSITION_PLAYER_RIGHT] =
+	{
+		[FALSE] = {144, 98},	//Double Battle
+	},
+	[B_POSITION_OPPONENT_RIGHT] =
+	{
+		[FALSE] = {97, 42},		//Double Battle
+	},
+};
+
+static const struct OamData sTypeIconOAM =
+{
+	.affineMode = ST_OAM_AFFINE_OFF,
+	.objMode = ST_OAM_OBJ_NORMAL,
+	.shape = SPRITE_SHAPE(8x16),
+	.size = SPRITE_SIZE(8x16),
+	.priority = 1, //Same level as health bar
+};
+
+#define type_icon_frame(ptr, frame) {.data = (u8 *)ptr + (1 * 2 * frame * 32), .size = 1 * 2 * 32}
+static const struct SpriteFrameImage sTypeIconPicTable[] =
+{
+	[TYPE_NORMAL] =		type_icon_frame(sCamomonsTypeIcons2Tiles, TYPE_NORMAL),
+	[TYPE_FIGHTING] =	type_icon_frame(sCamomonsTypeIconsTiles, TYPE_FIGHTING),
+	[TYPE_FLYING] =		type_icon_frame(sCamomonsTypeIcons2Tiles, TYPE_FLYING),
+	[TYPE_POISON] =		type_icon_frame(sCamomonsTypeIcons2Tiles, TYPE_POISON),
+	[TYPE_GROUND] =		type_icon_frame(sCamomonsTypeIcons2Tiles, TYPE_GROUND),
+	[TYPE_ROCK] =		type_icon_frame(sCamomonsTypeIconsTiles, TYPE_ROCK),
+	[TYPE_BUG] =		type_icon_frame(sCamomonsTypeIconsTiles, TYPE_BUG),
+	[TYPE_GHOST] =		type_icon_frame(sCamomonsTypeIconsTiles, TYPE_GHOST),
+	[TYPE_STEEL] =		type_icon_frame(sCamomonsTypeIconsTiles, TYPE_STEEL),
+	[TYPE_MYSTERY] =	type_icon_frame(sCamomonsTypeIcons2Tiles, TYPE_MYSTERY),
+	[TYPE_FIRE] =		type_icon_frame(sCamomonsTypeIconsTiles, TYPE_FIRE),
+	[TYPE_WATER] =		type_icon_frame(sCamomonsTypeIconsTiles, TYPE_WATER),
+	[TYPE_GRASS] =		type_icon_frame(sCamomonsTypeIconsTiles, TYPE_GRASS),
+	[TYPE_ELECTRIC] =	type_icon_frame(sCamomonsTypeIconsTiles, TYPE_ELECTRIC),
+	[TYPE_PSYCHIC] =	type_icon_frame(sCamomonsTypeIconsTiles, TYPE_PSYCHIC),
+	[TYPE_ICE] =		type_icon_frame(sCamomonsTypeIconsTiles, TYPE_ICE),
+	[TYPE_DRAGON] =		type_icon_frame(sCamomonsTypeIcons2Tiles, TYPE_DRAGON),
+	[TYPE_DARK] =		type_icon_frame(sCamomonsTypeIconsTiles, TYPE_DARK),
+};
+
+#define ICON_TYPE_TAG   11001
+#define ICON_TYPE2_TAG  11002
+
+static const struct SpriteTemplate sTypeIconSpriteTemplate =
+{
+	.tileTag = 0xFFFF,
+	.paletteTag = ICON_TYPE_TAG,
+	.oam = &sTypeIconOAM,
+	.anims = gDummySpriteAnimTable,
+	.images = sTypeIconPicTable,
+	.affineAnims = gDummySpriteAffineAnimTable,
+	.callback = SpriteCB_CamomonsTypeIcon,
+};
+
+static const struct SpriteTemplate sTypeIconSpriteTemplate2 =
+{
+	.tileTag = 0xFFFF,
+	.paletteTag = ICON_TYPE2_TAG,
+	.oam = &sTypeIconOAM,
+	.anims = gDummySpriteAnimTable,
+	.images = sTypeIconPicTable,
+	.affineAnims = gDummySpriteAffineAnimTable,
+	.callback = SpriteCB_CamomonsTypeIcon,
+};
+
+static const struct SpritePalette sTypeIconPalTemplate =
+{
+	.data = sCamomonsTypeIconsPal, 
+    .tag = ICON_TYPE_TAG
+};
+
+static const struct SpritePalette sTypeIconPalTemplate2 =
+{
+	.data = sCamomonsTypeIcons2Pal,
+	.tag = ICON_TYPE2_TAG,
+};
 
 void BattleControllerDummy(void)
 {
@@ -2470,12 +2567,102 @@ static void PlayerHandleChooseMove(void)
 
 void InitMoveSelectionsVarsAndStrings(void)
 {
+    TryLoadTypeIcons();
     MoveSelectionDisplayMoveNames();
     gMultiUsePlayerCursor = 0xFF;
     MoveSelectionCreateCursorAt(gMoveSelectionCursor[gActiveBattler], 0);
     MoveSelectionDisplayPpString();
     MoveSelectionDisplayPpNumber();
     MoveSelectionDisplayMoveType();
+}
+
+static void TryLoadTypeIcons(void)
+{
+    u8 position = 0;
+    u8 typeNum;
+   
+    LoadSpritePalette(&sTypeIconPalTemplate);
+    LoadSpritePalette(&sTypeIconPalTemplate2);
+
+    for (position; position < gBattlersCount; ++position)
+    {
+        u8 bank = GetBattlerAtPosition(position);
+        u8 type1 = gBattleMons[bank].type1;
+        u8 type2 = gBattleMons[bank].type2;
+
+        if (gAbsentBattlerFlags & gBitTable[bank])
+            continue;
+            
+        for (typeNum = 0; typeNum < 2; ++typeNum) //Load each type
+        {
+            u8 spriteId;
+            struct Sprite* sprite;
+
+            s16 x = sTypeIconPositions[position][!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)].x;
+            s16 y = sTypeIconPositions[position][!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)].y;
+
+            u8 type = (typeNum == 0) ? type1 : type2;
+            
+            if (GetBattlerSide(bank) == B_SIDE_OPPONENT)
+                x += (8 * typeNum);
+            else
+                x -= (8 * typeNum);
+
+            switch (type)
+            { //Certain types have a different palette
+                case TYPE_NORMAL:
+                case TYPE_FLYING:
+                case TYPE_POISON:
+                case TYPE_GROUND:
+                case TYPE_DRAGON:
+                case TYPE_MYSTERY:
+                    spriteId = CreateSpriteAtEnd(&sTypeIconSpriteTemplate2, x, y, 0xFF);
+                    break;
+                default:
+                    spriteId = CreateSpriteAtEnd(&sTypeIconSpriteTemplate, x, y, 0xFF);
+                    break;
+            }
+
+            if (spriteId != MAX_SPRITES)
+            {
+                sprite = &gSprites[spriteId];
+                sprite->data[0] = position;
+                sprite->data[1] = gActiveBattler;
+                sprite->data[3] = y; //Save original y-value for bouncing
+
+                if (GetBattlerSide(bank) == B_SIDE_OPPONENT)
+                    SetSpriteOamFlipBits(sprite, TRUE, FALSE);
+
+                RequestSpriteFrameImageCopy(type, sprite->oam.tileNum, sprite->images);
+            }
+        }
+    }
+}
+
+static void SpriteCB_CamomonsTypeIcon(struct Sprite* sprite)
+{
+	u8 position = sprite->data[0];
+	u8 bank = sprite->data[1];
+    s16 originalY = sprite->data[3];
+    struct Sprite* healthbox = &gSprites[gHealthboxSpriteIds[GetBattlerAtPosition(position)]];
+
+	//Type icons should prepare to destroy themselves if the Player is not choosing an action
+	if (gBattlerControllerFuncs[bank] != PlayerHandleChooseMove
+	&&  gBattlerControllerFuncs[bank] != HandleInputChooseMove
+	&&  gBattlerControllerFuncs[bank] != HandleChooseMoveAfterDma3
+	&&  gBattlerControllerFuncs[bank] != HandleInputChooseMove
+	&&  gBattlerControllerFuncs[bank] != HandleInputChooseTarget
+	&&  gBattlerControllerFuncs[bank] != HandleMoveSwitching
+	&&  gBattlerControllerFuncs[bank] != HandleInputChooseMove)
+	{
+		FreeSpritePaletteByTag(ICON_TYPE_TAG);
+        FreeSpritePaletteByTag(ICON_TYPE2_TAG);
+		DestroySprite(sprite);
+		return;
+	}
+
+	//Deal with bouncing player healthbox
+	sprite->y = originalY + healthbox->y2;
 }
 
 static void PlayerHandleChooseItem(void)
