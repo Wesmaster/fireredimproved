@@ -61,7 +61,8 @@ static const u8 sUnownLetterSlots[][12] = {
 
 void GenerateWildMonData(void)
 {
-    u16 i, j, x;
+    u16 i, j, x;    
+    u8 wildMonsTableSize = sizeof(sWildMonsTable) / sizeof(struct RandomizerPokemon);
 
     for (i = 0; ; i++)
     {
@@ -71,7 +72,7 @@ void GenerateWildMonData(void)
         if (wildHeader->mapGroup == MAP_GROUP(UNDEFINED))
             break;
 
-        for (x = 0; x < sWildMonsTable.size(); x++)
+        for (x = 0; x < wildMonsTableSize; x++)
         {
             if (sWildMonsTable[x].mapNum == wildHeader->mapNum)
                 break;
