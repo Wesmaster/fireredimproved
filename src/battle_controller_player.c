@@ -234,8 +234,8 @@ static const struct SpriteFrameImage sTypeIconPicTable[] =
 	[TYPE_DARK] =		type_icon_frame(sCamomonsTypeIconsTiles, TYPE_DARK),
 };
 
-#define ICON_TYPE_TAG   11001;
-#define ICON_TYPE2_TAG  11002;
+#define ICON_TYPE_TAG   11001
+#define ICON_TYPE2_TAG  11002
 
 static const struct SpriteTemplate sTypeIconSpriteTemplate =
 {
