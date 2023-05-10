@@ -61,7 +61,9 @@ static const u8 sUnownLetterSlots[][12] = {
 
 void GenerateWildMonData(void)
 {
-    u16 i, j, x;    
+    u16 i, j, x;   
+
+    DisableWildEncounters(true); 
 
     for (i = 0; ; i++)
     {
