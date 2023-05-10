@@ -2565,14 +2565,14 @@ static void TryLoadTypeIcons(void)
             struct Sprite* sprite;
 
             s16 x = sTypeIconPositions[position][!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)].x;
+            s16 y = sTypeIconPositions[position][!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)].y;
+
+            u8 type = (typeNum == 0) ? type1 : type2;
             
             if (GetBattlerSide(bank) == B_SIDE_OPPONENT)
                 x += (6 * typeNum);
             else
                 x -= (6 * typeNum);
-            s16 y = sTypeIconPositions[position][!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)].y;
-
-            u8 type = (typeNum == 0) ? type1 : type2;
 
             switch (type)
             { //Certain types have a different palette
