@@ -10,12 +10,12 @@
 #define RANDOM_WILD_COUNT   12
 
 #define NUM_ALTERING_CAVE_TABLES 9
-/*
+
 struct RandomizerPokemon
 {
     u8 mapNum;
     u16 species[RANDOM_WILD_COUNT];
-};*/
+};
 
 struct WildPokemon
 {
@@ -27,7 +27,7 @@ struct WildPokemon
 struct WildPokemonInfo
 {
     u8 encounterRate;
-    struct WildPokemon *wildPokemon;
+    const struct WildPokemon *wildPokemon;
 };
 
 struct WildPokemonHeader

@@ -58,24 +58,31 @@ static const u8 sUnownLetterSlots[][12] = {
   //  Z   Z   Z   Z   Z   Z   Z   Z   Z   Z   Z   !
     {25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 26},
 };
-/*
+
 void GenerateWildMonData(void)
 {
-    u16 i;
+    u16 i, j, x;
 
     for (i = 0; ; i++)
     {
         const struct WildPokemonHeader *wildHeader = &gWildMonHeaders[i];
+        const struct WildPokemon *wildPokemon = wildHeader->landMonsInfo->wildPokemon;
+        
         if (wildHeader->mapGroup == MAP_GROUP(UNDEFINED))
             break;
 
-        struct WildPokemon *wildPokemon = wildHeader->landMonsInfo->wildPokemon;
-        for (j = 0; j < wildPokemon->size())
+        for (x = 0; x < sWildMonsTable.size(); x++)
         {
-            wildHeader->mapNum
+            if (sWildMonsTable[x].mapNum == wildHeader->mapNum)
+                break;
+        }    
+
+        for (j = 0; j < wildPokemon->size(); j++)
+        {
+            wildPokemon[j].species = sWildMonsTable[x].species[Random() % 12];
         }
     }
-}*/
+}
 
 void DisableWildEncounters(bool8 state)
 {

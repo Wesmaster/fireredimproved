@@ -37,7 +37,7 @@
 #define ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_9 ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_8 + 1
 #define ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_TOTAL (ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_9)
 
-struct WildPokemon sSevenIslandTanobyRuinsMoneanChamber_LandMons[] =
+const struct WildPokemon sSevenIslandTanobyRuinsMoneanChamber_LandMons[] =
 {
     { 25, 25, SPECIES_UNOWN },
     { 25, 25, SPECIES_UNOWN },
@@ -54,7 +54,7 @@ struct WildPokemon sSevenIslandTanobyRuinsMoneanChamber_LandMons[] =
 };
 const struct WildPokemonInfo sSevenIslandTanobyRuinsMoneanChamber_LandMonsInfo = { 7, sSevenIslandTanobyRuinsMoneanChamber_LandMons };
 
-struct WildPokemon sSevenIslandTanobyRuinsLiptooChamber_LandMons[] =
+const struct WildPokemon sSevenIslandTanobyRuinsLiptooChamber_LandMons[] =
 {
     { 25, 25, SPECIES_UNOWN },
     { 25, 25, SPECIES_UNOWN },
@@ -71,7 +71,7 @@ struct WildPokemon sSevenIslandTanobyRuinsLiptooChamber_LandMons[] =
 };
 const struct WildPokemonInfo sSevenIslandTanobyRuinsLiptooChamber_LandMonsInfo = { 7, sSevenIslandTanobyRuinsLiptooChamber_LandMons };
 
-struct WildPokemon sSevenIslandTanobyRuinsWeepthChamber_LandMons[] =
+const struct WildPokemon sSevenIslandTanobyRuinsWeepthChamber_LandMons[] =
 {
     { 25, 25, SPECIES_UNOWN },
     { 25, 25, SPECIES_UNOWN },
@@ -91,7 +91,7 @@ const struct WildPokemonInfo sSevenIslandTanobyRuinsWeepthChamber_LandMonsInfo =
 
 
 
-struct WildPokemon sSevenIslandTanobyRuinsDilfordChamber_LandMons[] =
+const struct WildPokemon sSevenIslandTanobyRuinsDilfordChamber_LandMons[] =
 {
     { 25, 25, SPECIES_UNOWN },
     { 25, 25, SPECIES_UNOWN },
@@ -111,7 +111,7 @@ const struct WildPokemonInfo sSevenIslandTanobyRuinsDilfordChamber_LandMonsInfo 
 
 
 
-struct WildPokemon sSevenIslandTanobyRuinsScufibChamber_LandMons[] =
+const struct WildPokemon sSevenIslandTanobyRuinsScufibChamber_LandMons[] =
 {
     { 25, 25, SPECIES_UNOWN },
     { 25, 25, SPECIES_UNOWN },
@@ -131,7 +131,7 @@ const struct WildPokemonInfo sSevenIslandTanobyRuinsScufibChamber_LandMonsInfo =
 
 
 
-struct WildPokemon sSevenIslandTanobyRuinsRixyChamber_LandMons[] =
+const struct WildPokemon sSevenIslandTanobyRuinsRixyChamber_LandMons[] =
 {
     { 25, 25, SPECIES_UNOWN },
     { 25, 25, SPECIES_UNOWN },
@@ -151,7 +151,7 @@ const struct WildPokemonInfo sSevenIslandTanobyRuinsRixyChamber_LandMonsInfo = {
 
 
 
-struct WildPokemon sSevenIslandTanobyRuinsViapoisChamber_LandMons[] =
+const struct WildPokemon sSevenIslandTanobyRuinsViapoisChamber_LandMons[] =
 {
     { 25, 25, SPECIES_UNOWN },
     { 25, 25, SPECIES_UNOWN },
@@ -171,7 +171,7 @@ const struct WildPokemonInfo sSevenIslandTanobyRuinsViapoisChamber_LandMonsInfo 
 
 
 
-struct WildPokemon sViridianForest_LandMons[] =
+const struct WildPokemon sViridianForest_LandMons[] =
 {
     { 4, 4, SPECIES_CATERPIE },
     { 4, 4, SPECIES_WEEDLE },
@@ -191,7 +191,7 @@ const struct WildPokemonInfo sViridianForest_LandMonsInfo = { 14, sViridianFores
 
 
 
-struct WildPokemon sMtMoon1F_LandMons[] =
+const struct WildPokemon sMtMoon1F_LandMons[] =
 {
     { 7, 7, SPECIES_ZUBAT },
     { 8, 8, SPECIES_ZUBAT },
@@ -211,7 +211,7 @@ const struct WildPokemonInfo sMtMoon1F_LandMonsInfo = { 7, sMtMoon1F_LandMons };
 
 
 
-struct WildPokemon sMtMoonB1F_LandMons[] =
+const struct WildPokemon sMtMoonB1F_LandMons[] =
 {
     { 7, 7, SPECIES_PARAS },
     { 8, 8, SPECIES_PARAS },
@@ -231,7 +231,7 @@ const struct WildPokemonInfo sMtMoonB1F_LandMonsInfo = { 5, sMtMoonB1F_LandMons 
 
 
 
-struct WildPokemon sMtMoonB2F_LandMons[] =
+const struct WildPokemon sMtMoonB2F_LandMons[] =
 {
     { 8, 8, SPECIES_ZUBAT },
     { 9, 9, SPECIES_GEODUDE },
@@ -251,7 +251,7 @@ const struct WildPokemonInfo sMtMoonB2F_LandMonsInfo = { 7, sMtMoonB2F_LandMons 
 
 
 
-struct WildPokemon sSSAnneExterior_WaterMons[] =
+const struct WildPokemon sSSAnneExterior_WaterMons[] =
 {
     { 5, 10, SPECIES_TENTACOOL },
     { 10, 20, SPECIES_TENTACOOL },
@@ -261,7 +261,7 @@ struct WildPokemon sSSAnneExterior_WaterMons[] =
 };
 
 const struct WildPokemonInfo sSSAnneExterior_WaterMonsInfo = { 1, sSSAnneExterior_WaterMons };
-struct WildPokemon sSSAnneExterior_FishingMons[] =
+const struct WildPokemon sSSAnneExterior_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -279,7 +279,7 @@ const struct WildPokemonInfo sSSAnneExterior_FishingMonsInfo = { 10, sSSAnneExte
 
 
 
-struct WildPokemon sDiglettsCaveB1F_LandMons[] =
+const struct WildPokemon sDiglettsCaveB1F_LandMons[] =
 {
     { 18, 18, SPECIES_DIGLETT },
     { 19, 19, SPECIES_DIGLETT },
@@ -299,7 +299,7 @@ const struct WildPokemonInfo sDiglettsCaveB1F_LandMonsInfo = { 5, sDiglettsCaveB
 
 
 
-struct WildPokemon sVictoryRoad1F_LandMons[] =
+const struct WildPokemon sVictoryRoad1F_LandMons[] =
 {
     { 32, 32, SPECIES_MACHOP },
     { 32, 32, SPECIES_GEODUDE },
@@ -319,7 +319,7 @@ const struct WildPokemonInfo sVictoryRoad1F_LandMonsInfo = { 7, sVictoryRoad1F_L
 
 
 
-struct WildPokemon sVictoryRoad2F_LandMons[] =
+const struct WildPokemon sVictoryRoad2F_LandMons[] =
 {
     { 34, 34, SPECIES_MACHOP },
     { 34, 34, SPECIES_GEODUDE },
@@ -339,7 +339,7 @@ const struct WildPokemonInfo sVictoryRoad2F_LandMonsInfo = { 7, sVictoryRoad2F_L
 
 
 
-struct WildPokemon sVictoryRoad3F_LandMons[] =
+const struct WildPokemon sVictoryRoad3F_LandMons[] =
 {
     { 32, 32, SPECIES_MACHOP },
     { 32, 32, SPECIES_GEODUDE },
@@ -359,7 +359,7 @@ const struct WildPokemonInfo sVictoryRoad3F_LandMonsInfo = { 7, sVictoryRoad3F_L
 
 
 
-struct WildPokemon sPokemonMansion1F_LandMons[] =
+const struct WildPokemon sPokemonMansion1F_LandMons[] =
 {
     { 28, 28, SPECIES_KOFFING },
     { 32, 32, SPECIES_RATICATE },
@@ -379,7 +379,7 @@ const struct WildPokemonInfo sPokemonMansion1F_LandMonsInfo = { 7, sPokemonMansi
 
 
 
-struct WildPokemon sPokemonMansion2F_LandMons[] =
+const struct WildPokemon sPokemonMansion2F_LandMons[] =
 {
     { 28, 28, SPECIES_KOFFING },
     { 32, 32, SPECIES_RATICATE },
@@ -399,7 +399,7 @@ const struct WildPokemonInfo sPokemonMansion2F_LandMonsInfo = { 7, sPokemonMansi
 
 
 
-struct WildPokemon sPokemonMansion3F_LandMons[] =
+const struct WildPokemon sPokemonMansion3F_LandMons[] =
 {
     { 28, 28, SPECIES_KOFFING },
     { 32, 32, SPECIES_RATICATE },
@@ -419,7 +419,7 @@ const struct WildPokemonInfo sPokemonMansion3F_LandMonsInfo = { 7, sPokemonMansi
 
 
 
-struct WildPokemon sPokemonMansionB1F_LandMons[] =
+const struct WildPokemon sPokemonMansionB1F_LandMons[] =
 {
     { 28, 28, SPECIES_KOFFING },
     { 34, 34, SPECIES_RATICATE },
@@ -439,7 +439,7 @@ const struct WildPokemonInfo sPokemonMansionB1F_LandMonsInfo = { 5, sPokemonMans
 
 
 
-struct WildPokemon sSafariZoneCenter_LandMons[] =
+const struct WildPokemon sSafariZoneCenter_LandMons[] =
 {
     { 25, 25, SPECIES_RHYHORN },
     { 22, 22, SPECIES_NIDORAN_M },
@@ -456,7 +456,7 @@ struct WildPokemon sSafariZoneCenter_LandMons[] =
 };
 
 const struct WildPokemonInfo sSafariZoneCenter_LandMonsInfo = { 21, sSafariZoneCenter_LandMons };
-struct WildPokemon sSafariZoneCenter_WaterMons[] =
+const struct WildPokemon sSafariZoneCenter_WaterMons[] =
 {
     { 20, 25, SPECIES_PSYDUCK },
     { 20, 25, SPECIES_PSYDUCK },
@@ -466,7 +466,7 @@ struct WildPokemon sSafariZoneCenter_WaterMons[] =
 };
 
 const struct WildPokemonInfo sSafariZoneCenter_WaterMonsInfo = { 2, sSafariZoneCenter_WaterMons };
-struct WildPokemon sSafariZoneCenter_FishingMons[] =
+const struct WildPokemon sSafariZoneCenter_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -484,7 +484,7 @@ const struct WildPokemonInfo sSafariZoneCenter_FishingMonsInfo = { 20, sSafariZo
 
 
 
-struct WildPokemon sSafariZoneEast_LandMons[] =
+const struct WildPokemon sSafariZoneEast_LandMons[] =
 {
     { 24, 24, SPECIES_NIDORAN_M },
     { 26, 26, SPECIES_DODUO },
@@ -501,7 +501,7 @@ struct WildPokemon sSafariZoneEast_LandMons[] =
 };
 
 const struct WildPokemonInfo sSafariZoneEast_LandMonsInfo = { 21, sSafariZoneEast_LandMons };
-struct WildPokemon sSafariZoneEast_WaterMons[] =
+const struct WildPokemon sSafariZoneEast_WaterMons[] =
 {
     { 20, 25, SPECIES_PSYDUCK },
     { 20, 25, SPECIES_PSYDUCK },
@@ -511,7 +511,7 @@ struct WildPokemon sSafariZoneEast_WaterMons[] =
 };
 
 const struct WildPokemonInfo sSafariZoneEast_WaterMonsInfo = { 2, sSafariZoneEast_WaterMons };
-struct WildPokemon sSafariZoneEast_FishingMons[] =
+const struct WildPokemon sSafariZoneEast_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -529,7 +529,7 @@ const struct WildPokemonInfo sSafariZoneEast_FishingMonsInfo = { 20, sSafariZone
 
 
 
-struct WildPokemon sSafariZoneNorth_LandMons[] =
+const struct WildPokemon sSafariZoneNorth_LandMons[] =
 {
     { 26, 26, SPECIES_RHYHORN },
     { 30, 30, SPECIES_NIDORAN_M },
@@ -546,7 +546,7 @@ struct WildPokemon sSafariZoneNorth_LandMons[] =
 };
 
 const struct WildPokemonInfo sSafariZoneNorth_LandMonsInfo = { 21, sSafariZoneNorth_LandMons };
-struct WildPokemon sSafariZoneNorth_WaterMons[] =
+const struct WildPokemon sSafariZoneNorth_WaterMons[] =
 {
     { 20, 25, SPECIES_PSYDUCK },
     { 20, 25, SPECIES_PSYDUCK },
@@ -556,7 +556,7 @@ struct WildPokemon sSafariZoneNorth_WaterMons[] =
 };
 
 const struct WildPokemonInfo sSafariZoneNorth_WaterMonsInfo = { 2, sSafariZoneNorth_WaterMons };
-struct WildPokemon sSafariZoneNorth_FishingMons[] =
+const struct WildPokemon sSafariZoneNorth_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -574,7 +574,7 @@ const struct WildPokemonInfo sSafariZoneNorth_FishingMonsInfo = { 20, sSafariZon
 
 
 
-struct WildPokemon sSafariZoneWest_LandMons[] =
+const struct WildPokemon sSafariZoneWest_LandMons[] =
 {
     { 26, 26, SPECIES_DODUO },
     { 22, 22, SPECIES_NIDORAN_M },
@@ -591,7 +591,7 @@ struct WildPokemon sSafariZoneWest_LandMons[] =
 };
 
 const struct WildPokemonInfo sSafariZoneWest_LandMonsInfo = { 21, sSafariZoneWest_LandMons };
-struct WildPokemon sSafariZoneWest_WaterMons[] =
+const struct WildPokemon sSafariZoneWest_WaterMons[] =
 {
     { 20, 25, SPECIES_PSYDUCK },
     { 20, 25, SPECIES_PSYDUCK },
@@ -601,7 +601,7 @@ struct WildPokemon sSafariZoneWest_WaterMons[] =
 };
 
 const struct WildPokemonInfo sSafariZoneWest_WaterMonsInfo = { 2, sSafariZoneWest_WaterMons };
-struct WildPokemon sSafariZoneWest_FishingMons[] =
+const struct WildPokemon sSafariZoneWest_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -619,7 +619,7 @@ const struct WildPokemonInfo sSafariZoneWest_FishingMonsInfo = { 20, sSafariZone
 
 
 
-struct WildPokemon sCeruleanCave1F_LandMons[] =
+const struct WildPokemon sCeruleanCave1F_LandMons[] =
 {
     { 49, 49, SPECIES_MAGNETON },
     { 49, 49, SPECIES_PARASECT },
@@ -636,7 +636,7 @@ struct WildPokemon sCeruleanCave1F_LandMons[] =
 };
 
 const struct WildPokemonInfo sCeruleanCave1F_LandMonsInfo = { 7, sCeruleanCave1F_LandMons };
-struct WildPokemon sCeruleanCave1F_WaterMons[] =
+const struct WildPokemon sCeruleanCave1F_WaterMons[] =
 {
     { 30, 40, SPECIES_PSYDUCK },
     { 40, 50, SPECIES_GOLDUCK },
@@ -646,7 +646,7 @@ struct WildPokemon sCeruleanCave1F_WaterMons[] =
 };
 
 const struct WildPokemonInfo sCeruleanCave1F_WaterMonsInfo = { 2, sCeruleanCave1F_WaterMons };
-struct WildPokemon sCeruleanCave1F_RockSmashMons[] =
+const struct WildPokemon sCeruleanCave1F_RockSmashMons[] =
 {
     { 30, 40, SPECIES_GEODUDE },
     { 40, 50, SPECIES_GRAVELER },
@@ -656,7 +656,7 @@ struct WildPokemon sCeruleanCave1F_RockSmashMons[] =
 };
 
 const struct WildPokemonInfo sCeruleanCave1F_RockSmashMonsInfo = { 50, sCeruleanCave1F_RockSmashMons };
-struct WildPokemon sCeruleanCave1F_FishingMons[] =
+const struct WildPokemon sCeruleanCave1F_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -674,7 +674,7 @@ const struct WildPokemonInfo sCeruleanCave1F_FishingMonsInfo = { 20, sCeruleanCa
 
 
 
-struct WildPokemon sCeruleanCave2F_LandMons[] =
+const struct WildPokemon sCeruleanCave2F_LandMons[] =
 {
     { 49, 49, SPECIES_GOLBAT },
     { 49, 49, SPECIES_MACHOKE },
@@ -691,7 +691,7 @@ struct WildPokemon sCeruleanCave2F_LandMons[] =
 };
 
 const struct WildPokemonInfo sCeruleanCave2F_LandMonsInfo = { 7, sCeruleanCave2F_LandMons };
-struct WildPokemon sCeruleanCave2F_RockSmashMons[] =
+const struct WildPokemon sCeruleanCave2F_RockSmashMons[] =
 {
     { 35, 45, SPECIES_GEODUDE },
     { 45, 55, SPECIES_GRAVELER },
@@ -704,7 +704,7 @@ const struct WildPokemonInfo sCeruleanCave2F_RockSmashMonsInfo = { 50, sCerulean
 
 
 
-struct WildPokemon sCeruleanCaveB1F_LandMons[] =
+const struct WildPokemon sCeruleanCaveB1F_LandMons[] =
 {
     { 58, 58, SPECIES_KADABRA },
     { 58, 58, SPECIES_DITTO },
@@ -721,7 +721,7 @@ struct WildPokemon sCeruleanCaveB1F_LandMons[] =
 };
 
 const struct WildPokemonInfo sCeruleanCaveB1F_LandMonsInfo = { 7, sCeruleanCaveB1F_LandMons };
-struct WildPokemon sCeruleanCaveB1F_WaterMons[] =
+const struct WildPokemon sCeruleanCaveB1F_WaterMons[] =
 {
     { 40, 50, SPECIES_PSYDUCK },
     { 50, 60, SPECIES_GOLDUCK },
@@ -731,7 +731,7 @@ struct WildPokemon sCeruleanCaveB1F_WaterMons[] =
 };
 
 const struct WildPokemonInfo sCeruleanCaveB1F_WaterMonsInfo = { 2, sCeruleanCaveB1F_WaterMons };
-struct WildPokemon sCeruleanCaveB1F_RockSmashMons[] =
+const struct WildPokemon sCeruleanCaveB1F_RockSmashMons[] =
 {
     { 40, 50, SPECIES_GEODUDE },
     { 50, 60, SPECIES_GRAVELER },
@@ -741,7 +741,7 @@ struct WildPokemon sCeruleanCaveB1F_RockSmashMons[] =
 };
 
 const struct WildPokemonInfo sCeruleanCaveB1F_RockSmashMonsInfo = { 50, sCeruleanCaveB1F_RockSmashMons };
-struct WildPokemon sCeruleanCaveB1F_FishingMons[] =
+const struct WildPokemon sCeruleanCaveB1F_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -759,7 +759,7 @@ const struct WildPokemonInfo sCeruleanCaveB1F_FishingMonsInfo = { 20, sCeruleanC
 
 
 
-struct WildPokemon sRockTunnel1F_LandMons[] =
+const struct WildPokemon sRockTunnel1F_LandMons[] =
 {
     { 15, 15, SPECIES_ZUBAT },
     { 16, 16, SPECIES_GEODUDE },
@@ -779,7 +779,7 @@ const struct WildPokemonInfo sRockTunnel1F_LandMonsInfo = { 7, sRockTunnel1F_Lan
 
 
 
-struct WildPokemon sRockTunnelB1F_LandMons[] =
+const struct WildPokemon sRockTunnelB1F_LandMons[] =
 {
     { 16, 16, SPECIES_ZUBAT },
     { 17, 17, SPECIES_GEODUDE },
@@ -796,7 +796,7 @@ struct WildPokemon sRockTunnelB1F_LandMons[] =
 };
 
 const struct WildPokemonInfo sRockTunnelB1F_LandMonsInfo = { 7, sRockTunnelB1F_LandMons };
-struct WildPokemon sRockTunnelB1F_RockSmashMons[] =
+const struct WildPokemon sRockTunnelB1F_RockSmashMons[] =
 {
     { 5, 20, SPECIES_GEODUDE },
     { 10, 20, SPECIES_GEODUDE },
@@ -809,7 +809,7 @@ const struct WildPokemonInfo sRockTunnelB1F_RockSmashMonsInfo = { 50, sRockTunne
 
 
 
-struct WildPokemon sSeafoamIslands1F_LandMons[] =
+const struct WildPokemon sSeafoamIslands1F_LandMons[] =
 {
     { 27, 27, SPECIES_PSYDUCK },
     { 29, 29, SPECIES_PSYDUCK },
@@ -829,7 +829,7 @@ const struct WildPokemonInfo sSeafoamIslands1F_LandMonsInfo = { 7, sSeafoamIslan
 
 
 
-struct WildPokemon sSeafoamIslandsB1F_LandMons[] =
+const struct WildPokemon sSeafoamIslandsB1F_LandMons[] =
 {
     { 29, 29, SPECIES_PSYDUCK },
     { 31, 31, SPECIES_PSYDUCK },
@@ -849,7 +849,7 @@ const struct WildPokemonInfo sSeafoamIslandsB1F_LandMonsInfo = { 7, sSeafoamIsla
 
 
 
-struct WildPokemon sSeafoamIslandsB2F_LandMons[] =
+const struct WildPokemon sSeafoamIslandsB2F_LandMons[] =
 {
     { 30, 30, SPECIES_PSYDUCK },
     { 32, 32, SPECIES_PSYDUCK },
@@ -869,7 +869,7 @@ const struct WildPokemonInfo sSeafoamIslandsB2F_LandMonsInfo = { 7, sSeafoamIsla
 
 
 
-struct WildPokemon sSeafoamIslandsB3F_LandMons[] =
+const struct WildPokemon sSeafoamIslandsB3F_LandMons[] =
 {
     { 30, 30, SPECIES_SEEL },
     { 32, 32, SPECIES_SEEL },
@@ -886,7 +886,7 @@ struct WildPokemon sSeafoamIslandsB3F_LandMons[] =
 };
 
 const struct WildPokemonInfo sSeafoamIslandsB3F_LandMonsInfo = { 7, sSeafoamIslandsB3F_LandMons };
-struct WildPokemon sSeafoamIslandsB3F_WaterMons[] =
+const struct WildPokemon sSeafoamIslandsB3F_WaterMons[] =
 {
     { 25, 35, SPECIES_SEEL },
     { 25, 30, SPECIES_HORSEA },
@@ -896,7 +896,7 @@ struct WildPokemon sSeafoamIslandsB3F_WaterMons[] =
 };
 
 const struct WildPokemonInfo sSeafoamIslandsB3F_WaterMonsInfo = { 2, sSeafoamIslandsB3F_WaterMons };
-struct WildPokemon sSeafoamIslandsB3F_FishingMons[] =
+const struct WildPokemon sSeafoamIslandsB3F_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -914,7 +914,7 @@ const struct WildPokemonInfo sSeafoamIslandsB3F_FishingMonsInfo = { 20, sSeafoam
 
 
 
-struct WildPokemon sSeafoamIslandsB4F_LandMons[] =
+const struct WildPokemon sSeafoamIslandsB4F_LandMons[] =
 {
     { 30, 30, SPECIES_SEEL },
     { 32, 32, SPECIES_SEEL },
@@ -931,7 +931,7 @@ struct WildPokemon sSeafoamIslandsB4F_LandMons[] =
 };
 
 const struct WildPokemonInfo sSeafoamIslandsB4F_LandMonsInfo = { 7, sSeafoamIslandsB4F_LandMons };
-struct WildPokemon sSeafoamIslandsB4F_WaterMons[] =
+const struct WildPokemon sSeafoamIslandsB4F_WaterMons[] =
 {
     { 25, 35, SPECIES_SEEL },
     { 25, 30, SPECIES_HORSEA },
@@ -941,7 +941,7 @@ struct WildPokemon sSeafoamIslandsB4F_WaterMons[] =
 };
 
 const struct WildPokemonInfo sSeafoamIslandsB4F_WaterMonsInfo = { 2, sSeafoamIslandsB4F_WaterMons };
-struct WildPokemon sSeafoamIslandsB4F_FishingMons[] =
+const struct WildPokemon sSeafoamIslandsB4F_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -959,7 +959,7 @@ const struct WildPokemonInfo sSeafoamIslandsB4F_FishingMonsInfo = { 20, sSeafoam
 
 
 
-struct WildPokemon sPokemonTower3F_LandMons[] =
+const struct WildPokemon sPokemonTower3F_LandMons[] =
 {
     { 15, 15, SPECIES_GASTLY },
     { 16, 16, SPECIES_GASTLY },
@@ -979,7 +979,7 @@ const struct WildPokemonInfo sPokemonTower3F_LandMonsInfo = { 2, sPokemonTower3F
 
 
 
-struct WildPokemon sPokemonTower4F_LandMons[] =
+const struct WildPokemon sPokemonTower4F_LandMons[] =
 {
     { 15, 15, SPECIES_GASTLY },
     { 16, 16, SPECIES_GASTLY },
@@ -999,7 +999,7 @@ const struct WildPokemonInfo sPokemonTower4F_LandMonsInfo = { 4, sPokemonTower4F
 
 
 
-struct WildPokemon sPokemonTower5F_LandMons[] =
+const struct WildPokemon sPokemonTower5F_LandMons[] =
 {
     { 15, 15, SPECIES_GASTLY },
     { 16, 16, SPECIES_GASTLY },
@@ -1019,7 +1019,7 @@ const struct WildPokemonInfo sPokemonTower5F_LandMonsInfo = { 6, sPokemonTower5F
 
 
 
-struct WildPokemon sPokemonTower6F_LandMons[] =
+const struct WildPokemon sPokemonTower6F_LandMons[] =
 {
     { 16, 16, SPECIES_GASTLY },
     { 17, 17, SPECIES_GASTLY },
@@ -1039,7 +1039,7 @@ const struct WildPokemonInfo sPokemonTower6F_LandMonsInfo = { 8, sPokemonTower6F
 
 
 
-struct WildPokemon sPokemonTower7F_LandMons[] =
+const struct WildPokemon sPokemonTower7F_LandMons[] =
 {
     { 16, 16, SPECIES_GASTLY },
     { 17, 17, SPECIES_GASTLY },
@@ -1059,7 +1059,7 @@ const struct WildPokemonInfo sPokemonTower7F_LandMonsInfo = { 10, sPokemonTower7
 
 
 
-struct WildPokemon sPowerPlant_LandMons[] =
+const struct WildPokemon sPowerPlant_LandMons[] =
 {
     { 22, 22, SPECIES_VOLTORB },
     { 22, 22, SPECIES_MAGNEMITE },
@@ -1079,7 +1079,7 @@ const struct WildPokemonInfo sPowerPlant_LandMonsInfo = { 7, sPowerPlant_LandMon
 
 
 
-struct WildPokemon sMtEmberExterior_LandMons[] =
+const struct WildPokemon sMtEmberExterior_LandMons[] =
 {
     { 30, 30, SPECIES_PONYTA },
     { 38, 38, SPECIES_FEAROW },
@@ -1096,7 +1096,7 @@ struct WildPokemon sMtEmberExterior_LandMons[] =
 };
 
 const struct WildPokemonInfo sMtEmberExterior_LandMonsInfo = { 21, sMtEmberExterior_LandMons };
-struct WildPokemon sMtEmberExterior_RockSmashMons[] =
+const struct WildPokemon sMtEmberExterior_RockSmashMons[] =
 {
     { 5, 20, SPECIES_GEODUDE },
     { 10, 20, SPECIES_GEODUDE },
@@ -1109,7 +1109,7 @@ const struct WildPokemonInfo sMtEmberExterior_RockSmashMonsInfo = { 50, sMtEmber
 
 
 
-struct WildPokemon sMtEmberSummitPath1F_LandMons[] =
+const struct WildPokemon sMtEmberSummitPath1F_LandMons[] =
 {
     { 33, 33, SPECIES_GEODUDE },
     { 35, 35, SPECIES_MACHOP },
@@ -1129,7 +1129,7 @@ const struct WildPokemonInfo sMtEmberSummitPath1F_LandMonsInfo = { 7, sMtEmberSu
 
 
 
-struct WildPokemon sMtEmberSummitPath2F_LandMons[] =
+const struct WildPokemon sMtEmberSummitPath2F_LandMons[] =
 {
     { 34, 34, SPECIES_GEODUDE },
     { 36, 36, SPECIES_MACHOP },
@@ -1146,7 +1146,7 @@ struct WildPokemon sMtEmberSummitPath2F_LandMons[] =
 };
 
 const struct WildPokemonInfo sMtEmberSummitPath2F_LandMonsInfo = { 7, sMtEmberSummitPath2F_LandMons };
-struct WildPokemon sMtEmberSummitPath2F_RockSmashMons[] =
+const struct WildPokemon sMtEmberSummitPath2F_RockSmashMons[] =
 {
     { 5, 20, SPECIES_GEODUDE },
     { 10, 20, SPECIES_GEODUDE },
@@ -1159,7 +1159,7 @@ const struct WildPokemonInfo sMtEmberSummitPath2F_RockSmashMonsInfo = { 50, sMtE
 
 
 
-struct WildPokemon sMtEmberSummitPath3F_LandMons[] =
+const struct WildPokemon sMtEmberSummitPath3F_LandMons[] =
 {
     { 33, 33, SPECIES_GEODUDE },
     { 35, 35, SPECIES_MACHOP },
@@ -1179,7 +1179,7 @@ const struct WildPokemonInfo sMtEmberSummitPath3F_LandMonsInfo = { 7, sMtEmberSu
 
 
 
-struct WildPokemon sMtEmberRubyPath1F_LandMons[] =
+const struct WildPokemon sMtEmberRubyPath1F_LandMons[] =
 {
     { 36, 36, SPECIES_GEODUDE },
     { 38, 38, SPECIES_MACHOP },
@@ -1196,7 +1196,7 @@ struct WildPokemon sMtEmberRubyPath1F_LandMons[] =
 };
 
 const struct WildPokemonInfo sMtEmberRubyPath1F_LandMonsInfo = { 7, sMtEmberRubyPath1F_LandMons };
-struct WildPokemon sMtEmberRubyPath1F_RockSmashMons[] =
+const struct WildPokemon sMtEmberRubyPath1F_RockSmashMons[] =
 {
     { 25, 35, SPECIES_GEODUDE },
     { 30, 45, SPECIES_GRAVELER },
@@ -1209,7 +1209,7 @@ const struct WildPokemonInfo sMtEmberRubyPath1F_RockSmashMonsInfo = { 50, sMtEmb
 
 
 
-struct WildPokemon sMtEmberRubyPathB1F_LandMons[] =
+const struct WildPokemon sMtEmberRubyPathB1F_LandMons[] =
 {
     { 38, 38, SPECIES_GEODUDE },
     { 36, 36, SPECIES_GEODUDE },
@@ -1226,7 +1226,7 @@ struct WildPokemon sMtEmberRubyPathB1F_LandMons[] =
 };
 
 const struct WildPokemonInfo sMtEmberRubyPathB1F_LandMonsInfo = { 7, sMtEmberRubyPathB1F_LandMons };
-struct WildPokemon sMtEmberRubyPathB1F_RockSmashMons[] =
+const struct WildPokemon sMtEmberRubyPathB1F_RockSmashMons[] =
 {
     { 25, 35, SPECIES_GEODUDE },
     { 30, 45, SPECIES_GRAVELER },
@@ -1239,7 +1239,7 @@ const struct WildPokemonInfo sMtEmberRubyPathB1F_RockSmashMonsInfo = { 50, sMtEm
 
 
 
-struct WildPokemon sMtEmberRubyPathB2F_LandMons[] =
+const struct WildPokemon sMtEmberRubyPathB2F_LandMons[] =
 {
     { 40, 40, SPECIES_GEODUDE },
     { 26, 26, SPECIES_SLUGMA },
@@ -1256,7 +1256,7 @@ struct WildPokemon sMtEmberRubyPathB2F_LandMons[] =
 };
 
 const struct WildPokemonInfo sMtEmberRubyPathB2F_LandMonsInfo = { 7, sMtEmberRubyPathB2F_LandMons };
-struct WildPokemon sMtEmberRubyPathB2F_RockSmashMons[] =
+const struct WildPokemon sMtEmberRubyPathB2F_RockSmashMons[] =
 {
     { 25, 35, SPECIES_GEODUDE },
     { 30, 45, SPECIES_GRAVELER },
@@ -1269,7 +1269,7 @@ const struct WildPokemonInfo sMtEmberRubyPathB2F_RockSmashMonsInfo = { 50, sMtEm
 
 
 
-struct WildPokemon sMtEmberRubyPathB3F_LandMons[] =
+const struct WildPokemon sMtEmberRubyPathB3F_LandMons[] =
 {
     { 26, 26, SPECIES_SLUGMA },
     { 28, 28, SPECIES_SLUGMA },
@@ -1286,7 +1286,7 @@ struct WildPokemon sMtEmberRubyPathB3F_LandMons[] =
 };
 
 const struct WildPokemonInfo sMtEmberRubyPathB3F_LandMonsInfo = { 7, sMtEmberRubyPathB3F_LandMons };
-struct WildPokemon sMtEmberRubyPathB3F_RockSmashMons[] =
+const struct WildPokemon sMtEmberRubyPathB3F_RockSmashMons[] =
 {
     { 15, 25, SPECIES_SLUGMA },
     { 25, 35, SPECIES_SLUGMA },
@@ -1299,7 +1299,7 @@ const struct WildPokemonInfo sMtEmberRubyPathB3F_RockSmashMonsInfo = { 50, sMtEm
 
 
 
-struct WildPokemon sMtEmberRubyPathB1FStairs_LandMons[] =
+const struct WildPokemon sMtEmberRubyPathB1FStairs_LandMons[] =
 {
     { 40, 40, SPECIES_GEODUDE },
     { 26, 26, SPECIES_SLUGMA },
@@ -1316,7 +1316,7 @@ struct WildPokemon sMtEmberRubyPathB1FStairs_LandMons[] =
 };
 
 const struct WildPokemonInfo sMtEmberRubyPathB1FStairs_LandMonsInfo = { 7, sMtEmberRubyPathB1FStairs_LandMons };
-struct WildPokemon sMtEmberRubyPathB1FStairs_RockSmashMons[] =
+const struct WildPokemon sMtEmberRubyPathB1FStairs_RockSmashMons[] =
 {
     { 25, 35, SPECIES_GEODUDE },
     { 30, 45, SPECIES_GRAVELER },
@@ -1329,7 +1329,7 @@ const struct WildPokemonInfo sMtEmberRubyPathB1FStairs_RockSmashMonsInfo = { 50,
 
 
 
-struct WildPokemon sMtEmberRubyPathB2FStairs_LandMons[] =
+const struct WildPokemon sMtEmberRubyPathB2FStairs_LandMons[] =
 {
     { 38, 38, SPECIES_GEODUDE },
     { 36, 36, SPECIES_GEODUDE },
@@ -1346,7 +1346,7 @@ struct WildPokemon sMtEmberRubyPathB2FStairs_LandMons[] =
 };
 
 const struct WildPokemonInfo sMtEmberRubyPathB2FStairs_LandMonsInfo = { 7, sMtEmberRubyPathB2FStairs_LandMons };
-struct WildPokemon sMtEmberRubyPathB2FStairs_RockSmashMons[] =
+const struct WildPokemon sMtEmberRubyPathB2FStairs_RockSmashMons[] =
 {
     { 25, 35, SPECIES_GEODUDE },
     { 30, 45, SPECIES_GRAVELER },
@@ -1359,7 +1359,7 @@ const struct WildPokemonInfo sMtEmberRubyPathB2FStairs_RockSmashMonsInfo = { 50,
 
 
 
-struct WildPokemon sThreeIslandBerryForest_LandMons[] =
+const struct WildPokemon sThreeIslandBerryForest_LandMons[] =
 {
     { 37, 37, SPECIES_PIDGEOTTO },
     { 35, 35, SPECIES_GLOOM },
@@ -1376,7 +1376,7 @@ struct WildPokemon sThreeIslandBerryForest_LandMons[] =
 };
 
 const struct WildPokemonInfo sThreeIslandBerryForest_LandMonsInfo = { 21, sThreeIslandBerryForest_LandMons };
-struct WildPokemon sThreeIslandBerryForest_WaterMons[] =
+const struct WildPokemon sThreeIslandBerryForest_WaterMons[] =
 {
     { 5, 20, SPECIES_PSYDUCK },
     { 20, 35, SPECIES_PSYDUCK },
@@ -1386,7 +1386,7 @@ struct WildPokemon sThreeIslandBerryForest_WaterMons[] =
 };
 
 const struct WildPokemonInfo sThreeIslandBerryForest_WaterMonsInfo = { 2, sThreeIslandBerryForest_WaterMons };
-struct WildPokemon sThreeIslandBerryForest_FishingMons[] =
+const struct WildPokemon sThreeIslandBerryForest_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -1404,7 +1404,7 @@ const struct WildPokemonInfo sThreeIslandBerryForest_FishingMonsInfo = { 20, sTh
 
 
 
-struct WildPokemon sFourIslandIcefallCaveEntrance_LandMons[] =
+const struct WildPokemon sFourIslandIcefallCaveEntrance_LandMons[] =
 {
     { 43, 43, SPECIES_SEEL },
     { 45, 45, SPECIES_GOLBAT },
@@ -1421,7 +1421,7 @@ struct WildPokemon sFourIslandIcefallCaveEntrance_LandMons[] =
 };
 
 const struct WildPokemonInfo sFourIslandIcefallCaveEntrance_LandMonsInfo = { 7, sFourIslandIcefallCaveEntrance_LandMons };
-struct WildPokemon sFourIslandIcefallCaveEntrance_WaterMons[] =
+const struct WildPokemon sFourIslandIcefallCaveEntrance_WaterMons[] =
 {
     { 5, 35, SPECIES_SEEL },
     { 5, 35, SPECIES_PSYDUCK },
@@ -1431,7 +1431,7 @@ struct WildPokemon sFourIslandIcefallCaveEntrance_WaterMons[] =
 };
 
 const struct WildPokemonInfo sFourIslandIcefallCaveEntrance_WaterMonsInfo = { 2, sFourIslandIcefallCaveEntrance_WaterMons };
-struct WildPokemon sFourIslandIcefallCaveEntrance_FishingMons[] =
+const struct WildPokemon sFourIslandIcefallCaveEntrance_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -1449,7 +1449,7 @@ const struct WildPokemonInfo sFourIslandIcefallCaveEntrance_FishingMonsInfo = { 
 
 
 
-struct WildPokemon sFourIslandIcefallCave1F_LandMons[] =
+const struct WildPokemon sFourIslandIcefallCave1F_LandMons[] =
 {
     { 25, 25, SPECIES_SWINUB },
     { 45, 45, SPECIES_GOLBAT },
@@ -1469,7 +1469,7 @@ const struct WildPokemonInfo sFourIslandIcefallCave1F_LandMonsInfo = { 7, sFourI
 
 
 
-struct WildPokemon sFourIslandIcefallCaveB1F_LandMons[] =
+const struct WildPokemon sFourIslandIcefallCaveB1F_LandMons[] =
 {
     { 25, 25, SPECIES_SWINUB },
     { 45, 45, SPECIES_GOLBAT },
@@ -1489,7 +1489,7 @@ const struct WildPokemonInfo sFourIslandIcefallCaveB1F_LandMonsInfo = { 7, sFour
 
 
 
-struct WildPokemon sFourIslandIcefallCaveBack_LandMons[] =
+const struct WildPokemon sFourIslandIcefallCaveBack_LandMons[] =
 {
     { 43, 43, SPECIES_SEEL },
     { 45, 45, SPECIES_GOLBAT },
@@ -1506,7 +1506,7 @@ struct WildPokemon sFourIslandIcefallCaveBack_LandMons[] =
 };
 
 const struct WildPokemonInfo sFourIslandIcefallCaveBack_LandMonsInfo = { 7, sFourIslandIcefallCaveBack_LandMons };
-struct WildPokemon sFourIslandIcefallCaveBack_WaterMons[] =
+const struct WildPokemon sFourIslandIcefallCaveBack_WaterMons[] =
 {
     { 5, 20, SPECIES_TENTACOOL },
     { 20, 35, SPECIES_TENTACOOL },
@@ -1516,7 +1516,7 @@ struct WildPokemon sFourIslandIcefallCaveBack_WaterMons[] =
 };
 
 const struct WildPokemonInfo sFourIslandIcefallCaveBack_WaterMonsInfo = { 2, sFourIslandIcefallCaveBack_WaterMons };
-struct WildPokemon sFourIslandIcefallCaveBack_FishingMons[] =
+const struct WildPokemon sFourIslandIcefallCaveBack_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -1534,7 +1534,7 @@ const struct WildPokemonInfo sFourIslandIcefallCaveBack_FishingMonsInfo = { 20, 
 
 
 
-struct WildPokemon sSixIslandPatternBush_LandMons[] =
+const struct WildPokemon sSixIslandPatternBush_LandMons[] =
 {
     { 9, 9, SPECIES_SPINARAK },
     { 9, 9, SPECIES_KAKUNA },
@@ -1554,7 +1554,7 @@ const struct WildPokemonInfo sSixIslandPatternBush_LandMonsInfo = { 21, sSixIsla
 
 
 
-struct WildPokemon sFiveIslandLostCaveRoom1_LandMons[] =
+const struct WildPokemon sFiveIslandLostCaveRoom1_LandMons[] =
 {
     { 40, 40, SPECIES_GASTLY },
     { 37, 37, SPECIES_ZUBAT },
@@ -1574,7 +1574,7 @@ const struct WildPokemonInfo sFiveIslandLostCaveRoom1_LandMonsInfo = { 1, sFiveI
 
 
 
-struct WildPokemon sFiveIslandLostCaveRoom2_LandMons[] =
+const struct WildPokemon sFiveIslandLostCaveRoom2_LandMons[] =
 {
     { 40, 40, SPECIES_GASTLY },
     { 37, 37, SPECIES_ZUBAT },
@@ -1594,7 +1594,7 @@ const struct WildPokemonInfo sFiveIslandLostCaveRoom2_LandMonsInfo = { 2, sFiveI
 
 
 
-struct WildPokemon sFiveIslandLostCaveRoom3_LandMons[] =
+const struct WildPokemon sFiveIslandLostCaveRoom3_LandMons[] =
 {
     { 40, 40, SPECIES_GASTLY },
     { 37, 37, SPECIES_ZUBAT },
@@ -1614,7 +1614,7 @@ const struct WildPokemonInfo sFiveIslandLostCaveRoom3_LandMonsInfo = { 3, sFiveI
 
 
 
-struct WildPokemon sFiveIslandLostCaveRoom4_LandMons[] =
+const struct WildPokemon sFiveIslandLostCaveRoom4_LandMons[] =
 {
     { 40, 40, SPECIES_GASTLY },
     { 37, 37, SPECIES_ZUBAT },
@@ -1634,7 +1634,7 @@ const struct WildPokemonInfo sFiveIslandLostCaveRoom4_LandMonsInfo = { 4, sFiveI
 
 
 
-struct WildPokemon sFiveIslandLostCaveRoom5_LandMons[] =
+const struct WildPokemon sFiveIslandLostCaveRoom5_LandMons[] =
 {
     { 40, 40, SPECIES_GASTLY },
     { 37, 37, SPECIES_ZUBAT },
@@ -1654,7 +1654,7 @@ const struct WildPokemonInfo sFiveIslandLostCaveRoom5_LandMonsInfo = { 5, sFiveI
 
 
 
-struct WildPokemon sFiveIslandLostCaveRoom6_LandMons[] =
+const struct WildPokemon sFiveIslandLostCaveRoom6_LandMons[] =
 {
     { 40, 40, SPECIES_GASTLY },
     { 37, 37, SPECIES_ZUBAT },
@@ -1674,7 +1674,7 @@ const struct WildPokemonInfo sFiveIslandLostCaveRoom6_LandMonsInfo = { 6, sFiveI
 
 
 
-struct WildPokemon sFiveIslandLostCaveRoom7_LandMons[] =
+const struct WildPokemon sFiveIslandLostCaveRoom7_LandMons[] =
 {
     { 40, 40, SPECIES_GASTLY },
     { 37, 37, SPECIES_ZUBAT },
@@ -1694,7 +1694,7 @@ const struct WildPokemonInfo sFiveIslandLostCaveRoom7_LandMonsInfo = { 7, sFiveI
 
 
 
-struct WildPokemon sFiveIslandLostCaveRoom8_LandMons[] =
+const struct WildPokemon sFiveIslandLostCaveRoom8_LandMons[] =
 {
     { 40, 40, SPECIES_GASTLY },
     { 37, 37, SPECIES_ZUBAT },
@@ -1714,7 +1714,7 @@ const struct WildPokemonInfo sFiveIslandLostCaveRoom8_LandMonsInfo = { 8, sFiveI
 
 
 
-struct WildPokemon sFiveIslandLostCaveRoom9_LandMons[] =
+const struct WildPokemon sFiveIslandLostCaveRoom9_LandMons[] =
 {
     { 40, 40, SPECIES_GASTLY },
     { 37, 37, SPECIES_ZUBAT },
@@ -1734,7 +1734,7 @@ const struct WildPokemonInfo sFiveIslandLostCaveRoom9_LandMonsInfo = { 9, sFiveI
 
 
 
-struct WildPokemon sFiveIslandLostCaveRoom10_LandMons[] =
+const struct WildPokemon sFiveIslandLostCaveRoom10_LandMons[] =
 {
     { 40, 40, SPECIES_GASTLY },
     { 37, 37, SPECIES_ZUBAT },
@@ -1754,7 +1754,7 @@ const struct WildPokemonInfo sFiveIslandLostCaveRoom10_LandMonsInfo = { 10, sFiv
 
 
 
-struct WildPokemon sFiveIslandLostCaveRoom11_LandMons[] =
+const struct WildPokemon sFiveIslandLostCaveRoom11_LandMons[] =
 {
     { 40, 40, SPECIES_GASTLY },
     { 37, 37, SPECIES_ZUBAT },
@@ -1774,7 +1774,7 @@ const struct WildPokemonInfo sFiveIslandLostCaveRoom11_LandMonsInfo = { 5, sFive
 
 
 
-struct WildPokemon sFiveIslandLostCaveRoom12_LandMons[] =
+const struct WildPokemon sFiveIslandLostCaveRoom12_LandMons[] =
 {
     { 40, 40, SPECIES_GASTLY },
     { 37, 37, SPECIES_ZUBAT },
@@ -1794,7 +1794,7 @@ const struct WildPokemonInfo sFiveIslandLostCaveRoom12_LandMonsInfo = { 5, sFive
 
 
 
-struct WildPokemon sFiveIslandLostCaveRoom13_LandMons[] =
+const struct WildPokemon sFiveIslandLostCaveRoom13_LandMons[] =
 {
     { 40, 40, SPECIES_GASTLY },
     { 37, 37, SPECIES_ZUBAT },
@@ -1814,7 +1814,7 @@ const struct WildPokemonInfo sFiveIslandLostCaveRoom13_LandMonsInfo = { 5, sFive
 
 
 
-struct WildPokemon sFiveIslandLostCaveRoom14_LandMons[] =
+const struct WildPokemon sFiveIslandLostCaveRoom14_LandMons[] =
 {
     { 40, 40, SPECIES_GASTLY },
     { 37, 37, SPECIES_ZUBAT },
@@ -1834,7 +1834,7 @@ const struct WildPokemonInfo sFiveIslandLostCaveRoom14_LandMonsInfo = { 5, sFive
 
 
 
-struct WildPokemon sOneIslandKindleRoad_LandMons[] =
+const struct WildPokemon sOneIslandKindleRoad_LandMons[] =
 {
     { 32, 32, SPECIES_SPEAROW },
     { 34, 34, SPECIES_PONYTA },
@@ -1851,7 +1851,7 @@ struct WildPokemon sOneIslandKindleRoad_LandMons[] =
 };
 
 const struct WildPokemonInfo sOneIslandKindleRoad_LandMonsInfo = { 21, sOneIslandKindleRoad_LandMons };
-struct WildPokemon sOneIslandKindleRoad_WaterMons[] =
+const struct WildPokemon sOneIslandKindleRoad_WaterMons[] =
 {
     { 5, 20, SPECIES_TENTACOOL },
     { 20, 35, SPECIES_TENTACOOL },
@@ -1861,7 +1861,7 @@ struct WildPokemon sOneIslandKindleRoad_WaterMons[] =
 };
 
 const struct WildPokemonInfo sOneIslandKindleRoad_WaterMonsInfo = { 2, sOneIslandKindleRoad_WaterMons };
-struct WildPokemon sOneIslandKindleRoad_RockSmashMons[] =
+const struct WildPokemon sOneIslandKindleRoad_RockSmashMons[] =
 {
     { 5, 20, SPECIES_GEODUDE },
     { 10, 20, SPECIES_GEODUDE },
@@ -1871,7 +1871,7 @@ struct WildPokemon sOneIslandKindleRoad_RockSmashMons[] =
 };
 
 const struct WildPokemonInfo sOneIslandKindleRoad_RockSmashMonsInfo = { 25, sOneIslandKindleRoad_RockSmashMons };
-struct WildPokemon sOneIslandKindleRoad_FishingMons[] =
+const struct WildPokemon sOneIslandKindleRoad_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -1889,7 +1889,7 @@ const struct WildPokemonInfo sOneIslandKindleRoad_FishingMonsInfo = { 20, sOneIs
 
 
 
-struct WildPokemon sOneIslandTreasureBeach_LandMons[] =
+const struct WildPokemon sOneIslandTreasureBeach_LandMons[] =
 {
     { 32, 32, SPECIES_SPEAROW },
     { 33, 33, SPECIES_TANGELA },
@@ -1906,7 +1906,7 @@ struct WildPokemon sOneIslandTreasureBeach_LandMons[] =
 };
 
 const struct WildPokemonInfo sOneIslandTreasureBeach_LandMonsInfo = { 21, sOneIslandTreasureBeach_LandMons };
-struct WildPokemon sOneIslandTreasureBeach_WaterMons[] =
+const struct WildPokemon sOneIslandTreasureBeach_WaterMons[] =
 {
     { 5, 20, SPECIES_TENTACOOL },
     { 20, 35, SPECIES_TENTACOOL },
@@ -1916,7 +1916,7 @@ struct WildPokemon sOneIslandTreasureBeach_WaterMons[] =
 };
 
 const struct WildPokemonInfo sOneIslandTreasureBeach_WaterMonsInfo = { 2, sOneIslandTreasureBeach_WaterMons };
-struct WildPokemon sOneIslandTreasureBeach_FishingMons[] =
+const struct WildPokemon sOneIslandTreasureBeach_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -1934,7 +1934,7 @@ const struct WildPokemonInfo sOneIslandTreasureBeach_FishingMonsInfo = { 20, sOn
 
 
 
-struct WildPokemon sTwoIslandCapeBrink_LandMons[] =
+const struct WildPokemon sTwoIslandCapeBrink_LandMons[] =
 {
     { 31, 31, SPECIES_SPEAROW },
     { 30, 30, SPECIES_ODDISH },
@@ -1951,7 +1951,7 @@ struct WildPokemon sTwoIslandCapeBrink_LandMons[] =
 };
 
 const struct WildPokemonInfo sTwoIslandCapeBrink_LandMonsInfo = { 21, sTwoIslandCapeBrink_LandMons };
-struct WildPokemon sTwoIslandCapeBrink_WaterMons[] =
+const struct WildPokemon sTwoIslandCapeBrink_WaterMons[] =
 {
     { 5, 20, SPECIES_PSYDUCK },
     { 20, 35, SPECIES_PSYDUCK },
@@ -1961,7 +1961,7 @@ struct WildPokemon sTwoIslandCapeBrink_WaterMons[] =
 };
 
 const struct WildPokemonInfo sTwoIslandCapeBrink_WaterMonsInfo = { 2, sTwoIslandCapeBrink_WaterMons };
-struct WildPokemon sTwoIslandCapeBrink_FishingMons[] =
+const struct WildPokemon sTwoIslandCapeBrink_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -1979,7 +1979,7 @@ const struct WildPokemonInfo sTwoIslandCapeBrink_FishingMonsInfo = { 20, sTwoIsl
 
 
 
-struct WildPokemon sThreeIslandBondBridge_LandMons[] =
+const struct WildPokemon sThreeIslandBondBridge_LandMons[] =
 {
     { 32, 32, SPECIES_PIDGEY },
     { 31, 31, SPECIES_ODDISH },
@@ -1996,7 +1996,7 @@ struct WildPokemon sThreeIslandBondBridge_LandMons[] =
 };
 
 const struct WildPokemonInfo sThreeIslandBondBridge_LandMonsInfo = { 21, sThreeIslandBondBridge_LandMons };
-struct WildPokemon sThreeIslandBondBridge_WaterMons[] =
+const struct WildPokemon sThreeIslandBondBridge_WaterMons[] =
 {
     { 5, 20, SPECIES_TENTACOOL },
     { 20, 35, SPECIES_TENTACOOL },
@@ -2006,7 +2006,7 @@ struct WildPokemon sThreeIslandBondBridge_WaterMons[] =
 };
 
 const struct WildPokemonInfo sThreeIslandBondBridge_WaterMonsInfo = { 2, sThreeIslandBondBridge_WaterMons };
-struct WildPokemon sThreeIslandBondBridge_FishingMons[] =
+const struct WildPokemon sThreeIslandBondBridge_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -2024,7 +2024,7 @@ const struct WildPokemonInfo sThreeIslandBondBridge_FishingMonsInfo = { 20, sThr
 
 
 
-struct WildPokemon sThreeIslandPort_LandMons[] =
+const struct WildPokemon sThreeIslandPort_LandMons[] =
 {
     { 15, 15, SPECIES_DUNSPARCE },
     { 15, 15, SPECIES_DUNSPARCE },
@@ -2044,7 +2044,7 @@ const struct WildPokemonInfo sThreeIslandPort_LandMonsInfo = { 1, sThreeIslandPo
 
 
 
-struct WildPokemon sFiveIslandResortGorgeous_WaterMons[] =
+const struct WildPokemon sFiveIslandResortGorgeous_WaterMons[] =
 {
     { 5, 35, SPECIES_TENTACOOL },
     { 5, 15, SPECIES_HOPPIP },
@@ -2054,7 +2054,7 @@ struct WildPokemon sFiveIslandResortGorgeous_WaterMons[] =
 };
 
 const struct WildPokemonInfo sFiveIslandResortGorgeous_WaterMonsInfo = { 2, sFiveIslandResortGorgeous_WaterMons };
-struct WildPokemon sFiveIslandResortGorgeous_FishingMons[] =
+const struct WildPokemon sFiveIslandResortGorgeous_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -2072,7 +2072,7 @@ const struct WildPokemonInfo sFiveIslandResortGorgeous_FishingMonsInfo = { 20, s
 
 
 
-struct WildPokemon sFiveIslandWaterLabyrinth_WaterMons[] =
+const struct WildPokemon sFiveIslandWaterLabyrinth_WaterMons[] =
 {
     { 5, 20, SPECIES_TENTACOOL },
     { 5, 15, SPECIES_HOPPIP },
@@ -2082,7 +2082,7 @@ struct WildPokemon sFiveIslandWaterLabyrinth_WaterMons[] =
 };
 
 const struct WildPokemonInfo sFiveIslandWaterLabyrinth_WaterMonsInfo = { 2, sFiveIslandWaterLabyrinth_WaterMons };
-struct WildPokemon sFiveIslandWaterLabyrinth_FishingMons[] =
+const struct WildPokemon sFiveIslandWaterLabyrinth_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -2100,7 +2100,7 @@ const struct WildPokemonInfo sFiveIslandWaterLabyrinth_FishingMonsInfo = { 20, s
 
 
 
-struct WildPokemon sFiveIslandMeadow_LandMons[] =
+const struct WildPokemon sFiveIslandMeadow_LandMons[] =
 {
     { 44, 44, SPECIES_PIDGEY },
     { 10, 10, SPECIES_SENTRET },
@@ -2117,7 +2117,7 @@ struct WildPokemon sFiveIslandMeadow_LandMons[] =
 };
 
 const struct WildPokemonInfo sFiveIslandMeadow_LandMonsInfo = { 21, sFiveIslandMeadow_LandMons };
-struct WildPokemon sFiveIslandMeadow_WaterMons[] =
+const struct WildPokemon sFiveIslandMeadow_WaterMons[] =
 {
     { 5, 35, SPECIES_TENTACOOL },
     { 5, 15, SPECIES_HOPPIP },
@@ -2127,7 +2127,7 @@ struct WildPokemon sFiveIslandMeadow_WaterMons[] =
 };
 
 const struct WildPokemonInfo sFiveIslandMeadow_WaterMonsInfo = { 2, sFiveIslandMeadow_WaterMons };
-struct WildPokemon sFiveIslandMeadow_FishingMons[] =
+const struct WildPokemon sFiveIslandMeadow_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -2145,7 +2145,7 @@ const struct WildPokemonInfo sFiveIslandMeadow_FishingMonsInfo = { 20, sFiveIsla
 
 
 
-struct WildPokemon sFiveIslandMemorialPillar_LandMons[] =
+const struct WildPokemon sFiveIslandMemorialPillar_LandMons[] =
 {
     { 10, 10, SPECIES_HOPPIP },
     { 12, 12, SPECIES_HOPPIP },
@@ -2162,7 +2162,7 @@ struct WildPokemon sFiveIslandMemorialPillar_LandMons[] =
 };
 
 const struct WildPokemonInfo sFiveIslandMemorialPillar_LandMonsInfo = { 21, sFiveIslandMemorialPillar_LandMons };
-struct WildPokemon sFiveIslandMemorialPillar_WaterMons[] =
+const struct WildPokemon sFiveIslandMemorialPillar_WaterMons[] =
 {
     { 5, 35, SPECIES_TENTACOOL },
     { 5, 15, SPECIES_HOPPIP },
@@ -2172,7 +2172,7 @@ struct WildPokemon sFiveIslandMemorialPillar_WaterMons[] =
 };
 
 const struct WildPokemonInfo sFiveIslandMemorialPillar_WaterMonsInfo = { 2, sFiveIslandMemorialPillar_WaterMons };
-struct WildPokemon sFiveIslandMemorialPillar_FishingMons[] =
+const struct WildPokemon sFiveIslandMemorialPillar_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -2190,7 +2190,7 @@ const struct WildPokemonInfo sFiveIslandMemorialPillar_FishingMonsInfo = { 20, s
 
 
 
-struct WildPokemon sSixIslandOutcastIsland_WaterMons[] =
+const struct WildPokemon sSixIslandOutcastIsland_WaterMons[] =
 {
     { 5, 20, SPECIES_TENTACOOL },
     { 20, 35, SPECIES_TENTACOOL },
@@ -2200,7 +2200,7 @@ struct WildPokemon sSixIslandOutcastIsland_WaterMons[] =
 };
 
 const struct WildPokemonInfo sSixIslandOutcastIsland_WaterMonsInfo = { 2, sSixIslandOutcastIsland_WaterMons };
-struct WildPokemon sSixIslandOutcastIsland_FishingMons[] =
+const struct WildPokemon sSixIslandOutcastIsland_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -2218,7 +2218,7 @@ const struct WildPokemonInfo sSixIslandOutcastIsland_FishingMonsInfo = { 20, sSi
 
 
 
-struct WildPokemon sSixIslandGreenPath_WaterMons[] =
+const struct WildPokemon sSixIslandGreenPath_WaterMons[] =
 {
     { 5, 20, SPECIES_TENTACOOL },
     { 20, 35, SPECIES_TENTACOOL },
@@ -2228,7 +2228,7 @@ struct WildPokemon sSixIslandGreenPath_WaterMons[] =
 };
 
 const struct WildPokemonInfo sSixIslandGreenPath_WaterMonsInfo = { 2, sSixIslandGreenPath_WaterMons };
-struct WildPokemon sSixIslandGreenPath_FishingMons[] =
+const struct WildPokemon sSixIslandGreenPath_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -2246,7 +2246,7 @@ const struct WildPokemonInfo sSixIslandGreenPath_FishingMonsInfo = { 20, sSixIsl
 
 
 
-struct WildPokemon sSixIslandWaterPath_LandMons[] =
+const struct WildPokemon sSixIslandWaterPath_LandMons[] =
 {
     { 44, 44, SPECIES_SPEAROW },
     { 10, 10, SPECIES_SENTRET },
@@ -2263,7 +2263,7 @@ struct WildPokemon sSixIslandWaterPath_LandMons[] =
 };
 
 const struct WildPokemonInfo sSixIslandWaterPath_LandMonsInfo = { 21, sSixIslandWaterPath_LandMons };
-struct WildPokemon sSixIslandWaterPath_WaterMons[] =
+const struct WildPokemon sSixIslandWaterPath_WaterMons[] =
 {
     { 5, 20, SPECIES_TENTACOOL },
     { 20, 35, SPECIES_TENTACOOL },
@@ -2273,7 +2273,7 @@ struct WildPokemon sSixIslandWaterPath_WaterMons[] =
 };
 
 const struct WildPokemonInfo sSixIslandWaterPath_WaterMonsInfo = { 2, sSixIslandWaterPath_WaterMons };
-struct WildPokemon sSixIslandWaterPath_FishingMons[] =
+const struct WildPokemon sSixIslandWaterPath_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -2291,7 +2291,7 @@ const struct WildPokemonInfo sSixIslandWaterPath_FishingMonsInfo = { 20, sSixIsl
 
 
 
-struct WildPokemon sSixIslandRuinValley_LandMons[] =
+const struct WildPokemon sSixIslandRuinValley_LandMons[] =
 {
     { 15, 15, SPECIES_NATU },
     { 44, 44, SPECIES_SPEAROW },
@@ -2308,7 +2308,7 @@ struct WildPokemon sSixIslandRuinValley_LandMons[] =
 };
 
 const struct WildPokemonInfo sSixIslandRuinValley_LandMonsInfo = { 21, sSixIslandRuinValley_LandMons };
-struct WildPokemon sSixIslandRuinValley_WaterMons[] =
+const struct WildPokemon sSixIslandRuinValley_WaterMons[] =
 {
     { 5, 20, SPECIES_WOOPER },
     { 10, 20, SPECIES_WOOPER },
@@ -2318,7 +2318,7 @@ struct WildPokemon sSixIslandRuinValley_WaterMons[] =
 };
 
 const struct WildPokemonInfo sSixIslandRuinValley_WaterMonsInfo = { 2, sSixIslandRuinValley_WaterMons };
-struct WildPokemon sSixIslandRuinValley_FishingMons[] =
+const struct WildPokemon sSixIslandRuinValley_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -2336,7 +2336,7 @@ const struct WildPokemonInfo sSixIslandRuinValley_FishingMonsInfo = { 20, sSixIs
 
 
 
-struct WildPokemon sSevenIslandTrainerTower_WaterMons[] =
+const struct WildPokemon sSevenIslandTrainerTower_WaterMons[] =
 {
     { 5, 20, SPECIES_TENTACOOL },
     { 20, 35, SPECIES_TENTACOOL },
@@ -2346,7 +2346,7 @@ struct WildPokemon sSevenIslandTrainerTower_WaterMons[] =
 };
 
 const struct WildPokemonInfo sSevenIslandTrainerTower_WaterMonsInfo = { 2, sSevenIslandTrainerTower_WaterMons };
-struct WildPokemon sSevenIslandTrainerTower_FishingMons[] =
+const struct WildPokemon sSevenIslandTrainerTower_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -2364,7 +2364,7 @@ const struct WildPokemonInfo sSevenIslandTrainerTower_FishingMonsInfo = { 20, sS
 
 
 
-struct WildPokemon sSevenIslandSevaultCanyonEntrance_LandMons[] =
+const struct WildPokemon sSevenIslandSevaultCanyonEntrance_LandMons[] =
 {
     { 44, 44, SPECIES_SPEAROW },
     { 10, 10, SPECIES_SENTRET },
@@ -2384,7 +2384,7 @@ const struct WildPokemonInfo sSevenIslandSevaultCanyonEntrance_LandMonsInfo = { 
 
 
 
-struct WildPokemon sSevenIslandSevaultCanyon_LandMons[] =
+const struct WildPokemon sSevenIslandSevaultCanyon_LandMons[] =
 {
     { 46, 46, SPECIES_GEODUDE },
     { 15, 15, SPECIES_PHANPY },
@@ -2401,7 +2401,7 @@ struct WildPokemon sSevenIslandSevaultCanyon_LandMons[] =
 };
 
 const struct WildPokemonInfo sSevenIslandSevaultCanyon_LandMonsInfo = { 21, sSevenIslandSevaultCanyon_LandMons };
-struct WildPokemon sSevenIslandSevaultCanyon_RockSmashMons[] =
+const struct WildPokemon sSevenIslandSevaultCanyon_RockSmashMons[] =
 {
     { 25, 35, SPECIES_GEODUDE },
     { 30, 45, SPECIES_GRAVELER },
@@ -2414,7 +2414,7 @@ const struct WildPokemonInfo sSevenIslandSevaultCanyon_RockSmashMonsInfo = { 25,
 
 
 
-struct WildPokemon sSevenIslandTanobyRuins_WaterMons[] =
+const struct WildPokemon sSevenIslandTanobyRuins_WaterMons[] =
 {
     { 5, 20, SPECIES_TENTACOOL },
     { 20, 35, SPECIES_TENTACOOL },
@@ -2424,7 +2424,7 @@ struct WildPokemon sSevenIslandTanobyRuins_WaterMons[] =
 };
 
 const struct WildPokemonInfo sSevenIslandTanobyRuins_WaterMonsInfo = { 2, sSevenIslandTanobyRuins_WaterMons };
-struct WildPokemon sSevenIslandTanobyRuins_FishingMons[] =
+const struct WildPokemon sSevenIslandTanobyRuins_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -2442,13 +2442,13 @@ const struct WildPokemonInfo sSevenIslandTanobyRuins_FishingMonsInfo = { 20, sSe
 
 #define NUM_ENCOUTER_SPOTS  1
 #define NUM_SLOTS           12
-/*
+
 const struct RandomizerPokemon sWildMonsTable[] = 
 {
-    [MAP_NUM(ROUTE1)] = { SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW },
-};*/
+    { MAP_NUM(ROUTE1), { SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW } },
+};
 
-struct WildPokemon sRoute1_LandMons[] =
+const struct WildPokemon sRoute1_LandMons[] =
 {
     { 3, 3, SPECIES_PIDGEY },
     { 3, 3, SPECIES_RATTATA },
@@ -2467,7 +2467,7 @@ const struct WildPokemonInfo sRoute1_LandMonsInfo = { 21, sRoute1_LandMons };
 
 
 
-struct WildPokemon sRoute2_LandMons[] =
+const struct WildPokemon sRoute2_LandMons[] =
 {
     { 3, 3, SPECIES_RATTATA },
     { 3, 3, SPECIES_PIDGEY },
@@ -2487,7 +2487,7 @@ const struct WildPokemonInfo sRoute2_LandMonsInfo = { 21, sRoute2_LandMons };
 
 
 
-struct WildPokemon sRoute3_LandMons[] =
+const struct WildPokemon sRoute3_LandMons[] =
 {
     { 6, 6, SPECIES_SPEAROW },
     { 6, 6, SPECIES_PIDGEY },
@@ -2507,7 +2507,7 @@ const struct WildPokemonInfo sRoute3_LandMonsInfo = { 21, sRoute3_LandMons };
 
 
 
-struct WildPokemon sRoute4_LandMons[] =
+const struct WildPokemon sRoute4_LandMons[] =
 {
     { 10, 10, SPECIES_SPEAROW },
     { 10, 10, SPECIES_RATTATA },
@@ -2524,7 +2524,7 @@ struct WildPokemon sRoute4_LandMons[] =
 };
 
 const struct WildPokemonInfo sRoute4_LandMonsInfo = { 21, sRoute4_LandMons };
-struct WildPokemon sRoute4_WaterMons[] =
+const struct WildPokemon sRoute4_WaterMons[] =
 {
     { 5, 10, SPECIES_TENTACOOL },
     { 10, 20, SPECIES_TENTACOOL },
@@ -2534,7 +2534,7 @@ struct WildPokemon sRoute4_WaterMons[] =
 };
 
 const struct WildPokemonInfo sRoute4_WaterMonsInfo = { 2, sRoute4_WaterMons };
-struct WildPokemon sRoute4_FishingMons[] =
+const struct WildPokemon sRoute4_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -2552,7 +2552,7 @@ const struct WildPokemonInfo sRoute4_FishingMonsInfo = { 20, sRoute4_FishingMons
 
 
 
-struct WildPokemon sRoute5_LandMons[] =
+const struct WildPokemon sRoute5_LandMons[] =
 {
     { 10, 10, SPECIES_MEOWTH },
     { 13, 13, SPECIES_PIDGEY },
@@ -2572,7 +2572,7 @@ const struct WildPokemonInfo sRoute5_LandMonsInfo = { 21, sRoute5_LandMons };
 
 
 
-struct WildPokemon sRoute6_LandMons[] =
+const struct WildPokemon sRoute6_LandMons[] =
 {
     { 10, 10, SPECIES_MEOWTH },
     { 13, 13, SPECIES_PIDGEY },
@@ -2589,7 +2589,7 @@ struct WildPokemon sRoute6_LandMons[] =
 };
 
 const struct WildPokemonInfo sRoute6_LandMonsInfo = { 21, sRoute6_LandMons };
-struct WildPokemon sRoute6_WaterMons[] =
+const struct WildPokemon sRoute6_WaterMons[] =
 {
     { 20, 25, SPECIES_PSYDUCK },
     { 20, 25, SPECIES_PSYDUCK },
@@ -2599,7 +2599,7 @@ struct WildPokemon sRoute6_WaterMons[] =
 };
 
 const struct WildPokemonInfo sRoute6_WaterMonsInfo = { 2, sRoute6_WaterMons };
-struct WildPokemon sRoute6_FishingMons[] =
+const struct WildPokemon sRoute6_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -2617,7 +2617,7 @@ const struct WildPokemonInfo sRoute6_FishingMonsInfo = { 20, sRoute6_FishingMons
 
 
 
-struct WildPokemon sRoute7_LandMons[] =
+const struct WildPokemon sRoute7_LandMons[] =
 {
     { 19, 19, SPECIES_PIDGEY },
     { 17, 17, SPECIES_MEOWTH },
@@ -2637,7 +2637,7 @@ const struct WildPokemonInfo sRoute7_LandMonsInfo = { 21, sRoute7_LandMons };
 
 
 
-struct WildPokemon sRoute8_LandMons[] =
+const struct WildPokemon sRoute8_LandMons[] =
 {
     { 18, 18, SPECIES_PIDGEY },
     { 18, 18, SPECIES_MEOWTH },
@@ -2657,7 +2657,7 @@ const struct WildPokemonInfo sRoute8_LandMonsInfo = { 21, sRoute8_LandMons };
 
 
 
-struct WildPokemon sRoute9_LandMons[] =
+const struct WildPokemon sRoute9_LandMons[] =
 {
     { 16, 16, SPECIES_SPEAROW },
     { 16, 16, SPECIES_RATTATA },
@@ -2677,7 +2677,7 @@ const struct WildPokemonInfo sRoute9_LandMonsInfo = { 21, sRoute9_LandMons };
 
 
 
-struct WildPokemon sRoute10_LandMons[] =
+const struct WildPokemon sRoute10_LandMons[] =
 {
     { 16, 16, SPECIES_SPEAROW },
     { 16, 16, SPECIES_VOLTORB },
@@ -2694,7 +2694,7 @@ struct WildPokemon sRoute10_LandMons[] =
 };
 
 const struct WildPokemonInfo sRoute10_LandMonsInfo = { 21, sRoute10_LandMons };
-struct WildPokemon sRoute10_WaterMons[] =
+const struct WildPokemon sRoute10_WaterMons[] =
 {
     { 5, 10, SPECIES_TENTACOOL },
     { 10, 20, SPECIES_TENTACOOL },
@@ -2704,7 +2704,7 @@ struct WildPokemon sRoute10_WaterMons[] =
 };
 
 const struct WildPokemonInfo sRoute10_WaterMonsInfo = { 2, sRoute10_WaterMons };
-struct WildPokemon sRoute10_FishingMons[] =
+const struct WildPokemon sRoute10_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -2722,7 +2722,7 @@ const struct WildPokemonInfo sRoute10_FishingMonsInfo = { 20, sRoute10_FishingMo
 
 
 
-struct WildPokemon sRoute11_LandMons[] =
+const struct WildPokemon sRoute11_LandMons[] =
 {
     { 14, 14, SPECIES_EKANS },
     { 15, 15, SPECIES_SPEAROW },
@@ -2739,7 +2739,7 @@ struct WildPokemon sRoute11_LandMons[] =
 };
 
 const struct WildPokemonInfo sRoute11_LandMonsInfo = { 21, sRoute11_LandMons };
-struct WildPokemon sRoute11_WaterMons[] =
+const struct WildPokemon sRoute11_WaterMons[] =
 {
     { 5, 10, SPECIES_TENTACOOL },
     { 10, 20, SPECIES_TENTACOOL },
@@ -2749,7 +2749,7 @@ struct WildPokemon sRoute11_WaterMons[] =
 };
 
 const struct WildPokemonInfo sRoute11_WaterMonsInfo = { 2, sRoute11_WaterMons };
-struct WildPokemon sRoute11_FishingMons[] =
+const struct WildPokemon sRoute11_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -2767,7 +2767,7 @@ const struct WildPokemonInfo sRoute11_FishingMonsInfo = { 20, sRoute11_FishingMo
 
 
 
-struct WildPokemon sRoute12_LandMons[] =
+const struct WildPokemon sRoute12_LandMons[] =
 {
     { 24, 24, SPECIES_ODDISH },
     { 24, 24, SPECIES_VENONAT },
@@ -2784,7 +2784,7 @@ struct WildPokemon sRoute12_LandMons[] =
 };
 
 const struct WildPokemonInfo sRoute12_LandMonsInfo = { 21, sRoute12_LandMons };
-struct WildPokemon sRoute12_WaterMons[] =
+const struct WildPokemon sRoute12_WaterMons[] =
 {
     { 5, 10, SPECIES_TENTACOOL },
     { 10, 20, SPECIES_TENTACOOL },
@@ -2794,7 +2794,7 @@ struct WildPokemon sRoute12_WaterMons[] =
 };
 
 const struct WildPokemonInfo sRoute12_WaterMonsInfo = { 2, sRoute12_WaterMons };
-struct WildPokemon sRoute12_FishingMons[] =
+const struct WildPokemon sRoute12_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -2812,7 +2812,7 @@ const struct WildPokemonInfo sRoute12_FishingMonsInfo = { 60, sRoute12_FishingMo
 
 
 
-struct WildPokemon sRoute13_LandMons[] =
+const struct WildPokemon sRoute13_LandMons[] =
 {
     { 24, 24, SPECIES_ODDISH },
     { 24, 24, SPECIES_VENONAT },
@@ -2829,7 +2829,7 @@ struct WildPokemon sRoute13_LandMons[] =
 };
 
 const struct WildPokemonInfo sRoute13_LandMonsInfo = { 21, sRoute13_LandMons };
-struct WildPokemon sRoute13_WaterMons[] =
+const struct WildPokemon sRoute13_WaterMons[] =
 {
     { 5, 10, SPECIES_TENTACOOL },
     { 10, 20, SPECIES_TENTACOOL },
@@ -2839,7 +2839,7 @@ struct WildPokemon sRoute13_WaterMons[] =
 };
 
 const struct WildPokemonInfo sRoute13_WaterMonsInfo = { 2, sRoute13_WaterMons };
-struct WildPokemon sRoute13_FishingMons[] =
+const struct WildPokemon sRoute13_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -2857,7 +2857,7 @@ const struct WildPokemonInfo sRoute13_FishingMonsInfo = { 20, sRoute13_FishingMo
 
 
 
-struct WildPokemon sRoute14_LandMons[] =
+const struct WildPokemon sRoute14_LandMons[] =
 {
     { 24, 24, SPECIES_ODDISH },
     { 24, 24, SPECIES_VENONAT },
@@ -2877,7 +2877,7 @@ const struct WildPokemonInfo sRoute14_LandMonsInfo = { 21, sRoute14_LandMons };
 
 
 
-struct WildPokemon sRoute15_LandMons[] =
+const struct WildPokemon sRoute15_LandMons[] =
 {
     { 24, 24, SPECIES_ODDISH },
     { 24, 24, SPECIES_VENONAT },
@@ -2897,7 +2897,7 @@ const struct WildPokemonInfo sRoute15_LandMonsInfo = { 21, sRoute15_LandMons };
 
 
 
-struct WildPokemon sRoute16_LandMons[] =
+const struct WildPokemon sRoute16_LandMons[] =
 {
     { 20, 20, SPECIES_SPEAROW },
     { 18, 18, SPECIES_DODUO },
@@ -2917,7 +2917,7 @@ const struct WildPokemonInfo sRoute16_LandMonsInfo = { 21, sRoute16_LandMons };
 
 
 
-struct WildPokemon sRoute17_LandMons[] =
+const struct WildPokemon sRoute17_LandMons[] =
 {
     { 20, 20, SPECIES_SPEAROW },
     { 24, 24, SPECIES_DODUO },
@@ -2937,7 +2937,7 @@ const struct WildPokemonInfo sRoute17_LandMonsInfo = { 21, sRoute17_LandMons };
 
 
 
-struct WildPokemon sRoute18_LandMons[] =
+const struct WildPokemon sRoute18_LandMons[] =
 {
     { 20, 20, SPECIES_SPEAROW },
     { 24, 24, SPECIES_DODUO },
@@ -2957,7 +2957,7 @@ const struct WildPokemonInfo sRoute18_LandMonsInfo = { 21, sRoute18_LandMons };
 
 
 
-struct WildPokemon sRoute19_WaterMons[] =
+const struct WildPokemon sRoute19_WaterMons[] =
 {
     { 5, 10, SPECIES_TENTACOOL },
     { 10, 20, SPECIES_TENTACOOL },
@@ -2967,7 +2967,7 @@ struct WildPokemon sRoute19_WaterMons[] =
 };
 
 const struct WildPokemonInfo sRoute19_WaterMonsInfo = { 2, sRoute19_WaterMons };
-struct WildPokemon sRoute19_FishingMons[] =
+const struct WildPokemon sRoute19_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -2985,7 +2985,7 @@ const struct WildPokemonInfo sRoute19_FishingMonsInfo = { 20, sRoute19_FishingMo
 
 
 
-struct WildPokemon sRoute20_WaterMons[] =
+const struct WildPokemon sRoute20_WaterMons[] =
 {
     { 5, 10, SPECIES_TENTACOOL },
     { 10, 20, SPECIES_TENTACOOL },
@@ -2995,7 +2995,7 @@ struct WildPokemon sRoute20_WaterMons[] =
 };
 
 const struct WildPokemonInfo sRoute20_WaterMonsInfo = { 2, sRoute20_WaterMons };
-struct WildPokemon sRoute20_FishingMons[] =
+const struct WildPokemon sRoute20_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -3013,7 +3013,7 @@ const struct WildPokemonInfo sRoute20_FishingMonsInfo = { 20, sRoute20_FishingMo
 
 
 
-struct WildPokemon sRoute21North_LandMons[] =
+const struct WildPokemon sRoute21North_LandMons[] =
 {
     { 22, 22, SPECIES_TANGELA },
     { 23, 23, SPECIES_TANGELA },
@@ -3030,7 +3030,7 @@ struct WildPokemon sRoute21North_LandMons[] =
 };
 
 const struct WildPokemonInfo sRoute21North_LandMonsInfo = { 14, sRoute21North_LandMons };
-struct WildPokemon sRoute21North_WaterMons[] =
+const struct WildPokemon sRoute21North_WaterMons[] =
 {
     { 5, 10, SPECIES_TENTACOOL },
     { 10, 20, SPECIES_TENTACOOL },
@@ -3040,7 +3040,7 @@ struct WildPokemon sRoute21North_WaterMons[] =
 };
 
 const struct WildPokemonInfo sRoute21North_WaterMonsInfo = { 2, sRoute21North_WaterMons };
-struct WildPokemon sRoute21North_FishingMons[] =
+const struct WildPokemon sRoute21North_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -3058,7 +3058,7 @@ const struct WildPokemonInfo sRoute21North_FishingMonsInfo = { 20, sRoute21North
 
 
 
-struct WildPokemon sRoute21South_LandMons[] =
+const struct WildPokemon sRoute21South_LandMons[] =
 {
     { 22, 22, SPECIES_TANGELA },
     { 23, 23, SPECIES_TANGELA },
@@ -3075,7 +3075,7 @@ struct WildPokemon sRoute21South_LandMons[] =
 };
 
 const struct WildPokemonInfo sRoute21South_LandMonsInfo = { 14, sRoute21South_LandMons };
-struct WildPokemon sRoute21South_WaterMons[] =
+const struct WildPokemon sRoute21South_WaterMons[] =
 {
     { 5, 10, SPECIES_TENTACOOL },
     { 10, 20, SPECIES_TENTACOOL },
@@ -3085,7 +3085,7 @@ struct WildPokemon sRoute21South_WaterMons[] =
 };
 
 const struct WildPokemonInfo sRoute21South_WaterMonsInfo = { 2, sRoute21South_WaterMons };
-struct WildPokemon sRoute21South_FishingMons[] =
+const struct WildPokemon sRoute21South_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -3103,7 +3103,7 @@ const struct WildPokemonInfo sRoute21South_FishingMonsInfo = { 20, sRoute21South
 
 
 
-struct WildPokemon sRoute22_LandMons[] =
+const struct WildPokemon sRoute22_LandMons[] =
 {
     { 3, 3, SPECIES_RATTATA },
     { 3, 3, SPECIES_MANKEY },
@@ -3120,7 +3120,7 @@ struct WildPokemon sRoute22_LandMons[] =
 };
 
 const struct WildPokemonInfo sRoute22_LandMonsInfo = { 21, sRoute22_LandMons };
-struct WildPokemon sRoute22_WaterMons[] =
+const struct WildPokemon sRoute22_WaterMons[] =
 {
     { 20, 25, SPECIES_PSYDUCK },
     { 20, 25, SPECIES_PSYDUCK },
@@ -3130,7 +3130,7 @@ struct WildPokemon sRoute22_WaterMons[] =
 };
 
 const struct WildPokemonInfo sRoute22_WaterMonsInfo = { 2, sRoute22_WaterMons };
-struct WildPokemon sRoute22_FishingMons[] =
+const struct WildPokemon sRoute22_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -3148,7 +3148,7 @@ const struct WildPokemonInfo sRoute22_FishingMonsInfo = { 20, sRoute22_FishingMo
 
 
 
-struct WildPokemon sRoute23_LandMons[] =
+const struct WildPokemon sRoute23_LandMons[] =
 {
     { 32, 32, SPECIES_MANKEY },
     { 40, 40, SPECIES_FEAROW },
@@ -3165,7 +3165,7 @@ struct WildPokemon sRoute23_LandMons[] =
 };
 
 const struct WildPokemonInfo sRoute23_LandMonsInfo = { 21, sRoute23_LandMons };
-struct WildPokemon sRoute23_WaterMons[] =
+const struct WildPokemon sRoute23_WaterMons[] =
 {
     { 20, 25, SPECIES_PSYDUCK },
     { 20, 25, SPECIES_PSYDUCK },
@@ -3175,7 +3175,7 @@ struct WildPokemon sRoute23_WaterMons[] =
 };
 
 const struct WildPokemonInfo sRoute23_WaterMonsInfo = { 2, sRoute23_WaterMons };
-struct WildPokemon sRoute23_FishingMons[] =
+const struct WildPokemon sRoute23_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -3193,7 +3193,7 @@ const struct WildPokemonInfo sRoute23_FishingMonsInfo = { 20, sRoute23_FishingMo
 
 
 
-struct WildPokemon sRoute24_LandMons[] =
+const struct WildPokemon sRoute24_LandMons[] =
 {
     { 7, 7, SPECIES_WEEDLE },
     { 7, 7, SPECIES_CATERPIE },
@@ -3210,7 +3210,7 @@ struct WildPokemon sRoute24_LandMons[] =
 };
 
 const struct WildPokemonInfo sRoute24_LandMonsInfo = { 21, sRoute24_LandMons };
-struct WildPokemon sRoute24_WaterMons[] =
+const struct WildPokemon sRoute24_WaterMons[] =
 {
     { 5, 10, SPECIES_TENTACOOL },
     { 10, 20, SPECIES_TENTACOOL },
@@ -3220,7 +3220,7 @@ struct WildPokemon sRoute24_WaterMons[] =
 };
 
 const struct WildPokemonInfo sRoute24_WaterMonsInfo = { 2, sRoute24_WaterMons };
-struct WildPokemon sRoute24_FishingMons[] =
+const struct WildPokemon sRoute24_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -3238,7 +3238,7 @@ const struct WildPokemonInfo sRoute24_FishingMonsInfo = { 20, sRoute24_FishingMo
 
 
 
-struct WildPokemon sRoute25_LandMons[] =
+const struct WildPokemon sRoute25_LandMons[] =
 {
     { 8, 8, SPECIES_WEEDLE },
     { 8, 8, SPECIES_CATERPIE },
@@ -3255,7 +3255,7 @@ struct WildPokemon sRoute25_LandMons[] =
 };
 
 const struct WildPokemonInfo sRoute25_LandMonsInfo = { 21, sRoute25_LandMons };
-struct WildPokemon sRoute25_WaterMons[] =
+const struct WildPokemon sRoute25_WaterMons[] =
 {
     { 20, 25, SPECIES_PSYDUCK },
     { 20, 25, SPECIES_PSYDUCK },
@@ -3265,7 +3265,7 @@ struct WildPokemon sRoute25_WaterMons[] =
 };
 
 const struct WildPokemonInfo sRoute25_WaterMonsInfo = { 2, sRoute25_WaterMons };
-struct WildPokemon sRoute25_FishingMons[] =
+const struct WildPokemon sRoute25_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -3283,7 +3283,7 @@ const struct WildPokemonInfo sRoute25_FishingMonsInfo = { 20, sRoute25_FishingMo
 
 
 
-struct WildPokemon sPalletTown_WaterMons[] =
+const struct WildPokemon sPalletTown_WaterMons[] =
 {
     { 5, 10, SPECIES_TENTACOOL },
     { 10, 20, SPECIES_TENTACOOL },
@@ -3293,7 +3293,7 @@ struct WildPokemon sPalletTown_WaterMons[] =
 };
 
 const struct WildPokemonInfo sPalletTown_WaterMonsInfo = { 1, sPalletTown_WaterMons };
-struct WildPokemon sPalletTown_FishingMons[] =
+const struct WildPokemon sPalletTown_FishingMons[] =
 {
     { 5, 10, SPECIES_MAGIKARP },
     { 5, 10, SPECIES_MAGIKARP },
@@ -3311,7 +3311,7 @@ const struct WildPokemonInfo sPalletTown_FishingMonsInfo = { 10, sPalletTown_Fis
 
 
 
-struct WildPokemon sViridianCity_WaterMons[] =
+const struct WildPokemon sViridianCity_WaterMons[] =
 {
     { 20, 25, SPECIES_PSYDUCK },
     { 20, 25, SPECIES_PSYDUCK },
@@ -3321,7 +3321,7 @@ struct WildPokemon sViridianCity_WaterMons[] =
 };
 
 const struct WildPokemonInfo sViridianCity_WaterMonsInfo = { 1, sViridianCity_WaterMons };
-struct WildPokemon sViridianCity_FishingMons[] =
+const struct WildPokemon sViridianCity_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -3339,7 +3339,7 @@ const struct WildPokemonInfo sViridianCity_FishingMonsInfo = { 10, sViridianCity
 
 
 
-struct WildPokemon sCeruleanCity_WaterMons[] =
+const struct WildPokemon sCeruleanCity_WaterMons[] =
 {
     { 5, 10, SPECIES_TENTACOOL },
     { 10, 20, SPECIES_TENTACOOL },
@@ -3349,7 +3349,7 @@ struct WildPokemon sCeruleanCity_WaterMons[] =
 };
 
 const struct WildPokemonInfo sCeruleanCity_WaterMonsInfo = { 1, sCeruleanCity_WaterMons };
-struct WildPokemon sCeruleanCity_FishingMons[] =
+const struct WildPokemon sCeruleanCity_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -3367,7 +3367,7 @@ const struct WildPokemonInfo sCeruleanCity_FishingMonsInfo = { 10, sCeruleanCity
 
 
 
-struct WildPokemon sVermilionCity_WaterMons[] =
+const struct WildPokemon sVermilionCity_WaterMons[] =
 {
     { 5, 10, SPECIES_TENTACOOL },
     { 10, 20, SPECIES_TENTACOOL },
@@ -3377,7 +3377,7 @@ struct WildPokemon sVermilionCity_WaterMons[] =
 };
 
 const struct WildPokemonInfo sVermilionCity_WaterMonsInfo = { 1, sVermilionCity_WaterMons };
-struct WildPokemon sVermilionCity_FishingMons[] =
+const struct WildPokemon sVermilionCity_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -3395,7 +3395,7 @@ const struct WildPokemonInfo sVermilionCity_FishingMonsInfo = { 10, sVermilionCi
 
 
 
-struct WildPokemon sCeladonCity_WaterMons[] =
+const struct WildPokemon sCeladonCity_WaterMons[] =
 {
     { 5, 10, SPECIES_PSYDUCK },
     { 10, 20, SPECIES_PSYDUCK },
@@ -3405,7 +3405,7 @@ struct WildPokemon sCeladonCity_WaterMons[] =
 };
 
 const struct WildPokemonInfo sCeladonCity_WaterMonsInfo = { 1, sCeladonCity_WaterMons };
-struct WildPokemon sCeladonCity_FishingMons[] =
+const struct WildPokemon sCeladonCity_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -3423,7 +3423,7 @@ const struct WildPokemonInfo sCeladonCity_FishingMonsInfo = { 10, sCeladonCity_F
 
 
 
-struct WildPokemon sFuchsiaCity_WaterMons[] =
+const struct WildPokemon sFuchsiaCity_WaterMons[] =
 {
     { 20, 25, SPECIES_PSYDUCK },
     { 20, 25, SPECIES_PSYDUCK },
@@ -3433,7 +3433,7 @@ struct WildPokemon sFuchsiaCity_WaterMons[] =
 };
 
 const struct WildPokemonInfo sFuchsiaCity_WaterMonsInfo = { 1, sFuchsiaCity_WaterMons };
-struct WildPokemon sFuchsiaCity_FishingMons[] =
+const struct WildPokemon sFuchsiaCity_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -3451,7 +3451,7 @@ const struct WildPokemonInfo sFuchsiaCity_FishingMonsInfo = { 10, sFuchsiaCity_F
 
 
 
-struct WildPokemon sCinnabarIsland_WaterMons[] =
+const struct WildPokemon sCinnabarIsland_WaterMons[] =
 {
     { 5, 10, SPECIES_TENTACOOL },
     { 10, 20, SPECIES_TENTACOOL },
@@ -3461,7 +3461,7 @@ struct WildPokemon sCinnabarIsland_WaterMons[] =
 };
 
 const struct WildPokemonInfo sCinnabarIsland_WaterMonsInfo = { 1, sCinnabarIsland_WaterMons };
-struct WildPokemon sCinnabarIsland_FishingMons[] =
+const struct WildPokemon sCinnabarIsland_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -3479,7 +3479,7 @@ const struct WildPokemonInfo sCinnabarIsland_FishingMonsInfo = { 10, sCinnabarIs
 
 
 
-struct WildPokemon sOneIsland_WaterMons[] =
+const struct WildPokemon sOneIsland_WaterMons[] =
 {
     { 5, 20, SPECIES_TENTACOOL },
     { 20, 35, SPECIES_TENTACOOL },
@@ -3489,7 +3489,7 @@ struct WildPokemon sOneIsland_WaterMons[] =
 };
 
 const struct WildPokemonInfo sOneIsland_WaterMonsInfo = { 1, sOneIsland_WaterMons };
-struct WildPokemon sOneIsland_FishingMons[] =
+const struct WildPokemon sOneIsland_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -3507,7 +3507,7 @@ const struct WildPokemonInfo sOneIsland_FishingMonsInfo = { 10, sOneIsland_Fishi
 
 
 
-struct WildPokemon sFourIsland_WaterMons[] =
+const struct WildPokemon sFourIsland_WaterMons[] =
 {
     { 5, 15, SPECIES_WOOPER },
     { 5, 35, SPECIES_PSYDUCK },
@@ -3517,7 +3517,7 @@ struct WildPokemon sFourIsland_WaterMons[] =
 };
 
 const struct WildPokemonInfo sFourIsland_WaterMonsInfo = { 2, sFourIsland_WaterMons };
-struct WildPokemon sFourIsland_FishingMons[] =
+const struct WildPokemon sFourIsland_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -3535,7 +3535,7 @@ const struct WildPokemonInfo sFourIsland_FishingMonsInfo = { 20, sFourIsland_Fis
 
 
 
-struct WildPokemon sFiveIsland_WaterMons[] =
+const struct WildPokemon sFiveIsland_WaterMons[] =
 {
     { 5, 35, SPECIES_TENTACOOL },
     { 5, 15, SPECIES_HOPPIP },
@@ -3545,7 +3545,7 @@ struct WildPokemon sFiveIsland_WaterMons[] =
 };
 
 const struct WildPokemonInfo sFiveIsland_WaterMonsInfo = { 1, sFiveIsland_WaterMons };
-struct WildPokemon sFiveIsland_FishingMons[] =
+const struct WildPokemon sFiveIsland_FishingMons[] =
 {
     { 5, 5, SPECIES_MAGIKARP },
     { 5, 5, SPECIES_MAGIKARP },
@@ -3563,7 +3563,7 @@ const struct WildPokemonInfo sFiveIsland_FishingMonsInfo = { 10, sFiveIsland_Fis
 
 
 
-struct WildPokemon sSixIslandAlteringCave_LandMons[] =
+const struct WildPokemon sSixIslandAlteringCave_LandMons[] =
 {
     { 10, 10, SPECIES_ZUBAT },
     { 12, 12, SPECIES_ZUBAT },
@@ -3583,7 +3583,7 @@ const struct WildPokemonInfo sSixIslandAlteringCave_LandMonsInfo = { 5, sSixIsla
 
 
 
-struct WildPokemon sSixIslandAlteringCave_2_LandMons[] =
+const struct WildPokemon sSixIslandAlteringCave_2_LandMons[] =
 {
     { 7, 7, SPECIES_MAREEP },
     { 9, 9, SPECIES_MAREEP },
@@ -3603,7 +3603,7 @@ const struct WildPokemonInfo sSixIslandAlteringCave_2_LandMonsInfo = { 5, sSixIs
 
 
 
-struct WildPokemon sSixIslandAlteringCave_3_LandMons[] =
+const struct WildPokemon sSixIslandAlteringCave_3_LandMons[] =
 {
     { 23, 23, SPECIES_PINECO },
     { 25, 25, SPECIES_PINECO },
@@ -3623,7 +3623,7 @@ const struct WildPokemonInfo sSixIslandAlteringCave_3_LandMonsInfo = { 5, sSixIs
 
 
 
-struct WildPokemon sSixIslandAlteringCave_4_LandMons[] =
+const struct WildPokemon sSixIslandAlteringCave_4_LandMons[] =
 {
     { 16, 16, SPECIES_HOUNDOUR },
     { 18, 18, SPECIES_HOUNDOUR },
@@ -3643,7 +3643,7 @@ const struct WildPokemonInfo sSixIslandAlteringCave_4_LandMonsInfo = { 5, sSixIs
 
 
 
-struct WildPokemon sSixIslandAlteringCave_5_LandMons[] =
+const struct WildPokemon sSixIslandAlteringCave_5_LandMons[] =
 {
     { 22, 22, SPECIES_TEDDIURSA },
     { 24, 24, SPECIES_TEDDIURSA },
@@ -3663,7 +3663,7 @@ const struct WildPokemonInfo sSixIslandAlteringCave_5_LandMonsInfo = { 5, sSixIs
 
 
 
-struct WildPokemon sSixIslandAlteringCave_6_LandMons[] =
+const struct WildPokemon sSixIslandAlteringCave_6_LandMons[] =
 {
     { 22, 22, SPECIES_AIPOM },
     { 24, 24, SPECIES_AIPOM },
@@ -3683,7 +3683,7 @@ const struct WildPokemonInfo sSixIslandAlteringCave_6_LandMonsInfo = { 5, sSixIs
 
 
 
-struct WildPokemon sSixIslandAlteringCave_7_LandMons[] =
+const struct WildPokemon sSixIslandAlteringCave_7_LandMons[] =
 {
     { 22, 22, SPECIES_SHUCKLE },
     { 24, 24, SPECIES_SHUCKLE },
@@ -3703,7 +3703,7 @@ const struct WildPokemonInfo sSixIslandAlteringCave_7_LandMonsInfo = { 5, sSixIs
 
 
 
-struct WildPokemon sSixIslandAlteringCave_8_LandMons[] =
+const struct WildPokemon sSixIslandAlteringCave_8_LandMons[] =
 {
     { 22, 22, SPECIES_STANTLER },
     { 24, 24, SPECIES_STANTLER },
@@ -3723,7 +3723,7 @@ const struct WildPokemonInfo sSixIslandAlteringCave_8_LandMonsInfo = { 5, sSixIs
 
 
 
-struct WildPokemon sSixIslandAlteringCave_9_LandMons[] =
+const struct WildPokemon sSixIslandAlteringCave_9_LandMons[] =
 {
     { 22, 22, SPECIES_SMEARGLE },
     { 24, 24, SPECIES_SMEARGLE },
