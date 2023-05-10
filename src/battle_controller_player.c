@@ -185,20 +185,20 @@ static const struct Coords16 sTypeIconPositions[][/*IS_SINGLE_BATTLE*/2] =
 	[B_POSITION_PLAYER_LEFT] =
 	{
 		[TRUE] = {131, 86}, 	//Single Battle
-		[FALSE] = {134, 71},	//Double Battle
+		[FALSE] = {134, 74},	//Double Battle
 	},
 	[B_POSITION_OPPONENT_LEFT] =
 	{
 		[TRUE] = {109, 26}, 	//Single Battle
-		[FALSE] = {109, 14},	//Double Battle
+		[FALSE] = {109, 16},	//Double Battle
 	},
 	[B_POSITION_PLAYER_RIGHT] =
 	{
-		[FALSE] = {146, 96},	//Double Battle
+		[FALSE] = {146, 99},	//Double Battle
 	},
 	[B_POSITION_OPPONENT_RIGHT] =
 	{
-		[FALSE] = {94, 39},		//Double Battle
+		[FALSE] = {94, 41},		//Double Battle
 	},
 };
 
@@ -2570,9 +2570,9 @@ static void TryLoadTypeIcons(void)
             u8 type = (typeNum == 0) ? type1 : type2;
             
             if (GetBattlerSide(bank) == B_SIDE_OPPONENT)
-                x += (7 * typeNum);
+                x += (8 * typeNum);
             else
-                x -= (7 * typeNum);
+                x -= (8 * typeNum);
 
             switch (type)
             { //Certain types have a different palette
