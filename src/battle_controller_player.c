@@ -2544,7 +2544,7 @@ void InitMoveSelectionsVarsAndStrings(void)
 
 static void TryLoadTypeIcons(void)
 {
-    u8 position = 0;
+    u8 position = 1;
     u8 typeNum = 0;
    
     LoadSpritePalette(&sTypeIconPalTemplate);
