@@ -70,21 +70,25 @@ void GenerateWildMonData(void)
 
         struct WildPokemon *mutablePokemon = (struct WildPokemon*) wildPokemon;
         
-        u8 wildPokemonSize = sizeof(wildPokemon) / sizeof(struct WildPokemon);
+        u8 wildPokemonSize = sizeof(mutablePokemon) / sizeof(struct WildPokemon);
         u8 wildMonsTableSize = sizeof(sWildMonsTable) / sizeof(struct RandomizerPokemon);
 
         if (wildHeader->mapGroup == MAP_GROUP(UNDEFINED))
             break;
 
-        for (x = 0; x < wildMonsTableSize; x++)
+      /*  for (x = 0; x < wildMonsTableSize; x++)
         {
             if (sWildMonsTable[x].mapNum == wildHeader->mapNum)
                 break;
         }    
+*/
 
-        for (j = 0; j < wildPokemonSize; j++)
+        if (wildHeader->mapNum == MAP_NUM(ROUTE1))
         {
-            mutablePokemon[j].species = SPECIES_BULBASAUR; //sWildMonsTable[x].species[Random() % 12];
+            for (j = 0; j < wildPokemonSize; j++)
+            {
+                mutablePokemon[j].species = SPECIES_BULBASAUR; //sWildMonsTable[x].species[Random() % 12];
+            }
         }
     }
 }
