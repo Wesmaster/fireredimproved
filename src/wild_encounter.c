@@ -67,6 +67,8 @@ void GenerateWildMonData(void)
     {
         const struct WildPokemonHeader *wildHeader = &gWildMonHeaders[i];
         const struct WildPokemon *wildPokemon = wildHeader->landMonsInfo->wildPokemon;
+
+        struct WildPokemon *mutablePokemon = (struct WildPokemon*) wildPokemon;
         
         u8 wildPokemonSize = sizeof(wildPokemon) / sizeof(struct WildPokemon);
         u8 wildMonsTableSize = sizeof(sWildMonsTable) / sizeof(struct RandomizerPokemon);
@@ -82,7 +84,7 @@ void GenerateWildMonData(void)
 
         for (j = 0; j < wildPokemonSize; j++)
         {
-            wildPokemon[j].species = sWildMonsTable[x].species[Random() % 12];
+            mutablePokemon[j].species = sWildMonsTable[x].species[Random() % 12];
         }
     }
 }
