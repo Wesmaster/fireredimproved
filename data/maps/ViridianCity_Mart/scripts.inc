@@ -82,6 +82,10 @@ ViridianCity_Mart_Items::
 	.2byte ITEM_PETAYA_BERRY
 	.2byte ITEM_APICOT_BERRY
 	.2byte ITEM_SALAC_BERRY
+	.2byte ITEM_ETHER
+	.2byte ITEM_MAX_ETHER
+	.2byte ITEM_ELIXIR
+	.2byte ITEM_MAX_ELIXIR
 	.2byte ITEM_NONE
 	release
 	end
