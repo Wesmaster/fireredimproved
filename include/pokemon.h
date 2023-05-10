@@ -12,7 +12,9 @@ struct PokemonSubstruct0
     u32 experience;
     u8 ppBonuses;
     u8 friendship;
-    u16 filler;
+    u16 hasCustomNature:1;
+    u16 customNatureId:5;
+    u16 filler:10;
 };
 
 struct PokemonSubstruct1
@@ -234,6 +236,10 @@ struct SpeciesInfo
             u8 noFlip : 1;
 };
 
+#define MOVE_CATEGORY_PHYSICAL 0
+#define MOVE_CATEGORY_SPECIAL 1
+#define MOVE_CATEGORY_STATUS 2
+
 struct BattleMove
 {
     u8 effect;
@@ -245,6 +251,7 @@ struct BattleMove
     u8 target;
     s8 priority;
     u8 flags;
+    u8 category;
 };
 
 #define SPINDA_SPOT_WIDTH 16

@@ -34,3 +34,7 @@ SaffronCity_PokemonCenter_1F_EventScript_YoungsterRocketsGone::
 	msgbox SaffronCity_PokemonCenter_1F_Text_TeamRocketTookOff
 	release
 	end
+
+SaffronCity_PokemonCenter_1F_EventScript_SecondNurse::
+	call EventScript_PkmnCenterNurse_SecondNurse_CheckMoney
+	end

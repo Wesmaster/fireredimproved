@@ -551,7 +551,7 @@
       "x": 20,
       "y": 72,
       "elevation": 0,
-      "item": "ITEM_ULTRA_BALL",
+      "item": "ITEM_POKE_BALL",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE23_ULTRA_BALL",
       "quantity": 1,
       "underfoot": false

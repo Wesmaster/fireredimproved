@@ -809,7 +809,7 @@ static const u8 sBallCatchBonuses[] =
 {
     [ITEM_ULTRA_BALL - ITEM_ULTRA_BALL]  = 20,
     [ITEM_GREAT_BALL - ITEM_ULTRA_BALL]  = 15,
-    [ITEM_POKE_BALL - ITEM_ULTRA_BALL]   = 10,
+    [ITEM_POKE_BALL - ITEM_ULTRA_BALL]   = 30,
     [ITEM_SAFARI_BALL - ITEM_ULTRA_BALL] = 15
 };
 
@@ -1070,7 +1070,7 @@ static void Cmd_accuracycheck(void)
             calc = (calc * 130) / 100; // 1.3 compound eyes boost
         if (WEATHER_HAS_EFFECT && gBattleMons[gBattlerTarget].ability == ABILITY_SAND_VEIL && gBattleWeather & B_WEATHER_SANDSTORM)
             calc = (calc * 80) / 100; // 1.2 sand veil loss
-        if (gBattleMons[gBattlerAttacker].ability == ABILITY_HUSTLE && IS_TYPE_PHYSICAL(type))
+        if (gBattleMons[gBattlerAttacker].ability == ABILITY_HUSTLE && IS_MOVE_PHYSICAL(move))
             calc = (calc * 80) / 100; // 1.2 hustle loss
 
         if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
@@ -1822,7 +1822,7 @@ static void Cmd_datahpupdate(void)
                 if (!gSpecialStatuses[gActiveBattler].dmg && !(gHitMarker & HITMARKER_PASSIVE_DAMAGE))
                     gSpecialStatuses[gActiveBattler].dmg = gHpDealt;
 
-                if (IS_TYPE_PHYSICAL(moveType) && !(gHitMarker & HITMARKER_PASSIVE_DAMAGE) && gCurrentMove != MOVE_PAIN_SPLIT)
+                if (IS_MOVE_PHYSICAL(gCurrentMove) && !(gHitMarker & HITMARKER_PASSIVE_DAMAGE) && gCurrentMove != MOVE_PAIN_SPLIT)
                 {
                     gProtectStructs[gActiveBattler].physicalDmg = gHpDealt;
                     gSpecialStatuses[gActiveBattler].physicalDmg = gHpDealt;
@@ -1837,7 +1837,7 @@ static void Cmd_datahpupdate(void)
                         gSpecialStatuses[gActiveBattler].physicalBattlerId = gBattlerTarget;
                     }
                 }
-                else if (!IS_TYPE_PHYSICAL(moveType) && !(gHitMarker & HITMARKER_PASSIVE_DAMAGE))
+                else if (IS_MOVE_SPECIAL(gCurrentMove) && !(gHitMarker & HITMARKER_PASSIVE_DAMAGE))
                 {
                     gProtectStructs[gActiveBattler].specialDmg = gHpDealt;
                     gSpecialStatuses[gActiveBattler].specialDmg = gHpDealt;
@@ -2100,7 +2100,7 @@ u8 GetBattlerTurnOrderNum(u8 battlerId)
     return i;
 }
 
-// Called INCREMENT_RESET_RETURN in Emerald which adds "gBattleCommunication[MOVE_EFFECT_BYTE] = 0;" before the return.
+// Called INCREMENT_RESET_RETURN in Emerald which adds "gBattleCommunication[Move_effect_byte] = 0;" before the return.
 #define INCREMENT_RETURN                        \
 {                                               \
     gBattlescriptCurrInstr++;                   \
@@ -9609,6 +9609,7 @@ static void Cmd_handleballthrow(void)
             {
                 gBattleCommunication[MULTISTRING_CHOOSER] = shakes;
                 gBattlescriptCurrInstr = BattleScript_ShakeBallThrow;
+                AddBagItem(gLastUsedItem, 1);
             }
         }
     }
@@ -9694,22 +9695,7 @@ static void Cmd_displaydexinfo(void)
         gBattleCommunication[0]++;
         break;
     case 4:
-        if (!IsDma3ManagerBusyWithBgCopy())
-        {
-            CreateMonPicSprite_HandleDeoxys(species,
-                                            gBattleMons[B_POSITION_OPPONENT_LEFT].otId,
-                                            gBattleMons[B_POSITION_OPPONENT_LEFT].personality,
-                                            TRUE,
-                                            120,
-                                            64,
-                                            0,
-                                            0xFFFF);
-            CpuFill32(0, gPlttBufferFaded, BG_PLTT_SIZE);
-            BeginNormalPaletteFade(0x1FFFF, 0, 16, 0, RGB_BLACK);
-            ShowBg(0);
-            ShowBg(3);
-            gBattleCommunication[0]++;
-        }
+        gBattleCommunication[0]++;
         break;
     case 5:
         if (!gPaletteFade.active)

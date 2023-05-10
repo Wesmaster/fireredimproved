@@ -25,3 +25,7 @@ ThreeIsland_PokemonCenter_1F_EventScript_Lass::
 ThreeIsland_PokemonCenter_1F_EventScript_Rocker::
 	msgbox ThreeIsland_PokemonCenter_1F_Text_PCNetworkCanLinkWithKanto, MSGBOX_NPC
 	end
+
+ThreeIsland_PokemonCenter_1F_EventScript_SecondNurse::
+	call EventScript_PkmnCenterNurse_SecondNurse_CheckMoney
+	end
