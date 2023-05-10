@@ -66,9 +66,9 @@ void GenerateWildMonData(void)
     for (i = 0; ; i++)
     {
         const struct WildPokemonHeader *wildHeader = &gWildMonHeaders[i];
-        const struct WildPokemon *wildPokemon[] = wildHeader->landMonsInfo->wildPokemon;
+        const struct WildPokemon *wildPokemon = wildHeader->landMonsInfo->wildPokemon;
         
-        u8 wildPokemonSize = sizeof(wildPokemon) / sizeof(struct WildPokemon)
+        u8 wildPokemonSize = sizeof(wildPokemon) / sizeof(struct WildPokemon);
         u8 wildMonsTableSize = sizeof(sWildMonsTable) / sizeof(struct RandomizerPokemon);
 
         if (wildHeader->mapGroup == MAP_GROUP(UNDEFINED))
