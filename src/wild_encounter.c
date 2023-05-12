@@ -263,7 +263,7 @@ enum
 static u16 GenerateRandomSpecies(u8 area)
 {
     u8 x;
-    struct RandomizerPokemon *tableToPickFrom = NULL;
+    const struct RandomizerPokemon *tableToPickFrom = NULL;
     u8 tableLength = 0;
     u16 headerId;
 
@@ -292,7 +292,7 @@ static u16 GenerateRandomSpecies(u8 area)
 
     for (x = 0; x < tableLength; x++)
     {
-        if (tableToPickFrom[x].mapNum == gWildMonHeaders[headerId]->mapNum)
+        if (tableToPickFrom[x].mapNum == gWildMonHeaders[headerId].mapNum)
             return tableToPickFrom[x].species[Random() % 12];
     }
 
