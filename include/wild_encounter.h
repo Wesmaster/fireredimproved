@@ -63,6 +63,9 @@ bool8 SweetScentWildEncounter(void);
 void SeedWildEncounterRng(u16 randVal);
 void ResetEncounterRateModifiers(void);
 bool8 TryStandardWildEncounter(u32 currMetatileAttrs);
-void GenerateWildMonData();
+void GenerateLandMonsData();
+void GenerateWaterMonsData();
+void GenerateFishingMonsData();
+void GenerateRockSmashMonsData();
 
 #endif // GUARD_WILD_ENCOUNTER_H

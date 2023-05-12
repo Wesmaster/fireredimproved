@@ -28,6 +28,9 @@ struct WildEncounterData
 };
 
 static struct RandomizedPokemon sGeneratedLandMonsTable[1];
+static struct RandomizedPokemon sGeneratedRockSmashMonsTable[1];
+static struct RandomizedPokemon sGeneratedWaterMonsTable[1];
+static struct RandomizedPokemon sGeneratedFishingMonsTable[1];
 
 static EWRAM_DATA struct WildEncounterData sWildEncounterData = {};
 static EWRAM_DATA bool8 sWildEncountersDisabled = FALSE;
@@ -62,7 +65,7 @@ static const u8 sUnownLetterSlots[][12] = {
     {25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 26},
 };
 
-void GenerateWildMonData()
+void GenerateLandMonsData()
 {
     u8 i, j, counter;
     u8 routes = sizeof(sLandMonsTable) / sizeof(struct BasePokemonRandomizer);
@@ -82,6 +85,81 @@ void GenerateWildMonData()
             } while (assignedMons[species] == 1 && counter < 100);
 
             sGeneratedLandMonsTable[i].species[j] = species;
+            assignedMons[species] = 1;
+        }
+    }
+}
+
+void GenerateWaterMonsData()
+{
+    u8 i, j, counter;
+    u8 routes = sizeof(sWaterMonsTable) / sizeof(struct BasePokemonRandomizer);
+    u16 species = SPECIES_NONE;
+
+    for (i = 0; i < routes; i++)
+    {
+        u8 assignedMons[NUM_SPECIES] = {0};
+        for (j = 0; j < RANDOM_WILD_COUNT; j++)
+        {
+            sGeneratedWaterMonsTable[i].mapNum = sWaterMonsTable[i].mapNum;
+
+            counter = 0;
+            do {
+                counter++;
+                species = sWaterMonsTable[i].species[Random() % BASE_RANDOM_WILD_COUNT];
+            } while (assignedMons[species] == 1 && counter < 100);
+
+            sGeneratedWaterMonsTable[i].species[j] = species;
+            assignedMons[species] = 1;
+        }
+    }
+}
+
+void GenerateFishingMonsData()
+{
+    u8 i, j, counter;
+    u8 routes = sizeof(sFishingMonsTable) / sizeof(struct BasePokemonRandomizer);
+    u16 species = SPECIES_NONE;
+
+    for (i = 0; i < routes; i++)
+    {
+        u8 assignedMons[NUM_SPECIES] = {0};
+        for (j = 0; j < RANDOM_WILD_COUNT; j++)
+        {
+            sGeneratedFishingMonsTable[i].mapNum = sFishingMonsTable[i].mapNum;
+
+            counter = 0;
+            do {
+                counter++;
+                species = sFishingMonsTable[i].species[Random() % BASE_RANDOM_WILD_COUNT];
+            } while (assignedMons[species] == 1 && counter < 100);
+
+            sGeneratedFishingMonsTable[i].species[j] = species;
+            assignedMons[species] = 1;
+        }
+    }
+}
+
+void GenerateRockSmashMonsData()
+{
+    u8 i, j, counter;
+    u8 routes = sizeof(sRockSmashMonsTable) / sizeof(struct BasePokemonRandomizer);
+    u16 species = SPECIES_NONE;
+
+    for (i = 0; i < routes; i++)
+    {
+        u8 assignedMons[NUM_SPECIES] = {0};
+        for (j = 0; j < RANDOM_WILD_COUNT; j++)
+        {
+            sGeneratedRockSmashMonsTable[i].mapNum = sRockSmashMonsTable[i].mapNum;
+
+            counter = 0;
+            do {
+                counter++;
+                species = sRockSmashMonsTable[i].species[Random() % BASE_RANDOM_WILD_COUNT];
+            } while (assignedMons[species] == 1 && counter < 100);
+
+            sGeneratedRockSmashMonsTable[i].species[j] = species;
             assignedMons[species] = 1;
         }
     }
@@ -300,21 +378,20 @@ static u16 GenerateRandomSpecies(u8 area)
         tableToPickFrom = sGeneratedLandMonsTable;
         tableLength = sizeof(sGeneratedLandMonsTable);
         break;
-    /*case WILD_AREA_WATER:
-        tableToPickFrom = sWaterMonsTable;
-        tableLength = sizeof(sWaterMonsTable);
+    case WILD_AREA_WATER:
+        tableToPickFrom = sGeneratedWaterMonsTable;
+        tableLength = sizeof(sGeneratedWaterMonsTable);
         break;
     case WILD_AREA_ROCKS:
-        tableToPickFrom = sRockSmashMonsTable;
-        tableLength = sizeof(sRockSmashMonsTable);
+        tableToPickFrom = sGeneratedRockSmashMonsTable;
+        tableLength = sizeof(sGeneratedRockSmashMonsTable);
         break; 
     case WILD_AREA_FISHING:
-        tableToPickFrom = sFishingMonsTable;
-        tableLength = sizeof(sFishingMonsTable);
-        break;*/
+        tableToPickFrom = sGeneratedFishingMonsTable;
+        tableLength = sizeof(sGeneratedFishingMonsTable);
+        break;
     }
 
-    //u8 wildMonsTableSize = sizeof(tableToPickFrom) / sizeof(struct RandomizerPokemon);
     headerId = GetCurrentMapWildMonHeaderId();
 
     for (x = 0; x < tableLength; x++)

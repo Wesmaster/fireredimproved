@@ -149,7 +149,10 @@ void NewGameInitData(void)
     RunScriptImmediately(EventScript_ResetAllMapFlags);
     StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
     ResetTrainerTowerResults();
-    GenerateWildMonData();
+    GenerateLandMonsData();
+    GenerateWaterMonsData();
+    GenerateFishingMonsData();
+    GenerateRockSmashMonsData();
 }
 
 static void ResetMiniGamesResults(void)
