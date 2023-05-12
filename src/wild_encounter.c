@@ -66,7 +66,7 @@ void GenerateWildMonData(void)
     for (i = 0; ; i++)
     {
         const struct WildPokemonHeader *wildHeader = &gWildMonHeaders[i];
-        struct WildPokemon *wildPokemon[] = wildHeader->landMonsInfo->wildPokemon;
+        const struct WildPokemon *wildPokemon[] = wildHeader->landMonsInfo->wildPokemon;
 
         struct WildPokemon *mutablePokemon[] = (struct WildPokemon*) wildPokemon;
         
