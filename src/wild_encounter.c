@@ -265,6 +265,7 @@ static u16 GenerateRandomSpecies(u8 area)
     u8 x;
     struct RandomizerPokemon *tableToPickFrom = NULL;
     u8 tableLength = 0;
+    u16 headerId;
 
     switch (area)
     {
@@ -277,8 +278,8 @@ static u16 GenerateRandomSpecies(u8 area)
         tableLength = sizeof(sWaterMonsTable);
         break;
     case WILD_AREA_ROCKS:
-        tableToPickFrom = sRockMonsTable;
-        tableLength = sizeof(sRockMonsTable);
+        tableToPickFrom = sRockSmashMonsTable;
+        tableLength = sizeof(sRockSmashMonsTable);
         break; 
     case WILD_AREA_FISHING:
         tableToPickFrom = sFishingMonsTable;
@@ -287,7 +288,7 @@ static u16 GenerateRandomSpecies(u8 area)
     }
 
     //u8 wildMonsTableSize = sizeof(tableToPickFrom) / sizeof(struct RandomizerPokemon);
-    u16 headerId = GetCurrentMapWildMonHeaderId();
+    headerId = GetCurrentMapWildMonHeaderId();
 
     for (x = 0; x < tableLength; x++)
     {
