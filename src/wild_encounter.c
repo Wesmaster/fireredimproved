@@ -263,28 +263,33 @@ enum
 static u16 GenerateRandomSpecies(u8 area)
 {
     u8 x;
-    struct RandomizerPokemon tableToPickFrom[];
+    struct RandomizerPokemon *tableToPickFrom = NULL;
+    u8 tableLength = 0;
 
     switch (area)
     {
     case WILD_AREA_LAND:
         tableToPickFrom = sLandMonsTable;
+        tableLength = sizeof(sLandMonsTable);
         break;
     case WILD_AREA_WATER:
         tableToPickFrom = sWaterMonsTable;
+        tableLength = sizeof(sWaterMonsTable);
         break;
     case WILD_AREA_ROCKS:
         tableToPickFrom = sRockMonsTable;
+        tableLength = sizeof(sRockMonsTable);
         break; 
     case WILD_AREA_FISHING:
-        tableToPickFrom = sFishingMonsTable
+        tableToPickFrom = sFishingMonsTable;
+        tableLength = sizeof(sFishingMonsTable);
         break;
     }
 
-    u8 wildMonsTableSize = sizeof(tableToPickFrom) / sizeof(struct RandomizerPokemon);
+    //u8 wildMonsTableSize = sizeof(tableToPickFrom) / sizeof(struct RandomizerPokemon);
     u16 headerId = GetCurrentMapWildMonHeaderId();
 
-    for (x = 0; x < wildMonsTableSize; x++)
+    for (x = 0; x < tableLength; x++)
     {
         if (tableToPickFrom[x].mapNum == gWildMonHeaders[headerId]->mapNum)
             return tableToPickFrom[x].species[Random() % 12];
