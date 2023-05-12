@@ -66,9 +66,9 @@ void GenerateWildMonData(void)
     for (i = 0; ; i++)
     {
         const struct WildPokemonHeader *wildHeader = &gWildMonHeaders[i];
-        const struct WildPokemon *wildPokemon = wildHeader->landMonsInfo->wildPokemon;
+        struct WildPokemon *wildPokemon[] = wildHeader->landMonsInfo->wildPokemon;
 
-        struct WildPokemon *mutablePokemon = (struct WildPokemon*) wildPokemon;
+        struct WildPokemon *mutablePokemon[] = (struct WildPokemon*) wildPokemon;
         
         u8 wildPokemonSize = sizeof(mutablePokemon) / sizeof(struct WildPokemon);
         u8 wildMonsTableSize = sizeof(sWildMonsTable) / sizeof(struct RandomizerPokemon);
@@ -86,13 +86,13 @@ void GenerateWildMonData(void)
         {
             for (j = 0; j < wildPokemonSize; j++)
             {
-                DisableWildEncounters(TRUE);
-                *(u16*)&(wildPokemon[0].species) = SPECIES_BULBASAUR;
-                //mutablePokemon[j].species = SPECIES_BULBASAUR; //sWildMonsTable[x].species[Random() % 12];
+                //DisableWildEncounters(TRUE);
+                //*(u16*)&(wildPokemon[0].species) = SPECIES_BULBASAUR;
+                mutablePokemon[j].species = SPECIES_BULBASAUR; //sWildMonsTable[x].species[Random() % 12];
             }
 
-          //  if (wildPokemon[0].species == SPECIES_BULBASAUR)
-          //      DisableWildEncounters(TRUE);
+            if (wildPokemon[0].species == SPECIES_BULBASAUR)
+                DisableWildEncounters(TRUE);
         }
     }
 }
