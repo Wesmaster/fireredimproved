@@ -39,9 +39,10 @@ static void ApplyCleanseTagEncounterRateMod(u32 *rate);
 static bool8 IsLeadMonHoldingCleanseTag(void);
 static u16 WildEncounterRandom(void);
 static void AddToWildEncounterRateBuff(u8 encouterRate);
-static u16 GenerateRandomSpecies(u8 area);
 
 #include "data/wild_encounters.h"
+
+static u16 GenerateRandomSpecies(u8 area);
 
 static const u8 sUnownLetterSlots[][12] = {
   //  A   A   A   A   A   A   A   A   A   A   A   ?
