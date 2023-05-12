@@ -39,6 +39,7 @@ static void ApplyCleanseTagEncounterRateMod(u32 *rate);
 static bool8 IsLeadMonHoldingCleanseTag(void);
 static u16 WildEncounterRandom(void);
 static void AddToWildEncounterRateBuff(u8 encouterRate);
+static u16 GenerateRandomSpecies(u8 area);
 
 #include "data/wild_encounters.h"
 
@@ -259,10 +260,10 @@ enum
     WILD_AREA_FISHING,
 };
 
-u16 GenerateRandomSpecies(u8 area)
+static u16 GenerateRandomSpecies(u8 area)
 {
     u8 x;
-    RandomizerPokemon tableToPickFrom;
+    struct RandomizerPokemon tableToPickFrom;
 
     switch (area)
     {
