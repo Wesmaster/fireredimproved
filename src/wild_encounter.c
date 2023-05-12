@@ -77,11 +77,12 @@ void GenerateWildMonData()
 
             counter = 0;
             do {
-                species = sLandMonsTable[i].species[Random() % 12];
+                counter++;
+                species = sLandMonsTable[i].species[Random() % BASE_RANDOM_WILD_COUNT];
             } while (assignedMons[species] == 1 && counter < 100);
 
             sGeneratedLandMonsTable[i].species[j] = species;
-            assignedMons[species] = 1; 
+            assignedMons[species] = 1;
         }
     }
 }
@@ -297,7 +298,7 @@ static u16 GenerateRandomSpecies(u8 area)
     {
     case WILD_AREA_LAND:
         tableToPickFrom = sGeneratedLandMonsTable;
-        tableLength = sizeof(sLandMonsTable);
+        tableLength = sizeof(sGeneratedLandMonsTable);
         break;
     /*case WILD_AREA_WATER:
         tableToPickFrom = sWaterMonsTable;
@@ -319,7 +320,7 @@ static u16 GenerateRandomSpecies(u8 area)
     for (x = 0; x < tableLength; x++)
     {
         if (tableToPickFrom[x].mapNum == gWildMonHeaders[headerId].mapNum)
-            return tableToPickFrom[x].species[Random() % 12];
+            return tableToPickFrom[x].species[Random() % RANDOM_WILD_COUNT];
     }
 
     return SPECIES_NONE; // Should never happen
