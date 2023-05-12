@@ -84,13 +84,13 @@ void GenerateWildMonData(void)
         {
             for (j = 0; j < wildPokemonSize; j++)
             {
-                struct WildPokemon *mutablePokemon = (struct WildPokemon*) &wildPokemon[j];
+                struct WildPokemon *mutablePokemon = (struct WildPokemon) &wildPokemon[j];
 
                 //DisableWildEncounters(TRUE);
                 //*(u16*)&(wildPokemon[0].species) = SPECIES_BULBASAUR;
                 mutablePokemon->species = SPECIES_BULBASAUR; //sWildMonsTable[x].species[Random() % 12];
 
-                if (mutablePokemon[0].species == SPECIES_BULBASAUR)
+                if (wildPokemon[0].species == SPECIES_BULBASAUR)
                     DisableWildEncounters(TRUE);
             }
         }
