@@ -263,7 +263,7 @@ enum
 static u16 GenerateRandomSpecies(u8 area)
 {
     u8 x;
-    struct RandomizerPokemon tableToPickFrom;
+    struct RandomizerPokemon tableToPickFrom[];
 
     switch (area)
     {
