@@ -66,11 +66,9 @@ void GenerateWildMonData(void)
     for (i = 0; ; i++)
     {
         const struct WildPokemonHeader *wildHeader = &gWildMonHeaders[i];
-        const struct WildPokemon *wildPokemon[] = wildHeader->landMonsInfo->wildPokemon;
-
-        struct WildPokemon *mutablePokemon[] = (struct WildPokemon*) wildPokemon;
+        const struct WildPokemon *wildPokemon = wildHeader->landMonsInfo->wildPokemon;
         
-        u8 wildPokemonSize = sizeof(mutablePokemon) / sizeof(struct WildPokemon);
+        u8 wildPokemonSize = sizeof(wildPokemon) / sizeof(struct WildPokemon);
         u8 wildMonsTableSize = sizeof(sWildMonsTable) / sizeof(struct RandomizerPokemon);
 
         if (wildHeader->mapGroup == MAP_GROUP(UNDEFINED))
@@ -86,9 +84,11 @@ void GenerateWildMonData(void)
         {
             for (j = 0; j < wildPokemonSize; j++)
             {
+                struct WildPokemon *mutablePokemon = (struct WildPokemon*) wildPokemon[j];
+
                 //DisableWildEncounters(TRUE);
                 //*(u16*)&(wildPokemon[0].species) = SPECIES_BULBASAUR;
-                mutablePokemon[j].species = SPECIES_BULBASAUR; //sWildMonsTable[x].species[Random() % 12];
+                mutablePokemon->species = SPECIES_BULBASAUR; //sWildMonsTable[x].species[Random() % 12];
             }
 
             if (wildPokemon[0].species == SPECIES_BULBASAUR)
