@@ -39,7 +39,7 @@ static void ApplyCleanseTagEncounterRateMod(u32 *rate);
 static bool8 IsLeadMonHoldingCleanseTag(void);
 static u16 WildEncounterRandom(void);
 static void AddToWildEncounterRateBuff(u8 encouterRate);
-static u16 GenerateRandomSpecies(void);
+static u16 GenerateRandomSpecies(u8 area);
 
 #include "data/wild_encounters.h"
 
@@ -252,6 +252,14 @@ u8 GetUnownLetterByPersonalityLoByte(u32 personality)
     return (((personality & 0x3000000) >> 18) | ((personality & 0x30000) >> 12) | ((personality & 0x300) >> 6) | (personality & 0x3)) % 0x1C;
 }
 
+enum
+{
+    WILD_AREA_LAND,
+    WILD_AREA_WATER,
+    WILD_AREA_ROCKS,
+    WILD_AREA_FISHING,
+};
+
 u16 GenerateRandomSpecies(u8 area)
 {
     u8 x;
@@ -285,14 +293,6 @@ u16 GenerateRandomSpecies(u8 area)
     return SPECIES_NONE; // Should never happen
 }
 
-enum
-{
-    WILD_AREA_LAND,
-    WILD_AREA_WATER,
-    WILD_AREA_ROCKS,
-    WILD_AREA_FISHING,
-};
-
 #define WILD_CHECK_REPEL    0x1
 #define WILD_CHECK_KEEN_EYE 0x2
 
@@ -300,6 +300,8 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo * info, u8 area, u8
 {
     u8 slot = 0;
     u8 level;
+    u16 species = GenerateRandomSpecies(area);
+    
     switch (area)
     {
     case WILD_AREA_LAND:
@@ -317,7 +319,6 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo * info, u8 area, u8
     {
         return FALSE;
     }
-    u16 species = GenerateRandomSpecies(area);
 
     if (species == SPECIES_NONE)
         species = info->wildPokemon[slot].species;
