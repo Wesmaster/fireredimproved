@@ -64,7 +64,7 @@ static const u8 sUnownLetterSlots[][12] = {
 
 void GenerateWildMonData()
 {
-    u8 i, j;
+    u8 i, j, counter;
     u8 routes = sizeof(sLandMonsTable) / sizeof(struct BasePokemonRandomizer);
     u16 species = SPECIES_NONE;
 
@@ -75,7 +75,7 @@ void GenerateWildMonData()
         {
             sGeneratedLandMonsTable[i].mapNum = sLandMonsTable[i].mapNum;
 
-            u8 counter = 0;
+            counter = 0;
             do {
                 species = sLandMonsTable[i].species[Random() % 12];
             } while (assignedMons[species] == 1 && counter < 100);
