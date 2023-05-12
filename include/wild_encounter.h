@@ -3,15 +3,22 @@
 
 #include "global.h"
 
-#define LAND_WILD_COUNT     12
-#define WATER_WILD_COUNT    5
-#define ROCK_WILD_COUNT     5
-#define FISH_WILD_COUNT     10
-#define RANDOM_WILD_COUNT   12
+#define LAND_WILD_COUNT          12
+#define WATER_WILD_COUNT         5
+#define ROCK_WILD_COUNT          5
+#define FISH_WILD_COUNT          10
+#define RANDOM_WILD_COUNT        5
+#define BASE_RANDOM_WILD_COUNT   12
 
 #define NUM_ALTERING_CAVE_TABLES 9
 
-struct RandomizerPokemon
+struct BasePokemonRandomizer
+{
+    u8 mapNum;
+    u16 species[BASE_RANDOM_WILD_COUNT];
+};
+
+struct RandomizedPokemon
 {
     u8 mapNum;
     u16 species[RANDOM_WILD_COUNT];
@@ -56,5 +63,6 @@ bool8 SweetScentWildEncounter(void);
 void SeedWildEncounterRng(u16 randVal);
 void ResetEncounterRateModifiers(void);
 bool8 TryStandardWildEncounter(u32 currMetatileAttrs);
+void GenerateWildMonData();
 
 #endif // GUARD_WILD_ENCOUNTER_H

@@ -2443,22 +2443,22 @@ const struct WildPokemonInfo sSevenIslandTanobyRuins_FishingMonsInfo = { 20, sSe
 #define NUM_ENCOUTER_SPOTS  1
 #define NUM_SLOTS           12
 
-const struct RandomizerPokemon sLandMonsTable[] = 
+const struct BasePokemonRandomizer sLandMonsTable[] = 
 {
-    { MAP_NUM(ROUTE1), { SPECIES_CUBONE, SPECIES_TAILLOW, SPECIES_CUBONE, SPECIES_TAILLOW, SPECIES_CUBONE, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW } },
+    { MAP_NUM(ROUTE1), { SPECIES_BULBASAUR, SPECIES_CHARMANDER, SPECIES_SQUIRTLE, SPECIES_CHIKORITA, SPECIES_CYNDAQUIL, SPECIES_TOTODILE, SPECIES_TREECKO, SPECIES_TORCHIC, SPECIES_MUDKIP, SPECIES_RAYQUAZA, SPECIES_SENTRET, SPECIES_TAILLOW } },
 };
 
-const struct RandomizerPokemon sRockSmashMonsTable[] = 
+const struct BasePokemonRandomizer sRockSmashMonsTable[] = 
 {
     { MAP_NUM(ROCK_TUNNEL_B1F), { SPECIES_NOSEPASS, SPECIES_NOSEPASS, SPECIES_NOSEPASS, SPECIES_NOSEPASS,SPECIES_NOSEPASS, SPECIES_NOSEPASS,SPECIES_NOSEPASS, SPECIES_NOSEPASS,SPECIES_NOSEPASS, SPECIES_NOSEPASS,SPECIES_NOSEPASS, SPECIES_NOSEPASS } },
 };
 
-const struct RandomizerPokemon sWaterMonsTable[] =
+const struct BasePokemonRandomizer sWaterMonsTable[] =
 {
 
 };
 
-const struct RandomizerPokemon sFishingMonsTable[] =
+const struct BasePokemonRandomizer sFishingMonsTable[] =
 {
 
 };

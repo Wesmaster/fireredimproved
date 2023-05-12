@@ -27,6 +27,8 @@ struct WildEncounterData
     u16 leadMonHeldItem;
 };
 
+struct RandomizedPokemon sGeneratedLandMonsTable[];
+
 static EWRAM_DATA struct WildEncounterData sWildEncounterData = {};
 static EWRAM_DATA bool8 sWildEncountersDisabled = FALSE;
 
@@ -59,6 +61,30 @@ static const u8 sUnownLetterSlots[][12] = {
   //  Z   Z   Z   Z   Z   Z   Z   Z   Z   Z   Z   !
     {25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 26},
 };
+
+void GenerateWildMonData()
+{
+    u8 i, j;
+    u8 routes = sizeof(sLandMonsTable) / sizeof(struct BasePokemonRandomizer);
+    u16 species = SPECIES_NONE;
+
+    for (i = 0; i < routes; i++)
+    {
+        u8 assignedMons[NUM_SPECIES] = {0};
+        for (j = 0; j < RANDOM_WILD_COUNT; j++)
+        {
+            sGeneratedLandMonsTable[j].mapNum = sLandMonsTable[i].mapNum;
+
+            u8 counter = 0;
+            do {
+                species = sLandMonsTable[i].species[Random() % 12];
+            } while (assignedMons[species] == 1 || counter > 100);
+
+            sGeneratedLandMonsTable[j].species = species;
+            assignedMons[species] = 1; 
+        }
+    }
+}
 
 void DisableWildEncounters(bool8 state)
 {
@@ -263,17 +289,17 @@ enum
 static u16 GenerateRandomSpecies(u8 area)
 {
     u8 x;
-    const struct RandomizerPokemon *tableToPickFrom = NULL;
+    const struct RandomizedPokemon *tableToPickFrom = NULL;
     u8 tableLength = 0;
     u16 headerId;
 
     switch (area)
     {
     case WILD_AREA_LAND:
-        tableToPickFrom = sLandMonsTable;
+        tableToPickFrom = sGeneratedLandMonsTable;
         tableLength = sizeof(sLandMonsTable);
         break;
-    case WILD_AREA_WATER:
+    /*case WILD_AREA_WATER:
         tableToPickFrom = sWaterMonsTable;
         tableLength = sizeof(sWaterMonsTable);
         break;
@@ -284,7 +310,7 @@ static u16 GenerateRandomSpecies(u8 area)
     case WILD_AREA_FISHING:
         tableToPickFrom = sFishingMonsTable;
         tableLength = sizeof(sFishingMonsTable);
-        break;
+        break;*/
     }
 
     //u8 wildMonsTableSize = sizeof(tableToPickFrom) / sizeof(struct RandomizerPokemon);
