@@ -84,7 +84,7 @@ void GenerateWildMonData(void)
         {
             for (j = 0; j < wildPokemonSize; j++)
             {
-                struct WildPokemon *mutablePokemon = (struct WildPokemon*) wildPokemon[j];
+                struct WildPokemon *mutablePokemon = (struct WildPokemon*) &wildPokemon[j];
 
                 //DisableWildEncounters(TRUE);
                 //*(u16*)&(wildPokemon[0].species) = SPECIES_BULBASAUR;
