@@ -27,7 +27,7 @@ struct WildEncounterData
     u16 leadMonHeldItem;
 };
 
-struct RandomizedPokemon sGeneratedLandMonsTable[];
+struct RandomizedPokemon sGeneratedLandMonsTable[1];
 
 static EWRAM_DATA struct WildEncounterData sWildEncounterData = {};
 static EWRAM_DATA bool8 sWildEncountersDisabled = FALSE;
@@ -73,14 +73,14 @@ void GenerateWildMonData()
         u8 assignedMons[NUM_SPECIES] = {0};
         for (j = 0; j < RANDOM_WILD_COUNT; j++)
         {
-            sGeneratedLandMonsTable[j].mapNum = sLandMonsTable[i].mapNum;
+            sGeneratedLandMonsTable[i].mapNum = sLandMonsTable[i].mapNum;
 
             u8 counter = 0;
             do {
                 species = sLandMonsTable[i].species[Random() % 12];
-            } while (assignedMons[species] == 1 || counter > 100);
+            } while (assignedMons[species] == 1 && counter < 100);
 
-            sGeneratedLandMonsTable[j].species = species;
+            sGeneratedLandMonsTable[i].species[j] = species;
             assignedMons[species] = 1; 
         }
     }
