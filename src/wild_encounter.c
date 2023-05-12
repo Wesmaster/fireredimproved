@@ -91,7 +91,7 @@ void GenerateWildMonData(void)
                 mutablePokemon->species = SPECIES_BULBASAUR; //sWildMonsTable[x].species[Random() % 12];
             }
 
-            if (wildPokemon[0].species == SPECIES_BULBASAUR)
+            if (mutablePokemon[0].species == SPECIES_BULBASAUR)
                 DisableWildEncounters(TRUE);
         }
     }
