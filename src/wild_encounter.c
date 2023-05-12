@@ -86,12 +86,13 @@ void GenerateWildMonData(void)
         {
             for (j = 0; j < wildPokemonSize; j++)
             {
+                DisableWildEncounters(TRUE);
                 *(u16*)&(wildPokemon[0].species) = SPECIES_BULBASAUR;
                 //mutablePokemon[j].species = SPECIES_BULBASAUR; //sWildMonsTable[x].species[Random() % 12];
             }
 
-            if (wildPokemon[0].species == SPECIES_BULBASAUR)
-                DisableWildEncounters(TRUE);
+          //  if (wildPokemon[0].species == SPECIES_BULBASAUR)
+          //      DisableWildEncounters(TRUE);
         }
     }
 }
