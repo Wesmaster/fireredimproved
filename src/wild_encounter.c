@@ -27,7 +27,7 @@ struct WildEncounterData
     u16 leadMonHeldItem;
 };
 
-const struct RandomizedPokemon sGeneratedLandMonsTable[1];
+static struct RandomizedPokemon sGeneratedLandMonsTable[1];
 
 static EWRAM_DATA struct WildEncounterData sWildEncounterData = {};
 static EWRAM_DATA bool8 sWildEncountersDisabled = FALSE;
