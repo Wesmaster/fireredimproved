@@ -2443,9 +2443,24 @@ const struct WildPokemonInfo sSevenIslandTanobyRuins_FishingMonsInfo = { 20, sSe
 #define NUM_ENCOUTER_SPOTS  1
 #define NUM_SLOTS           12
 
-const struct RandomizerPokemon sWildMonsTable[] = 
+const struct RandomizerPokemon sLandMonsTable[] = 
 {
     { MAP_NUM(ROUTE1), { SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW, SPECIES_SENTRET, SPECIES_TAILLOW } },
+};
+
+const struct RandomizerPokemon sRockSmashMonTable[] = 
+{
+    { MAP_NUM(ROCK_TUNNEL_B1F), { SPECIES_NOSEPASS, SPECIES_NOSEPASS, SPECIES_NOSEPASS, SPECIES_NOSEPASS,SPECIES_NOSEPASS, SPECIES_NOSEPASS,SPECIES_NOSEPASS, SPECIES_NOSEPASS,SPECIES_NOSEPASS, SPECIES_NOSEPASS,SPECIES_NOSEPASS, SPECIES_NOSEPASS } },
+};
+
+const struct RandomizerPokemon sWaterMonsTable[] =
+{
+
+};
+
+const struct RandomizerPokemon sFishingMonsTable[] =
+{
+
 };
 
 const struct WildPokemon sRoute1_LandMons[] =

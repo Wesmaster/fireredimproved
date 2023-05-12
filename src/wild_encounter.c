@@ -39,6 +39,7 @@ static void ApplyCleanseTagEncounterRateMod(u32 *rate);
 static bool8 IsLeadMonHoldingCleanseTag(void);
 static u16 WildEncounterRandom(void);
 static void AddToWildEncounterRateBuff(u8 encouterRate);
+static u16 GenerateRandomSpecies(void);
 
 #include "data/wild_encounters.h"
 
@@ -58,44 +59,6 @@ static const u8 sUnownLetterSlots[][12] = {
   //  Z   Z   Z   Z   Z   Z   Z   Z   Z   Z   Z   !
     {25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 26},
 };
-
-void GenerateWildMonData(void)
-{
-    u16 i, j, x;    
-
-    for (i = 0; ; i++)
-    {
-        const struct WildPokemonHeader *wildHeader = &gWildMonHeaders[i];
-        const struct WildPokemon *wildPokemon = wildHeader->landMonsInfo->wildPokemon;
-        
-        u8 wildPokemonSize = sizeof(wildPokemon) / sizeof(struct WildPokemon);
-        u8 wildMonsTableSize = sizeof(sWildMonsTable) / sizeof(struct RandomizerPokemon);
-
-        if (wildHeader->mapGroup == MAP_GROUP(UNDEFINED))
-            break;
-
-      /*  for (x = 0; x < wildMonsTableSize; x++)
-        {
-            if (sWildMonsTable[x].mapNum == wildHeader->mapNum)
-                break;
-        }    
-*/
-        if (wildHeader->mapNum == MAP_NUM(ROUTE1))
-        {
-            for (j = 0; j < wildPokemonSize; j++)
-            {
-                struct WildPokemon *mutablePokemon = (struct WildPokemon) &wildPokemon[j];
-
-                //DisableWildEncounters(TRUE);
-                //*(u16*)&(wildPokemon[0].species) = SPECIES_BULBASAUR;
-                mutablePokemon->species = SPECIES_BULBASAUR; //sWildMonsTable[x].species[Random() % 12];
-
-                if (wildPokemon[0].species == SPECIES_BULBASAUR)
-                    DisableWildEncounters(TRUE);
-            }
-        }
-    }
-}
 
 void DisableWildEncounters(bool8 state)
 {
@@ -289,6 +252,39 @@ u8 GetUnownLetterByPersonalityLoByte(u32 personality)
     return (((personality & 0x3000000) >> 18) | ((personality & 0x30000) >> 12) | ((personality & 0x300) >> 6) | (personality & 0x3)) % 0x1C;
 }
 
+u16 GenerateRandomSpecies(u8 area)
+{
+    u8 x;
+    RandomizerPokemon tableToPickFrom;
+
+    switch (area)
+    {
+    case WILD_AREA_LAND:
+        tableToPickFrom = sLandMonsTable;
+        break;
+    case WILD_AREA_WATER:
+        tableToPickFrom = sWaterMonsTable;
+        break;
+    case WILD_AREA_ROCKS:
+        tableToPickFrom = sRockMonsTable;
+        break; 
+    case WILD_AREA_FISHING:
+        tableToPickFrom = sFishingMonsTable
+        break;
+    }
+
+    u8 wildMonsTableSize = sizeof(tableToPickFrom) / sizeof(struct RandomizerPokemon);
+    u16 headerId = GetCurrentMapWildMonHeaderId();
+
+    for (x = 0; x < wildMonsTableSize; x++)
+    {
+        if (tableToPickFrom[x].mapNum == gWildMonHeaders[headerId]->mapNum)
+            return tableToPickFrom[x].species[Random() % 12];
+    }
+
+    return SPECIES_NONE; // Should never happen
+}
+
 enum
 {
     WILD_AREA_LAND,
@@ -321,7 +317,11 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo * info, u8 area, u8
     {
         return FALSE;
     }
-    GenerateWildMon(info->wildPokemon[slot].species, level, slot);
+    u16 species = GenerateRandomSpecies(area);
+
+    if (species == SPECIES_NONE)
+        species = info->wildPokemon[slot].species;
+    GenerateWildMon(species, level, slot);
     return TRUE;
 }
 
@@ -329,8 +329,12 @@ static u16 GenerateFishingEncounter(const struct WildPokemonInfo * info, u8 rod)
 {
     u8 slot = ChooseWildMonIndex_Fishing(rod);
     u8 level = ChooseWildMonLevel(&info->wildPokemon[slot]);
-    GenerateWildMon(info->wildPokemon[slot].species, level, slot);
-    return info->wildPokemon[slot].species;
+
+    u16 species = GenerateRandomSpecies(WILD_AREA_FISHING);
+    if (species == SPECIES_NONE)
+        species = info->wildPokemon[slot].species;
+    GenerateWildMon(species, level, slot);
+    return species;
 }
 
 static bool8 DoWildEncounterRateDiceRoll(u16 a0)
