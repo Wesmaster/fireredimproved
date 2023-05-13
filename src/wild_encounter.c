@@ -86,7 +86,7 @@ void GenerateLandMonsData()
             } while (assignedMons[species] == 1 && counter < 100);
 
             sGeneratedLandMonsTable[i].species[j] = species;
-            assignedMons[(species] = 1;
+            assignedMons[species] = 1;
         }
     }
 }
