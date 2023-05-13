@@ -69,7 +69,7 @@ void GenerateLandMonsData()
 {
     u8 i, j, counter;
     u8 routes = sizeof(sLandMonsTable) / sizeof(struct BasePokemonRandomizer);
-    u16 species = SPECIES_NONE;
+    u16* species = SPECIES_NONE;
 
     for (i = 0; i < routes; i++)
     {
@@ -82,7 +82,7 @@ void GenerateLandMonsData()
             do {
                 counter++;
                 // Kijken of meer species kan opgeven dan de huidige 12, en als minder dan de random nemen met de size van array.
-                species = &sLandMonsTable[i].species[Random() % BASE_RANDOM_WILD_COUNT];
+                species = sLandMonsTable[i].species[Random() % BASE_RANDOM_WILD_COUNT];
             } while (assignedMons[species] == 1 && counter < 100);
 
             sGeneratedLandMonsTable[i].species[j] = species;
