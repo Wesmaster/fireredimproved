@@ -69,7 +69,7 @@ void GenerateLandMonsData()
 {
     u8 i, j, counter;
     u8 routes = sizeof(sLandMonsTable) / sizeof(struct BasePokemonRandomizer);
-    u16* species = SPECIES_NONE;
+    u16 species = SPECIES_NONE;
 
     for (i = 0; i < routes; i++)
     {
@@ -83,10 +83,10 @@ void GenerateLandMonsData()
                 counter++;
                 // Kijken of meer species kan opgeven dan de huidige 12, en als minder dan de random nemen met de size van array.
                 species = sLandMonsTable[i].species[Random() % BASE_RANDOM_WILD_COUNT];
-            } while (assignedMons[(int)species] == 1 && counter < 100);
+            } while (assignedMons[species] == 1 && counter < 100);
 
             sGeneratedLandMonsTable[i].species[j] = species;
-            assignedMons[(int)species] = 1;
+            assignedMons[(species] = 1;
         }
     }
 }
@@ -95,7 +95,7 @@ void GenerateWaterMonsData()
 {
     u8 i, j, counter;
     u8 routes = sizeof(sWaterMonsTable) / sizeof(struct BasePokemonRandomizer);
-    u16* species = SPECIES_NONE;
+    u16 species = SPECIES_NONE;
 
     for (i = 0; i < routes; i++)
     {
@@ -108,10 +108,10 @@ void GenerateWaterMonsData()
             do {
                 counter++;
                 species = sWaterMonsTable[i].species[Random() % BASE_RANDOM_WILD_COUNT];
-            } while (assignedMons[(int)species] == 1 && counter < 100);
+            } while (assignedMons[species] == 1 && counter < 100);
 
             sGeneratedWaterMonsTable[i].species[j] = species;
-            assignedMons[(int)species] = 1;
+            assignedMons[species] = 1;
         }
     }
 }
@@ -120,7 +120,7 @@ void GenerateFishingMonsData()
 {
     u8 i, j, counter;
     u8 routes = sizeof(sFishingMonsTable) / sizeof(struct BasePokemonRandomizer);
-    u16* species = SPECIES_NONE;
+    u16 species = SPECIES_NONE;
 
     for (i = 0; i < routes; i++)
     {
@@ -133,10 +133,10 @@ void GenerateFishingMonsData()
             do {
                 counter++;
                 species = sFishingMonsTable[i].species[Random() % BASE_RANDOM_WILD_COUNT];
-            } while (assignedMons[(int)species] == 1 && counter < 100);
+            } while (assignedMons[species] == 1 && counter < 100);
 
             sGeneratedFishingMonsTable[i].species[j] = species;
-            assignedMons[(int)species] = 1;
+            assignedMons[species] = 1;
         }
     }
 }
@@ -145,7 +145,7 @@ void GenerateRockSmashMonsData()
 {
     u8 i, j, counter;
     u8 routes = sizeof(sRockSmashMonsTable) / sizeof(struct BasePokemonRandomizer);
-    u16* species = SPECIES_NONE;
+    u16 species = SPECIES_NONE;
 
     for (i = 0; i < routes; i++)
     {
@@ -158,10 +158,10 @@ void GenerateRockSmashMonsData()
             do {
                 counter++;
                 species = sRockSmashMonsTable[i].species[Random() % BASE_RANDOM_WILD_COUNT];
-            } while (assignedMons[(int)species] == 1 && counter < 100);
+            } while (assignedMons[species] == 1 && counter < 100);
 
             sGeneratedRockSmashMonsTable[i].species[j] = species;
-            assignedMons[(int)species] = 1;
+            assignedMons[species] = 1;
         }
     }
 }
