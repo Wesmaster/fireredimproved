@@ -21,7 +21,7 @@ struct BasePokemonRandomizer
 struct RandomizedPokemon
 {
     u8 mapNum;
-    u16 species[RANDOM_WILD_COUNT];
+    u16* species[RANDOM_WILD_COUNT];
 };
 
 struct WildPokemon
