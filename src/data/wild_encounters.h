@@ -2447,10 +2447,8 @@ const u16 sForestSpecies[] = { SPECIES_CATERPIE, SPECIES_WEEDLE, SPECIES_PIDGEY,
 
 const struct BasePokemonRandomizer sLandMonsTable[] = 
 {
-    { MAP_NUM(ROUTE1), { 0 } },
+    { MAP_NUM(ROUTE1), { sForestSpecies } },
 };
-
-memcpy(sLandMonsTable[0].species, sForestSpecies, sizeof(sForestSpecies));
 
 const struct BasePokemonRandomizer sRockSmashMonsTable[] = 
 {
