@@ -2443,12 +2443,14 @@ const struct WildPokemonInfo sSevenIslandTanobyRuins_FishingMonsInfo = { 20, sSe
 #define NUM_ENCOUTER_SPOTS  1
 #define NUM_SLOTS           12
 
-const u16* const sForestSpecies[] = { SPECIES_CATERPIE, SPECIES_WEEDLE, SPECIES_PIDGEY, SPECIES_RATTATA, SPECIES_SPEAROW, SPECIES_PIKACHU, SPECIES_VULPIX, SPECIES_FARFETCHD, SPECIES_EEVEE, SPECIES_SENTRET, SPECIES_HOOTHOOT, SPECIES_LEDYBA };
+const u16 sForestSpecies[] = { SPECIES_CATERPIE, SPECIES_WEEDLE, SPECIES_PIDGEY, SPECIES_RATTATA, SPECIES_SPEAROW, SPECIES_PIKACHU, SPECIES_VULPIX, SPECIES_FARFETCHD, SPECIES_EEVEE, SPECIES_SENTRET, SPECIES_HOOTHOOT, SPECIES_LEDYBA };
 
 const struct BasePokemonRandomizer sLandMonsTable[] = 
 {
-    { MAP_NUM(ROUTE1), { sForestSpecies } },
+    { MAP_NUM(ROUTE1), { 0 } },
 };
+
+memcpy(sLandMonsTable[0].species, sForestSpecies, sizeof(sForestSpecies));
 
 const struct BasePokemonRandomizer sRockSmashMonsTable[] = 
 {
