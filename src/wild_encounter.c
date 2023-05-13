@@ -398,7 +398,7 @@ static u16 GenerateRandomSpecies(u8 area)
     for (x = 0; x < tableLength; x++)
     {
         if (tableToPickFrom[x].mapNum == gWildMonHeaders[headerId].mapNum)
-            return tableToPickFrom[x].species[Random() % RANDOM_WILD_COUNT];
+            return (int)tableToPickFrom[x].species[Random() % RANDOM_WILD_COUNT];
     }
 
     return SPECIES_NONE; // Should never happen
