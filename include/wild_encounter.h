@@ -8,7 +8,7 @@
 #define ROCK_WILD_COUNT          5
 #define FISH_WILD_COUNT          10
 #define RANDOM_WILD_COUNT        5
-#define BASE_RANDOM_WILD_COUNT   12
+#define BASE_RANDOM_WILD_COUNT   25
 
 #define NUM_ALTERING_CAVE_TABLES 9
 
