@@ -2570,17 +2570,20 @@ const struct BasePokemonRandomizer sLandMonsTable[] =
 
 const struct BasePokemonRandomizer sRockSmashMonsTable[] = 
 {
-    //{ MAP_NUM(ROCK_TUNNEL_B1F), { SPECIES_NOSEPASS, SPECIES_NOSEPASS, SPECIES_NOSEPASS, SPECIES_NOSEPASS, SPECIES_NOSEPASS, SPECIES_NOSEPASS, SPECIES_NOSEPASS, SPECIES_NOSEPASS, SPECIES_NOSEPASS, SPECIES_NOSEPASS, SPECIES_NOSEPASS, SPECIES_NOSEPASS } },
+    // Rocks
+    { MAP_NUM(ROCK_TUNNEL_1F), { SPECIES_GEODUDE } },
 };
 
 const struct BasePokemonRandomizer sWaterMonsTable[] =
 {
-
+    // Lake
+    { MAP_NUM(ROUTE4), { SPECIES_POLIWAG, SPECIES_GOLDEEN, SPECIES_MAGIKARP, } },
 };
 
 const struct BasePokemonRandomizer sFishingMonsTable[] =
 {
-
+    // Fishing
+    { MAP_NUM(ROUTE4), { SPECIES_TENTACOOL, SPECIES_GOLDEEN, SPECIES_MAGIKARP, SPECIES_DRATINI, } },
 };
 
 const struct WildPokemon sRoute1_LandMons[] =
