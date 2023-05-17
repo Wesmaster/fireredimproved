@@ -27,7 +27,7 @@ struct WildEncounterData
     u16 leadMonHeldItem;
 };
 
-static struct RandomizedPokemon sGeneratedLandMonsTable[1];
+static struct RandomizedPokemon sGeneratedLandMonsTable[10];
 static struct RandomizedPokemon sGeneratedRockSmashMonsTable[1];
 static struct RandomizedPokemon sGeneratedWaterMonsTable[1];
 static struct RandomizedPokemon sGeneratedFishingMonsTable[1];
