@@ -8,7 +8,7 @@
 #define ROCK_WILD_COUNT          5
 #define FISH_WILD_COUNT          10
 #define RANDOM_WILD_COUNT        5
-#define BASE_RANDOM_WILD_COUNT   25
+#define BASE_RANDOM_WILD_COUNT   34
 
 #define NUM_ALTERING_CAVE_TABLES 9
 
@@ -30,6 +30,7 @@
 #define TOWN   15
 #define FISHING 16
 #define SAFARI_LAKE 17
+#define ICE_CAVE 18
 
 struct MapConfiguration
 {
