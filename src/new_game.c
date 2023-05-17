@@ -150,9 +150,9 @@ void NewGameInitData(void)
     StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
     ResetTrainerTowerResults();
     GenerateLandMonsData();
-    GenerateWaterMonsData();
-    GenerateFishingMonsData();
-    GenerateRockSmashMonsData();
+    //GenerateWaterMonsData();
+    //GenerateFishingMonsData();
+    //GenerateRockSmashMonsData();
 }
 
 static void ResetMiniGamesResults(void)

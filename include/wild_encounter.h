@@ -12,10 +12,20 @@
 
 #define NUM_ALTERING_CAVE_TABLES 9
 
+#define FOREST 0
+#define FIELDS 1
+#define GARDEN 2
+
+struct MapConfiguration
+{
+    u8 group;
+    u16 species[BASE_RANDOM_WILD_COUNT];
+};
+
 struct BasePokemonRandomizer
 {
     u8 mapNum;
-    u16 species[BASE_RANDOM_WILD_COUNT];
+    u8 group;
 };
 
 struct RandomizedPokemon
