@@ -377,19 +377,19 @@ static u16 GenerateRandomSpecies(u8 area)
     {
     case WILD_AREA_LAND:
         tableToPickFrom = sGeneratedLandMonsTable;
-        tableLength = sizeof(sGeneratedLandMonsTable);
+        tableLength = sizeof(sGeneratedLandMonsTable) / sizeof(struct RandomizedPokemon);
         break;
     case WILD_AREA_WATER:
         tableToPickFrom = sGeneratedWaterMonsTable;
-        tableLength = sizeof(sGeneratedWaterMonsTable);
+        tableLength = sizeof(sGeneratedWaterMonsTable) / sizeof(struct RandomizedPokemon);
         break;
     case WILD_AREA_ROCKS:
         tableToPickFrom = sGeneratedRockSmashMonsTable;
-        tableLength = sizeof(sGeneratedRockSmashMonsTable);
+        tableLength = sizeof(sGeneratedRockSmashMonsTable) / sizeof(struct RandomizedPokemon);
         break; 
     case WILD_AREA_FISHING:
         tableToPickFrom = sGeneratedFishingMonsTable;
-        tableLength = sizeof(sGeneratedFishingMonsTable);
+        tableLength = sizeof(sGeneratedFishingMonsTable) / sizeof(struct RandomizedPokemon);
         break;
     }
 
