@@ -15,6 +15,12 @@
 #define FOREST 0
 #define FIELDS 1
 #define GARDEN 2
+#define TUNNEL 3
+#define CAVE   4
+#define BUILDING 5
+#define SAFARI 6
+#define GHOST 7
+#define SHORE 8
 
 struct MapConfiguration
 {
