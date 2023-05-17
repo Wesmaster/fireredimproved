@@ -21,6 +21,15 @@
 #define SAFARI 6
 #define GHOST 7
 #define SHORE 8
+#define ROCKS 9
+#define SEA    10
+#define LAKE   11
+#define BEACH 12
+#define VOLCANO 13
+#define CITY   14
+#define TOWN   15
+#define FISHING 16
+#define SAFARI_LAKE 17
 
 struct MapConfiguration
 {

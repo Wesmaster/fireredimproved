@@ -83,7 +83,7 @@ void GenerateLandMonsData()
                 counter++;
                 // Kijken of meer species kan opgeven dan de huidige 12, en als minder dan de random nemen met de size van array.
                 species = sConfiguration[sLandMonsTable[i].group].species[Random() % BASE_RANDOM_WILD_COUNT];
-            } while (assignedMons[species] == 1 && counter < 10);
+            } while (assignedMons[species] == 1 && counter < 100);
 
             sGeneratedLandMonsTable[i].species[j] = species;
             assignedMons[species] = 1;
@@ -107,7 +107,7 @@ void GenerateWaterMonsData()
             counter = 0;
             do {
                 counter++;
-             //   species = sWaterMonsTable[i].species[Random() % BASE_RANDOM_WILD_COUNT];
+                species = sConfiguration[sWaterMonsTable[i].group].species[Random() % BASE_RANDOM_WILD_COUNT];
             } while (assignedMons[species] == 1 && counter < 100);
 
             sGeneratedWaterMonsTable[i].species[j] = species;
@@ -132,7 +132,7 @@ void GenerateFishingMonsData()
             counter = 0;
             do {
                 counter++;
-             //   species = sFishingMonsTable[i].species[Random() % BASE_RANDOM_WILD_COUNT];
+                species = sConfiguration[sFishingMonsTable[i].group].species[Random() % BASE_RANDOM_WILD_COUNT];
             } while (assignedMons[species] == 1 && counter < 100);
 
             sGeneratedFishingMonsTable[i].species[j] = species;
@@ -157,7 +157,7 @@ void GenerateRockSmashMonsData()
             counter = 0;
             do {
                 counter++;
-             //   species = sRockSmashMonsTable[i].species[Random() % BASE_RANDOM_WILD_COUNT];
+                species = sConfiguration[sRockSmashMonsTable[i].group].species[Random() % BASE_RANDOM_WILD_COUNT];
             } while (assignedMons[species] == 1 && counter < 100);
 
             sGeneratedRockSmashMonsTable[i].species[j] = species;
