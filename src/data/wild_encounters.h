@@ -2539,7 +2539,7 @@ const struct BasePokemonRandomizer sLandMonsTable[] =
     { MAP_NUM(DIGLETTS_CAVE_B1F), CAVE },
     { MAP_NUM(MT_MOON_B1F), CAVE },
     { MAP_NUM(MT_MOON_B2F), CAVE },
-*/
+
     // Garden
     { MAP_NUM(ROUTE1), GARDEN },
     { MAP_NUM(ROUTE6), GARDEN },
