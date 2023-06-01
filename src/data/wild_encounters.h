@@ -2561,14 +2561,6 @@ const struct BasePokemonRandomizer sLandMonsTable[] =
 
     // Garden
     { MAP_NUM(ROUTE1), GARDEN },
-    { MAP_NUM(ROUTE6), GARDEN },
-    { MAP_NUM(ROUTE7), GARDEN },
-    { MAP_NUM(ROUTE8), GARDEN },
-    { MAP_NUM(ROUTE10), GARDEN },
-    { MAP_NUM(ROUTE11), GARDEN },
-    { MAP_NUM(ROUTE18), GARDEN },
-    { MAP_NUM(ROUTE21_NORTH), GARDEN },
-    { MAP_NUM(ROUTE23), GARDEN },
     { MAP_NUM(ROUTE5), GARDEN },
     { MAP_NUM(ROUTE6), GARDEN },
     { MAP_NUM(ROUTE7), GARDEN },
