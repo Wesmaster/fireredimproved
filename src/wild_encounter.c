@@ -90,6 +90,8 @@ void GenerateLandMonsData()
             assignedMons[species] = 1;
         }
     }
+
+    printf("test");
 }
 
 void GenerateWaterMonsData()
