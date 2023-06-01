@@ -74,6 +74,7 @@ void GenerateLandMonsData()
     for (i = 0; i < routes; i++)
     {
         u8 assignedMons[NUM_SPECIES] = {0};
+        u8 numberOfSpecies = sizeof(sConfiguration[sLandMonsTable[i].group].species) / sizeof(sConfiguration[sLandMonsTable[i].group].species[0]);
         for (j = 0; j < RANDOM_WILD_COUNT; j++)
         {
             sGeneratedLandMonsTable[i].mapNum = sLandMonsTable[i].mapNum;
@@ -82,7 +83,7 @@ void GenerateLandMonsData()
             do {
                 counter++;
                 // Kijken of meer species kan opgeven dan de huidige 12, en als minder dan de random nemen met de size van array.
-                species = sConfiguration[sLandMonsTable[i].group].species[Random() % BASE_RANDOM_WILD_COUNT];
+                species = sConfiguration[sLandMonsTable[i].group].species[Random() % numberOfSpecies];
             } while (assignedMons[species] == 1 && counter < 100);
 
             sGeneratedLandMonsTable[i].species[j] = species;
