@@ -79,19 +79,21 @@ void GenerateLandMonsData()
         {
             sGeneratedLandMonsTable[i].mapNum = sLandMonsTable[i].mapNum;
 
-            counter = 0;
-            do {
-                counter++;
-                // Kijken of meer species kan opgeven dan de huidige 12, en als minder dan de random nemen met de size van array.
-                species = sConfiguration[sLandMonsTable[i].group].species[Random() % numberOfSpecies];
-            } while (assignedMons[species] == 1 && counter < 100);
+            if (sLandMonsTable[i].group == SHORE)
+            {
+                species = SPECIES_MEW;
+            }else {
 
+                counter = 0;
+                do {
+                    counter++;
+                    species = sConfiguration[sLandMonsTable[i].group].species[Random() % numberOfSpecies];
+                } while (assignedMons[species] == 1 && counter < 100);
+            }
             sGeneratedLandMonsTable[i].species[j] = species;
             assignedMons[species] = 1;
         }
     }
-
-    printf("test");
 }
 
 void GenerateWaterMonsData()
