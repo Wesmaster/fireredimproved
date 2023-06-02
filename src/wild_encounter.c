@@ -16,6 +16,7 @@
 #include "constants/maps.h"
 #include "constants/abilities.h"
 #include "constants/items.h"
+#include "data.h"
 
 struct WildEncounterData
 {
@@ -94,6 +95,8 @@ void GenerateLandMonsData()
             assignedMons[species] = 1;
         }
     }
+
+    DebugPrintf("%S", gSpeciesNames[SPECIES_BULBASAUR]);
 }
 
 void GenerateWaterMonsData()
