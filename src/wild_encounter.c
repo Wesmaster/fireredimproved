@@ -416,7 +416,8 @@ static u16 GenerateRandomSpecies(u8 area)
 
     for (x = 0; x < tableLength; x++)
     {
-        if (MAP_GROUP(tableToPickFrom[x].map) == gWildMonHeaders[headerId].mapGroup && MAP_NUM(tableToPickFrom[x].map) == gWildMonHeaders[headerId].mapNum)
+        u16 map = tableToPickFrom[x].map;
+        if (MAP_GROUP(map) == gWildMonHeaders[headerId].mapGroup && MAP_NUM(map) == gWildMonHeaders[headerId].mapNum)
             return (int)tableToPickFrom[x].species[Random() % RANDOM_WILD_COUNT];
     }
 
