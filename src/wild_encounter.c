@@ -156,7 +156,7 @@ void GenerateFishingMonsData()
 
             do {
                 species = sConfiguration[sFishingMonsTable[i].group].species[Random() % numberOfSpecies];
-            } while (assignedMons[species] == 1 && counter < 100);
+            } while (assignedMons[species] == 1);
 
             sGeneratedFishingMonsTable[i].species[j] = species;
             assignedMons[species] = 1;
