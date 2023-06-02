@@ -66,10 +66,11 @@ static const u8 sUnownLetterSlots[][12] = {
     {25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 26},
 };
 
-u8 NumberOfElementsInArray(u16 array[])
+u8 NumberOfElementsInArray(u16[] array)
 {
     u8 arraySize = sizeof(array)/sizeof(array[0]);
     u8 numberOfElements = 0;
+    u8 i;
 
     for (i = 0; i < arraySize; i++)
     {
