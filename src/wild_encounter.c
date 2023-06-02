@@ -96,7 +96,7 @@ void GenerateLandMonsData()
         }
     }
 
-    DebugPrintf("test1: %d", TRUE);
+    DebugPrintf("test1: %d", ArePlayerFieldControlsLocked());
 }
 
 void GenerateWaterMonsData()
