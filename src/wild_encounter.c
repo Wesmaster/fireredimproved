@@ -112,76 +112,88 @@ void GenerateLandMonsData()
 
 void GenerateWaterMonsData()
 {
-    u8 i, j, counter;
+    u8 i, j;
     u8 routes = sizeof(sWaterMonsTable) / sizeof(struct BasePokemonRandomizer);
     u16 species = SPECIES_NONE;
 
     for (i = 0; i < routes; i++)
     {
         u8 assignedMons[NUM_SPECIES] = {0};
+        u8 numberOfSpecies = NumberOfElementsInArray(sConfiguration[sWaterMonsTable[i].group].species, BASE_RANDOM_WILD_COUNT);
+
         for (j = 0; j < RANDOM_WILD_COUNT; j++)
         {
             sGeneratedWaterMonsTable[i].map = sWaterMonsTable[i].map;
 
-            counter = 0;
             do {
-                counter++;
-                species = sConfiguration[sWaterMonsTable[i].group].species[Random() % BASE_RANDOM_WILD_COUNT];
-            } while (assignedMons[species] == 1 && counter < 100);
+                species = sConfiguration[sWaterMonsTable[i].group].species[Random() % numberOfSpecies];
+            } while (assignedMons[species] == 1);
 
             sGeneratedWaterMonsTable[i].species[j] = species;
             assignedMons[species] = 1;
         }
+
+        DebugPrintf("Route: %d", sGeneratedWaterMonsTable[i].map);
+        DebugPrintf("Number of species: %d", numberOfSpecies);
+        DebugPrintf("Choosen mons: %S %S %S %S %S", gSpeciesNames[sGeneratedWaterMonsTable[i].species[0]], gSpeciesNames[sGeneratedWaterMonsTable[i].species[1]], gSpeciesNames[sGeneratedWaterMonsTable[i].species[2]], gSpeciesNames[sGeneratedWaterMonsTable[i].species[3]], gSpeciesNames[sGeneratedWaterMonsTable[i].species[4]]);
     }
 }
 
 void GenerateFishingMonsData()
 {
-    u8 i, j, counter;
+    u8 i, j;
     u8 routes = sizeof(sFishingMonsTable) / sizeof(struct BasePokemonRandomizer);
     u16 species = SPECIES_NONE;
 
     for (i = 0; i < routes; i++)
     {
         u8 assignedMons[NUM_SPECIES] = {0};
+        u8 numberOfSpecies = NumberOfElementsInArray(sConfiguration[sFishingMonsTable[i].group].species, BASE_RANDOM_WILD_COUNT);
+
         for (j = 0; j < RANDOM_WILD_COUNT; j++)
         {
             sGeneratedFishingMonsTable[i].map = sFishingMonsTable[i].map;
 
-            counter = 0;
             do {
-                counter++;
-                species = sConfiguration[sFishingMonsTable[i].group].species[Random() % BASE_RANDOM_WILD_COUNT];
+                species = sConfiguration[sFishingMonsTable[i].group].species[Random() % numberOfSpecies];
             } while (assignedMons[species] == 1 && counter < 100);
 
             sGeneratedFishingMonsTable[i].species[j] = species;
             assignedMons[species] = 1;
         }
+
+        DebugPrintf("Route: %d", sGeneratedFishingMonsTable[i].map);
+        DebugPrintf("Number of species: %d", numberOfSpecies);
+        DebugPrintf("Choosen mons: %S %S %S %S %S", gSpeciesNames[sGeneratedFishingMonsTable[i].species[0]], gSpeciesNames[sGeneratedFishingMonsTable[i].species[1]], gSpeciesNames[sGeneratedFishingMonsTable[i].species[2]], gSpeciesNames[sGeneratedFishingMonsTable[i].species[3]], gSpeciesNames[sGeneratedFishingMonsTable[i].species[4]]);
     }
 }
 
 void GenerateRockSmashMonsData()
 {
-    u8 i, j, counter;
+    u8 i, j;
     u8 routes = sizeof(sRockSmashMonsTable) / sizeof(struct BasePokemonRandomizer);
     u16 species = SPECIES_NONE;
 
     for (i = 0; i < routes; i++)
     {
         u8 assignedMons[NUM_SPECIES] = {0};
+        u8 numberOfSpecies = NumberOfElementsInArray(sConfiguration[sRockSmashMonsTable[i].group].species, BASE_RANDOM_WILD_COUNT);
+
         for (j = 0; j < RANDOM_WILD_COUNT; j++)
         {
             sGeneratedRockSmashMonsTable[i].map = sRockSmashMonsTable[i].map;
 
-            counter = 0;
             do {
-                counter++;
-                species = sConfiguration[sRockSmashMonsTable[i].group].species[Random() % BASE_RANDOM_WILD_COUNT];
-            } while (assignedMons[species] == 1 && counter < 100);
+                species = sConfiguration[sRockSmashMonsTable[i].group].species[Random() % numberOfSpecies];
+            } while (assignedMons[species] == 1);
 
             sGeneratedRockSmashMonsTable[i].species[j] = species;
             assignedMons[species] = 1;
         }
+
+        DebugPrintf("Route: %d", sGeneratedRockSmashMonsTable[i].map);
+        DebugPrintf("Number of species: %d", numberOfSpecies);
+        DebugPrintf("Choosen mons: %S %S %S %S %S", gSpeciesNames[sGeneratedRockSmashMonsTable[i].species[0]], gSpeciesNames[sGeneratedRockSmashMonsTable[i].species[1]], gSpeciesNames[sGeneratedRockSmashMonsTable[i].species[2]], gSpeciesNames[sGeneratedRockSmashMonsTable[i].species[3]], gSpeciesNames[sGeneratedRockSmashMonsTable[i].species[4]]);
     }
 }
 
