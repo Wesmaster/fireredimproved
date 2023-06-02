@@ -151,8 +151,8 @@ void NewGameInitData(void)
     ResetTrainerTowerResults();
     GenerateLandMonsData();
     GenerateWaterMonsData();
-    GenerateFishingMonsData();
-    GenerateRockSmashMonsData();
+    //GenerateFishingMonsData();
+    //GenerateRockSmashMonsData();
 }
 
 static void ResetMiniGamesResults(void)
