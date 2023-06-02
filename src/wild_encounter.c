@@ -29,9 +29,9 @@ struct WildEncounterData
 };
 
 static struct RandomizedPokemon sGeneratedLandMonsTable[59];
-static struct RandomizedPokemon sGeneratedRockSmashMonsTable[1];
-static struct RandomizedPokemon sGeneratedWaterMonsTable[1];
-static struct RandomizedPokemon sGeneratedFishingMonsTable[1];
+static struct RandomizedPokemon sGeneratedRockSmashMonsTable[4];
+static struct RandomizedPokemon sGeneratedWaterMonsTable[30];
+static struct RandomizedPokemon sGeneratedFishingMonsTable[30];
 
 static EWRAM_DATA struct WildEncounterData sWildEncounterData = {};
 static EWRAM_DATA bool8 sWildEncountersDisabled = FALSE;
