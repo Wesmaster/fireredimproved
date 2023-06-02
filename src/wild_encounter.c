@@ -91,19 +91,15 @@ void GenerateLandMonsData()
     {
         u8 assignedMons[NUM_SPECIES] = {0};
         u8 numberOfSpecies = NumberOfElementsInArray(sConfiguration[sLandMonsTable[i].group].species, BASE_RANDOM_WILD_COUNT);
-        //u8 numberOfSpecies = sizeof(sConfiguration[sLandMonsTable[i].group].species) / sizeof(sConfiguration[sLandMonsTable[i].group].species[0]);
+
         for (j = 0; j < RANDOM_WILD_COUNT; j++)
         {
             sGeneratedLandMonsTable[i].mapNum = sLandMonsTable[i].mapNum;
 
-            if (sLandMonsTable[i].group == SHORE)
-            {
-                species = SPECIES_MEW;
-            }else {
-                do {
-                    species = sConfiguration[sLandMonsTable[i].group].species[Random() % numberOfSpecies];
-                } while (assignedMons[species] == 1);
-            }
+            do {
+                species = sConfiguration[sLandMonsTable[i].group].species[Random() % numberOfSpecies];
+            } while (assignedMons[species] == 1);
+
             sGeneratedLandMonsTable[i].species[j] = species;
             assignedMons[species] = 1;
         }
