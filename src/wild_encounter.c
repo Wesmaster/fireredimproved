@@ -94,7 +94,7 @@ void GenerateLandMonsData()
 
         for (j = 0; j < RANDOM_WILD_COUNT; j++)
         {
-            sGeneratedLandMonsTable[i].mapNum = sLandMonsTable[i].mapNum;
+            sGeneratedLandMonsTable[i].map = sLandMonsTable[i].map;
 
             do {
                 species = sConfiguration[sLandMonsTable[i].group].species[Random() % numberOfSpecies];
@@ -104,7 +104,7 @@ void GenerateLandMonsData()
             assignedMons[species] = 1;
         }
 
-        DebugPrintf("Route: %d", sGeneratedLandMonsTable[i].mapNum);
+        DebugPrintf("Route: %d", sGeneratedLandMonsTable[i].map);
         DebugPrintf("Number of species: %d", numberOfSpecies);
         DebugPrintf("Choosen mons: %S %S %S %S %S", gSpeciesNames[sGeneratedLandMonsTable[i].species[0]], gSpeciesNames[sGeneratedLandMonsTable[i].species[1]], gSpeciesNames[sGeneratedLandMonsTable[i].species[2]], gSpeciesNames[sGeneratedLandMonsTable[i].species[3]], gSpeciesNames[sGeneratedLandMonsTable[i].species[4]]);
     }
@@ -416,7 +416,7 @@ static u16 GenerateRandomSpecies(u8 area)
 
     for (x = 0; x < tableLength; x++)
     {
-        if (tableToPickFrom[x].mapNum == gWildMonHeaders[headerId].mapNum)
+        if (MAP_GROUP(tableToPickFrom[x].map) == gWildMonHeaders[headerId].mapGroup && MAP_NUM(tableToPickFrom[x].map) == gWildMonHeaders[headerId].mapNum)
             return (int)tableToPickFrom[x].species[Random() % RANDOM_WILD_COUNT];
     }
 

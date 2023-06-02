@@ -40,13 +40,13 @@ struct MapConfiguration
 
 struct BasePokemonRandomizer
 {
-    u16 mapNum;
+    u16 map;
     u8 group;
 };
 
 struct RandomizedPokemon
 {
-    u16 mapNum;
+    u16 map;
     u16 species[RANDOM_WILD_COUNT];
 };
 
