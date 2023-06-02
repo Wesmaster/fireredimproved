@@ -46,7 +46,7 @@ static bool8 IsLeadMonHoldingCleanseTag(void);
 static u16 WildEncounterRandom(void);
 static void AddToWildEncounterRateBuff(u8 encouterRate);
 static u16 GenerateRandomSpecies(u8 area);
-static u8 NumberOfElementsInArray(u16 *array);
+static u8 NumberOfElementsInArray(u16 *array, u8 arraySize);
 
 #include "data/wild_encounters.h"
 
