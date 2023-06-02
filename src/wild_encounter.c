@@ -95,7 +95,7 @@ void GenerateLandMonsData()
             assignedMons[species] = 1;
         }
 
-        DebugPrintf("Choosen mons: %s %s %s %s %s", gSpeciesNames[sGeneratedLandMonsTable[i].species[0]], gSpeciesNames[sGeneratedLandMonsTable[i].species[1]], gSpeciesNames[sGeneratedLandMonsTable[i].species[2]], gSpeciesNames[sGeneratedLandMonsTable[i].species[3]], gSpeciesNames[sGeneratedLandMonsTable[i].species[4]]);
+        DebugPrintf("Choosen mons: %S %S %S %S %S", gSpeciesNames[sGeneratedLandMonsTable[i].species[0]], gSpeciesNames[sGeneratedLandMonsTable[i].species[1]], gSpeciesNames[sGeneratedLandMonsTable[i].species[2]], gSpeciesNames[sGeneratedLandMonsTable[i].species[3]], gSpeciesNames[sGeneratedLandMonsTable[i].species[4]]);
     }
 }
 
