@@ -66,6 +66,20 @@ static const u8 sUnownLetterSlots[][12] = {
     {25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 26},
 };
 
+u8 NumberOfElementsInArray(u16 array[])
+{
+    u8 arraySize = sizeof(array)/sizeof(array[0]);
+    u8 numberOfElements = 0;
+
+    for (i = 0; i < arraySize; i++)
+    {
+        if (array[i] != NULL)
+            numberOfElements++;
+    }
+
+    return numberOfElements;
+}
+
 void GenerateLandMonsData()
 {
     u8 i, j;
@@ -75,7 +89,8 @@ void GenerateLandMonsData()
     for (i = 0; i < routes; i++)
     {
         u8 assignedMons[NUM_SPECIES] = {0};
-        u8 numberOfSpecies = sizeof(sConfiguration[sLandMonsTable[i].group].species) / sizeof(sConfiguration[sLandMonsTable[i].group].species[0]);
+        u8 numberOfSpecies = NumberOfElementsInArray(sConfiguration[sLandMonsTable[i].group].species);
+        //u8 numberOfSpecies = sizeof(sConfiguration[sLandMonsTable[i].group].species) / sizeof(sConfiguration[sLandMonsTable[i].group].species[0]);
         for (j = 0; j < RANDOM_WILD_COUNT; j++)
         {
             sGeneratedLandMonsTable[i].mapNum = sLandMonsTable[i].mapNum;
