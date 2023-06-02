@@ -32,7 +32,7 @@
 //       Some emulators or real hardware might (and is allowed to) crash if they are used.
 //       AGB_PRINT is supported on respective debug units.
 
-#define LOG_HANDLER (LOG_HANDLER_AGB_PRINT)
+#define LOG_HANDLER (LOG_HANDLER_MGBA_PRINT)
 #endif // NDEBUG
 
 // Define the game version for use elsewhere
