@@ -46,7 +46,7 @@ static bool8 IsLeadMonHoldingCleanseTag(void);
 static u16 WildEncounterRandom(void);
 static void AddToWildEncounterRateBuff(u8 encouterRate);
 static u16 GenerateRandomSpecies(u8 area);
-static u8 NumberOfElementsInArray(u16 *array, u8 arraySize);
+static u8 NumberOfElementsInArray(const u16 *array, u8 arraySize);
 
 #include "data/wild_encounters.h"
 
@@ -67,7 +67,7 @@ static const u8 sUnownLetterSlots[][12] = {
     {25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 26},
 };
 
-u8 NumberOfElementsInArray(u16 *array, u8 arraySize)
+u8 NumberOfElementsInArray(const u16 *array, u8 arraySize)
 {
     u8 numberOfElements = 0;
     u8 i;
