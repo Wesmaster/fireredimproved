@@ -96,7 +96,7 @@ void GenerateLandMonsData()
         }
     }
 
-    DebugPrintf("test1: %d", species);
+    DebugPrintf("test1:");
 }
 
 void GenerateWaterMonsData()
