@@ -96,7 +96,7 @@ void GenerateLandMonsData()
         }
     }
 
-    DebugPrintf("test1: %d", 1;
+    DebugPrintf("test1: %d", 1);
 }
 
 void GenerateWaterMonsData()
