@@ -121,7 +121,7 @@ void GenerateWaterMonsData()
         u8 assignedMons[NUM_SPECIES] = {0};
         for (j = 0; j < RANDOM_WILD_COUNT; j++)
         {
-            sGeneratedWaterMonsTable[i].mapNum = sWaterMonsTable[i].mapNum;
+            sGeneratedWaterMonsTable[i].map = sWaterMonsTable[i].map;
 
             counter = 0;
             do {
@@ -146,7 +146,7 @@ void GenerateFishingMonsData()
         u8 assignedMons[NUM_SPECIES] = {0};
         for (j = 0; j < RANDOM_WILD_COUNT; j++)
         {
-            sGeneratedFishingMonsTable[i].mapNum = sFishingMonsTable[i].mapNum;
+            sGeneratedFishingMonsTable[i].map = sFishingMonsTable[i].map;
 
             counter = 0;
             do {
@@ -171,7 +171,7 @@ void GenerateRockSmashMonsData()
         u8 assignedMons[NUM_SPECIES] = {0};
         for (j = 0; j < RANDOM_WILD_COUNT; j++)
         {
-            sGeneratedRockSmashMonsTable[i].mapNum = sRockSmashMonsTable[i].mapNum;
+            sGeneratedRockSmashMonsTable[i].map = sRockSmashMonsTable[i].map;
 
             counter = 0;
             do {
