@@ -74,7 +74,7 @@ u8 NumberOfElementsInArray(const u16 *array, u8 arraySize)
 
     for (i = 0; i < arraySize; i++)
     {
-        if (array[i] != NULL)
+        if (array[i] != 0)
             numberOfElements++;
     }
 
