@@ -2595,7 +2595,7 @@ const struct BasePokemonRandomizer sLandMonsTable[] =
     { MAP_NUM(ROUTE12), SHORE },
     { MAP_NUM(ROUTE13), SHORE },
     { MAP_NUM(ROUTE14), SHORE },
-    { MAP_ROUTE22, SHORE },
+    { MAP_NUM(ROUTE22), SHORE },
     { MAP_NUM(ROUTE24), SHORE },
     { MAP_NUM(ROUTE25), SHORE },
 };
