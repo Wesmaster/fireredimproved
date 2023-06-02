@@ -150,7 +150,6 @@ void NewGameInitData(void)
     StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
     ResetTrainerTowerResults();
     GenerateLandMonsData();
-    DebugPrintf("TESTSTRING debug 2");
     //GenerateWaterMonsData();
     //GenerateFishingMonsData();
     //GenerateRockSmashMonsData();
