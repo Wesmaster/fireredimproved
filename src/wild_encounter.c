@@ -96,7 +96,7 @@ void GenerateLandMonsData()
         }
     }
 
-    DebugPrintf("%S", gSpeciesNames[SPECIES_BULBASAUR]);
+    DebugPrintf("test1: %d", TRUE);
 }
 
 void GenerateWaterMonsData()
