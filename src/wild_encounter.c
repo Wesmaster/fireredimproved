@@ -94,13 +94,13 @@ void GenerateLandMonsData()
 
         for (j = 0; j < RANDOM_WILD_COUNT; j++)
         {
-            sGeneratedLandMonsTable[i].map = sLandMonsTable[i].map;
+            gSaveBlock1Ptr->sGeneratedLandMonsTable[i].map = sLandMonsTable[i].map;
 
             do {
                 species = sConfiguration[sLandMonsTable[i].group].species[Random() % numberOfSpecies];
             } while (assignedMons[species] == 1);
 
-            sGeneratedLandMonsTable[i].species[j] = species;
+            gSaveBlock1Ptr->sGeneratedLandMonsTable[i].species[j] = species;
             assignedMons[species] = 1;
         }
 
@@ -415,7 +415,7 @@ static u16 GenerateRandomSpecies(u8 area)
     switch (area)
     {
     case WILD_AREA_LAND:
-        tableToPickFrom = sGeneratedLandMonsTable;
+        tableToPickFrom = gSaveBlock1Ptr->sGeneratedLandMonsTable;
         tableLength = sizeof(sGeneratedLandMonsTable) / sizeof(struct RandomizedPokemon);
         break;
     case WILD_AREA_WATER:
