@@ -24,12 +24,7 @@ static void Task_DrawFieldMessageBox(u8 taskId)
     switch (task->data[0])
     {
     case 0:
-        if (gQuestLogState == QL_STATE_PLAYBACK)
-        {
-            gTextFlags.autoScroll = TRUE;
-            LoadQuestLogWindowTiles(0, 0x200);
-        }
-        else if (!IsMsgSignpost())
+        if (!IsMsgSignpost())
             LoadStdWindowFrameGfx();
         else
             LoadSignpostWindowFrameGfx();
