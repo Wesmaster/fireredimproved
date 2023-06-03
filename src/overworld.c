@@ -805,23 +805,6 @@ static void LoadMapFromWarp(bool32 unused)
     InitMap();
 }
 
-static void QL_LoadMapNormal(void)
-{
-    bool8 isOutdoors;
-
-    LoadCurrentMapData();
-    LoadObjEventTemplatesFromHeader();
-    isOutdoors = IsMapTypeOutdoors(gMapHeader.mapType);
-    TrySetMapSaveWarpStatus();
-    SetSavedWeatherFromCurrMapHeader();
-    ChooseAmbientCrySpecies();
-    SetDefaultFlashLevel();
-    sub_8110920();
-    sub_8111708();
-    LoadSaveblockMapHeader();
-    InitMap();
-}
-
 // Routines related to the initial player avatar state
 
 void ResetInitialPlayerAvatarState(void)
@@ -1388,7 +1371,6 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
 {
     struct FieldInput fieldInput;
 
-    sub_8112B3C();
     UpdatePlayerAvatarTransitionState();
     FieldClearPlayerInput(&fieldInput);
     FieldGetPlayerInput(&fieldInput, newKeys, heldKeys);
@@ -1397,8 +1379,6 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
     {
         if (ProcessPlayerFieldInput(&fieldInput) == TRUE)
         {
-            if (gQuestLogPlaybackState == 2)
-                sub_81127F8(&gInputToStoreInQuestLogMaybe);
             LockPlayerFieldControls();
             DismissMapNamePopup();
         }
@@ -1407,16 +1387,13 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
             player_step(fieldInput.dpadDirection, newKeys, heldKeys);
         }
     }
-    RunQuestLogCB();
 }
 
 static void DoCB1_Overworld_QuestLogPlayback(void)
 {
     struct FieldInput fieldInput;
 
-    sub_8112B3C();
     UpdatePlayerAvatarTransitionState();
-    sub_8111C68();
     FieldClearPlayerInput(&fieldInput);
     fieldInput = gQuestLogFieldInput;
     FieldInput_HandleCancelSignpost(&fieldInput);
@@ -1427,14 +1404,6 @@ static void DoCB1_Overworld_QuestLogPlayback(void)
             LockPlayerFieldControls();
             DismissMapNamePopup();
         }
-        else
-        {
-            RunQuestLogCB();
-        }
-    }
-    else if (QuestLogScenePlaybackIsEnding() == TRUE)
-    {
-        RunQuestLogCB();
     }
     FieldClearPlayerInput(&gQuestLogFieldInput);
 }
@@ -1443,10 +1412,7 @@ void CB1_Overworld(void)
 {
     if (gMain.callback2 == CB2_Overworld)
     {
-        if (sub_8112CAC() == 1 || gQuestLogState == QL_STATE_PLAYBACK)
-            DoCB1_Overworld_QuestLogPlayback();
-        else
-            DoCB1_Overworld(gMain.newKeys, gMain.heldKeys);
+        DoCB1_Overworld(gMain.newKeys, gMain.heldKeys);
     }
 }
 
@@ -1456,7 +1422,6 @@ static void OverworldBasic(void)
     RunTasks();
     AnimateSprites();
     CameraUpdate();
-    sub_8115798();
     UpdateCameraPanning();
     BuildOamBuffer();
     UpdatePaletteFade();
@@ -1563,16 +1528,9 @@ void CB2_LoadMap(void)
 static void CB2_LoadMap2(void)
 {
     DoMapLoadLoop(&gMain.state);
-    if (QuestLog_ShouldEndSceneOnMapChange() == TRUE)
-    {
-        QuestLog_AdvancePlayhead_();
-    }
-    else
-    {
-        SetFieldVBlankCallback();
-        SetMainCallback1(CB1_Overworld);
-        SetMainCallback2(CB2_Overworld);
-    }
+    SetFieldVBlankCallback();
+    SetMainCallback1(CB1_Overworld);
+    SetMainCallback2(CB2_Overworld);
 }
 
 void CB2_ReturnToFieldCableClub(void)
@@ -2178,148 +2136,6 @@ static void CreateLinkPlayerSprites(void)
     u16 i;
     for (i = 0; i < gFieldLinkPlayerCount; i++)
         CreateLinkPlayerSprite(i, gLinkPlayers[i].version);
-}
-
-// Quest Log
-
-void CB2_SetUpOverworldForQLPlaybackWithWarpExit(void)
-{
-    FieldClearVBlankHBlankCallbacks();
-    gGlobalFieldTintMode = QL_TINT_GRAYSCALE;
-    ScriptContext_Init();
-    UnlockPlayerFieldControls();
-    SetMainCallback1(NULL);
-    SetMainCallback2(CB2_DoChangeMap);
-    gMain.savedCallback = CB2_LoadMapForQLPlayback;
-}
-
-void CB2_SetUpOverworldForQLPlayback(void)
-{
-    FieldClearVBlankHBlankCallbacks();
-    gGlobalFieldTintMode = QL_TINT_GRAYSCALE;
-    LoadSaveblockMapHeader();
-    ScriptContext_Init();
-    UnlockPlayerFieldControls();
-    SetMainCallback1(NULL);
-    SetMainCallback2(CB2_LoadMapForQLPlayback);
-}
-
-static void CB2_LoadMapForQLPlayback(void)
-{
-    DoLoadMap_QLPlayback(&gMain.state);
-    SetFieldVBlankCallback();
-    SetMainCallback1(CB1_Overworld);
-    SetMainCallback2(CB2_Overworld);
-}
-
-static void DoLoadMap_QLPlayback(u8 *state)
-{
-    while (!LoadMap_QLPlayback(state))
-        ;
-}
-
-static bool32 LoadMap_QLPlayback(u8 *state)
-{
-    switch (*state)
-    {
-    case 0:
-        InitOverworldBgs();
-        FieldClearVBlankHBlankCallbacks();
-        QuestLog_InitPalettesBackup();
-        sub_81113E4();
-        sub_8111438();
-        if (GetQuestLogStartType() == QL_START_WARP)
-        {
-            gExitStairsMovementDisabled = FALSE;
-            LoadMapFromWarp(FALSE);
-        }
-        else
-        {
-            gExitStairsMovementDisabled = TRUE;
-            QL_LoadMapNormal();
-        }
-        (*state)++;
-        break;
-    case 1:
-        sub_8110FCC();
-        (*state)++;
-        break;
-    case 2:
-        ResumeMap(FALSE);
-        (*state)++;
-        break;
-    case 3:
-        ReloadObjectsAndRunReturnToFieldMapScript();
-        SetCameraToTrackPlayer();
-        (*state)++;
-        break;
-    case 4:
-        InitCurrentFlashLevelScanlineEffect();
-        InitOverworldGraphicsRegisters();
-        (*state)++;
-        break;
-    case 5:
-        move_tilemap_camera_to_upper_left_corner();
-        (*state)++;
-        break;
-    case 6:
-        CopyPrimaryTilesetToVram(gMapHeader.mapLayout);
-        (*state)++;
-        break;
-    case 7:
-        CopySecondaryTilesetToVram(gMapHeader.mapLayout);
-        (*state)++;
-        break;
-    case 8:
-        if (FreeTempTileDataBuffersIfPossible() != TRUE)
-        {
-            LoadMapTilesetPalettes(gMapHeader.mapLayout);
-            (*state)++;
-        }
-        break;
-    case 9:
-        DrawWholeMapView();
-        (*state)++;
-        break;
-    case 10:
-        InitTilesetAnimations();
-        sub_815A540();
-        (*state)++;
-        break;
-    default:
-        if (RunFieldCallback())
-            return TRUE;
-        break;
-    }
-    return FALSE;
-}
-
-void CB2_EnterFieldFromQuestLog(void)
-{
-    FieldClearVBlankHBlankCallbacks();
-    StopMapMusic();
-    gGlobalFieldTintMode = QL_TINT_BACKUP_GRAYSCALE;
-    ResetSafariZoneFlag_();
-    LoadSaveblockMapHeader();
-    LoadSaveblockObjEventScripts();
-    UnfreezeObjectEvents();
-    Overworld_ResetStateOnContinue();
-    InitMapFromSavedGame();
-    PlayTimeCounter_Start();
-    ScriptContext_Init();
-    gExitStairsMovementDisabled = TRUE;
-    if (UseContinueGameWarp() == TRUE)
-    {
-        ClearContinueGameWarpStatus();
-        SetWarpDestinationToContinueGameWarp();
-        WarpIntoMap();
-        SetMainCallback2(CB2_LoadMap);
-    }
-    else
-    {
-        SetMainCallback1(CB1_Overworld);
-        CB2_ReturnToField();
-    }
 }
 
 // Credits
