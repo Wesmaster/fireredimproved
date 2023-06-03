@@ -33,7 +33,6 @@
 	.include "AgbRfu_LinkManager.o"
 	.align 4
 	.include "list_menu.o"
-	.include "quest_log.o"
 	.include "party_menu.o"
 	.include "help_system.o"
 	.align 4
