@@ -3,7 +3,6 @@ CeladonCity_DepartmentStore_Roof_MapScripts::
 
 CeladonCity_DepartmentStore_Roof_EventScript_ThirstyGirl::
 	goto_if_questlog EventScript_ReleaseEnd
-	special QuestLog_CutRecording
 	lock
 	faceplayer
 	call CeladonCity_DepartmentStore_Roof_EventScript_CheckPlayerHasDrinks

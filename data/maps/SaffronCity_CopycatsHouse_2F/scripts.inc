@@ -19,7 +19,6 @@ SaffronCity_CopycatsHouse_2F_EventScript_Doll::
 
 SaffronCity_CopycatsHouse_2F_EventScript_Copycat::
 	goto_if_questlog EventScript_ReleaseEnd
-	special QuestLog_CutRecording
 	lock
 	faceplayer
 	checkitem ITEM_POKE_DOLL

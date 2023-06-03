@@ -3,7 +3,6 @@ FiveIsland_WaterLabyrinth_MapScripts::
 
 FiveIsland_WaterLabyrinth_EventScript_EggGentleman::
 	goto_if_questlog EventScript_ReleaseEnd
-	special QuestLog_CutRecording
 	lock
 	faceplayer
 	goto_if_set FLAG_GOT_TOGEPI_EGG, FiveIsland_WaterLabyrinth_EventScript_PostEggComment

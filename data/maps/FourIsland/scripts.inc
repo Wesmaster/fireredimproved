@@ -72,7 +72,6 @@ FourIsland_Movement_PlayerWatchRivalExit::
 
 FourIsland_EventScript_DaycareMan::
 	goto_if_questlog EventScript_ReleaseEnd
-	special QuestLog_CutRecording
 	lock
 	faceplayer
 	special GetDaycareMonNicknames
