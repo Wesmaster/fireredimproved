@@ -2050,7 +2050,6 @@ static void Task_RunPokemonLeagueLightingEffect(u8 taskId)
     if (!gPaletteFade.active
      && FlagGet(FLAG_TEMP_2) != FALSE
      && FlagGet(FLAG_TEMP_5) != TRUE
-     && gGlobalFieldTintMode != QL_TINT_BACKUP_GRAYSCALE
      && --data[0] == 0
     )
     {
