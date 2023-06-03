@@ -23,7 +23,6 @@
 #include "new_menu_helpers.h"
 #include "overworld.h"
 #include "party_menu.h"
-#include "quest_log.h"
 #include "region_map.h"
 #include "script.h"
 #include "strings.h"

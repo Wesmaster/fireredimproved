@@ -12,7 +12,6 @@
 #include "event_scripts.h"
 #include "script.h"
 #include "link.h"
-#include "quest_log.h"
 #include "constants/maps.h"
 #include "constants/abilities.h"
 #include "constants/items.h"

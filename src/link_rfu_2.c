@@ -6,7 +6,6 @@
 #include "link_rfu.h"
 #include "mystery_gift_menu.h"
 #include "overworld.h"
-#include "quest_log.h"
 #include "random.h"
 #include "task.h"
 #include "constants/union_room.h"

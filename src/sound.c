@@ -2,7 +2,6 @@
 #include "gba/m4a_internal.h"
 #include "gflib.h"
 #include "battle.h"
-#include "quest_log.h"
 #include "m4a.h"
 #include "constants/songs.h"
 #include "constants/sound.h"

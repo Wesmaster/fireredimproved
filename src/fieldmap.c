@@ -3,7 +3,6 @@
 #include "overworld.h"
 #include "script.h"
 #include "new_menu_helpers.h"
-#include "quest_log.h"
 #include "fieldmap.h"
 
 struct ConnectionFlags

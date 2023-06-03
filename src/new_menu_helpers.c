@@ -4,7 +4,6 @@
 #include "menu.h"
 #include "menu_helpers.h"
 #include "new_menu_helpers.h"
-#include "quest_log.h"
 #include "field_specials.h"
 #include "text_window.h"
 #include "script.h"

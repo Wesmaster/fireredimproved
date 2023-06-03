@@ -3,7 +3,6 @@
 #include "menu.h"
 #include "task.h"
 #include "script_menu.h"
-#include "quest_log.h"
 #include "new_menu_helpers.h"
 #include "event_data.h"
 #include "script.h"

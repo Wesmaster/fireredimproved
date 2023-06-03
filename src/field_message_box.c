@@ -2,7 +2,6 @@
 #include "field_message_box.h"
 #include "gflib.h"
 #include "new_menu_helpers.h"
-#include "quest_log.h"
 #include "script.h"
 #include "text_window.h"
 

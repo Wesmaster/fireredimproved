@@ -8,7 +8,6 @@
 #include "fieldmap.h"
 #include "metatile_behavior.h"
 #include "overworld.h"
-#include "quest_log.h"
 #include "script.h"
 #include "task.h"
 #include "constants/field_tasks.h"

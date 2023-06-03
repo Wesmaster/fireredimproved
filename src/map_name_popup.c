@@ -3,7 +3,6 @@
 #include "task.h"
 #include "event_data.h"
 #include "text_window.h"
-#include "quest_log.h"
 #include "region_map.h"
 #include "strings.h"
 

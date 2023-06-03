@@ -8,7 +8,6 @@
 #include "link.h"
 #include "overworld.h"
 #include "pokedex.h"
-#include "quest_log.h"
 #include "save.h"
 #include "save_location.h"
 #include "strings.h"

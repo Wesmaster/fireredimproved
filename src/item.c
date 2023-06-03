@@ -5,7 +5,6 @@
 #include "item.h"
 #include "item_use.h"
 #include "load_save.h"
-#include "quest_log.h"
 #include "strings.h"
 #include "constants/hold_effects.h"
 #include "constants/items.h"

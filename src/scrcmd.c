@@ -7,7 +7,6 @@
 #include "item.h"
 #include "overworld.h"
 #include "field_screen_effect.h"
-#include "quest_log.h"
 #include "map_preview_screen.h"
 #include "fieldmap.h"
 #include "field_weather.h"

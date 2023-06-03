@@ -14,7 +14,6 @@
 #include "new_menu_helpers.h"
 #include "overworld.h"
 #include "party_menu.h"
-#include "quest_log.h"
 #include "quest_log_player.h"
 #include "random.h"
 #include "script.h"

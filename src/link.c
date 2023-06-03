@@ -6,7 +6,6 @@
 #include "decompress.h"
 #include "save.h"
 #include "battle.h"
-#include "quest_log.h"
 #include "link_rfu.h"
 #include "librfu.h"
 #include "random.h"

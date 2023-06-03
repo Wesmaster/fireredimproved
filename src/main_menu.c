@@ -8,7 +8,6 @@
 #include "link.h"
 #include "oak_speech.h"
 #include "overworld.h"
-#include "quest_log.h"
 #include "mystery_gift_menu.h"
 #include "strings.h"
 #include "title_screen.h"
