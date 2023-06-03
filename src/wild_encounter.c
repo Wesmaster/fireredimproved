@@ -28,11 +28,6 @@ struct WildEncounterData
     u16 leadMonHeldItem;
 };
 
-static struct RandomizedPokemon sGeneratedLandMonsTable[59];
-static struct RandomizedPokemon sGeneratedRockSmashMonsTable[4];
-static struct RandomizedPokemon sGeneratedWaterMonsTable[30];
-static struct RandomizedPokemon sGeneratedFishingMonsTable[30];
-
 static EWRAM_DATA struct WildEncounterData sWildEncounterData = {};
 static EWRAM_DATA bool8 sWildEncountersDisabled = FALSE;
 
@@ -125,13 +120,13 @@ void GenerateWaterMonsData()
 
         for (j = 0; j < RANDOM_WILD_COUNT; j++)
         {
-            sGeneratedWaterMonsTable[i].map = sWaterMonsTable[i].map;
+            gSaveBlock1Ptr->sGeneratedWaterMonsTable[i].map = sWaterMonsTable[i].map;
 
             do {
                 species = sConfiguration[sWaterMonsTable[i].group].species[Random() % numberOfSpecies];
             } while (assignedMons[species] == 1);
 
-            sGeneratedWaterMonsTable[i].species[j] = species;
+            gSaveBlock1Ptr->sGeneratedWaterMonsTable[i].species[j] = species;
             assignedMons[species] = 1;
         }
 
@@ -156,13 +151,13 @@ void GenerateFishingMonsData()
 
         for (j = 0; j < RANDOM_WILD_COUNT; j++)
         {
-            sGeneratedFishingMonsTable[i].map = sFishingMonsTable[i].map;
+            gSaveBlock1Ptr->sGeneratedFishingMonsTable[i].map = sFishingMonsTable[i].map;
 
             do {
                 species = sConfiguration[sFishingMonsTable[i].group].species[Random() % numberOfSpecies];
             } while (assignedMons[species] == 1);
 
-            sGeneratedFishingMonsTable[i].species[j] = species;
+            gSaveBlock1Ptr->sGeneratedFishingMonsTable[i].species[j] = species;
             assignedMons[species] = 1;
         }
 
@@ -187,13 +182,13 @@ void GenerateRockSmashMonsData()
 
         for (j = 0; j < RANDOM_WILD_COUNT; j++)
         {
-            sGeneratedRockSmashMonsTable[i].map = sRockSmashMonsTable[i].map;
+            gSaveBlock1Ptr->sGeneratedRockSmashMonsTable[i].map = sRockSmashMonsTable[i].map;
 
             do {
                 species = sConfiguration[sRockSmashMonsTable[i].group].species[Random() % numberOfSpecies];
             } while (assignedMons[species] == 1);
 
-            sGeneratedRockSmashMonsTable[i].species[j] = species;
+            gSaveBlock1Ptr->sGeneratedRockSmashMonsTable[i].species[j] = species;
             assignedMons[species] = 1;
         }
 
@@ -419,15 +414,15 @@ static u16 GenerateRandomSpecies(u8 area)
         tableLength = sizeof(sGeneratedLandMonsTable) / sizeof(struct RandomizedPokemon);
         break;
     case WILD_AREA_WATER:
-        tableToPickFrom = sGeneratedWaterMonsTable;
+        tableToPickFrom = gSaveBlock1Ptr->sGeneratedWaterMonsTable;
         tableLength = sizeof(sGeneratedWaterMonsTable) / sizeof(struct RandomizedPokemon);
         break;
     case WILD_AREA_ROCKS:
-        tableToPickFrom = sGeneratedRockSmashMonsTable;
+        tableToPickFrom = gSaveBlock1Ptr->sGeneratedRockSmashMonsTable;
         tableLength = sizeof(sGeneratedRockSmashMonsTable) / sizeof(struct RandomizedPokemon);
         break; 
     case WILD_AREA_FISHING:
-        tableToPickFrom = sGeneratedFishingMonsTable;
+        tableToPickFrom = gSaveBlock1Ptr->sGeneratedFishingMonsTable;
         tableLength = sizeof(sGeneratedFishingMonsTable) / sizeof(struct RandomizedPokemon);
         break;
     }

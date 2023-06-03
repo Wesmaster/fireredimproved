@@ -819,6 +819,9 @@ struct SaveBlock1
     /*0x3D34*/ u32 towerChallengeId;
     /*0x3D38*/ struct TrainerTower trainerTower[NUM_TOWER_CHALLENGE_TYPES];
     struct RandomizedPokemon sGeneratedLandMonsTable[59];
+    struct RandomizedPokemon sGeneratedRockSmashMonsTable[4];
+    struct RandomizedPokemon sGeneratedWaterMonsTable[30];
+    struct RandomizedPokemon sGeneratedFishingMonsTable[30];
 }; // size: 0x3D68
 
 struct MapPosition
