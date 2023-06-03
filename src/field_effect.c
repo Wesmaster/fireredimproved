@@ -448,7 +448,6 @@ void ApplyGlobalFieldPaletteTint(u8 paletteIdx)
         TintPalette_SepiaTone(&gPlttBufferUnfaded[(paletteIdx + 16) * 16], 0x10);
         break;
     case 3:
-        QuestLog_BackUpPalette((paletteIdx + 16) * 16, 0x10);
         TintPalette_GrayScale(&gPlttBufferUnfaded[(paletteIdx + 16) * 16], 0x10);
         break;
     default:
@@ -1155,7 +1154,6 @@ void FieldCB_FallWarpExit(void)
 {
     Overworld_PlaySpecialMapMusic();
     WarpFadeInScreen();
-    QuestLog_DrawPreviouslyOnQuestHeaderIfInPlaybackMode();
     LockPlayerFieldControls();
     FreezeObjectEvents();
     CreateTask(Task_FallWarpFieldEffect, 0);
@@ -1339,7 +1337,6 @@ static bool8 EscalatorWarpEffect_1(struct Task *task)
     FreezeObjectEvents();
     CameraObjectReset2();
     StartEscalator(task->data[1]);
-    QuestLog_OnEscalatorWarp(QL_ESCALATOR_OUT);
     task->data[0]++;
     return FALSE;
 }
@@ -1580,7 +1577,6 @@ static bool8 EscalatorWarpInEffect_7(struct Task *task)
         UnfreezeObjectEvents();
         ObjectEventSetHeldMovement(objectEvent, GetWalkNormalMovementAction(DIR_EAST));
         DestroyTask(FindTaskIdByFunc(Task_EscalatorWarpInFieldEffect));
-        QuestLog_OnEscalatorWarp(QL_ESCALATOR_IN);
     }
     return FALSE;
 }
@@ -3078,8 +3074,6 @@ static void (*const sUseVsSeekerEffectFuncs[])(struct Task *task) = {
 
 u32 FldEff_UseVsSeeker(void)
 {
-    if (gQuestLogState == QL_STATE_RECORDING)
-        QuestLogRecordPlayerAvatarGfxTransitionWithDuration(8, 89);
     CreateTask(Task_FldEffUseVsSeeker, 0xFF);
     return 0;
 }
