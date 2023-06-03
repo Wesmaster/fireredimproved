@@ -44,12 +44,6 @@ struct BasePokemonRandomizer
     u8 group;
 };
 
-struct RandomizedPokemon
-{
-    u16 map;
-    u16 species[RANDOM_WILD_COUNT];
-};
-
 struct WildPokemon
 {
     u8 minLevel;

@@ -746,6 +746,12 @@ struct ExternalEventFlags
 
 } __attribute__((packed));/*size = 0x15*/
 
+struct RandomizedPokemon
+{
+    u16 map;
+    u16 species[RANDOM_WILD_COUNT];
+};
+
 struct SaveBlock1
 {
     /*0x0000*/ struct Coords16 pos;
