@@ -32,7 +32,6 @@
 #include "new_menu_helpers.h"
 #include "overworld.h"
 #include "play_time.h"
-#include "quest_log_objects.h"
 #include "random.h"
 #include "renewable_hidden_items.h"
 #include "roamer.h"
