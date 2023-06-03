@@ -746,6 +746,9 @@ struct ExternalEventFlags
 
 } __attribute__((packed));/*size = 0x15*/
 
+
+#define RANDOM_WILD_COUNT        5
+
 struct RandomizedPokemon
 {
     u16 map;
