@@ -463,6 +463,9 @@ bool8 TryRunOnFrameMapScript(void)
 {
     u8 *ptr;
 
+    if (gQuestLogState == QL_STATE_PLAYBACK_LAST)
+        return FALSE;
+
     ptr = MapHeaderCheckScriptTable(MAP_SCRIPT_ON_FRAME_TABLE);
 
     if (!ptr)
