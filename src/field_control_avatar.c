@@ -1084,6 +1084,7 @@ void HandleBoulderActivateVictoryRoadSwitch(u16 x, u16 y)
         {
             if (events[i].x + MAP_OFFSET == x && events[i].y + MAP_OFFSET == y)
             {
+                QuestLog_CutRecording();
                 ScriptContext_SetupScript(events[i].script);
                 LockPlayerFieldControls();
             }

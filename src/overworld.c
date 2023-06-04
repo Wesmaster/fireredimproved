@@ -1545,6 +1545,7 @@ void CB2_WhiteOut(void)
         gFieldCallback = FieldCB_RushInjuredPokemonToCenter;
         val = 0;
         DoMapLoadLoop(&val);
+        QuestLog_CutRecording();
         SetFieldVBlankCallback();
         SetMainCallback1(CB1_Overworld);
         SetMainCallback2(CB2_Overworld);
@@ -1842,6 +1843,7 @@ static bool32 LoadMapInStepsLocal(u8 *state, bool32 inLink)
         (*state)++;
         break;
     case 1:
+        QuestLog_InitPalettesBackup();
         (*state)++;
         break;
     case 2:
@@ -1849,11 +1851,18 @@ static bool32 LoadMapInStepsLocal(u8 *state, bool32 inLink)
         (*state)++;
         break;
     case 3:
+        if (QuestLog_ShouldEndSceneOnMapChange() == TRUE)
+            return TRUE;
         (*state)++;
         break;
     case 4:
         InitObjectEventsLocal();
         SetCameraToTrackPlayer();
+        if (gQuestLogState != QL_STATE_PLAYBACK)
+        {
+            QuestLog_CheckDepartingIndoorsMap();
+            QuestLog_TryRecordDepartedLocation();
+        }
         SetHelpContextForMap();
         (*state)++;
         break;
@@ -1917,6 +1926,7 @@ static bool32 ReturnToFieldLocal(u8 *state)
     {
     case 0:
         InitOverworldBgs();
+        QuestLog_InitPalettesBackup();
         ResumeMap(FALSE);
         ReloadObjectsAndRunReturnToFieldMapScript();
         SetCameraToTrackPlayer();
@@ -1950,6 +1960,7 @@ static bool32 ReturnToFieldLink(u8 *state)
         (*state)++;
         break;
     case 1:
+        QuestLog_InitPalettesBackup();
         ResumeMap(TRUE);
         (*state)++;
         break;

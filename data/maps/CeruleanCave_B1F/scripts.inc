@@ -23,6 +23,7 @@ CeruleanCave_B1F_EventScript_ShowMewtwo::
 
 CeruleanCave_B1F_EventScript_Mewtwo::
 	goto_if_questlog EventScript_ReleaseEnd
+	special QuestLog_CutRecording
 	lock
 	faceplayer
 	waitse

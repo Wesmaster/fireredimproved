@@ -180,6 +180,7 @@ u8 GetLeadMonFriendship(void)
 
 void ShowTownMap(void)
 {
+    QuestLog_CutRecording();
     InitRegionMapWithExitCB(REGIONMAP_TYPE_WALL, CB2_ReturnToFieldContinueScriptPlayMapMusic);
 }
 
@@ -1839,6 +1840,97 @@ u8 GetMartClerkObjectId(void)
     return 1;
 }
 
+void SetUsedPkmnCenterQuestLogEvent(void)
+{
+    SetQuestLogEvent(QL_EVENT_USED_PKMN_CENTER, NULL);
+}
+
+void QuestLog_CheckDepartingIndoorsMap(void)
+{
+    u8 i;
+    for (i = 0; i < NELEMS(sInsideOutsidePairs); i++)
+    {
+        if (gSaveBlock1Ptr->location.mapGroup == sInsideOutsidePairs[i].inside_grp && gSaveBlock1Ptr->location.mapNum == sInsideOutsidePairs[i].inside_num)
+        {
+            if (VarGet(VAR_QL_ENTRANCE) != QL_LOCATION_ROCKET_HIDEOUT || i != QL_LOCATION_GAME_CORNER)
+            {
+                VarSet(VAR_QL_ENTRANCE, i);
+                FlagSet(FLAG_SYS_QL_DEPARTED);
+            }
+            break;
+        }
+    }
+}
+
+struct QuestLogDepartedData {
+    u8 map_section_id;
+    u8 entrance_id;
+};
+
+void QuestLog_TryRecordDepartedLocation(void)
+{
+    s16 x, y;
+    struct QuestLogDepartedData event_buffer;
+    u16 ql_entrance_id = VarGet(VAR_QL_ENTRANCE);
+    event_buffer.map_section_id = 0;
+    event_buffer.entrance_id = 0;
+    if (FlagGet(FLAG_SYS_QL_DEPARTED))
+    {
+        if (ql_entrance_id == QL_LOCATION_VIRIDIAN_FOREST_1)
+        {
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE2_VIRIDIAN_FOREST_SOUTH_ENTRANCE) && (gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE2_VIRIDIAN_FOREST_SOUTH_ENTRANCE) || gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE2_VIRIDIAN_FOREST_NORTH_ENTRANCE)))
+            {
+                event_buffer.map_section_id = MAPSEC_ROUTE_2;
+                if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE2_VIRIDIAN_FOREST_SOUTH_ENTRANCE))
+                    event_buffer.entrance_id = ql_entrance_id;
+                else
+                    event_buffer.entrance_id = ql_entrance_id + 1;
+                SetQuestLogEvent(QL_EVENT_DEPARTED, (void *)&event_buffer);
+                FlagClear(FLAG_SYS_QL_DEPARTED);
+                return;
+            }
+        }
+        else if (ql_entrance_id == QL_LOCATION_LEAGUE_GATE_1)
+        {
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE22) && (gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE22) || gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE23)))
+            {
+                event_buffer.map_section_id = Overworld_GetMapHeaderByGroupAndId(sInsideOutsidePairs[ql_entrance_id].inside_grp, sInsideOutsidePairs[ql_entrance_id].inside_num)->regionMapSectionId;
+                if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE22))
+                    event_buffer.entrance_id = ql_entrance_id;
+                else
+                    event_buffer.entrance_id = ql_entrance_id + 1;
+                SetQuestLogEvent(QL_EVENT_DEPARTED, (void *)&event_buffer);
+                FlagClear(FLAG_SYS_QL_DEPARTED);
+                return;
+            }
+        }
+        if (gSaveBlock1Ptr->location.mapGroup == sInsideOutsidePairs[ql_entrance_id].outside_grp && gSaveBlock1Ptr->location.mapNum == sInsideOutsidePairs[ql_entrance_id].outside_num)
+        {
+            event_buffer.map_section_id = Overworld_GetMapHeaderByGroupAndId(sInsideOutsidePairs[ql_entrance_id].inside_grp, sInsideOutsidePairs[ql_entrance_id].inside_num)->regionMapSectionId;
+            event_buffer.entrance_id = ql_entrance_id;
+            if (ql_entrance_id == QL_LOCATION_ROCK_TUNNEL_1)
+            {
+                PlayerGetDestCoords(&x, &y);
+                if (x != 15 || y != 26)
+                    event_buffer.entrance_id++;
+            }
+            else if (ql_entrance_id == QL_LOCATION_SEAFOAM_ISLANDS_1)
+            {
+                PlayerGetDestCoords(&x, &y);
+                if (x != 67 || y != 15)
+                    event_buffer.entrance_id++;
+            }
+            SetQuestLogEvent(QL_EVENT_DEPARTED, (void *)&event_buffer);
+            FlagClear(FLAG_SYS_QL_DEPARTED);
+            if (ql_entrance_id == QL_LOCATION_ROCKET_HIDEOUT)
+            {
+                VarSet(VAR_QL_ENTRANCE, QL_LOCATION_GAME_CORNER);
+                FlagSet(FLAG_SYS_QL_DEPARTED);
+            }
+        }
+    }
+}
+
 u16 GetMysteryGiftCardStat(void)
 {
     switch (gSpecialVar_Result)
@@ -2372,11 +2464,14 @@ void BrailleCursorToggle(void)
     // 8005 = y
     // 8006 = action (0 = create, 1 = delete)
     u16 x;
-    x = gSpecialVar_0x8004 + 27;
-    if (gSpecialVar_0x8006 == 0)
-        sBrailleTextCursorSpriteID = CreateTextCursorSprite(0, x, gSpecialVar_0x8005, 0, 0);
-    else
-        DestroyTextCursorSprite(sBrailleTextCursorSpriteID);
+    if (gQuestLogState != QL_STATE_PLAYBACK)
+    {
+        x = gSpecialVar_0x8004 + 27;
+        if (gSpecialVar_0x8006 == 0)
+            sBrailleTextCursorSpriteID = CreateTextCursorSprite(0, x, gSpecialVar_0x8005, 0, 0);
+        else
+            DestroyTextCursorSprite(sBrailleTextCursorSpriteID);
+    }
 }
 
 bool8 PlayerPartyContainsSpeciesWithPlayerID(void)
