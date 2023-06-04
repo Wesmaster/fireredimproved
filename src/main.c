@@ -14,6 +14,7 @@
 #include "battle_controllers.h"
 #include "scanline_effect.h"
 #include "save_failed_screen.h"
+#include "quest_log.h"
 
 extern u32 intr_main[];
 

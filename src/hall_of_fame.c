@@ -8,6 +8,7 @@
 #include "m4a.h"
 #include "help_system.h"
 #include "hall_of_fame.h"
+#include "quest_log.h"
 #include "pc_screen_effect.h"
 #include "new_menu_helpers.h"
 #include "strings.h"

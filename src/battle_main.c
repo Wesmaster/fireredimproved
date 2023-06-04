@@ -24,6 +24,7 @@
 #include "party_menu.h"
 #include "pokeball.h"
 #include "pokedex.h"
+#include "quest_log.h"
 #include "random.h"
 #include "roamer.h"
 #include "safari_zone.h"

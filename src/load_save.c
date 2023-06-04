@@ -9,6 +9,7 @@
 #include "save_location.h"
 #include "berry_powder.h"
 #include "overworld.h"
+#include "quest_log.h"
 
 #define SAVEBLOCK_MOVE_RANGE    128
 

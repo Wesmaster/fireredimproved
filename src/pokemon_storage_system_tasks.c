@@ -16,6 +16,7 @@
 #include "pokemon_icon.h"
 #include "pokemon_storage_system_internal.h"
 #include "pokemon_summary_screen.h"
+#include "quest_log.h"
 #include "strings.h"
 #include "task.h"
 #include "text_window.h"

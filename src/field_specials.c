@@ -1,5 +1,6 @@
 #include "global.h"
 #include "gflib.h"
+#include "quest_log.h"
 #include "list_menu.h"
 #include "diploma.h"
 #include "script.h"

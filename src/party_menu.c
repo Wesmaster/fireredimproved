@@ -43,6 +43,7 @@
 #include "pokemon_jump.h"
 #include "pokemon_special_anim.h"
 #include "pokemon_summary_screen.h"
+#include "quest_log.h"
 #include "region_map.h"
 #include "reshow_battle_screen.h"
 #include "scanline_effect.h"

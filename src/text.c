@@ -1,6 +1,7 @@
 #include "global.h"
 #include "gflib.h"
 #include "m4a.h"
+#include "quest_log.h"
 #include "graphics.h"
 #include "dynamic_placeholder_text_util.h"
 #include "constants/songs.h"

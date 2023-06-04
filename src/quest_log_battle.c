@@ -4,6 +4,7 @@
 #include "battle_anim.h"
 #include "link.h"
 #include "overworld.h"
+#include "quest_log.h"
 #include "constants/trainers.h"
 
 struct QuestLogStruct_TrainerBattleRecord

@@ -10,6 +10,7 @@
 #include "fieldmap.h"
 #include "metatile_behavior.h"
 #include "overworld.h"
+#include "quest_log.h"
 #include "random.h"
 #include "script.h"
 #include "trainer_see.h"

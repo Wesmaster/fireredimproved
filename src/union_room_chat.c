@@ -7,6 +7,7 @@
 #include "load_save.h"
 #include "menu.h"
 #include "overworld.h"
+#include "quest_log.h"
 #include "save.h"
 #include "scanline_effect.h"
 #include "strings.h"

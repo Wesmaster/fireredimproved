@@ -6,6 +6,7 @@
 #include "event_object_movement.h"
 #include "field_effect.h"
 #include "field_effect_helpers.h"
+#include "quest_log.h"
 #include "quest_log_player.h"
 
 static void QL_GfxTransition_Normal(void);

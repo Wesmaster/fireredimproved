@@ -2,6 +2,7 @@
 #include "event_data.h"
 #include "load_save.h"
 #include "menu.h"
+#include "quest_log.h"
 #include "script_menu.h"
 #include "string_util.h"
 #include "strings.h"

@@ -18,6 +18,7 @@
 #include "metatile_behavior.h"
 #include "overworld.h"
 #include "renewable_hidden_items.h"
+#include "quest_log.h"
 #include "safari_zone.h"
 #include "script.h"
 #include "start_menu.h"

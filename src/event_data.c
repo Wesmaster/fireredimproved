@@ -1,6 +1,7 @@
 #include "global.h"
 #include "event_data.h"
 #include "item_menu.h"
+#include "quest_log.h"
 
 static bool8 IsFlagOrVarStoredInQuestLog(u16 idx, u8 a1);
 

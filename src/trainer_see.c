@@ -3,6 +3,7 @@
 #include "event_object_movement.h"
 #include "field_effect.h"
 #include "field_player_avatar.h"
+#include "quest_log.h"
 #include "script.h"
 #include "task.h"
 #include "util.h"

@@ -8,6 +8,7 @@
 #include "menu_helpers.h"
 #include "item.h"
 #include "link.h"
+#include "quest_log.h"
 #include "party_menu.h"
 #include "pokemon_storage_system.h"
 #include "region_map.h"

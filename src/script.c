@@ -1,6 +1,7 @@
 #include "global.h"
 #include "script.h"
 #include "event_data.h"
+#include "quest_log.h"
 #include "mystery_gift.h"
 #include "constants/maps.h"
 #include "constants/map_scripts.h"

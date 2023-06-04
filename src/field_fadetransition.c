@@ -11,6 +11,7 @@
 #include "cable_club.h"
 #include "fieldmap.h"
 #include "metatile_behavior.h"
+#include "quest_log.h"
 #include "link.h"
 #include "event_object_movement.h"
 #include "field_door.h"

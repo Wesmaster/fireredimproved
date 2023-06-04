@@ -1,4 +1,5 @@
 #include "global.h"
+#include "quest_log.h"
 #include "fieldmap.h"
 #include "field_player_avatar.h"
 #include "metatile_behavior.h"

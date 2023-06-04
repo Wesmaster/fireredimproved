@@ -26,6 +26,7 @@
 #include "overworld.h"
 #include "party_menu.h"
 #include "pokemon_jump.h"
+#include "quest_log.h"
 #include "random.h"
 #include "save_location.h"
 #include "script.h"

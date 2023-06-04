@@ -18,6 +18,7 @@
 #include "overworld.h"
 #include "party_menu.h"
 #include "pokemon_storage_system.h"
+#include "quest_log.h"
 #include "script.h"
 #include "special_field_anim.h"
 #include "task.h"
