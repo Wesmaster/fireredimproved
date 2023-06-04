@@ -1455,6 +1455,7 @@ static void FieldCB_EscalatorWarpIn(void)
 {
     Overworld_PlaySpecialMapMusic();
     WarpFadeInScreen();
+    QuestLog_DrawPreviouslyOnQuestHeaderIfInPlaybackMode();
     LockPlayerFieldControls();
     FreezeObjectEvents();
     CreateTask(Task_EscalatorWarpInFieldEffect, 0);
