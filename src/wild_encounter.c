@@ -82,6 +82,7 @@ void GenerateLandMonsData()
     u8 routes = sizeof(sLandMonsTable) / sizeof(struct BasePokemonRandomizer);
     u16 species = SPECIES_NONE;
 
+    u8 assignedMonsAllRoutes[NUM_SPECIES] = {0};
     for (i = 0; i < routes; i++)
     {
         u8 assignedMons[NUM_SPECIES] = {0};
@@ -91,12 +92,18 @@ void GenerateLandMonsData()
         {
             gSaveBlock1Ptr->sGeneratedLandMonsTable[i].map = sLandMonsTable[i].map;
 
+            u8 moreUniqueMonsCounter = 0;
             do {
                 species = sConfiguration[sLandMonsTable[i].group].species[Random() % numberOfSpecies];
-            } while (assignedMons[species] == 1);
+                if (assignedMonsAllRoutes[species] == 1)
+                {
+                    moreUniqueMonsCounter++;
+                }
+            } while (assignedMons[species] == 1 || (moreUniqueMonsCounter > 0 && moreUniqueMonsCounter <= 3);
 
             gSaveBlock1Ptr->sGeneratedLandMonsTable[i].species[j] = species;
             assignedMons[species] = 1;
+            assignedMonsAllRoutes[species] = 1;
         }
 
     /* 
