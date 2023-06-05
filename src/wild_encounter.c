@@ -100,7 +100,7 @@ void GenerateLandMonsData()
                 {
                     moreUniqueMonsCounter++;
                 }
-            } while (assignedMons[species] == 1 || (moreUniqueMonsCounter > 0 && moreUniqueMonsCounter <= 3);
+            } while (assignedMons[species] == 1 || (moreUniqueMonsCounter > 0 && moreUniqueMonsCounter <= 3))
 
             gSaveBlock1Ptr->sGeneratedLandMonsTable[i].species[j] = species;
             assignedMons[species] = 1;
