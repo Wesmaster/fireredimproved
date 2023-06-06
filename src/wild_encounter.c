@@ -120,7 +120,9 @@ void GenerateWaterMonsData()
     u8 i, j;
     u8 routes = sizeof(sWaterMonsTable) / sizeof(struct BasePokemonRandomizer);
     u16 species = SPECIES_NONE;
+    u8 moreUniqueMonsCounter;
 
+    u8 assignedMonsAllRoutes[NUM_SPECIES] = {0};
     for (i = 0; i < routes; i++)
     {
         u8 assignedMons[NUM_SPECIES] = {0};
@@ -130,9 +132,14 @@ void GenerateWaterMonsData()
         {
             gSaveBlock1Ptr->sGeneratedWaterMonsTable[i].map = sWaterMonsTable[i].map;
 
+            moreUniqueMonsCounter = 0;
             do {
                 species = sConfiguration[sWaterMonsTable[i].group].species[Random() % numberOfSpecies];
-            } while (assignedMons[species] == 1);
+                if (assignedMonsAllRoutes[species] == 1)
+                {
+                    moreUniqueMonsCounter++;
+                }
+            } while (assignedMons[species] == 1 || (moreUniqueMonsCounter > 0 && moreUniqueMonsCounter <= 3));
 
             gSaveBlock1Ptr->sGeneratedWaterMonsTable[i].species[j] = species;
             assignedMons[species] = 1;
@@ -151,7 +158,9 @@ void GenerateFishingMonsData()
     u8 i, j;
     u8 routes = sizeof(sFishingMonsTable) / sizeof(struct BasePokemonRandomizer);
     u16 species = SPECIES_NONE;
+    u8 moreUniqueMonsCounter;
 
+    u8 assignedMonsAllRoutes[NUM_SPECIES] = {0};
     for (i = 0; i < routes; i++)
     {
         u8 assignedMons[NUM_SPECIES] = {0};
@@ -161,9 +170,14 @@ void GenerateFishingMonsData()
         {
             gSaveBlock1Ptr->sGeneratedFishingMonsTable[i].map = sFishingMonsTable[i].map;
 
+            moreUniqueMonsCounter = 0;
             do {
                 species = sConfiguration[sFishingMonsTable[i].group].species[Random() % numberOfSpecies];
-            } while (assignedMons[species] == 1);
+                if (assignedMonsAllRoutes[species] == 1)
+                {
+                    moreUniqueMonsCounter++;
+                }
+            } while (assignedMons[species] == 1 || (moreUniqueMonsCounter > 0 && moreUniqueMonsCounter <= 3));
 
             gSaveBlock1Ptr->sGeneratedFishingMonsTable[i].species[j] = species;
             assignedMons[species] = 1;
@@ -182,7 +196,9 @@ void GenerateRockSmashMonsData()
     u8 i, j;
     u8 routes = sizeof(sRockSmashMonsTable) / sizeof(struct BasePokemonRandomizer);
     u16 species = SPECIES_NONE;
+    u8 moreUniqueMonsCounter;
 
+    u8 assignedMonsAllRoutes[NUM_SPECIES] = {0};
     for (i = 0; i < routes; i++)
     {
         u8 assignedMons[NUM_SPECIES] = {0};
@@ -192,9 +208,14 @@ void GenerateRockSmashMonsData()
         {
             gSaveBlock1Ptr->sGeneratedRockSmashMonsTable[i].map = sRockSmashMonsTable[i].map;
 
+            moreUniqueMonsCounter = 0;
             do {
                 species = sConfiguration[sRockSmashMonsTable[i].group].species[Random() % numberOfSpecies];
-            } while (assignedMons[species] == 1);
+                if (assignedMonsAllRoutes[species] == 1)
+                {
+                    moreUniqueMonsCounter++;
+                }
+            } while (assignedMons[species] == 1 || (moreUniqueMonsCounter > 0 && moreUniqueMonsCounter <= 3));
 
             gSaveBlock1Ptr->sGeneratedRockSmashMonsTable[i].species[j] = species;
             assignedMons[species] = 1;
