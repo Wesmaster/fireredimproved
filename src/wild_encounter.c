@@ -108,9 +108,9 @@ void GenerateLandMonsData()
         }
 
      
-        DebugPrintf("Route: %d", sGeneratedLandMonsTable[i].map);
+        DebugPrintf("Route: %d", gSaveBlock1Ptr->sGeneratedLandMonsTable[i].map);
         DebugPrintf("Number of species: %d", numberOfSpecies);
-        DebugPrintf("Choosen mons: %S %S %S %S %S", gSpeciesNames[sGeneratedLandMonsTable[i].species[0]], gSpeciesNames[sGeneratedLandMonsTable[i].species[1]], gSpeciesNames[sGeneratedLandMonsTable[i].species[2]], gSpeciesNames[sGeneratedLandMonsTable[i].species[3]], gSpeciesNames[sGeneratedLandMonsTable[i].species[4]]);
+        DebugPrintf("Choosen mons: %S %S %S %S %S", gSpeciesNames[gSaveBlock1Ptr->sGeneratedLandMonsTable[i].species[0]], gSpeciesNames[gSaveBlock1Ptr->sGeneratedLandMonsTable[i].species[1]], gSpeciesNames[gSaveBlock1Ptr->sGeneratedLandMonsTable[i].species[2]], gSpeciesNames[gSaveBlock1Ptr->sGeneratedLandMonsTable[i].species[3]], gSpeciesNames[gSaveBlock1Ptr->sGeneratedLandMonsTable[i].species[4]]);
     
     }
 }
