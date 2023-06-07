@@ -685,8 +685,6 @@ static void Task_OakSpeech_ShowGenderOptions(u8 taskId)
         sOakSpeechResources->textColor[1] = 2;
         sOakSpeechResources->textColor[2] = 3;
         AddTextPrinterParameterized3(gTasks[taskId].tMenuWindowId, FONT_NORMAL, 8, 1, sOakSpeechResources->textColor, 0, gText_Girl);
-        LoadTrainerPic(FEMALE_PLAYER_PIC, 0);
-        gSaveBlock2Ptr->playerGender = FEMALE;
         sOakSpeechResources->textColor[0] = 1;
         sOakSpeechResources->textColor[1] = 2;
         sOakSpeechResources->textColor[2] = 3;
@@ -709,18 +707,7 @@ static void Task_OakSpeech_HandleGenderInput(u8 taskId)
         gSaveBlock2Ptr->playerGender = MALE;
         break;
     case MENU_B_PRESSED:
-        return;
     case MENU_NOTHING_CHOSEN:
-        if (gSaveBlock2Ptr->playerGender == FEMALE)
-        {
-            LoadTrainerPic(MALE_PLAYER_PIC, 0);
-            gSaveBlock2Ptr->playerGender = MALE;
-        }
-        else
-        {
-            LoadTrainerPic(FEMALE_PLAYER_PIC, 0);
-            gSaveBlock2Ptr->playerGender = FEMALE;
-        }
         return;
     }
     gTasks[taskId].func = Task_OakSpeech_ClearGenderWindows;
