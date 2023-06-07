@@ -540,7 +540,7 @@ PalletTown_ProfessorOaksLab_EventScript_ProfOak::
 PalletTown_ProfessorOaksLab_EventScript_ChangeStarterRegion::
 	message PalletTown_ProfessorOaksLab_Text_OakChooseRegion
 	waitmessage
-	multichoice 0, 0, MULTICHOICE_STARTER_REGION, FALSE
+	multichoice 0, 0, MULTICHOICE_STARTER_REGION, TRUE
 	switch VAR_RESULT
 	case 0, PalletTown_ProfessorOaksLab_EventScript_SetStarterKanto
 	case 1, PalletTown_ProfessorOaksLab_EventScript_SetStarterJohto
