@@ -535,7 +535,7 @@ static const struct MenuAction sMultichoiceList_SecondNurseNature_Defense[] = {
     { gText_NoThanks }
 };
 
-static const struct MenuAction sMultichoiceList_SecondNurseNature_SpAttack[] = {
+static const struct MenuAction sMultichoiceList_SecondNurseNature_Speed[] = {
     { gText_Nature_Timid },
     { gText_Nature_Hasty },
     { gText_Nature_Serious },
@@ -544,7 +544,7 @@ static const struct MenuAction sMultichoiceList_SecondNurseNature_SpAttack[] = {
     { gText_NoThanks }
 };
 
-static const struct MenuAction sMultichoiceList_SecondNurseNature_SpDefense[] = {
+static const struct MenuAction sMultichoiceList_SecondNurseNature_SpAttack[] = {
     { gText_Nature_Modest },
     { gText_Nature_Mild },
     { gText_Nature_Quiet },
@@ -553,7 +553,7 @@ static const struct MenuAction sMultichoiceList_SecondNurseNature_SpDefense[] = 
     { gText_NoThanks }
 };
 
-static const struct MenuAction sMultichoiceList_SecondNurseNature_Speed[] = {
+static const struct MenuAction sMultichoiceList_SecondNurseNature_SpDefense[] = {
     { gText_Nature_Calm },
     { gText_Nature_Gentle },
     { gText_Nature_Sassy },
