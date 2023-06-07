@@ -1286,7 +1286,7 @@ PalletTown_ProfessorOaksLab_EventScript_RivalWalksToSquirtle::
 
 PalletTown_ProfessorOaksLab_EventScript_RivalWantsSquirtle::
 	textcolor NPC_TEXT_COLOR_MALE
-	applymovement LOCALID_RIVAL, walk_in_place_right
+	applymovement LOCALID_RIVAL, Common_Movement_FaceRight
 	msgbox PalletTown_ProfessorOaksLab_Text_RivalIWantSquirtle
 	goto PalletTown_ProfessorOaksLab_EventScript_RivalTakesStarter
 	end
