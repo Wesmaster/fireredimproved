@@ -16,6 +16,7 @@
 #include "constants/maps.h"
 #include "constants/abilities.h"
 #include "constants/items.h"
+#include "data.h"
 
 struct WildEncounterData
 {
@@ -39,6 +40,8 @@ static void ApplyCleanseTagEncounterRateMod(u32 *rate);
 static bool8 IsLeadMonHoldingCleanseTag(void);
 static u16 WildEncounterRandom(void);
 static void AddToWildEncounterRateBuff(u8 encouterRate);
+static u16 GenerateRandomSpecies(u8 area);
+static u8 NumberOfElementsInArray(const u16 *array, u8 arraySize);
 
 #include "data/wild_encounters.h"
 
@@ -58,6 +61,173 @@ static const u8 sUnownLetterSlots[][12] = {
   //  Z   Z   Z   Z   Z   Z   Z   Z   Z   Z   Z   !
     {25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 26},
 };
+
+u8 NumberOfElementsInArray(const u16 *array, u8 arraySize)
+{
+    u8 numberOfElements = 0;
+    u8 i;
+
+    for (i = 0; i < arraySize; i++)
+    {
+        if (array[i] != 0)
+            numberOfElements++;
+    }
+
+    return numberOfElements;
+}
+
+void GenerateLandMonsData()
+{
+    u8 i, j;
+    u8 routes = sizeof(sLandMonsTable) / sizeof(struct BasePokemonRandomizer);
+    u16 species = SPECIES_NONE;
+    u8 moreUniqueMonsCounter;
+
+    u8 assignedMonsAllRoutes[NUM_SPECIES] = {0};
+    for (i = 0; i < routes; i++)
+    {
+        u8 assignedMons[NUM_SPECIES] = {0};
+        u8 numberOfSpecies = NumberOfElementsInArray(sConfiguration[sLandMonsTable[i].group].species, BASE_RANDOM_WILD_COUNT);
+
+        for (j = 0; j < RANDOM_WILD_COUNT; j++)
+        {
+            gSaveBlock1Ptr->sGeneratedLandMonsTable[i].map = sLandMonsTable[i].map;
+
+            moreUniqueMonsCounter = 0;
+            do {
+                species = sConfiguration[sLandMonsTable[i].group].species[Random() % numberOfSpecies];
+                if (assignedMonsAllRoutes[species] == 1)
+                {
+                    moreUniqueMonsCounter++;
+                }
+            } while (assignedMons[species] == 1 || (moreUniqueMonsCounter > 0 && moreUniqueMonsCounter <= 3));
+
+            gSaveBlock1Ptr->sGeneratedLandMonsTable[i].species[j] = species;
+            assignedMons[species] = 1;
+            assignedMonsAllRoutes[species] = 1;
+        }
+
+    /* 
+        DebugPrintf("Route: %d", gSaveBlock1Ptr->sGeneratedLandMonsTable[i].map);
+        DebugPrintf("Number of species: %d", numberOfSpecies);
+        DebugPrintf("Choosen mons: %S %S %S %S %S", gSpeciesNames[gSaveBlock1Ptr->sGeneratedLandMonsTable[i].species[0]], gSpeciesNames[gSaveBlock1Ptr->sGeneratedLandMonsTable[i].species[1]], gSpeciesNames[gSaveBlock1Ptr->sGeneratedLandMonsTable[i].species[2]], gSpeciesNames[gSaveBlock1Ptr->sGeneratedLandMonsTable[i].species[3]], gSpeciesNames[gSaveBlock1Ptr->sGeneratedLandMonsTable[i].species[4]]);
+    */
+    }
+}
+
+void GenerateWaterMonsData()
+{
+    u8 i, j;
+    u8 routes = sizeof(sWaterMonsTable) / sizeof(struct BasePokemonRandomizer);
+    u16 species = SPECIES_NONE;
+    u8 moreUniqueMonsCounter;
+
+    u8 assignedMonsAllRoutes[NUM_SPECIES] = {0};
+    for (i = 0; i < routes; i++)
+    {
+        u8 assignedMons[NUM_SPECIES] = {0};
+        u8 numberOfSpecies = NumberOfElementsInArray(sConfiguration[sWaterMonsTable[i].group].species, BASE_RANDOM_WILD_COUNT);
+
+        for (j = 0; j < RANDOM_WILD_COUNT; j++)
+        {
+            gSaveBlock1Ptr->sGeneratedWaterMonsTable[i].map = sWaterMonsTable[i].map;
+
+            moreUniqueMonsCounter = 0;
+            do {
+                species = sConfiguration[sWaterMonsTable[i].group].species[Random() % numberOfSpecies];
+                if (assignedMonsAllRoutes[species] == 1)
+                {
+                    moreUniqueMonsCounter++;
+                }
+            } while (assignedMons[species] == 1 || (moreUniqueMonsCounter > 0 && moreUniqueMonsCounter <= 3));
+
+            gSaveBlock1Ptr->sGeneratedWaterMonsTable[i].species[j] = species;
+            assignedMons[species] = 1;
+        }
+
+    /*    
+        DebugPrintf("Route: %d", sGeneratedWaterMonsTable[i].map);
+        DebugPrintf("Number of species: %d", numberOfSpecies);
+        DebugPrintf("Choosen mons: %S %S %S %S %S", gSpeciesNames[sGeneratedWaterMonsTable[i].species[0]], gSpeciesNames[sGeneratedWaterMonsTable[i].species[1]], gSpeciesNames[sGeneratedWaterMonsTable[i].species[2]], gSpeciesNames[sGeneratedWaterMonsTable[i].species[3]], gSpeciesNames[sGeneratedWaterMonsTable[i].species[4]]);
+    */
+    }
+}
+
+void GenerateFishingMonsData()
+{
+    u8 i, j;
+    u8 routes = sizeof(sFishingMonsTable) / sizeof(struct BasePokemonRandomizer);
+    u16 species = SPECIES_NONE;
+    u8 moreUniqueMonsCounter;
+
+    u8 assignedMonsAllRoutes[NUM_SPECIES] = {0};
+    for (i = 0; i < routes; i++)
+    {
+        u8 assignedMons[NUM_SPECIES] = {0};
+        u8 numberOfSpecies = NumberOfElementsInArray(sConfiguration[sFishingMonsTable[i].group].species, BASE_RANDOM_WILD_COUNT);
+
+        for (j = 0; j < RANDOM_WILD_COUNT; j++)
+        {
+            gSaveBlock1Ptr->sGeneratedFishingMonsTable[i].map = sFishingMonsTable[i].map;
+
+            moreUniqueMonsCounter = 0;
+            do {
+                species = sConfiguration[sFishingMonsTable[i].group].species[Random() % numberOfSpecies];
+                if (assignedMonsAllRoutes[species] == 1)
+                {
+                    moreUniqueMonsCounter++;
+                }
+            } while (assignedMons[species] == 1 || (moreUniqueMonsCounter > 0 && moreUniqueMonsCounter <= 3));
+
+            gSaveBlock1Ptr->sGeneratedFishingMonsTable[i].species[j] = species;
+            assignedMons[species] = 1;
+        }
+
+    /* 
+        DebugPrintf("Route: %d", sGeneratedFishingMonsTable[i].map);
+        DebugPrintf("Number of species: %d", numberOfSpecies);
+        DebugPrintf("Choosen mons: %S %S %S %S %S", gSpeciesNames[sGeneratedFishingMonsTable[i].species[0]], gSpeciesNames[sGeneratedFishingMonsTable[i].species[1]], gSpeciesNames[sGeneratedFishingMonsTable[i].species[2]], gSpeciesNames[sGeneratedFishingMonsTable[i].species[3]], gSpeciesNames[sGeneratedFishingMonsTable[i].species[4]]);
+    */
+    }
+}
+
+void GenerateRockSmashMonsData()
+{
+    u8 i, j;
+    u8 routes = sizeof(sRockSmashMonsTable) / sizeof(struct BasePokemonRandomizer);
+    u16 species = SPECIES_NONE;
+    u8 moreUniqueMonsCounter;
+
+    u8 assignedMonsAllRoutes[NUM_SPECIES] = {0};
+    for (i = 0; i < routes; i++)
+    {
+        u8 assignedMons[NUM_SPECIES] = {0};
+        u8 numberOfSpecies = NumberOfElementsInArray(sConfiguration[sRockSmashMonsTable[i].group].species, BASE_RANDOM_WILD_COUNT);
+
+        for (j = 0; j < RANDOM_WILD_COUNT; j++)
+        {
+            gSaveBlock1Ptr->sGeneratedRockSmashMonsTable[i].map = sRockSmashMonsTable[i].map;
+
+            moreUniqueMonsCounter = 0;
+            do {
+                species = sConfiguration[sRockSmashMonsTable[i].group].species[Random() % numberOfSpecies];
+                if (assignedMonsAllRoutes[species] == 1)
+                {
+                    moreUniqueMonsCounter++;
+                }
+            } while (assignedMons[species] == 1 || (moreUniqueMonsCounter > 0 && moreUniqueMonsCounter <= 3));
+
+            gSaveBlock1Ptr->sGeneratedRockSmashMonsTable[i].species[j] = species;
+            assignedMons[species] = 1;
+        }
+
+    /* 
+        DebugPrintf("Route: %d", sGeneratedRockSmashMonsTable[i].map);
+        DebugPrintf("Number of species: %d", numberOfSpecies);
+        DebugPrintf("Choosen mons: %S %S %S %S %S", gSpeciesNames[sGeneratedRockSmashMonsTable[i].species[0]], gSpeciesNames[sGeneratedRockSmashMonsTable[i].species[1]], gSpeciesNames[sGeneratedRockSmashMonsTable[i].species[2]], gSpeciesNames[sGeneratedRockSmashMonsTable[i].species[3]], gSpeciesNames[sGeneratedRockSmashMonsTable[i].species[4]]);
+    */
+    }
+}
 
 void DisableWildEncounters(bool8 state)
 {
@@ -259,6 +429,45 @@ enum
     WILD_AREA_FISHING,
 };
 
+static u16 GenerateRandomSpecies(u8 area)
+{
+    u8 x;
+    const struct RandomizedPokemon *tableToPickFrom = NULL;
+    u8 tableLength = 0;
+    u16 headerId;
+
+    switch (area)
+    {
+    case WILD_AREA_LAND:
+        tableToPickFrom = gSaveBlock1Ptr->sGeneratedLandMonsTable;
+        tableLength = sizeof(gSaveBlock1Ptr->sGeneratedLandMonsTable) / sizeof(struct RandomizedPokemon);
+        break;
+    case WILD_AREA_WATER:
+        tableToPickFrom = gSaveBlock1Ptr->sGeneratedWaterMonsTable;
+        tableLength = sizeof(gSaveBlock1Ptr->sGeneratedWaterMonsTable) / sizeof(struct RandomizedPokemon);
+        break;
+    case WILD_AREA_ROCKS:
+        tableToPickFrom = gSaveBlock1Ptr->sGeneratedRockSmashMonsTable;
+        tableLength = sizeof(gSaveBlock1Ptr->sGeneratedRockSmashMonsTable) / sizeof(struct RandomizedPokemon);
+        break; 
+    case WILD_AREA_FISHING:
+        tableToPickFrom = gSaveBlock1Ptr->sGeneratedFishingMonsTable;
+        tableLength = sizeof(gSaveBlock1Ptr->sGeneratedFishingMonsTable) / sizeof(struct RandomizedPokemon);
+        break;
+    }
+
+    headerId = GetCurrentMapWildMonHeaderId();
+
+    for (x = 0; x < tableLength; x++)
+    {
+        u16 map = tableToPickFrom[x].map;
+        if ((map >> 8) == gWildMonHeaders[headerId].mapGroup && (map & 0xFF) == gWildMonHeaders[headerId].mapNum)
+            return (int)tableToPickFrom[x].species[Random() % RANDOM_WILD_COUNT];
+    }
+
+    return SPECIES_NONE; // Should never happen
+}
+
 #define WILD_CHECK_REPEL    0x1
 #define WILD_CHECK_KEEN_EYE 0x2
 
@@ -266,6 +475,8 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo * info, u8 area, u8
 {
     u8 slot = 0;
     u8 level;
+    u16 species = GenerateRandomSpecies(area);
+    
     switch (area)
     {
     case WILD_AREA_LAND:
@@ -283,7 +494,10 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo * info, u8 area, u8
     {
         return FALSE;
     }
-    GenerateWildMon(info->wildPokemon[slot].species, level, slot);
+
+    if (species == SPECIES_NONE)
+        species = info->wildPokemon[slot].species;
+    GenerateWildMon(species, level, slot);
     return TRUE;
 }
 
@@ -291,8 +505,12 @@ static u16 GenerateFishingEncounter(const struct WildPokemonInfo * info, u8 rod)
 {
     u8 slot = ChooseWildMonIndex_Fishing(rod);
     u8 level = ChooseWildMonLevel(&info->wildPokemon[slot]);
-    GenerateWildMon(info->wildPokemon[slot].species, level, slot);
-    return info->wildPokemon[slot].species;
+
+    u16 species = GenerateRandomSpecies(WILD_AREA_FISHING);
+    if (species == SPECIES_NONE)
+        species = info->wildPokemon[slot].species;
+    GenerateWildMon(species, level, slot);
+    return species;
 }
 
 static bool8 DoWildEncounterRateDiceRoll(u16 a0)

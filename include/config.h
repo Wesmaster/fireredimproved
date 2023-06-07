@@ -8,7 +8,7 @@
 // still has them in the ROM. This is because the developers forgot
 // to define NDEBUG before release, however this has been changed as
 // Ruby's actual debug build does not use the AGBPrint features.
-// #define NDEBUG
+#define NDEBUG
 
 // Fire Red likely forgot to define NDEBUG/NOAGBPRN before release, leading
 // to the inclusion of asserts in the retail ROM.
@@ -25,14 +25,14 @@
 // Use this switch to choose a handler for pretty printing.
 // NOTE: mini_printf supports a custom pretty printing formatter to display preproc encoded strings. (%S)
 //       some libc distributions (especially dkp arm-libc) will fail to link pretty printing.
-#define PRETTY_PRINT_HANDLER (PRETTY_PRINT_OFF)
+#define PRETTY_PRINT_HANDLER (PRETTY_PRINT_MINI_PRINTF)
 
 // Use this switch to choose a handler for printf output.
 // NOTE: These will only work on the respective emulators and should not be used in a productive environment.
 //       Some emulators or real hardware might (and is allowed to) crash if they are used.
 //       AGB_PRINT is supported on respective debug units.
 
-#define LOG_HANDLER (LOG_HANDLER_AGB_PRINT)
+#define LOG_HANDLER (LOG_HANDLER_MGBA_PRINT)
 #endif // NDEBUG
 
 // Define the game version for use elsewhere
