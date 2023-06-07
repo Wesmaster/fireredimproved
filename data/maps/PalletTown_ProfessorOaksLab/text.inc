@@ -279,7 +279,7 @@ PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls::
     .string "They contain Pokémon!$"
 
 PalletTown_ProfessorOaksLab_Text_OaksLastMon::
-    .string "That's Prof. Oak's last Pokémon.$"
+    .string "That's Prof. Oak's Pokémon.$"
 
 PalletTown_ProfessorOaksLab_Text_PressStartToOpenMenu::
     .string "Press Start to open the Menu!$"
