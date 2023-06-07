@@ -191,7 +191,7 @@ gOakSpeech_Text_WelcomeToTheWorld::
     .string "Glad to meet you!\p"
     .string "Welcome to this new world of Pokémon!\p"
     .string "It might look familiar,\n"
-    .string "but there are many differences\n"
+    .string "but there are many differences\p"
     .string "for you to discover.\p$"
 
 gOakSpeech_Text_ThisWorld::
@@ -199,13 +199,13 @@ gOakSpeech_Text_ThisWorld::
 
 gOakSpeech_Text_IsInhabitedFarAndWide::
     .string "…is open and more dangerous,\n"
-    .string "only the best trainers\n"
+    .string "only the best trainers\p"
     .string "will find success.\p$"
 
 gOakSpeech_Text_IStudyPokemon::
     .string "Pokémon from multiple regions\n"
     .string "can be fought and caught.\p"
-    .string "Each new adventure will be\p"
+    .string "Each new adventure will be\n"
     .string "different and exciting.\p$"
 
 gOakSpeech_Text_TellMeALittleAboutYourself::
