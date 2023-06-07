@@ -132,7 +132,7 @@ EventScript_PkmnCenterNurse_SecondNurse_ChooseNature::
 	end
 
 EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Attack::
-	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_ATTACK, FALSE
+	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_ATTACK, TRUE
 	switch VAR_RESULT
 	case 5, EventScript_PkmnCenterNurse_SecondNurse_Cancel
 
@@ -140,7 +140,7 @@ EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Attack::
 	end
 
 EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Defense::
-	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_DEFENSE, FALSE
+	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_DEFENSE, TRUE
 	switch VAR_RESULT
 	case 5, EventScript_PkmnCenterNurse_SecondNurse_Cancel
 
@@ -148,7 +148,7 @@ EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Defense::
 	end
 
 EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_SpAttack::
-	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_SPATTACK, FALSE
+	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_SPATTACK, TRUE
 	switch VAR_RESULT
 	case 5, EventScript_PkmnCenterNurse_SecondNurse_Cancel
 
@@ -156,7 +156,7 @@ EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_SpAttack::
 	end
 
 EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_SpDefense::
-	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_SPDEFENSE, FALSE
+	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_SPDEFENSE, TRUE
 	switch VAR_RESULT
 	case 5, EventScript_PkmnCenterNurse_SecondNurse_Cancel
 
@@ -164,7 +164,7 @@ EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_SpDefense::
 	end
 
 EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Speed::
-	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_SPEED, FALSE
+	multichoice 0, 0, MULTICHOICE_SECOND_NURSE_NATURE_SPEED, TRUE
 	switch VAR_RESULT
 	case 5, EventScript_PkmnCenterNurse_SecondNurse_Cancel
 
