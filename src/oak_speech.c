@@ -710,7 +710,6 @@ static void Task_OakSpeech_HandleGenderInput(u8 taskId)
         break;
     case MENU_B_PRESSED:
         return;
-        break;
     case MENU_NOTHING_CHOSEN:
         if (gSaveBlock2Ptr->playerGender == FEMALE)
         {
@@ -722,6 +721,7 @@ static void Task_OakSpeech_HandleGenderInput(u8 taskId)
             LoadTrainerPic(FEMALE_PLAYER_PIC, 0);
             gSaveBlock2Ptr->playerGender = FEMALE;
         }
+        return;
     }
     gTasks[taskId].func = Task_OakSpeech_ClearGenderWindows;
 
