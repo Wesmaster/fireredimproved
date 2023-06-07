@@ -229,10 +229,7 @@ PalletTown_ProfessorOaksLab_ChooseStarterScene::
 	end
 
 PalletTown_ProfessorOaksLab_ReceiveDex::
-	call_if_eq VAR_FACING, DIR_NORTH, PalletTown_ProfessorOaksLab_EventScript_DexSceneOakWalkToDeskNorth
-	call_if_eq VAR_FACING, DIR_SOUTH, PalletTown_ProfessorOaksLab_EventScript_DexSceneOakWalkToDeskSouth
-	call_if_eq VAR_FACING, DIR_EAST, PalletTown_ProfessorOaksLab_EventScript_DexSceneOakWalkToDeskEast
-	call_if_eq VAR_FACING, DIR_WEST, PalletTown_ProfessorOaksLab_EventScript_DexSceneOakWalkToDeskWest
+	call PalletTown_ProfessorOaksLab_EventScript_DexSceneOakWalkToDeskNorth
 	msgbox PalletTown_ProfessorOaksLab_Text_OakPokedexOnDesk
 	closemessage
 	delay 40
@@ -244,10 +241,7 @@ PalletTown_ProfessorOaksLab_ReceiveDex::
 	delay 10
 	removeobject LOCALID_POKEDEX_2
 	delay 25
-	call_if_eq VAR_FACING, DIR_NORTH, PalletTown_ProfessorOaksLab_EventScript_OakBringDexesOverNorth
-	call_if_eq VAR_FACING, DIR_SOUTH, PalletTown_ProfessorOaksLab_EventScript_OakBringDexesOverSouth
-	call_if_eq VAR_FACING, DIR_EAST, PalletTown_ProfessorOaksLab_EventScript_OakBringDexesOverEast
-	call_if_eq VAR_FACING, DIR_WEST, PalletTown_ProfessorOaksLab_EventScript_OakBringDexesOverWest
+	call PalletTown_ProfessorOaksLab_EventScript_OakBringDexesOverNorth
 	delay 10
 	textcolor NPC_TEXT_COLOR_NEUTRAL
 	playfanfare MUS_OBTAIN_KEY_ITEM
@@ -1292,6 +1286,7 @@ PalletTown_ProfessorOaksLab_EventScript_RivalWalksToSquirtle::
 
 PalletTown_ProfessorOaksLab_EventScript_RivalWantsSquirtle::
 	textcolor NPC_TEXT_COLOR_MALE
+	applymovement LOCALID_RIVAL, walk_in_place_right
 	msgbox PalletTown_ProfessorOaksLab_Text_RivalIWantSquirtle
 	goto PalletTown_ProfessorOaksLab_EventScript_RivalTakesStarter
 	end

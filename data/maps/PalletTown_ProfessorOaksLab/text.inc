@@ -20,7 +20,7 @@ PalletTown_ProfessorOaksLab_Text_RivalIllTakeThisOneThen::
 
 PalletTown_ProfessorOaksLab_Text_RivalIWantSquirtle::
     .string "{RIVAL}: I believe Squirtle is\n"
-    .string "the best choice, so I'll take,\p"
+    .string "the best choice, so I'll choose,\p"
     .string "Squirtle!$"
 
 PalletTown_ProfessorOaksLab_Text_RivalReceivedMonFromOak::
