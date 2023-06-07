@@ -125,9 +125,9 @@ EventScript_PkmnCenterNurse_SecondNurse_ChooseNature::
 	switch VAR_RESULT
 	case 0, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Attack
 	case 1, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Defense
-	case 2, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_SpAttack
-	case 3, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_SpDefense
-	case 4, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Speed
+	case 2, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_Speed
+	case 3, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_SpAttack
+	case 4, EventScript_PkmnCenterNurse_SecondNurse_ChooseNature_SpDefense
 	releaseall
 	end
 

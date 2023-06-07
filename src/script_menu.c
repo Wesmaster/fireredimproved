@@ -511,9 +511,9 @@ static const struct MenuAction sMultichoiceList_SecondNurse[] = {
 static const struct MenuAction sMultichoiceList_SecondNurseNatureCategories[] = {
     { gText_Attack },
     { gText_Defense },
+    { gText_Speed },
     { gText_Special_Attack },
     { gText_Special_Defense },
-    { gText_Speed },
     { gText_NoThanks }
 };
 
