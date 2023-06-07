@@ -20,7 +20,7 @@ PalletTown_ProfessorOaksLab_Text_RivalIllTakeThisOneThen::
 
 PalletTown_ProfessorOaksLab_Text_RivalIWantSquirtle::
     .string "{RIVAL}: I believe Squirtle is\n"
-    .string "the best choice, so I'll take,\p"
+    .string "the best choice, so I'll choose,\p"
     .string "Squirtle!$"
 
 PalletTown_ProfessorOaksLab_Text_RivalReceivedMonFromOak::
@@ -279,7 +279,7 @@ PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls::
     .string "They contain Pokémon!$"
 
 PalletTown_ProfessorOaksLab_Text_OaksLastMon::
-    .string "That's Prof. Oak's last Pokémon.$"
+    .string "That's Prof. Oak's Pokémon.$"
 
 PalletTown_ProfessorOaksLab_Text_PressStartToOpenMenu::
     .string "Press Start to open the Menu!$"

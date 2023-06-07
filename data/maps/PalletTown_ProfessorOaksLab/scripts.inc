@@ -225,7 +225,41 @@ PalletTown_ProfessorOaksLab_ChooseStarterScene::
 	delay 60
 	msgbox PalletTown_ProfessorOaksLab_Text_Oak_RivalWait
 	delay 30
+	goto PalletTown_ProfessorOaksLab_ReceiveDex
+	end
+
+PalletTown_ProfessorOaksLab_ReceiveDex::
+	call PalletTown_ProfessorOaksLab_EventScript_DexSceneOakWalkToDeskNorth
+	msgbox PalletTown_ProfessorOaksLab_Text_OakPokedexOnDesk
+	closemessage
+	delay 40
+	msgbox PalletTown_ProfessorOaksLab_Text_OakTakeTheseWithYou
+	closemessage
+	applymovement LOCALID_PROF_OAK, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	removeobject LOCALID_POKEDEX_1
+	delay 10
+	removeobject LOCALID_POKEDEX_2
+	delay 25
+	call PalletTown_ProfessorOaksLab_EventScript_OakBringDexesOverNorth
+	delay 10
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	playfanfare MUS_OBTAIN_KEY_ITEM
+	message PalletTown_ProfessorOaksLab_Text_ReceivedPokedexFromOak
+	waitmessage
+	waitfanfare
+	call EventScript_RestorePrevTextColor
+	setflag FLAG_SYS_POKEDEX_GET
+	special SetUnlockedPokedexFlags
+	setvar VAR_MAP_SCENE_POKEMON_CENTER_TEALA, 1
+	msgbox PalletTown_ProfessorOaksLab_Text_OakCatchMonsForDataTakeThese
+	giveitem_msg PalletTown_ProfessorOaksLab_Text_ReceivedFivePokeBalls, ITEM_POKE_BALL, 5
+	setvar VAR_MAP_SCENE_VIRIDIAN_CITY_MART, 2
+	setvar VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 1
+	setvar VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 1
+	setvar VAR_MAP_SCENE_ROUTE22, 1
 	goto PalletTown_ProfessorOaksLab_EventScript_UnsetStarter
+	releaseall
 	end
 
 PalletTown_ProfessorOaksLab_ContinueChooseStarterScene::
@@ -432,7 +466,7 @@ PalletTown_ProfessorOaksLab_EventScript_EndRivalBattle::
 	removeobject LOCALID_RIVAL
 	playse SE_EXIT
 	fadedefaultbgm
-	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 4
+	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 6
 	setflag FLAG_BEAT_RIVAL_IN_OAKS_LAB
 	releaseall
 	end
@@ -530,7 +564,6 @@ PalletTown_ProfessorOaksLab_EventScript_ProfOak::
 	goto_if_set FLAG_SYS_GAME_CLEAR, PalletTown_ProfessorOaksLab_EventScript_TryStartNationalDexScene
 	goto_if_eq VAR_MAP_SCENE_CERULEAN_CITY_RIVAL, 1, PalletTown_ProfessorOaksLab_EventScript_RatePokedex
 	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 6, PalletTown_ProfessorOaksLab_EventScript_RatePokedexOrTryGiveBalls
-	goto_if_ge VAR_MAP_SCENE_VIRIDIAN_CITY_MART, 1, PalletTown_ProfessorOaksLab_EventScript_ReceiveDexScene
 	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 4, PalletTown_ProfessorOaksLab_EventScript_OakBattleMonForItToGrow
 	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3, PalletTown_ProfessorOaksLab_EventScript_OakCanReachNextTownWithMon
 	goto PalletTown_ProfessorOaksLab_EventScript_UnsetStarter
@@ -1251,6 +1284,7 @@ PalletTown_ProfessorOaksLab_EventScript_RivalWalksToSquirtle::
 
 PalletTown_ProfessorOaksLab_EventScript_RivalWantsSquirtle::
 	textcolor NPC_TEXT_COLOR_MALE
+	applymovement LOCALID_RIVAL, Common_Movement_FaceRight
 	msgbox PalletTown_ProfessorOaksLab_Text_RivalIWantSquirtle
 	goto PalletTown_ProfessorOaksLab_EventScript_RivalTakesStarter
 	end

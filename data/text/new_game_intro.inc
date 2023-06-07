@@ -189,23 +189,24 @@ gPikachuIntro_Text_Page3::
 gOakSpeech_Text_WelcomeToTheWorld::
     .string "Hello, there!\n"
     .string "Glad to meet you!\p"
-    .string "Welcome to the world of Pokémon!\p"
-    .string "My name is Oak.\p"
-    .string "People affectionately refer to me\n"
-    .string "as the Pokémon Professor.\p$"
+    .string "Welcome to this new world of Pokémon!\p"
+    .string "It might look familiar,\n"
+    .string "but there are many differences\p"
+    .string "for you to discover.\p$"
 
 gOakSpeech_Text_ThisWorld::
     .string "This world…$"
 
 gOakSpeech_Text_IsInhabitedFarAndWide::
-    .string "…is inhabited far and wide by\n"
-    .string "creatures called Pokémon.\p$"
+    .string "…is open and more dangerous,\n"
+    .string "only the best trainers\p"
+    .string "will find success.\p$"
 
 gOakSpeech_Text_IStudyPokemon::
-    .string "For some people, Pokémon are pets.\n"
-    .string "Others use them for battling.\p"
-    .string "As for myself…\p"
-    .string "I study Pokémon as a profession.\p$"
+    .string "Pokémon from multiple regions\n"
+    .string "can be fought and caught.\p"
+    .string "Each new adventure will be\n"
+    .string "different and exciting.\p$"
 
 gOakSpeech_Text_TellMeALittleAboutYourself::
     .string "But first, tell me a little about\n"
