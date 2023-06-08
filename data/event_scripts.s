@@ -1381,7 +1381,7 @@ Text_SecondNurse_NoEgg::
 	.string "of an Egg.$"
 
 Text_SecondNurse_NoOtherAbilities::
-	.string "This Pokémon has no other abilities.\n"
+	.string "This Pokémon has no other abilities.$"
 
 Text_SecondNurse_AbilityChanged::
 	.string "This Pokémon's ability has changed.$"
