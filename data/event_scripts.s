@@ -1378,7 +1378,13 @@ Text_SecondNurse_ComebackAnytime::
 
 Text_SecondNurse_NoEgg::
 	.string "Sorry, I can't modify the stats\n"
-	.string "of an EGG.$"
+	.string "of an Egg.$"
+
+Text_SecondNurse_NoOtherAbilities::
+	.string "This Pokémon has no other abilities.\n"
+
+Text_SecondNurse_AbilityChanged::
+	.string "This Pokémon's ability has changed.$"
 
 Text_SecondNurse_NotEnoughMoney::
     .string "You do not have enough money.$"
