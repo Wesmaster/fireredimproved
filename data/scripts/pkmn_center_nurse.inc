@@ -112,11 +112,11 @@ EventScript_PkmnCenterNurse_SecondNurse_ChangeAbility::
 	goto EventScript_PkmnCenterNurse_SecondNurse_SwitchAbility
 	end
 
-EventScript_PkmnCenterNurse_SecondNurse_NoOtherAbilities
+EventScript_PkmnCenterNurse_SecondNurse_NoOtherAbilities::
 	msgbox Text_SecondNurse_NoOtherAbilities, MSGBOX_NPC
 	end
 
-EventScript_PkmnCenterNurse_SecondNurse_SwitchAbility
+EventScript_PkmnCenterNurse_SecondNurse_SwitchAbility::
 	special SwitchAbility
 	removemoney SECOND_NURSE_CHANGE_ABILITY_PRICE
 	msgbox Text_SecondNurse_AbilityChanged, MSGBOX_NPC
