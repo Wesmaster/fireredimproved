@@ -50,7 +50,6 @@ enum {
 // IDs for the actions in the context menu
 enum {
     ACTION_USE,
-    ACTION_GIVE,
     ACTION_EXIT
 };
 
@@ -212,19 +211,16 @@ static const struct BgTemplate sBGTemplates[] = {
 // What happens when one is selected depends on how the player arrived at the TM case
 static void (*const sSelectTMActionTasks[])(u8 taskId) = {
     [TMCASE_FIELD]      = Task_SelectedTMHM_Field,
-    [TMCASE_GIVE_PARTY] = Task_SelectedTMHM_GiveParty,
-    [TMCASE_SELL]       = Task_SelectedTMHM_Sell,
     [TMCASE_GIVE_PC]    = Task_SelectedTMHM_GivePC
 };
 
 static const struct MenuAction sMenuActions[] = {
     [ACTION_USE]  = {gOtherText_Use,  Action_Use },
-    [ACTION_GIVE] = {gOtherText_Give, Action_Give},
     [ACTION_EXIT] = {gOtherText_Exit, Action_Exit},
 };
 
-static const u8 sMenuActionIndices_Field[] = {ACTION_USE, ACTION_GIVE, ACTION_EXIT};
-static const u8 sMenuActionIndices_UnionRoom[] = {ACTION_GIVE, ACTION_EXIT};
+static const u8 sMenuActionIndices_Field[] = {ACTION_USE, ACTION_EXIT};
+static const u8 sMenuActionIndices_UnionRoom[] = {ACTION_EXIT};
 
 static const struct YesNoFuncTable sYesNoFuncTable = {Task_PrintSaleConfirmedText, Task_SaleOfTMsCanceled};
 
@@ -720,9 +716,9 @@ static void List_ItemPrintFunc(u8 windowId, u32 itemIndex, u8 y)
     {
         if (!IS_HM(BagGetItemIdByPocketPosition(POCKET_TM_CASE, itemIndex)))
         {
-            ConvertIntToDecimalStringN(gStringVar1, BagGetQuantityByPocketPosition(POCKET_TM_CASE, itemIndex), STR_CONV_MODE_RIGHT_ALIGN, 3);
-            StringExpandPlaceholders(gStringVar4, gText_TimesStrVar1);
-            TMCase_Print(windowId, FONT_SMALL, gStringVar4, 126, y, 0, 0, TEXT_SKIP_DRAW, COLOR_DARK);
+            //ConvertIntToDecimalStringN(gStringVar1, BagGetQuantityByPocketPosition(POCKET_TM_CASE, itemIndex), STR_CONV_MODE_RIGHT_ALIGN, 3);
+            //StringExpandPlaceholders(gStringVar4, gText_TimesStrVar1);
+            //TMCase_Print(windowId, FONT_SMALL, gStringVar4, 126, y, 0, 0, TEXT_SKIP_DRAW, COLOR_DARK);
         }
         else
         {
@@ -1529,10 +1525,10 @@ static void PrintTitle(void)
 
 static void DrawMoveInfoLabels(void)
 {
-    BlitMoveInfoIcon(WIN_MOVE_INFO_LABELS, 19, 0, 0);
-    BlitMoveInfoIcon(WIN_MOVE_INFO_LABELS, 20, 0, 12);
-    BlitMoveInfoIcon(WIN_MOVE_INFO_LABELS, 21, 0, 24);
-    BlitMoveInfoIcon(WIN_MOVE_INFO_LABELS, 22, 0, 36);
+    BlitMoveInfoIcon(WIN_MOVE_INFO_LABELS, 20, 0, 0);
+    BlitMoveInfoIcon(WIN_MOVE_INFO_LABELS, 21, 0, 12);
+    BlitMoveInfoIcon(WIN_MOVE_INFO_LABELS, 22, 0, 24);
+    BlitMoveInfoIcon(WIN_MOVE_INFO_LABELS, 23, 0, 36);
     CopyWindowToVram(WIN_MOVE_INFO_LABELS, COPYWIN_GFX);
 }
 

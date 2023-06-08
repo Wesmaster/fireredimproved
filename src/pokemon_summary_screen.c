@@ -3070,7 +3070,7 @@ static void PokeSum_PrintSelectedMoveStats(void)
         if (sMonSummaryScreen->mode != PSS_MODE_SELECT_MOVE && sMoveSelectionCursorPos == 4)
             return;
 
-        BlitMoveInfoIcon(sMonSummaryScreen->windowIds[POKESUM_WIN_TRAINER_MEMO], gBattleMoves[sMonSummaryScreen->moveIds[sMoveSelectionCursorPos]].category + 24, 88, 0);    
+        BlitMoveInfoIcon(sMonSummaryScreen->windowIds[POKESUM_WIN_TRAINER_MEMO], gBattleMoves[sMonSummaryScreen->moveIds[sMoveSelectionCursorPos]].category + 25, 88, 0);    
 
         AddTextPrinterParameterized3(sMonSummaryScreen->windowIds[POKESUM_WIN_TRAINER_MEMO], FONT_NORMAL,
                                      57, 1,
