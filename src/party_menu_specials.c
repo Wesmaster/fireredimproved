@@ -8,7 +8,7 @@
 #include "pokemon_summary_screen.h"
 #include "event_data.h"
 #include "constants/moves.h"
-#include "abilities.h"
+#include "constants/abilities.h"
 
 static void Task_ChoosePartyMon(u8 taskId);
 
