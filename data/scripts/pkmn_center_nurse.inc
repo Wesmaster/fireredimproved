@@ -108,6 +108,7 @@ EventScript_PkmnCenterNurse_SecondNurse_ChangeAbility::
 	specialvar VAR_RESULT, GetPartyMonSpecies
 	compare VAR_RESULT, SPECIES_EGG
 	goto_if_eq EventScript_PkmnCenterNurse_SecondNurse_NoEgg
+	special GetNumAbilitiesSelectedMonHas
 	goto_if_eq VAR_RESULT, 1, EventScript_PkmnCenterNurse_SecondNurse_NoOtherAbilities
 	goto EventScript_PkmnCenterNurse_SecondNurse_SwitchAbility
 	end
