@@ -504,6 +504,7 @@ static const struct MenuAction sMultichoiceList_StarterRegion[] = {
 
 static const struct MenuAction sMultichoiceList_SecondNurse[] = {
     { gText_ChangeNature },
+    { gText_ChangeAbility },
     { gText_ResetEVs },
     { gText_NoThanks }
 };

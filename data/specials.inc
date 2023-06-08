@@ -232,6 +232,7 @@ gSpecials::
 	def_special MoveDeleterForgetMove
 	def_special BufferMoveDeleterNicknameAndMove
 	def_special GetNumMovesSelectedMonHas
+	def_special GetNumAbilitiesSelectedMonHas
 	def_special DisplayMoveTutorMenu
 	def_special NullFieldSpecial  @ Hoenn Cycling Road specials
 	def_special NullFieldSpecial
@@ -304,6 +305,7 @@ gSpecials::
 	def_special GiveLeadMonEffortRibbon
 	def_special AreLeadMonEVsMaxedOut
 	def_special ChangeNature
+	def_special SwitchAbility
 	def_special ResetMonEVs
 	def_special Script_FacePlayer
 	def_special Script_ClearHeldMovement

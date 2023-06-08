@@ -8,6 +8,7 @@
 #include "pokemon_summary_screen.h"
 #include "event_data.h"
 #include "constants/moves.h"
+#include "constants/abilities.h"
 
 static void Task_ChoosePartyMon(u8 taskId);
 
@@ -55,6 +56,16 @@ void GetNumMovesSelectedMonHas(void)
     gSpecialVar_Result = 0;
     for (i = 0; i < MAX_MON_MOVES; ++i)
         if (GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_MOVE1 + i) != MOVE_NONE)
+            ++gSpecialVar_Result;
+}
+
+void GetNumAbilitiesSelectedMonHas(void)
+{
+    u8 i;
+
+    gSpecialVar_Result = 0;
+    for (i = 0; i < 2; ++i)
+        if (gSpeciesInfo[GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES)].abilities[i] != ABILITY_NONE)
             ++gSpecialVar_Result;
 }
 

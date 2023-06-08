@@ -429,6 +429,15 @@ void ChangeNature(void)
     CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }
 
+void SwitchAbility(void)
+{
+    u8 value = !GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ABILITY_NUM);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ABILITY_NUM, &value);
+
+    ApplyFriendshipPenalty(15);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
 bool8 ResetMonEVs(void)
 {
     u8 newEv = 0;
