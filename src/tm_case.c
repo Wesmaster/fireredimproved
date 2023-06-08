@@ -1525,10 +1525,10 @@ static void PrintTitle(void)
 
 static void DrawMoveInfoLabels(void)
 {
-    BlitMoveInfoIcon(WIN_MOVE_INFO_LABELS, 19, 0, 0);
-    BlitMoveInfoIcon(WIN_MOVE_INFO_LABELS, 20, 0, 12);
-    BlitMoveInfoIcon(WIN_MOVE_INFO_LABELS, 21, 0, 24);
-    BlitMoveInfoIcon(WIN_MOVE_INFO_LABELS, 22, 0, 36);
+    BlitMoveInfoIcon(WIN_MOVE_INFO_LABELS, 20, 0, 0);
+    BlitMoveInfoIcon(WIN_MOVE_INFO_LABELS, 21, 0, 12);
+    BlitMoveInfoIcon(WIN_MOVE_INFO_LABELS, 22, 0, 24);
+    BlitMoveInfoIcon(WIN_MOVE_INFO_LABELS, 23, 0, 36);
     CopyWindowToVram(WIN_MOVE_INFO_LABELS, COPYWIN_GFX);
 }
 
