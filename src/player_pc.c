@@ -102,6 +102,7 @@ static const struct ItemSlot gNewGamePCItems[] = {
     { ITEM_OLD_ROD, 1 },
     { ITEM_AURORA_TICKET, 1 },
     { ITEM_MYSTIC_TICKET, 1 },
+    { ITEM_TM03 },
     { ITEM_NONE,   0 }
 };
 
