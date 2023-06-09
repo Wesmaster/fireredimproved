@@ -3397,6 +3397,10 @@ static void Cmd_checkteamslost(void)
             if (!GetMonData(&gPlayerParty[i], MON_DATA_HP))
                 defeated_mons++;
     }
+    DebugPrintf("Defeated: %d", defeated_mons);
+    DebugPrintf("Viable for start: %d", gSpecialVar_0x8008);
+    DebugPrintf("Enemy moncount: %d", gSpecialVar_0x8009);
+
     if (defeated_mons - gSpecialVar_0x8008 == gSpecialVar_0x8009)
         gBattleOutcome |= B_OUTCOME_LOST;
 
