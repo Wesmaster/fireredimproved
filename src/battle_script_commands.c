@@ -3392,14 +3392,10 @@ static void Cmd_checkteamslost(void)
         return;
 
     // Get total HP for the enemy's party to determine if the player has won
-    gSpecialVar_0x8009 = 0;
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (GetMonData(&gEnemyParty[i], MON_DATA_SPECIES) && !GetMonData(&gEnemyParty[i], MON_DATA_IS_EGG))
-        {
             HP_count += GetMonData(&gEnemyParty[i], MON_DATA_HP);
-            gSpecialVar_0x8009++;
-        }
     }
     if (HP_count == 0)
         gBattleOutcome |= B_OUTCOME_WON;
@@ -3421,7 +3417,7 @@ static void Cmd_checkteamslost(void)
 
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
-        if (gSpecialVar_0x8008 - viableMons == gSpecialVar_0x8009)
+        if (gSpecialVar_0x8008 - viableMons == gTrainers[gTrainerBattleOpponent_A].partySize)
             gBattleOutcome |= B_OUTCOME_LOST;
     }
     else
