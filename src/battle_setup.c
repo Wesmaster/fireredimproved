@@ -292,15 +292,6 @@ static void DoGhostBattle(void)
 
 static void DoTrainerBattle(void)
 {
-    u8 i;
-    gSpecialVar_0x8009 = 0;
-
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
-        if (GetMonData(&gEnemyParty[i], MON_DATA_SPECIES) && !GetMonData(&gEnemyParty[i], MON_DATA_IS_EGG))
-            gSpecialVar_0x8009++;
-    }
-
     CreateBattleStartTask(GetTrainerBattleTransition(), 0);
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_TRAINER_BATTLES);

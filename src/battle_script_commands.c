@@ -3391,6 +3391,19 @@ static void Cmd_checkteamslost(void)
     if (gBattleControllerExecFlags)
         return;
 
+    // Get total HP for the enemy's party to determine if the player has won
+    gSpecialVar_0x8009 = 0;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&gEnemyParty[i], MON_DATA_SPECIES) && !GetMonData(&gEnemyParty[i], MON_DATA_IS_EGG))
+        {
+            HP_count += GetMonData(&gEnemyParty[i], MON_DATA_HP);
+            gSpecialVar_0x8009++;
+        }
+    }
+    if (HP_count == 0)
+        gBattleOutcome |= B_OUTCOME_WON;
+
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) && !GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
@@ -3403,17 +3416,6 @@ static void Cmd_checkteamslost(void)
 
     if (gSpecialVar_0x8008 - defeated_mons == gSpecialVar_0x8009)
         gBattleOutcome |= B_OUTCOME_LOST;
-
-    // Get total HP for the enemy's party to determine if the player has won
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
-        if (GetMonData(&gEnemyParty[i], MON_DATA_SPECIES) && !GetMonData(&gEnemyParty[i], MON_DATA_IS_EGG))
-        {
-            HP_count += GetMonData(&gEnemyParty[i], MON_DATA_HP);
-        }
-    }
-    if (HP_count == 0)
-        gBattleOutcome |= B_OUTCOME_WON;
 
     // For link battles that haven't ended, count number of empty battler spots
     // In link multi battles, jump to pointer if more than 1 spot empty
