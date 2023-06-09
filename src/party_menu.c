@@ -6004,7 +6004,7 @@ static bool8 TrySwitchInPokemon(void)
         return FALSE;
     }
     gSelectedMonPartyId = GetPartyIdFromBattleSlot(slot);
-    PokesSentIn = NumberOfPokesSent(gBattleStruct->pokesSentIn);
+    PokesSentIn = max(1, NumberOfPokesSent(gBattleStruct->pokesSentIn));
 	if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && PokesSentIn >= gTrainers[gTrainerBattleOpponent_A].partySize && (!((gBattleStruct->pokesSentIn >> gSelectedMonPartyId) & 1) || !gBattleStruct->pokesSentIn))
 	{
 		switch(PokesSentIn)
