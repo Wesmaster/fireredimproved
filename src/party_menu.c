@@ -5955,6 +5955,7 @@ static bool8 TrySwitchInPokemon(void)
     u8 slot = GetCursorSelectionMonId();
     u8 newSlot;
     u8 i;
+    u8 PokesSentIn;
 
     // In a multi battle, slots 1, 4, and 5 are the partner's pokemon
     if (IsMultiBattle() == TRUE && (slot == 1 || slot == 4 || slot == 5))
@@ -6003,7 +6004,7 @@ static bool8 TrySwitchInPokemon(void)
         return FALSE;
     }
     gSelectedMonPartyId = GetPartyIdFromBattleSlot(slot);
-    u8 PokesSentIn = NumberOfPokesSent(gBattleStruct->pokesSentIn);
+    PokesSentIn = NumberOfPokesSent(gBattleStruct->pokesSentIn);
 	if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && PokesSentIn >= gTrainers[gTrainerBattleOpponent_A].partySize && (!((gBattleStruct->pokesSentIn >> gSelectedMonPartyId) & 1) || !gBattleStruct->pokesSentIn))
 	{
 		switch(PokesSentIn)
