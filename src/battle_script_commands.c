@@ -3385,6 +3385,7 @@ static void Cmd_getexp(void)
 static void Cmd_checkteamslost(void)
 {
     u16 HP_count = 0;
+    u16 defeated_mons = 0;
     s32 i;
 
     if (gBattleControllerExecFlags)
@@ -3393,13 +3394,11 @@ static void Cmd_checkteamslost(void)
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) && !GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
-        {
-            HP_count += GetMonData(&gPlayerParty[i], MON_DATA_HP);
-        }
+            if (!GetMonData(&gPlayerParty[i], MON_DATA_HP))
+                defeated_mons++;
     }
-    if (HP_count == 0)
+    if (defeated_mons - VAR_TEMP_0 == VAR_TEMP_1)
         gBattleOutcome |= B_OUTCOME_LOST;
-    HP_count = 0;
 
     // Get total HP for the enemy's party to determine if the player has won
     for (i = 0; i < PARTY_SIZE; i++)
