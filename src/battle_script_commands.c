@@ -3419,7 +3419,7 @@ static void Cmd_checkteamslost(void)
     DebugPrintf("Viable: %d", viableMons);
     DebugPrintf("Enemy moncount: %d", gSpecialVar_0x8009);
 
-    if (gBattleTypeFlags == BATTLE_TYPE_TRAINER)
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
         if (gSpecialVar_0x8008 - viableMons == gSpecialVar_0x8009)
             gBattleOutcome |= B_OUTCOME_LOST;
