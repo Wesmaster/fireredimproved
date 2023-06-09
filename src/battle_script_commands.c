@@ -3397,7 +3397,7 @@ static void Cmd_checkteamslost(void)
             if (!GetMonData(&gPlayerParty[i], MON_DATA_HP))
                 defeated_mons++;
     }
-    if (defeated_mons - VAR_TEMP_0 == VAR_TEMP_1)
+    if (defeated_mons - gSpecialVar_0x8008 == gSpecialVar_0x8009)
         gBattleOutcome |= B_OUTCOME_LOST;
 
     // Get total HP for the enemy's party to determine if the player has won

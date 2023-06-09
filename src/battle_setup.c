@@ -293,12 +293,13 @@ static void DoGhostBattle(void)
 static void DoTrainerBattle(void)
 {
     u8 i;
+    gSpecialVar_0x8009 = 0;
 
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (GetMonData(&gEnemyParty[i], MON_DATA_SPECIES) && !GetMonData(&gEnemyParty[i], MON_DATA_IS_EGG))
             if (GetMonData(&gEnemyParty[i], MON_DATA_HP))
-                VAR_TEMP_1++;
+                gSpecialVar_0x8009++;
     }
 
     CreateBattleStartTask(GetTrainerBattleTransition(), 0);
@@ -795,12 +796,13 @@ static void SetMapVarsToTrainer(void)
 const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
 {
     u8 i;
-    
+    gSpecialVar_0x8008 = 0;
+
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) && !GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
             if (GetMonData(&gPlayerParty[i], MON_DATA_HP))
-                VAR_TEMP_0++;
+                gSpecialVar_0x8008++;
     }
 
     InitTrainerBattleVariables();
