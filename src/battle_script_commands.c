@@ -3407,15 +3407,23 @@ static void Cmd_checkteamslost(void)
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) && !GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
-            if (GetMonData(&gPlayerParty[i], MON_DATA_HP))
+        {
+            u16 HP = GetMonData(&gPlayerParty[i], MON_DATA_HP);
+            HP_count += HP;
+            if (HP)
                 viableMons++;
+        }
     }
-    DebugPrintf("Defeated: %d", viableMons);
     DebugPrintf("Viable for start: %d", gSpecialVar_0x8008);
+    DebugPrintf("Viable: %d", viableMons);
     DebugPrintf("Enemy moncount: %d", gSpecialVar_0x8009);
 
-    if (gSpecialVar_0x8008 - viableMons == gSpecialVar_0x8009)
-        gBattleOutcome |= B_OUTCOME_LOST;
+    if (gBattleTypeFlags == BATTLE_TYPE_TRAINER)
+        if (gSpecialVar_0x8008 - viableMons == gSpecialVar_0x8009)
+            gBattleOutcome |= B_OUTCOME_LOST;
+    else
+        if (HP_count == 0)
+            gBattleOutcome |= B_OUTCOME_LOST;
 
     // For link battles that haven't ended, count number of empty battler spots
     // In link multi battles, jump to pointer if more than 1 spot empty
