@@ -3411,9 +3411,9 @@ static void Cmd_checkteamslost(void)
                 viableMons++;
         }
     }
-    DebugPrintf("Viable for start: %d", gSpecialVar_0x8008);
-    DebugPrintf("Viable: %d", viableMons);
-    DebugPrintf("Enemy moncount: %d", gTrainers[gTrainerBattleOpponent_A].partySize);
+    //DebugPrintf("Viable for start: %d", gSpecialVar_0x8008);
+    //DebugPrintf("Viable: %d", viableMons);
+    //DebugPrintf("Enemy moncount: %d", gTrainers[gTrainerBattleOpponent_A].partySize);
 
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
