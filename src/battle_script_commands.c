@@ -3404,6 +3404,7 @@ static void Cmd_checkteamslost(void)
     if (HP_count == 0)
         gBattleOutcome |= B_OUTCOME_WON;
 
+    HP_count = 0;
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) && !GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
