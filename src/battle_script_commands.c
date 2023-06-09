@@ -3401,7 +3401,7 @@ static void Cmd_checkteamslost(void)
     DebugPrintf("Viable for start: %d", gSpecialVar_0x8008);
     DebugPrintf("Enemy moncount: %d", gSpecialVar_0x8009);
 
-    if (defeated_mons - gSpecialVar_0x8008 == gSpecialVar_0x8009)
+    if (gSpecialVar_0x8008 - defeated_mons == gSpecialVar_0x8009)
         gBattleOutcome |= B_OUTCOME_LOST;
 
     // Get total HP for the enemy's party to determine if the player has won

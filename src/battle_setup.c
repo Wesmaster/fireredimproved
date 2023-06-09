@@ -298,8 +298,7 @@ static void DoTrainerBattle(void)
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (GetMonData(&gEnemyParty[i], MON_DATA_SPECIES) && !GetMonData(&gEnemyParty[i], MON_DATA_IS_EGG))
-            if (GetMonData(&gEnemyParty[i], MON_DATA_HP))
-                gSpecialVar_0x8009++;
+            gSpecialVar_0x8009++;
     }
 
     CreateBattleStartTask(GetTrainerBattleTransition(), 0);
