@@ -2796,8 +2796,7 @@ static void BattleIntroPrintPlayerSendsOut(void)
     {
         if (!(gBattleTypeFlags & BATTLE_TYPE_SAFARI))
             PrepareStringBattle(STRINGID_INTROSENDOUT, GetBattlerAtPosition(B_POSITION_PLAYER_LEFT));
-
-        ChoosePartyMonByMenuType(PARTY_MENU_TYPE_CHOOSE_SINGLE_MON);
+sPlayerBufferCommands[CONTROLLER_CHOOSEPOKEMON]();
         gBattleMainFunc = BattleIntroPlayerSendsOutMonAnimation;
     }
 }
