@@ -2539,7 +2539,7 @@ static void BattleIntroPrepareBackgroundSlide(void)
 {
     if (gBattleControllerExecFlags == 0)
     {
-        gActiveBattler = GetBattlerAtPosition(0);
+        gActiveBattler = GetBattlerAtPosition(1);
         BtlController_EmitIntroSlide(BUFFER_A, gBattleTerrain);
         MarkBattlerForControllerExec(gActiveBattler);
         gBattleMainFunc = BattleIntroDrawTrainersOrMonsSprites;
@@ -2798,7 +2798,7 @@ static void BattleIntroPrintPlayerSendsOut(void)
             PrepareStringBattle(STRINGID_INTROSENDOUT, GetBattlerAtPosition(B_POSITION_PLAYER_LEFT));
 
 //BtlController_EmitChoosePokemon(BUFFER_A, PARTY_ACTION_CHOOSE_MON, 6, ABILITY_NONE, gBattleStruct->battlerPartyOrders[gActiveBattler]);
-        gBattlerPartyIndexes[0] = 1;
+        //gBattlerPartyIndexes[0] = 1;
         gBattleMainFunc = BattleIntroPlayerSendsOutMonAnimation;
     }
 }
