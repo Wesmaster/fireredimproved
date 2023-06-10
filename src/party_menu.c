@@ -1161,6 +1161,9 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
         {
         case PARTY_ACTION_CHOOSE_MON:
             DebugPrintf("Test %d", *slotPtr);
+            PlaySE(SE_SELECT);
+            gSpecialVar_0x8004 = *slotPtr;
+            Task_ClosePartyMenu(taskId);
             break;
         case PARTY_ACTION_SOFTBOILED:
             if (IsSelectedMonNotEgg((u8 *)slotPtr))

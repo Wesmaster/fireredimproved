@@ -2799,7 +2799,7 @@ static void BattleIntroPrintPlayerSendsOut(void)
 
         BtlController_EmitChoosePokemon(BUFFER_A, PARTY_ACTION_CHOOSE_MON, 6, ABILITY_NONE, gBattleStruct->battlerPartyOrders[gActiveBattler]);
         gBattlerPartyIndexes[0] = gSpecialVar_0x8004;
-        //gBattleMainFunc = BattleIntroPlayerSendsOutMonAnimation;
+        gBattleMainFunc = BattleIntroPlayerSendsOutMonAnimation;
     }
 }
 
