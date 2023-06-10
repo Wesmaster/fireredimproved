@@ -1152,19 +1152,12 @@ static s8 *GetCurrentPartySlotPtr(void)
 
 static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
 {
-    DebugPrintf("Number: %d", gPartyMenu.action);
     if (*slotPtr == SLOT_CONFIRM)
         gPartyMenu.task(taskId); // task here is always Task_ValidateChosenMonsForBattle
     else
     {
         switch (gPartyMenu.action)
         {
-        case PARTY_ACTION_CHOOSE_MON:
-            DebugPrintf("Test %d", *slotPtr);
-            PlaySE(SE_SELECT);
-            gBattlerPartyIndexes[0] = *slotPtr;
-            Task_ClosePartyMenu(taskId);
-            break;
         case PARTY_ACTION_SOFTBOILED:
             if (IsSelectedMonNotEgg((u8 *)slotPtr))
                 Task_TryUseSoftboiledOnPartyMon(taskId);
