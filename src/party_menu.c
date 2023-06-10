@@ -1159,6 +1159,9 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
     {
         switch (gPartyMenu.action)
         {
+        case PARTY_ACTION_CHOOSE_MON:
+            DebugPrintf("Test %d", *slotPtr);
+            break;
         case PARTY_ACTION_SOFTBOILED:
             if (IsSelectedMonNotEgg((u8 *)slotPtr))
                 Task_TryUseSoftboiledOnPartyMon(taskId);
@@ -1195,7 +1198,6 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
             break;
         case PARTY_ACTION_SWITCH:
             PlaySE(SE_SELECT);
-            DebugPrintf("Test %d", PARTY_ACTION_SWITCH);
             SwitchSelectedMons(taskId);
             break;
         case PARTY_ACTION_CHOOSE_AND_CLOSE:
