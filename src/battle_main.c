@@ -2798,6 +2798,7 @@ static void BattleIntroPrintPlayerSendsOut(void)
             PrepareStringBattle(STRINGID_INTROSENDOUT, GetBattlerAtPosition(B_POSITION_PLAYER_LEFT));
 
         BtlController_EmitChoosePokemon(BUFFER_A, PARTY_ACTION_CHOOSE_MON, 6, ABILITY_NONE, gBattleStruct->battlerPartyOrders[gActiveBattler]);
+        gBattleMainFunc = BattleIntroPlayerSendsOutMonAnimation;
     }
 }
 

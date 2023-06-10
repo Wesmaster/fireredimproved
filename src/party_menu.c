@@ -1163,7 +1163,6 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
             DebugPrintf("Test %d", *slotPtr);
             PlaySE(SE_SELECT);
             gBattlerPartyIndexes[0] = *slotPtr;
-            gBattleMainFunc = BattleIntroPlayerSendsOutMonAnimation;
             Task_ClosePartyMenu(taskId);
             break;
         case PARTY_ACTION_SOFTBOILED:
