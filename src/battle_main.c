@@ -2796,6 +2796,8 @@ static void BattleIntroPrintPlayerSendsOut(void)
     {
         if (!(gBattleTypeFlags & BATTLE_TYPE_SAFARI))
             PrepareStringBattle(STRINGID_INTROSENDOUT, GetBattlerAtPosition(B_POSITION_PLAYER_LEFT));
+
+        gBattlerPartyIndexes[0] = 1;    
         gBattleMainFunc = BattleIntroPlayerSendsOutMonAnimation;
     }
 }
