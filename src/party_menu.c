@@ -1152,7 +1152,7 @@ static s8 *GetCurrentPartySlotPtr(void)
 
 static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
 {
-    DebugPrintf("Number: %d", taskId);
+    DebugPrintf("Number: %d", gPartyMenu.action);
     if (*slotPtr == SLOT_CONFIRM)
         gPartyMenu.task(taskId); // task here is always Task_ValidateChosenMonsForBattle
     else
