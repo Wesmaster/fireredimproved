@@ -2812,7 +2812,8 @@ static void BattleIntroPlayerSendsOutMonAnimation(void)
         if (GetBattlerPosition(gActiveBattler) == B_POSITION_PLAYER_LEFT)
         {
             BtlController_EmitIntroTrainerBallThrow(0);
-            MarkBattlerForControllerExec(1);
+            gActiveBattler = 1;
+            MarkBattlerForControllerExec(gActiveBattler);
         }
         if (gBattleTypeFlags & BATTLE_TYPE_MULTI && GetBattlerPosition(gActiveBattler) == B_POSITION_PLAYER_RIGHT)
         {
