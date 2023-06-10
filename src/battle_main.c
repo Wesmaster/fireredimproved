@@ -2518,7 +2518,7 @@ static void BattleIntroGetMonsData(void)
     {
     case 0:
         gActiveBattler = gBattleCommunication[1];
-        BtlController_EmitGetMonData(BUFFER_A, REQUEST_ALL_BATTLE, 0);
+        BtlController_EmitGetMonData(BUFFER_A, REQUEST_ALL_BATTLE, 1);
         MarkBattlerForControllerExec(gActiveBattler);
         gBattleCommunication[MULTIUSE_STATE]++;
         break;
@@ -2539,7 +2539,7 @@ static void BattleIntroPrepareBackgroundSlide(void)
 {
     if (gBattleControllerExecFlags == 0)
     {
-        gActiveBattler = GetBattlerAtPosition(1);
+        gActiveBattler = GetBattlerAtPosition(0);
         BtlController_EmitIntroSlide(BUFFER_A, gBattleTerrain);
         MarkBattlerForControllerExec(gActiveBattler);
         gBattleMainFunc = BattleIntroDrawTrainersOrMonsSprites;
