@@ -2807,12 +2807,12 @@ static void BattleIntroPlayerSendsOutMonAnimation(void)
     if (gBattleControllerExecFlags)
         return;
 
-    for (gActiveBattler = 1; gActiveBattler < gBattlersCount; gActiveBattler++)
+    for (gActiveBattler = 0; gActiveBattler < gBattlersCount; gActiveBattler++)
     {
         if (GetBattlerPosition(gActiveBattler) == B_POSITION_PLAYER_LEFT)
         {
             BtlController_EmitIntroTrainerBallThrow(0);
-            MarkBattlerForControllerExec(gActiveBattler);
+            MarkBattlerForControllerExec(1);
         }
         if (gBattleTypeFlags & BATTLE_TYPE_MULTI && GetBattlerPosition(gActiveBattler) == B_POSITION_PLAYER_RIGHT)
         {
