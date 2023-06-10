@@ -1152,6 +1152,7 @@ static s8 *GetCurrentPartySlotPtr(void)
 
 static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
 {
+    DebugPrintf("Number: %d", taskId);
     if (*slotPtr == SLOT_CONFIRM)
         gPartyMenu.task(taskId); // task here is always Task_ValidateChosenMonsForBattle
     else
@@ -1199,8 +1200,8 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
         case PARTY_ACTION_CHOOSE_AND_CLOSE:
             PlaySE(SE_SELECT);
             gSpecialVar_0x8004 = *slotPtr;
-            DebugPrintf("Test");
-            
+            DebugPrintf("Test %d", PARTY_ACTION_CHOOSE_AND_CLOSE);
+
             if (gPartyMenu.menuType == PARTY_MENU_TYPE_MOVE_RELEARNER)
                 gSpecialVar_0x8005 = GetNumberOfRelearnableMoves(&gPlayerParty[*slotPtr]);
             Task_ClosePartyMenu(taskId);
