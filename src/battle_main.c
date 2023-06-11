@@ -42,7 +42,6 @@
 #include "constants/pokemon.h"
 #include "constants/songs.h"
 #include "constants/trainers.h"
-#include "battle_script_commands.h"
 
 static void SpriteCB_UnusedDebugSprite(struct Sprite *sprite);
 static void HandleAction_UseMove(void);
@@ -2800,7 +2799,9 @@ static void BattleIntroPrintPlayerSendsOut(void)
 
 //BtlController_EmitChoosePokemon(BUFFER_A, PARTY_ACTION_CHOOSE_MON, 6, ABILITY_NONE, gBattleStruct->battlerPartyOrders[gActiveBattler]);
         //gBattlerPartyIndexes[0] = 1;
-        ChooseMonToSendOut(0);
+    *(gBattleStruct->battlerPartyIndexes + gActiveBattler) = gBattlerPartyIndexes[gActiveBattler];
+    BtlController_EmitChoosePokemon(BUFFER_A, PARTY_ACTION_SEND_OUT, 0, ABILITY_NONE, gBattleStruct->battlerPartyOrders[gActiveBattler]);
+    MarkBattlerForControllerExec(gActiveBattler);
         gBattleMainFunc = BattleIntroPlayerSendsOutMonAnimation;
     }
 }
