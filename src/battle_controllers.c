@@ -72,6 +72,7 @@ void InitBattleControllers(void)
     else
         InitSinglePlayerBtlControllers();
 
+    // Wesmaster, hier wordt ID van Pkmn gezet die uitgestuurd wordt.
     SetBattlePartyIds();
 
     if (!(gBattleTypeFlags & BATTLE_TYPE_MULTI))
@@ -306,7 +307,7 @@ static void SetBattlePartyIds(void)
                          && GetMonData(&gPlayerParty[j], MON_DATA_SPECIES_OR_EGG) != SPECIES_EGG
                          && !GetMonData(&gPlayerParty[j], MON_DATA_IS_EGG))
                         {
-                            gBattlerPartyIndexes[i] = 1;
+                            gBattlerPartyIndexes[i] = j;
                             break;
                         }
                     }
