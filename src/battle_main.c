@@ -2802,7 +2802,7 @@ static void BattleIntroPrintPlayerSendsOut(void)
     *(gBattleStruct->battlerPartyIndexes + gActiveBattler) = gBattlerPartyIndexes[gActiveBattler];
     BtlController_EmitChoosePokemon(BUFFER_A, PARTY_ACTION_SEND_OUT, 0, ABILITY_NONE, gBattleStruct->battlerPartyOrders[gActiveBattler]);
     MarkBattlerForControllerExec(gActiveBattler);
-        gBattleMainFunc = BattleIntroPlayerSendsOutMonAnimation;
+        //gBattleMainFunc = BattleIntroPlayerSendsOutMonAnimation;
     }
 }
 
