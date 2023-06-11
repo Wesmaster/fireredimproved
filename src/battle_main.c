@@ -2799,11 +2799,13 @@ static void BattleIntroPrintPlayerSendsOut(void)
 
 //BtlController_EmitChoosePokemon(BUFFER_A, PARTY_ACTION_CHOOSE_MON, 6, ABILITY_NONE, gBattleStruct->battlerPartyOrders[gActiveBattler]);
         
-    *(gBattleStruct->battlerPartyIndexes + gActiveBattler) = gBattlerPartyIndexes[gActiveBattler];
-    BtlController_EmitChoosePokemon(BUFFER_A, PARTY_ACTION_SEND_OUT, 0, ABILITY_NONE, gBattleStruct->battlerPartyOrders[gActiveBattler]);
-    MarkBattlerForControllerExec(gActiveBattler);
-    //gBattlerPartyIndexes[0] = 2;
-    gBattleMainFunc = TryDoEventsBeforeFirstTurn;
+        *(gBattleStruct->battlerPartyIndexes + gActiveBattler) = gBattlerPartyIndexes[gActiveBattler];
+        BtlController_EmitChoosePokemon(BUFFER_A, PARTY_ACTION_SEND_OUT, *(gBattleStruct->monToSwitchIntoId + (gActiveBattler ^ 2)), 0, gBattleStruct->battlerPartyOrders[gActiveBattler]);
+        MarkBattlerForControllerExec(gActiveBattler);
+        //gBattlerPartyIndexes[0] = 2;
+        gActiveBattler = GetBattlerAtPosition(GetBattlerPosition(GetBattlerForBattleScript(gBattlescriptCurrInstr[1] & ~PARTY_SCREEN_OPTIONAL)) ^ BIT_SIDE);
+        DebugPrintf("BattleIntroPrintPlayerSendsOut %d", gActiveBattler);
+        gBattleMainFunc = TryDoEventsBeforeFirstTurn;
     }
 }
 
@@ -2860,6 +2862,7 @@ static void TryDoEventsBeforeFirstTurn(void)
 {
     s32 i, j;
     u8 effect = 0;
+    DebugPrintf("TryDoEventsBeforeFirstTurn %d", gActiveBattler);
 
     if (gBattleControllerExecFlags)
         return;
