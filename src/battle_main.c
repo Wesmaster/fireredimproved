@@ -2801,18 +2801,18 @@ static void BattleIntroPrintPlayerSendsOut(void)
         
         *(gBattleStruct->battlerPartyIndexes + gActiveBattler) = gBattlerPartyIndexes[gActiveBattler];
         BtlController_EmitChoosePokemon(BUFFER_A, PARTY_ACTION_SEND_OUT, *(gBattleStruct->monToSwitchIntoId + (gActiveBattler ^ 2)), 0, gBattleStruct->battlerPartyOrders[gActiveBattler]);
-        MarkBattlerForControllerExec(gActiveBattler);
         //gBattlerPartyIndexes[0] = 2;
         gActiveBattler = GetBattlerAtPosition(GetBattlerPosition(GetBattlerForBattleScript(gBattlescriptCurrInstr[1] & ~PARTY_SCREEN_OPTIONAL)) ^ BIT_SIDE);
         DebugPrintf("BattleIntroPrintPlayerSendsOut %d", gActiveBattler);
-        gBattleMainFunc = TryDoEventsBeforeFirstTurn;
+        MarkBattlerForControllerExec(gActiveBattler);
+        gBattleMainFunc = BattleIntroPlayerSendsOutMonAnimation;
     }
 }
 
 static void BattleIntroPlayerSendsOutMonAnimation(void)
 {
     u32 position;
-
+    DebugPrintf("BattleIntroPlayerSendsOutMonAnimation START %d", gActiveBattler);
     if (gBattleControllerExecFlags)
         return;
 
@@ -2832,6 +2832,8 @@ static void BattleIntroPlayerSendsOutMonAnimation(void)
     gBattleStruct->switchInAbilitiesCounter = 0;
     gBattleStruct->switchInItemsCounter = 0;
     gBattleStruct->overworldWeatherDone = FALSE;
+
+    DebugPrintf("BattleIntroPlayerSendsOutMonAnimation END %d", gActiveBattler);
 
     gBattleMainFunc = TryDoEventsBeforeFirstTurn;
 }
@@ -2862,7 +2864,6 @@ static void TryDoEventsBeforeFirstTurn(void)
 {
     s32 i, j;
     u8 effect = 0;
-    DebugPrintf("TryDoEventsBeforeFirstTurn %d", gActiveBattler);
 
     if (gBattleControllerExecFlags)
         return;
