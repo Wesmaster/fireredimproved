@@ -3385,32 +3385,46 @@ static void Cmd_getexp(void)
 static void Cmd_checkteamslost(void)
 {
     u16 HP_count = 0;
+    u16 viableMons = 0;
     s32 i;
 
     if (gBattleControllerExecFlags)
         return;
 
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) && !GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
-        {
-            HP_count += GetMonData(&gPlayerParty[i], MON_DATA_HP);
-        }
-    }
-    if (HP_count == 0)
-        gBattleOutcome |= B_OUTCOME_LOST;
-    HP_count = 0;
-
     // Get total HP for the enemy's party to determine if the player has won
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (GetMonData(&gEnemyParty[i], MON_DATA_SPECIES) && !GetMonData(&gEnemyParty[i], MON_DATA_IS_EGG))
-        {
             HP_count += GetMonData(&gEnemyParty[i], MON_DATA_HP);
-        }
     }
     if (HP_count == 0)
         gBattleOutcome |= B_OUTCOME_WON;
+
+    HP_count = 0;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) && !GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
+        {
+            u16 HP = GetMonData(&gPlayerParty[i], MON_DATA_HP);
+            HP_count += HP;
+            if (HP)
+                viableMons++;
+        }
+    }
+    //DebugPrintf("Viable for start: %d", gSpecialVar_0x8008);
+    //DebugPrintf("Viable: %d", viableMons);
+    //DebugPrintf("Enemy moncount: %d", gTrainers[gTrainerBattleOpponent_A].partySize);
+
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+    {
+        if (gSpecialVar_0x8008 - viableMons == gTrainers[gTrainerBattleOpponent_A].partySize)
+            gBattleOutcome |= B_OUTCOME_LOST;
+    }
+    else
+    {
+        if (HP_count == 0)
+            gBattleOutcome |= B_OUTCOME_LOST;
+    }
 
     // For link battles that haven't ended, count number of empty battler spots
     // In link multi battles, jump to pointer if more than 1 spot empty

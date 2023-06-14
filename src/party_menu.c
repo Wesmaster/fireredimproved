@@ -398,6 +398,7 @@ static void ItemUseCB_ReplaceMoveWithTMHM(u8 taskId, TaskFunc func);
 static void Task_ReplaceMoveWithTMHM(u8 taskId);
 static void CB2_UseEvolutionStone(void);
 static bool8 MonCanEvolve(void);
+static u8 NumberOfPokesSent(u8 n);
 
 static EWRAM_DATA struct PartyMenuInternal *sPartyMenuInternal = NULL;
 EWRAM_DATA struct PartyMenu gPartyMenu = {0};
@@ -1198,6 +1199,7 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
         case PARTY_ACTION_CHOOSE_AND_CLOSE:
             PlaySE(SE_SELECT);
             gSpecialVar_0x8004 = *slotPtr;
+
             if (gPartyMenu.menuType == PARTY_MENU_TYPE_MOVE_RELEARNER)
                 gSpecialVar_0x8005 = GetNumberOfRelearnableMoves(&gPlayerParty[*slotPtr]);
             Task_ClosePartyMenu(taskId);
@@ -5954,6 +5956,7 @@ static bool8 TrySwitchInPokemon(void)
     u8 slot = GetCursorSelectionMonId();
     u8 newSlot;
     u8 i;
+    u8 PokesSentIn;
 
     // In a multi battle, slots 1, 4, and 5 are the partner's pokemon
     if (IsMultiBattle() == TRUE && (slot == 1 || slot == 4 || slot == 5))
@@ -6002,11 +6005,58 @@ static bool8 TrySwitchInPokemon(void)
         return FALSE;
     }
     gSelectedMonPartyId = GetPartyIdFromBattleSlot(slot);
+    PokesSentIn = max(1, NumberOfPokesSent(gBattleStruct->pokesSentIn));
+	if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && PokesSentIn >= gTrainers[gTrainerBattleOpponent_A].partySize && (!((gBattleStruct->pokesSentIn >> gSelectedMonPartyId) & 1) || !gBattleStruct->pokesSentIn))
+	{
+		switch(PokesSentIn)
+		{
+			case 1: 
+				StringExpandPlaceholders(gStringVar4, gText_PkmnCantSwitchOut);
+				break;
+			case 2:
+				StringExpandPlaceholders(gStringVar4, gText_PkmnCantSwitchOut);
+				break;
+			case 3:
+				StringExpandPlaceholders(gStringVar4, gText_PkmnCantSwitchOut);
+				break;
+			case 4:
+				StringExpandPlaceholders(gStringVar4, gText_PkmnCantSwitchOut);
+				break;
+			case 5:
+				StringExpandPlaceholders(gStringVar4, gText_PkmnCantSwitchOut);
+				break;
+		}
+        return FALSE;
+	}
+
     gPartyMenuUseExitCallback = TRUE;
     newSlot = GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[gBattlerInMenuId]);
+
+	if (!gBattleStruct->pokesSentIn)
+	{
+		gBattleStruct->pokesSentIn = (1 << GetPartyIdFromBattleSlot(newSlot)) | gBattleStruct->pokesSentIn;
+	}
+	
+	gBattleStruct->pokesSentIn = (1 << gSelectedMonPartyId) | gBattleStruct->pokesSentIn;
+
     SwitchPartyMonSlots(newSlot, slot);
     SwapPartyPokemon(&gPlayerParty[newSlot], &gPlayerParty[slot]);
     return TRUE;
+}
+
+u8 NumberOfPokesSent(u8 n)
+{
+	// base case
+    if (n == 0)
+	{
+		if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+			return 2;
+		else
+			return 0;
+	}
+    else
+        // if last bit set add 1 else add 0
+        return (n & 1) + NumberOfPokesSent(n >> 1);
 }
 
 void BufferBattlePartyCurrentOrder(void)

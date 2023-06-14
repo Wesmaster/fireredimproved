@@ -2807,6 +2807,8 @@ static void BattleIntroPlayerSendsOutMonAnimation(void)
     if (gBattleControllerExecFlags)
         return;
 
+    gBattlerPartyIndexes[0] = 2;
+
     for (gActiveBattler = 0; gActiveBattler < gBattlersCount; gActiveBattler++)
     {
         if (GetBattlerPosition(gActiveBattler) == B_POSITION_PLAYER_LEFT)
