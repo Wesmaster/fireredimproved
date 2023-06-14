@@ -2796,15 +2796,6 @@ static void BattleIntroPrintPlayerSendsOut(void)
     {
         if (!(gBattleTypeFlags & BATTLE_TYPE_SAFARI))
             PrepareStringBattle(STRINGID_INTROSENDOUT, GetBattlerAtPosition(B_POSITION_PLAYER_LEFT));
-
-//BtlController_EmitChoosePokemon(BUFFER_A, PARTY_ACTION_CHOOSE_MON, 6, ABILITY_NONE, gBattleStruct->battlerPartyOrders[gActiveBattler]);
-        
-        *(gBattleStruct->battlerPartyIndexes + gActiveBattler) = gBattlerPartyIndexes[gActiveBattler];
-        BtlController_EmitChoosePokemon(BUFFER_A, PARTY_ACTION_SEND_OUT, *(gBattleStruct->monToSwitchIntoId + (gActiveBattler ^ 2)), 0, gBattleStruct->battlerPartyOrders[gActiveBattler]);
-        //gBattlerPartyIndexes[0] = 2;
-        gActiveBattler = GetBattlerAtPosition(GetBattlerPosition(GetBattlerForBattleScript(gBattlescriptCurrInstr[1] & ~PARTY_SCREEN_OPTIONAL)) ^ BIT_SIDE);
-        DebugPrintf("BattleIntroPrintPlayerSendsOut %d", gActiveBattler);
-        MarkBattlerForControllerExec(gActiveBattler);
         gBattleMainFunc = BattleIntroPlayerSendsOutMonAnimation;
     }
 }
@@ -2812,7 +2803,7 @@ static void BattleIntroPrintPlayerSendsOut(void)
 static void BattleIntroPlayerSendsOutMonAnimation(void)
 {
     u32 position;
-    DebugPrintf("BattleIntroPlayerSendsOutMonAnimation START %d", gActiveBattler);
+
     if (gBattleControllerExecFlags)
         return;
 
@@ -2834,8 +2825,6 @@ static void BattleIntroPlayerSendsOutMonAnimation(void)
     gBattleStruct->switchInAbilitiesCounter = 0;
     gBattleStruct->switchInItemsCounter = 0;
     gBattleStruct->overworldWeatherDone = FALSE;
-
-    DebugPrintf("BattleIntroPlayerSendsOutMonAnimation END %d", gActiveBattler);
 
     gBattleMainFunc = TryDoEventsBeforeFirstTurn;
 }
